@@ -7,53 +7,89 @@
 get_header();
 ?>
 
-<div id="content" class="narrowcolumn" role="main">
+<article id="content" class="narrowcolumn" role="main">
+
   <div id="content_title">
     <h1>modest <?php wp_title(); ?></h1>
   </div>
-  <?php if (have_posts()) : ?>
-  <?php //$post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-  <div class="navigation">
+
+<?php if (have_posts()) : ?>
+
+  <nav class="navigation">
     <?php wp_pagenavi(); ?>
-  </div>
-  <?php while (have_posts()) : the_post(); ?>
-  <div <?php post_class();
-             $flag = odd_even($flag);
- ?>>
+  </nav>
+
+<?php while (have_posts()) : the_post(); ?>
+
+  <article <?php post_class();
+             $flag = odd_even($flag);?>>
+
     <?php post_icon(get_the_ID(),array(70,70)); ?>
-<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'kubrick'), the_title_attribute('echo=0')); ?>"><?php the_title(); ?></a></h3>
-<div class="post_header">
-<small><?php the_time(__('l, F jS, Y', 'kubrick')) ?></small>
-<a href="<?php
-         /*
-         *投稿の時間の横に投稿者とアイコンを表示する
-                         */
-                         $post = get_post(get_the_ID());
-                         $userID = $post->post_author;
-                         $user = get_userdata($userID);
-                         echo get_author_link($echo = false,$userID);
-                         ?>">
-  <small><?php
-            echo get_avatar($userID,15);
-            the_author(); 
-            ?></small>
-</a>
-</div>
-<div class="entry">
-  <?php the_content() ?>
-</div>
-  
-  <p class="postmetadata">
-<?php 
-              $post_type = get_post_type(get_the_ID());
-the_tags_post_type('タグ:', ', ', '<br />', $post_type);
-       printf(__('Posted in %s', 'kubrick'), get_the_category_list_post_type(', ', '', false, $post_type));　?>
- | <?php edit_post_link(__('Edit', 'kubrick'), '', ' | '); ?>  <?php comments_popup_link(__('No Comments &#187;', 'kubrick'), __('1 Comment &#187;', 'kubrick'), __('% Comments &#187;', 'kubrick'), '', __('Comments Closed', 'kubrick') ); ?></p>
-</div>
+
+    <?php
+      /*
+       * article's title
+       */
+      $postID = the_ID();
+      $permaLink = the_permalink();
+      $titleText = the_title();
+      echo('<h1 id="post-' . $postID . '"><a href="' . $permaLink . '">' . $titleText . '</a></h1>');
+    ?>
+
+    <header class="post_header">
+      <?php
+        /* Show the post date */
+        $datetime = get_the_time('Y-m-d H:i:s');
+        $date = get_the_time('Y年n月d日 G:i:s');
+        echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+      ?>
+
+      <address>
+        <?php
+          /* 投稿者とアイコンを表示する */
+          $post = get_post(get_the_ID());
+          $userID = $post->post_author;
+          get_avatar($userID, 15);//avatar image 
+          get_the_author_link();//auther link
+        ?>
+      </address>
+      <nav>
+        <?php
+          edit_post_link(__('編集', 'kubrick'), '', '');
+        ?>
+      </nav>
+    </header>
+
+    <div class="entry">
+      <?php the_content() ?>
+    </div>
+
+    <footer>
+      <p class="postmetadata">
+      <?php 
+        $post_type = get_post_type(get_the_ID());
+        the_tags_post_type('タグ:', ', ', '<br />', $post_type);
+        printf(__('Posted in %s', 'kubrick'), get_the_category_list_post_type(', ', '', false, $post_type));
+      ?>
+       | 
+      <?php
+        comments_popup_link(__('No Comments &#187;', 'kubrick'),
+                            __('1 Comment &#187;', 'kubrick'),
+                            __('% Comments &#187;', 'kubrick'),
+                            '',
+                            __('Comments Closed', 'kubrick') );
+      ?>
+      </p>
+    </footer>
+
+  </article>
+
 <?php endwhile; ?>
-<div class="navigation">
+
+<nav class="navigation">
   <?php wp_pagenavi(); ?>
-</div>
+</nav>
+
 <?php else :
 if ( is_category() ) { // If this is a category archive
   printf("<h2 class='center'>".__("Sorry, but there aren't any posts in the %s category yet.", 'kubrick').'</h2>', single_cat_title('',false));
@@ -68,5 +104,7 @@ if ( is_category() ) { // If this is a category archive
 get_search_form();
 endif;
 ?>
-</div>
+
+</article>
+
 <?php get_footer(); ?>
