@@ -256,6 +256,8 @@ body {
 #content {
 	text-align: left;
 	color: #1b1b1b;
+	display: block;
+	
 }
 
 .widecolumn {
@@ -348,6 +350,9 @@ body {
 	border-style: dotted;
 	border-width: 1px;
   max-width: 500px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 0.9em;
+	line-height: 1.5em;
 }
 
 .clear {
@@ -855,9 +860,7 @@ a img {
 	border: none;
 }
 
-.navigation {
-  clear: both;
-  text-align: right;
+.postmetadata {
 	display: block;
   margin: auto;
   margin-top: 15px;
