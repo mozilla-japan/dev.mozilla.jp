@@ -1,0 +1,10 @@
+syntax: glob
+*~
+*.php~
+.DS_Store
+.swp
+.svn
+.idea
+.hgignore
+wp-config.php
+.htaccess
