@@ -49,8 +49,8 @@ get_header();
           /* 投稿者とアイコンを表示する */
           $post = get_post(get_the_ID());
           $userID = $post->post_author;
-          get_avatar($userID, 15);//avatar image 
-          get_the_author_link();//auther link
+          echo get_avatar($userID, 15);//avatar image
+          echo get_the_author_link();//auther link
         ?>
       </address>
       <nav>
