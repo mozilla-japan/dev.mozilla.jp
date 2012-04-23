@@ -45,7 +45,7 @@ get_header();
 						?>
 					</dd>
 					<dt>カテゴリ</dt>
-					<dd><?php get_the_category_list(', '); ?></dd>
+					<dd><?php echo(get_the_category_list('')); ?></dd>
 				</dl>
 			</footer>
 
