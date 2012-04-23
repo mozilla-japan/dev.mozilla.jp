@@ -11,7 +11,7 @@ get_header();
     <h1>Events</h1>
   </div>
   <div id="event_make">
-    <h3><a href="<?php echo admin_url('edit.php?post_type=event'); ?>">新しいイベントを登録する&#187</a></h3>
+    <h3><a href="<?php echo admin_url('post-new.php?post_type=event'); ?>">新しいイベントを登録する&#187</a></h3>
   </div>
   <?php if (have_posts()) : ?>
   <?php //$post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
