@@ -1,7 +1,7 @@
 <?php
 /**
    * @package WordPress
-   * @subpackage modest2.0
+   * @subpackage modest3
    */
    ?>
 <!DOCTYPE html>
