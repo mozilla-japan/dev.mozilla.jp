@@ -618,11 +618,11 @@ function auther_icon($args){
  * パンくずリスト
  */
 function breadcrumbs($the_id) {
-  $url = bloginfo('url');
+  $url = get_bloginfo('url');
   $type = get_post_type($the_id);
 
   // rootとなるリンクを出力
-  echo '<a href="' . $url . '">' . bloginfo('name') . '</a> &gt';
+  echo '<a href="' . $url . '">' . get_bloginfo('name') . '</a> &gt';
 
   // カテゴリに応じたリンクを出力
   switch ($type) {
