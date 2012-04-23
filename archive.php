@@ -30,9 +30,9 @@ get_header();
       /*
        * article's title
        */
-      $postID = the_ID();
-      $permaLink = the_permalink();
-      $titleText = the_title();
+      $postID = get_the_ID();
+      $permaLink = get_permalink();
+      $titleText = get_the_title();
       echo('<h1 id="post-' . $postID . '"><a href="' . $permaLink . '">' . $titleText . '</a></h1>');
     ?>
 
