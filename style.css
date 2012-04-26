@@ -7,3 +7,45 @@ Version: 3.0
 Author: Enseki
 Tags: mozilla
 */
+
+#page {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#content {
+  display: block;
+  float: left;
+  width: 700px;
+}
+
+#sidebar {
+  display: block;
+  float: left;
+  width: 300px;
+}
+
+
+/* footer */
+#footer {
+  display: block;
+  clear: both;
+  margin: 0 auto;
+}
+
+.mozilla_ring_category {
+  float: left;
+  margin: 15px;
+}
+.mozilla_ring_category > ul {
+  padding: 0;
+}
+
+.mozilla_ring_menu {
+  list-style-type: none;
+}
+
+#copyright {
+  clear: both;
+  text-align: center;
+}
