@@ -7,6 +7,9 @@
 
 
 		<hr />
+
+		<?php get_sidebar(); ?>
+
 		<footer id="footer">
 			<!-- Mozilla 関連サイト -->
 			<section id="mozilla_ring">
