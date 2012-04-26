@@ -29,7 +29,7 @@
     ?>
   </h3>
   <ul>
-    <?php wp_get_archives(); ?>
+    <?php wp_list_categories('show_count=1&title_li='); ?>
   </ul>
 
   <aside>
