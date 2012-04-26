@@ -8,6 +8,10 @@ Author: Enseki
 Tags: mozilla
 */
 
+a {
+  text-decoration: none;
+}
+
 #page {
   width: 1000px;
   margin: 0 auto;
