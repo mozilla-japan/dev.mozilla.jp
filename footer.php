@@ -6,8 +6,6 @@
 ?>
 
 
-		<hr />
-
 		<?php get_sidebar(); ?>
 
 		<footer id="footer">
