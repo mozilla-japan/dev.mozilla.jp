@@ -93,11 +93,6 @@ h3 {
 	font-size: 1.2em;
 }
 
-#sidebar h2 {
-	font-family: 'Lucida Grande', Verdana, Sans-Serif;
-	font-size: 1.2em;
-}
-
 h1,h1 a,h1 a:hover,h1 a:visited,#headerimg .description {
 	text-decoration: none;
 	color: #1b1b1b;
@@ -107,7 +102,7 @@ h2,h2 a,h2 a:visited,h3,h3 a,h3 a:visited {
 	color: #5b5b5b;
 }
 
-h2,h2 a,h2 a:hover,h2 a:visited,h3,h3 a,h3 a:hover,h3 a:visited,#sidebar h2,#wp-calendar caption,cite
+h2,h2 a,h2 a:hover,h2 a:visited,h3,h3 a,h3 a:hover,h3 a:visited,#wp-calendar caption,cite
 	{
 text-decoration: none;
 }
@@ -164,11 +159,8 @@ text-decoration: none;
 	font-weight: normal;
 }
 
-#sidebar {
-	font: 1em 'Lucida Grande', Verdana, Arial, Sans-Serif;
-}
 
-small,#sidebar ul ul li,#sidebar ul ol li,.nocomments,.postmetadata,blockquote,strike
+small,.nocomments,.postmetadata,blockquote,strike
 	{
 	color: #777;
 }
@@ -393,10 +385,6 @@ h2.pagetitle {
                          font-size: 1.0em;
                          }
 
-#sidebar h2 {
-	margin: 5px 0 0;
-	padding: 0;
-}
 
 h3 {
 	margin: 10px;
@@ -462,7 +450,7 @@ html>body .entry li {
 	margin: 7px 0 8px 10px;
 }
 
-.entry ul li:before,#sidebar ul ul li:before {
+.entry ul li:before {
 	content: "\00BB \0020";
 }
 
@@ -482,37 +470,10 @@ html>body .entry li {
 	list-style-image: none;
 }
 
-#sidebar ul,#sidebar ul ol {
-	margin: 0;
-	padding: 0;
-}
-
-#sidebar ul li {
-	list-style-type: none;
-	list-style-image: none;
-	margin-bottom: 15px;
-}
-
-#sidebar ul p,#sidebar ul select {
-	margin: 5px 0 8px;
-}
-
-#sidebar ul ul,#sidebar ul ol {
-	margin: 5px 0 0 10px;
-}
-
-#sidebar ul ul ul,#sidebar ul ol {
-	margin: 0 0 0 10px;
-}
-
-ol li,#sidebar ul ol li {
+ol li {
 	list-style: decimal outside;
 }
 
-#sidebar ul ul li,#sidebar ul ol li {
-	margin: 3px 0 0;
-	padding: 0;
-}
 /* End Entry Lists */
 
 /* Begin Form Elements */
@@ -521,17 +482,6 @@ ol li,#sidebar ul ol li {
 	padding: 5px 3px;
 	text-align: center;
   z-index: 100;
-}
-
-
-
-#sidebar #searchform #s {
-	width: 108px;
-	padding: 2px;
-}
-
-#sidebar #searchsubmit {
-	padding: 1px;
 }
 
 .singleentry {
@@ -770,18 +720,6 @@ select {
 	margin-top: 100px;
 }
 /*End Payload*/
-
-/* Begin Sidebar */
-#sidebar {
-	visibility: hidden;
-	float: left;
-	width: 0px;
-}
-
-#sidebar form {
-	margin: 0;
-}
-/* End Sidebar */
 
 /* Begin Calendar */
 #wp-calendar {
