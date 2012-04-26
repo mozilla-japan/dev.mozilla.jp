@@ -19,10 +19,17 @@ Tags: mozilla
   width: 700px;
 }
 
+/* sidebar */
 #sidebar {
   display: block;
   float: left;
   width: 300px;
+}
+#sidebar ul {
+  padding-left: 20px;
+}
+#sidebar ul > li {
+  list-style-type: none;
 }
 
 
