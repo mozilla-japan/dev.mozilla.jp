@@ -36,6 +36,9 @@ a {
   list-style-type: none;
 }
 
+#searchform > * > label {
+  display: none;
+}
 
 /* footer */
 #footer {
