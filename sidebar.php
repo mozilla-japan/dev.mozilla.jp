@@ -13,7 +13,7 @@
 
   <h3><a href="" class="button">ブログを投稿する</a></h3>
 
-  <h3><a href="<?php bloginfo('url'); ?>/aboutmodest/">About modest</a></h3>
+  <h3 id="about"><a href="<?php bloginfo('url'); ?>/aboutmodest/">About modest</a></h3>
 
   <div id="search">
     <h3>Search</h3>
