@@ -18,17 +18,19 @@
   <h3>Search</h3>
   <?php get_search_form(); ?>
 
-  <h3>
-    <?php
-      // Output the link of "project" page.
-      $category_id = get_cat_ID('projects');
-      $category_link = get_category_link($category_id);
-      echo '<a href="' . $category_link . '">プロジェクト</a>';
-    ?>
-  </h3>
-  <ul>
-    <?php wp_list_categories('title_li='); ?>
-  </ul>
+  <div id="project">
+    <h3>
+      <?php
+        // Output the link of "project" page.
+        $category_id = get_cat_ID('projects');
+        $category_link = get_category_link($category_id);
+        echo '<a href="' . $category_link . '">プロジェクト</a>';
+      ?>
+    </h3>
+    <ul>
+      <?php wp_list_categories('title_li='); ?>
+    </ul>
+  </div>
 
   <?php 
     /**

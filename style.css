@@ -38,7 +38,8 @@ a {
   border: 1px solid black;/* for debug */
 }
 #sidebar ul {
-  padding-left: 20px;
+  padding-left: 0;
+  margin-left: 15px;
 }
 #sidebar ul > li {
   list-style-type: none;
@@ -60,6 +61,27 @@ a {
 
 #searchform > * > label {
   display: none;
+}
+
+#project {
+  border-radius: 3px / 7px;
+  -moz-border-radius: 7px / 7px;
+  -o-border-radius: 7px / 7px;
+  -webkit-border-radius: 7px / 7px;
+  -ms-border-radius: 7px / 7px;
+  border: 1px solid black;/* for debug */
+}
+#project > h3 {
+  margin: 15px 15px;
+}
+#project ul > li > a {
+  display: block;
+  padding: 5px;
+}
+#project ul > li > a:hover {
+  background: gray;
+  font-weight: bold;
+  color: white;
 }
 
 /* footer */
