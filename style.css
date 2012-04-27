@@ -36,6 +36,20 @@ a {
   list-style-type: none;
 }
 
+.button {
+  display: block;
+  padding: 10px;
+  border-radius: 7px / 7px;
+  -moz-border-radius: 7px / 7px;
+  -o-border-radius: 7px / 7px;
+  -webkit-border-radius: 7px / 7px;
+  -ms-border-radius: 7px / 7px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background: #009999;
+}
+
 #searchform > * > label {
   display: none;
 }

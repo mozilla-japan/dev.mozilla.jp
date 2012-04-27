@@ -7,11 +7,11 @@
 
 <nav id="sidebar">
 
-  <h3><a href="">modestに参加する</a></h3>
+  <h3><a href="" class="button">modestに参加する</a></h3>
 
-  <h3><a href="">イベントを追加する</a></h3>
+  <h3><a href="" class="button">イベントを追加する</a></h3>
 
-  <h3><a href="">ブログを投稿する</a></h3>
+  <h3><a href="" class="button">ブログを投稿する</a></h3>
 
   <h3><a href="<?php bloginfo('url'); ?>/aboutmodest/">About modest</a></h3>
 
