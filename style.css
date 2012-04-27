@@ -50,6 +50,15 @@ a {
   font-size: 2em;
 }
 
+#blogfeed {
+  margin: 15px 0px 15px;
+  padding: 20px;
+  border: 1px solid black;/* for debug */
+}
+#blogfeed > h2 {
+  margin: 0px;
+  font-size: 2em;
+}
 
 /* sidebar */
 #sidebar {
