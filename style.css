@@ -40,6 +40,17 @@ a {
   font-size: 2em;
 }
 
+#event {
+  margin: 15px 0px 15px;
+  padding: 20px;
+  border: 1px solid black;/* for debug */
+}
+#event > h2 {
+  margin: 0px;
+  font-size: 2em;
+}
+
+
 /* sidebar */
 #sidebar {
   display: block;
