@@ -66,6 +66,22 @@ get_header();
 
   <section id="blogfeed">
     <h2>ブログフィード</h2>
+    <div id="blog-contents">
+      <?php $posts = get_posts('posts_per_page=5'); ?>
+      <?php if($posts): foreach($posts as $post): setup_postdata($post); ?>
+      <div id="blogpost-<?php the_ID()?>">
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
+        <?php the_time('y-m-d (D)');?>
+        <?php the_author();?>
+        <p> <?php the_content(); ?> </p>
+        <p> <?php the_category(); the_tags(); ?> </p>
+        <?php edit_post_link('編集する','<p>','</p>'); ?>
+      </div>
+      <?php endforeach; endif; ?>
+    </div>
+
   </section>
 
 </article>
