@@ -7,11 +7,11 @@
 
 <nav id="sidebar">
 
-  <h3><a href="">modest‚ÉQ‰Á‚·‚é</a></h3>
+  <h3><a href="">modestã«å‚åŠ ã™ã‚‹</a></h3>
 
-  <h3><a href="">ƒCƒxƒ“ƒg‚ğ’Ç‰Á‚·‚é</a></h3>
+  <h3><a href="">ã‚¤ãƒ™ãƒ³ãƒˆã‚’è¿½åŠ ã™ã‚‹</a></h3>
 
-  <h3><a href="">ƒuƒƒO‚ğ“Še‚·‚é</a></h3>
+  <h3><a href="">ãƒ–ãƒ­ã‚°ã‚’æŠ•ç¨¿ã™ã‚‹</a></h3>
 
   <h3><a href="<?php bloginfo('url'); ?>/aboutmodest/">About modest</a></h3>
 
@@ -23,7 +23,7 @@
       // Output the link of "project" page.
       $category_id = get_cat_ID('projects');
       $category_link = get_category_link($category_id);
-      echo '<a href="' . $category_link . '">ƒvƒƒWƒFƒNƒg</a>';
+      echo '<a href="' . $category_link . '">ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ</a>';
     ?>
   </h3>
   <ul>
