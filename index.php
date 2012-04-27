@@ -19,7 +19,6 @@ get_header();
         <?php
            if($posts): foreach($posts as $post): setup_postdata($post); ?>
         <li id="catpost-<?php the_ID(); ?>">
-          <?php the_time('y-m-d (D)'); ?> :
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
             <?php the_title(); ?>
           </a>
