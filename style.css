@@ -59,6 +59,20 @@ a {
   background: #009999;
 }
 
+#search {
+  border-radius: 3px / 7px;
+  -moz-border-radius: 7px / 7px;
+  -o-border-radius: 7px / 7px;
+  -webkit-border-radius: 7px / 7px;
+  -ms-border-radius: 7px / 7px;
+  border: 1px solid black;/* for debug */
+}
+#search h3 {
+  margin: 15px;
+}
+#searchform {
+  margin: 10px 15px 15px;
+}
 #searchform > * > label {
   display: none;
 }

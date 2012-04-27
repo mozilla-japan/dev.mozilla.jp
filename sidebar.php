@@ -15,8 +15,10 @@
 
   <h3><a href="<?php bloginfo('url'); ?>/aboutmodest/">About modest</a></h3>
 
-  <h3>Search</h3>
-  <?php get_search_form(); ?>
+  <div id="search">
+    <h3>Search</h3>
+    <?php get_search_form(); ?>
+  </div>
 
   <div id="project">
     <h3>
