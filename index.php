@@ -38,7 +38,11 @@ get_header();
       <?php if($posts): foreach($posts as $post): setup_postdata($post); ?>
       <?php if($postcount == 0){ ?>
       <dev id="event-left">
-        <?php the_time('y-m-d (D)');?> :
+        <?php
+          $datetime = get_the_time('Y-m-d');
+          $date = get_the_time('y-m-d (D)');
+          echo '<time datetime="' . $datetime . '">'. $date . '</time> : ';
+        ?>
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
           <?php the_title(); ?>
         </a>
@@ -46,7 +50,11 @@ get_header();
       </dev>
       <?php } else { ?>
       <dev id="event-right">
-        <?php the_time('y-m-d (D)');?> :
+        <?php
+          $datetime = get_the_time('Y-m-d');
+          $date = get_the_time('y-m-d (D)');
+          echo '<time datetime="' . $datetime . '">'. $date . '</time> : ';
+        ?>
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
           <?php the_title(); ?>
         </a>
