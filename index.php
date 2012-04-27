@@ -10,22 +10,22 @@ get_header();
 <article id="content">
   <section id="hottopic">
     <h2>注目トピック</h2>
-    <div id="hottopic-contents">
-      <?php
-         $cat = get_query_var('hot');
-         $posts = get_posts("order=desc&category=$cat&numberposts=6");
-         ?>
-      <ul> 
-        <?php
-           if($posts): foreach($posts as $post): setup_postdata($post); ?>
-        <li id="catpost-<?php the_ID(); ?>">
-          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-            <?php the_title(); ?>
-          </a>
-        </li>
-        <?php endforeach; endif;?>
-      </ul>
-    </div>
+    <?php
+      $cat = get_query_var('hot');
+      $posts = get_posts("order=desc&category=". $cat ."&numberposts=6");
+      if($posts):
+        foreach($posts as $post):
+          setup_postdata($post);
+    ?>
+      <h3>
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
+      </h3>
+    <?php
+        endforeach;
+      endif;
+    ?>
   </section>
 
   <section id="event">
