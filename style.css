@@ -45,6 +45,11 @@ a {
   list-style-type: none;
 }
 
+#sidebar > h3,
+#sidebar > div {
+ margin: 18px 0%;
+}
+
 .button {
   display: block;
   padding: 10px;
