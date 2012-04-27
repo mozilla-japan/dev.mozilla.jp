@@ -21,12 +21,23 @@ a {
   margin: 0 auto;
 }
 
+/* content */
 #content {
   display: block;
   float: left;
   width: 680px;
   padding: 15px 25px;
   border: 1px solid black;/* for debug */
+}
+
+#hottopic {
+  margin: 15px 0px 15px;
+  padding: 20px;
+  border: 1px solid black;/* for debug */
+}
+#hottopic > h2 {
+  margin: 0px;
+  font-size: 2em;
 }
 
 /* sidebar */
