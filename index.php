@@ -30,38 +30,34 @@ get_header();
 
   <section id="event">
     <h2>イベント</h2>
-    <div id="event-contents">
-      <?php 
-         $posts = get_posts( array( 'post_type' => 'event' ) );
-         $postcount = 0;
-         ?>
-      <?php if($posts): foreach($posts as $post): setup_postdata($post); ?>
-      <?php if($postcount == 0){ ?>
-      <dev id="event-left">
+    <?php
+      $posts = get_posts( array( 'post_type' => 'event' ) );
+      if ($posts) :
+        $postcount = 0;
+        foreach ($posts as $post) :
+          setup_postdata($post);
+          $class = ($postcount === 0 ?) 'event-left' : 'event-right';
+    ?>
+    <dev class="<?php echo($class) ?>">
+      <section>
         <?php
           $datetime = get_the_time('Y-m-d');
           $date = get_the_time('y-m-d (D)');
-          echo '<time datetime="' . $datetime . '">'. $date . '</time> : ';
+          echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
-        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <?php the_title(); ?>
-        </a>
-        <p> <?php the_content(); ?> </p>
-      </dev>
-      <?php } else { ?>
-      <dev id="event-right">
-        <?php
-          $datetime = get_the_time('Y-m-d');
-          $date = get_the_time('y-m-d (D)');
-          echo '<time datetime="' . $datetime . '">'. $date . '</time> : ';
-        ?>
-        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <?php the_title(); ?>
-        </a>
-      </dev>
-      <?php } ?>
-      <?php $postcount++; endforeach; endif;?>
-    </div>
+        <h3>
+          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+            <?php the_title(); ?>
+          </a>
+        <h3>
+        <p><?php the_content(); ?></p>
+      </section>
+    </dev>
+    <?php
+          ++$postcount;
+        endforeach;
+      endif;
+    ?>
   </section>
 
   <section id="blogfeed">
