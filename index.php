@@ -49,8 +49,7 @@ get_header();
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
             <?php the_title(); ?>
           </a>
-        <h3>
-        <p><?php the_content(); ?></p>
+        </h3>
       </section>
     </dev>
     <?php
