@@ -36,7 +36,7 @@ get_header();
         $postcount = 0;
         foreach ($posts as $post) :
           setup_postdata($post);
-          $class = ($postcount === 0 ?) 'event-left' : 'event-right';
+          $class = ($postcount === 0) ? 'event-left' : 'event-right';
     ?>
     <dev class="<?php echo($class) ?>">
       <section>
