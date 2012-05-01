@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: projects
+ * Template Name: projects-list
  */
 get_header();
 ?>
