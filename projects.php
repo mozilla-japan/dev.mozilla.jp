@@ -21,7 +21,7 @@ get_header();
       $catObj = get_category($cat_id, 'OBJECT', 'raw');
       $catLink = get_category_link($cat_id);
   ?>
-    <section ="project_summary">
+    <section class="project_summary">
       <?php
         //categoryごとのimg要素を設定する
         //$imgSrc = get_bloginfo("template_url") . '/images/icons/modest_projects.png';
