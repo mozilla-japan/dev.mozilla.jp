@@ -31,7 +31,10 @@ get_header();
   <section id="event">
     <h2>イベント</h2>
     <?php
-      $posts = get_posts( array( 'post_type' => 'event' ) );
+      $args = array( 'post_type' => 'event',
+                     'numberposts' => 3,
+                   );
+      $posts = get_posts($args);
       if ($posts) :
         $postcount = 0;
         foreach ($posts as $post) :
