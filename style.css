@@ -73,6 +73,14 @@ a {
   border: 1px solid black;/* for debug */
 }
 
+/* projects page */
+.project_summary {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;/* for debug */
+}
+
 /* sidebar */
 #sidebar {
   display: block;
