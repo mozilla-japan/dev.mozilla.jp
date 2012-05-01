@@ -734,4 +734,10 @@ function get_project_url () {
   $path = '/projects/';
   return ($base . $path);
 }
+/* return the url of "projects" page (string) */
+function get_about_url () {
+  $base = get_bloginfo('url');
+	$path = '/aboutmodest/';//将来的に/about/に修正？
+	return ($base . $path);
+}
 ?>
