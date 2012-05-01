@@ -41,20 +41,18 @@ get_header();
           setup_postdata($post);
           $class = ($postcount === 0) ? 'event-left' : 'event-right';
     ?>
-    <dev class="<?php echo($class) ?>">
-      <section>
-        <?php
-          $datetime = get_the_time('Y-m-d');
-          $date = get_the_time('y-m-d (D)');
-          echo '<time datetime="' . $datetime . '">'. $date . '</time>';
-        ?>
-        <h3>
-          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-            <?php the_title(); ?>
-          </a>
-        </h3>
-      </section>
-    </dev>
+    <section>
+      <?php
+        $datetime = get_the_time('Y-m-d');
+        $date = get_the_time('y-m-d (D)');
+        echo '<time datetime="' . $datetime . '">'. $date . '</time>';
+      ?>
+      <h3>
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
+      </h3>
+    </section>
     <?php
           ++$postcount;
         endforeach;
