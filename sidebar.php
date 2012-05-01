@@ -22,7 +22,7 @@
 
   <div id="project">
     <h3>
-      <a href="<?php echo get_project_url(); ?>">プロジェクト</a>;
+      <a href="<?php echo get_project_url(); ?>">プロジェクト</a>
     </h3>
     <ul>
       <?php wp_list_categories('title_li='); ?>
