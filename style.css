@@ -169,6 +169,10 @@ a {
   display:block
 }
 
+#sidebar .button-blue {
+  display:block;
+}
+
 #about > a {
   display: block;
   padding: 10px;
