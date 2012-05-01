@@ -22,12 +22,7 @@
 
   <div id="project">
     <h3>
-      <?php
-        // Output the link of "project" page.
-        $category_id = get_cat_ID('projects');
-        $category_link = get_category_link($category_id);
-        echo '<a href="' . $category_link . '">プロジェクト</a>';
-      ?>
+      <a href="<?php echo get_project_url(); ?>">プロジェクト</a>;
     </h3>
     <ul>
       <?php wp_list_categories('title_li='); ?>

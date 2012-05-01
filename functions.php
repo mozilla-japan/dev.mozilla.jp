@@ -728,4 +728,10 @@ function get_the_term_list_post_type( $id = 0, $taxonomy, $before = '', $sep = '
   return $before . join( $sep, $term_links ) . $after;
 }
 
+/* return the url of "projects" page (string) */
+function get_project_url () {
+  $base = get_bloginfo('url');
+  $path = '/projects/';
+  return ($base . $path);
+}
 ?>
