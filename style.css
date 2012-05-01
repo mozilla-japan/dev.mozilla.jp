@@ -49,6 +49,13 @@ a {
   margin: 0px;
   font-size: 2em;
 }
+#event section {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;/* for debug */
+}
+
 
 #blogfeed {
   margin: 15px 0px 15px;
