@@ -66,6 +66,12 @@ a {
   margin: 0px;
   font-size: 2em;
 }
+#blogfeed section {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;/* for debug */
+}
 
 /* sidebar */
 #sidebar {
