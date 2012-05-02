@@ -197,6 +197,7 @@ body {
   display: block;
   float: left;
   width: 680px;
+  text-align: justify;
   padding: 15px 25px;
 }
 
