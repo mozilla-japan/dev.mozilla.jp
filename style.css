@@ -13,12 +13,12 @@ body, table *, form * {
 }
 
 a{
-  color:#2983c8;
+  color: #af3232;
   text-decoration:none;
 }
 
 a:hover,a:active{
-  color:#20679e;
+  color: #872727;
   text-decoration:underline;
 }
 
