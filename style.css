@@ -240,6 +240,10 @@ body {
   display: block;
   margin: 5px;
   padding: 5px;
+  border-bottom: 1px dotted #d6d6d6;
+}
+#blogfeed section:last-child {
+  border-bottom: none;
 }
 
 /* projects page */
