@@ -267,20 +267,8 @@ body {
 #about > a {
   display: block;
   padding: 10px;
-  border-radius: 3px / 7px;
-  -moz-border-radius: 7px / 7px;
-  -o-border-radius: 7px / 7px;
-  -webkit-border-radius: 7px / 7px;
-  -ms-border-radius: 7px / 7px;
 }
 
-#search {
-  border-radius: 3px / 7px;
-  -moz-border-radius: 7px / 7px;
-  -o-border-radius: 7px / 7px;
-  -webkit-border-radius: 7px / 7px;
-  -ms-border-radius: 7px / 7px;
-}
 #search h3 {
   margin: 15px;
 }
@@ -295,13 +283,6 @@ body {
 }
 
 
-#project {
-  border-radius: 3px / 7px;
-  -moz-border-radius: 7px / 7px;
-  -o-border-radius: 7px / 7px;
-  -webkit-border-radius: 7px / 7px;
-  -ms-border-radius: 7px / 7px;
-}
 #project > h3 {
   margin: 15px 15px;
 }
