@@ -253,43 +253,16 @@ body {
 }
 #sidebar ul > li {
   list-style-type: none;
+  padding: 5px;
 }
-
-#sidebar > h3,
-#sidebar > div {
- margin: 18px 0%;
-}
-
 #sidebar .button-blue {
   display:block;
 }
 
-#about > a {
-  display: block;
-  padding: 10px;
-}
-
-#search h3 {
-  margin: 15px;
-}
-#searchform {
-  margin: 10px 15px 15px;
-}
 #searchform > label {
   display: none;
 }
-#searchform #s {
-  width: 100%;
-}
 
-
-#project > h3 {
-  margin: 15px 15px;
-}
-#project ul > li > a {
-  display: block;
-  padding: 5px;
-}
 
 /* footer */
 #footer {
