@@ -167,8 +167,16 @@ body {
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
 }
 
+/* header */
 #header {
   border: 1px solid black;/* for debug */
+}
+#header-nav {
+  float: right;
+}
+#header-nav li {
+  display: inline-block;
+  list-style-type: none;
 }
 
 #page {

@@ -33,5 +33,12 @@
 <body <?php body_class(); ?>>
 <div id="page">
   <header id="header">
+    <nav id="header-nav">
+      <ol>
+        <li><a href="<?php echo get_about_url(); ?>">About modest</a></li>
+        <li><a href="">イベント</a></li>
+        <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
+      </ol>
+    </nav>
     <h1><a href = "<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
   </header>
