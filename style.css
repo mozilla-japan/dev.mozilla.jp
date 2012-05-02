@@ -14,11 +14,12 @@ body, table *, form * {
 
 a{
   color:#2983c8;
-  text-decoration:none
+  text-decoration:none;
 }
 
 a:hover,a:active{
   color:#20679e;
+  text-decoration:underline;
 }
 
 #header {
