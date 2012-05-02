@@ -239,11 +239,6 @@ body {
   display: block;
   padding: 5px;
 }
-#project ul > li > a:hover {
-  background: gray;
-  font-weight: bold;
-  color: white;
-}
 
 /* footer */
 #footer {
