@@ -168,9 +168,6 @@ body {
 }
 
 /* header */
-#header {
-  border: 1px solid black;/* for debug */
-}
 #header-nav {
   float: right;
   text-transform: uppercase;
@@ -201,13 +198,11 @@ body {
   float: left;
   width: 680px;
   padding: 15px 25px;
-  border: 1px solid black;/* for debug */
 }
 
 #hottopic {
   margin: 15px 0px 15px;
   padding: 20px;
-  border: 1px solid black;/* for debug */
 }
 #hottopic > h2 {
   margin: 0px;
@@ -217,7 +212,6 @@ body {
 #event {
   margin: 15px 0px 15px;
   padding: 20px;
-  border: 1px solid black;/* for debug */
 }
 #event > h2 {
   margin: 0px;
@@ -227,14 +221,12 @@ body {
   display: block;
   margin: 5px;
   padding: 5px;
-  border: 1px solid black;/* for debug */
 }
 
 
 #blogfeed {
   margin: 15px 0px 15px;
   padding: 20px;
-  border: 1px solid black;/* for debug */
 }
 #blogfeed > h2 {
   margin: 0px;
@@ -244,7 +236,6 @@ body {
   display: block;
   margin: 5px;
   padding: 5px;
-  border: 1px solid black;/* for debug */
 }
 
 /* projects page */
@@ -288,7 +279,6 @@ body {
   display: block;
   clear: both;
   margin: 0 auto;
-  border: 1px solid black;/* for debug */
 }
 
 .mozilla_ring_category {
