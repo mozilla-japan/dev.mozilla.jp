@@ -271,6 +271,7 @@ body {
 }
 #sidebar .button-blue {
   display:block;
+  font-size: 18px;
 }
 
 #searchform > label {
