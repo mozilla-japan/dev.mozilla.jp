@@ -11,7 +11,7 @@
 
   <h3><a href="" class="button-blue">イベントを追加する</a></h3>
 
-  <h3><a href="" class="button-blue">ブログを投稿する</a></h3>
+  <h3><a href="" class="button-blue">記事を投稿する</a></h3>
 
   <h3 id="about"><a href="<?php echo get_about_url(); ?>">About modest</a></h3>
 
