@@ -22,6 +22,10 @@ a:hover,a:active{
   text-decoration:underline;
 }
 
+body {
+  background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
+}
+
 #header {
   border: 1px solid black;/* for debug */
 }
