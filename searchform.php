@@ -10,7 +10,7 @@
       role="search"
       method="get"
       action="<?php echo home_url( '/' ); ?>">
-  <label for="search_field">åüçı :</label>
+  <label for="search_field">Ê§úÁ¥¢ :</label>
   <input id="s"
          class=""
          type="text"
@@ -19,5 +19,5 @@
   <input id="searchsubmit"
          class="button-white"
          type="submit"
-         value="åüçı" />
+         value="Ê§úÁ¥¢" />
 </form>
