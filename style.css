@@ -12,8 +12,13 @@ body, table *, form * {
   font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,Verdana,"ＭＳ Ｐゴシック","MS PGothic","VL Pゴシック","Takao Pゴシック","IPA Pゴシック",sans-serif;
 }
 
-a {
-  text-decoration: none;
+a{
+  color:#2983c8;
+  text-decoration:none
+}
+
+a:hover,a:active{
+  color:#20679e;
 }
 
 #header {
