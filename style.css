@@ -99,10 +99,12 @@ body {
 #sidebar {
   display: block;
   float: left;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 1px #FFFFFF inset;
   width: 260px;
   padding: 15px;
   margin: 0 10px;
-  border: 1px solid black;/* for debug */
+  border-bottom: 1px solid #DDDDDD;
 }
 #sidebar ul {
   padding-left: 0;
