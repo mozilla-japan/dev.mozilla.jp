@@ -35,9 +35,9 @@
   <header id="header">
     <nav id="header-nav">
       <ol>
-        <li><a href="<?php echo get_about_url(); ?>">About modest</a></li>
-        <li><a href="">ƒCƒxƒ“ƒg</a></li>
-        <li><a href="<?php echo get_project_url(); ?>">ƒvƒƒWƒFƒNƒg</a></li>
+        <li><a href="<?php echo get_about_url(); ?>">About</a></li>
+        <li><a href="">ã‚¤ãƒ™ãƒ³ãƒˆ</a></li>
+        <li><a href="<?php echo get_project_url(); ?>">ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ</a></li>
       </ol>
     </nav>
     <h1><a href = "<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
