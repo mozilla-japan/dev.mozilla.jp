@@ -219,6 +219,10 @@ body {
 #searchform > * > label {
   display: none;
 }
+#searchform #s {
+  width: 100%;
+}
+
 
 #project {
   border-radius: 3px / 7px;
