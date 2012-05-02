@@ -129,6 +129,7 @@ a:hover,a:active{
   color:#fff;
   text-align:center;
   font-size:14px;
+  text-decoration:none;
   padding:0 24px;
   height:48px;
   line-height:48px;
@@ -150,10 +151,11 @@ a:hover,a:active{
   background-image:-o-linear-gradient(#3c88cc,#276195);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType=0);
   -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc', endColorstr='#276195', GradientType=0)";
-  background-image:linear-gradient(#3c88cc,#276195)
+  background-image:linear-gradient(#3c88cc,#276195);
 }
 
 .button-blue:hover,.button-blue:link:hover,.button-blue:visited:hover{
+  text-decoration:none;
   -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,0.1),inset 0 -2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 2px #3089d8;
   -moz-box-shadow:0 2px 0 0 rgba(0,0,0,0.1),inset 0 -2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 2px #3089d8;
   box-shadow:0 2px 0 0 rgba(0,0,0,0.1),inset 0 -2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 2px #3089d8;
@@ -165,6 +167,7 @@ a:hover,a:active{
 }
 
 .button-blue:active,.button-blue:link:active,.button-blue:visited:active{
+  text-decoration:none;
   -webkit-box-shadow:inset 0 2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 6px rgba(0,0,0,0.2),inset 0 0 2px 2px rgba(0,0,0,0.2);
   -moz-box-shadow:inset 0 2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 6px rgba(0,0,0,0.2),inset 0 0 2px 2px rgba(0,0,0,0.2);
   box-shadow:inset 0 2px 0 0 rgba(0,0,0,0.2),inset 0 12px 24px 6px rgba(0,0,0,0.2),inset 0 0 2px 2px rgba(0,0,0,0.2);
@@ -176,6 +179,7 @@ a:hover,a:active{
 }
 
 .button-blue small,.button-blue:link small,.button-blue:visited small{
+  text-decoration:none;
   display:block
 }
 
