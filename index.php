@@ -81,7 +81,7 @@ get_header();
           echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
       </header>
-      <p><?php the_content(); ?></p>
+      <p><?php the_excerpt(); ?></p>
       <footer>
         <?php the_category(); ?>
       </footer>
