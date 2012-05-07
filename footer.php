@@ -9,8 +9,7 @@
 		<?php get_sidebar(); ?>
 
 	<!-- #container -->
-	</div><!-- id="page" -->
-	</div><!-- id="outer-page" -->
+	</div>
 
 	<footer id="footer">
 		<!-- Mozilla 関連サイト -->
