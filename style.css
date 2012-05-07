@@ -176,6 +176,7 @@ published > .posted-date {
 }
 
 body {
+  margin: 0;
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
 }
 
