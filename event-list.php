@@ -7,36 +7,53 @@ get_header();
 
 <article id="content">
   <hgroup>
-    <h1>プロジェクト</h1>
+    <h1>イベント</h1>
     <h2>
       <a class="button"
-         href="<?php echo admin_url('edit.php?post_type=project'); ?>">
-        新しいプロジェクトを登録する
+         href="<?php echo admin_url('post-new.php?post_type=event'); ?>">
+        新しいイベントを登録する
       </a>
     </h2>
   </hgroup>
-
-  <?php
-    $category_ids = get_all_category_ids();
-    foreach ($category_ids as $cat_id) :
-      $catObj = get_category($cat_id, 'OBJECT', 'raw');
-      $catLink = get_category_link($cat_id);
-  ?>
-    <section class="project_summary">
       <?php
-        //categoryごとのimg要素を設定する
-        //$imgSrc = get_bloginfo("template_url") . '/images/icons/modest_projects.png';
+         $paged = get_query_var('paged');
+         $posts = query_posts(array("post_type" => array("event"),
+                                    "paged" => $paged,
+                                    "posts_par_page" => 5,
+                                    "meta_key " => $_GET['key'],
+                                    "meta_value" => $_GET['value'],
+                                    "orderby" => "date"));
       ?>
-      <img class="project_icon" src=""/>
-      <h1 class="project_title">
-        <a href="<?php echo($catLink) ?>"><?php echo($catObj->name) ?></a>
+      <nav class="navigation">
+        <?php wp_pagenavi(); ?>
+      </nav>
+      <?php
+        if(have_posts()) :
+          foreach ($posts as $post) :
+            setup_postdata($post);
+      ?>
+    <section class="event_summary">
+      <?php
+         //categoryごとのimg要素を設定する
+         //$imgSrc = get_bloginfo("template_url") . '/images/icons/modest_projects.png';
+         ?>
+      <img class="event_icon" src=""/>
+      <h1 class="event_title">
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
       </h1>
-      <p class="project_description"><?php echo($catObj->description) ?></p>
+      <p class="event_description">
+        <?php the_excerpt(); ?>
+      </p>
     </section>
-  <?php
-    endforeach;
-  ?>
-
+    <?php
+       endforeach;
+       endif;
+    ?>
+    <nav class="navigation">
+      <?php wp_pagenavi(); ?>
+    </nav>
 </article>
 
 <?php get_footer(); ?>
