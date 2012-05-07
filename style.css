@@ -334,6 +334,7 @@ section#event {
   display: block;
   clear: both;
   margin: 0 auto;
+  background: #fff;
 }
 
 .mozilla_ring_category {
