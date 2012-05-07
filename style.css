@@ -169,9 +169,9 @@ a:hover,a:active{
   background: url("images/bg-date-lt.png") no-repeat scroll center top transparent;
   text-align: center;
 }
-published > .posted-year,
-published > .posted-month,
-published > .posted-date {
+.published > .posted-year,
+.published > .posted-month,
+.published > .posted-date {
   display: block;
 }
 
