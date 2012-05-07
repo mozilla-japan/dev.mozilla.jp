@@ -10,7 +10,7 @@ get_header();
     <h1>プロジェクト</h1>
     <h2>
       <a class="button"
-         href="<?php echo admin_url('edit.php?post_type=project'); ?>">
+         href="<?php echo admin_url('post-new.php?post_type=project'); ?>">
         新しいプロジェクトを登録する
       </a>
     </h2>
