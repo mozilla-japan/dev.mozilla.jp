@@ -44,8 +44,17 @@ get_header();
     <section>
       <?php
         $datetime = get_the_time('Y-m-d');
-        $date = get_the_time('y-m-d (D)');
-        echo '<time datetime="' . $datetime . '">'. $date . '</time>';
+        $year = get_the_time('Y');
+        $month = get_the_time('n');
+        $date = get_the_time('j');
+        echo <<< DOC
+          <time datetime="$datetime"
+                class="published">
+            <span class="posted-month">$month</span>
+            <span class="posted-date">$date</span>
+            <span class="posted-year">$year</span>
+          </time>
+        DOC;
       ?>
       <h3>
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
