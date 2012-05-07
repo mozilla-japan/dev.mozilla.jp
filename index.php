@@ -36,7 +36,7 @@ get_header();
                    );
       $posts = get_posts($args);
       $latest = '';
-      $olds = '';
+      $old = '';
       if ($posts) :
         $postcount = 0;
         foreach ($posts as $post) :
