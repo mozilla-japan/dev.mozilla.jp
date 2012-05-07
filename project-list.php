@@ -33,11 +33,14 @@ get_header();
             setup_postdata($post);
       ?>
     <section class="project_summary">
-      <?php
-         //categoryごとのimg要素を設定する
-         //$imgSrc = get_bloginfo("template_url") . '/images/icons/modest_projects.png';
+      <div class="project_icon">
+        <?php
+         if( has_post_thumbnail($post->ID)){
+           the_post_thumbnail();
+         }
+         //サムネイルがない場合はない場合で表示する必要はないのでは。
          ?>
-      <img class="project_icon" src=""/>
+      </div>
       <h1 class="project_title">
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
           <?php the_title(); ?>
