@@ -239,19 +239,30 @@ section#event {
 #event > h2 {
   display:none;
 }
-#event section {
-  display: block;
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  margin: 5px;
-  padding: 5px;
-}
 #event > div {
   float: left;
   width: 50%;
   margin: 0;
   padding: 0;
+}
+#event section {
+  display: block;
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  margin: 0 0 10px;
+  padding: 5px;
+}
+#event > .event-latest > section {
+  height: 255px;
+  margin-right: 10px;
+}
+#event > .event-old > section {
+  height: 117px;
+}
+#event > .event-latest > section,
+#event > .event-old > section:last-child {
+  margin-bottom: 20px;
 }
 
 #blogfeed {
