@@ -79,10 +79,10 @@ DOC;
       endif;
     ?>
     <div class="event-latest">
-      <?php echo $latest ?>
+      <?php echo($latest); ?>
     </div>
     <div class="event-old">
-      <?php echo $old; ?>
+      <?php echo($old); ?>
     </div>
   </section>
 
