@@ -35,40 +35,55 @@ get_header();
                      'numberposts' => 3,
                    );
       $posts = get_posts($args);
+      $latest = '';
+      $olds = '';
       if ($posts) :
         $postcount = 0;
         foreach ($posts as $post) :
           setup_postdata($post);
-          $class = ($postcount === 0) ? 'event-left' : 'event-right';
-    ?>
-    <section>
-      <?php
-        $datetime = get_the_time('Y-m-d');
-        $year = get_the_time('Y');
-        $month = get_the_time('n');
-        $date = get_the_time('j');
-        //start here document
-        echo <<< DOC
-          <time datetime="$datetime"
-                class="published">
-            <span class="posted-month">$month</span>
-            <span class="posted-date">$date</span>
-            <span class="posted-year">$year</span>
-          </time>
+
+          //post data
+          $datetime = get_the_time('Y-m-d');
+          $year = get_the_time('Y');
+          $month = get_the_time('n');
+          $date = get_the_time('j');
+          $href = get_the_permalink();
+          $title = get_the_title();
+
+          //start here document
+          $content = <<< DOC
+            <section>
+              <time datetime="$datetime"
+                    class="published">
+                <span class="posted-month">$month</span>
+                <span class="posted-date">$date</span>
+                <span class="posted-year">$year</span>
+              </time>
+              <h3>
+                <a href="$href" title="$title">
+                  $title
+                </a>
+              </h3>
+            </section>
 DOC;
 //end of here document
-      ?>
-      <h3>
-        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <?php the_title(); ?>
-        </a>
-      </h3>
-    </section>
-    <?php
+
+          if ($postcount === 0) {
+            $latest = $content;
+          }
+          else {
+            $old .= $content;
+          }
           ++$postcount;
         endforeach;
       endif;
     ?>
+    <div class="event-latest">
+      <?php echo $latest ?>
+    </div>
+    <div class="event-old">
+      <?php echo $old; ?>
+    </div>
   </section>
 
   <section id="blogfeed">
