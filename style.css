@@ -175,8 +175,12 @@ published > .posted-date {
   display: block;
 }
 
-body {
+#outer-page {
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
+}
+#page {
+  width: 1050px;
+  margin: 0 auto;
 }
 
 /* header */
@@ -197,11 +201,6 @@ body {
 #header-nav a:visited {
   color: #484848;
   text-decoration:none;
-}
-
-#page {
-  width: 1050px;
-  margin: 0 auto;
 }
 
 /* content */
