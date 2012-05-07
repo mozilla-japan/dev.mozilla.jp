@@ -47,6 +47,7 @@ get_header();
         $year = get_the_time('Y');
         $month = get_the_time('n');
         $date = get_the_time('j');
+        //start here document
         echo <<< DOC
           <time datetime="$datetime"
                 class="published">
@@ -54,7 +55,8 @@ get_header();
             <span class="posted-date">$date</span>
             <span class="posted-year">$year</span>
           </time>
-        DOC;
+DOC;
+//end of here document
       ?>
       <h3>
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
