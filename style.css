@@ -247,8 +247,16 @@ section#event {
   margin: 5px;
   padding: 5px;
 }
+#event > div {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
 
-
+#blogfeed {
+  clear: both;
+}
 #blogfeed > h2 {
   margin: 0px;
   font-size: 2em;
