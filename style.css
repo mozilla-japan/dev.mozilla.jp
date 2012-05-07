@@ -229,16 +229,21 @@ body {
   font-size: 2em;
 }
 
-#event {
-  margin: 15px 0px 15px;
-  padding: 20px;
+section#event {
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 #event > h2 {
-  margin: 0px;
-  font-size: 2em;
+  display:none;
 }
 #event section {
   display: block;
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
   margin: 5px;
   padding: 5px;
 }
