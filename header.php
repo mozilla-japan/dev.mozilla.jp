@@ -40,5 +40,5 @@
         <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
       </ol>
     </nav>
-    <h1><a href = "<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+    <h1><a href = "<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"></a></h1>
   </header>
