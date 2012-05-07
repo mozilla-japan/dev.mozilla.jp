@@ -47,7 +47,7 @@ get_header();
           $year = get_the_time('Y');
           $month = get_the_time('n');
           $date = get_the_time('j');
-          $href = get_the_permalink();
+          $href = get_permalink($post->ID);
           $title = get_the_title();
 
           //start here document
