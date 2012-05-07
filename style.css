@@ -336,7 +336,10 @@ section#event {
   margin: 0 auto;
   background: #fff;
 }
-
+#mozilla_ling {
+  width: 1050px;
+  margin: 0 auto;
+}
 .mozilla_ring_category {
   float: left;
   margin: 15px;
