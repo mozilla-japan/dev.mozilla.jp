@@ -25,7 +25,29 @@
       <a href="<?php echo get_project_url(); ?>">プロジェクト</a>
     </h3>
     <ul>
-      <?php wp_list_categories('title_li='); ?>
+      <?php
+         $paged = get_query_var('paged');
+         $posts = query_posts(array("post_type" => array("project"),
+      "paged" => $paged,
+      "orderby" => "date",
+      "nopaging" => true));
+      if(have_posts()){
+        foreach ($posts as $post):
+        setup_postdata($post);
+        echo '<li class="project-item project-item-';
+                         the_ID();
+                         echo '">';
+          echo '<a href="';
+                         the_permalink();
+                         echo '" title="';
+                                        the_title();
+                                        echo '" > ';
+            the_title();
+            echo '</a>';
+          echo '</li>';
+        endforeach;
+      }
+      ?>
     </ul>
   </div>
 
