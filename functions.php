@@ -279,12 +279,17 @@ function event_meta_box($post){
 }
 
 function event_meta_html($post, $box){
-    $date = get_post_meta($post->ID, 'date', true);
-    echo wp_nonce_field('event_meta', 'event_date_nonce');
-    echo '<p>Date:<input type="text" size="50" name="date" value="'.$date.'"></p>';
-    $place = get_post_meta($post->ID, 'place', true);
-    echo wp_nonce_field('event_meta', 'event_date_nonce');
-    echo '<p>Place:<input type="text" size="50" name="place" value="'.$place.'"></p>';
+  echo '<label for="start_time">開始日時</label>';
+  echo '<input class="datepicker" type="text" name="start_time" value="'. get_post_meta($post->ID, 'start_time', true) .'" size="25" />';
+  echo '<a class="clear_start_time" href="#start_time">クリア</a>';
+
+  echo '<label for="end_time"> 〜 終了日時</label>';
+  echo '<input class="datepicker" type="text" name="end_time" value="'. get_post_meta($post->ID, 'end_time', true) .'" size="25" />';
+  echo '<a class="clear_end_time" href="#end_time">クリア</a>';
+
+  $place = get_post_meta($post->ID, '会場', true);
+  echo wp_nonce_field('event_meta', 'event_date_nonce');
+  echo '<p>会場:<input type="text" size="50" name="place" value="'.$place.'"></p>';
 }
 
 /*
@@ -367,7 +372,6 @@ function delete_project($post_id){
 	}
 }
 
-
 add_action('save_post', 'event_update');
 function event_update($post_id){
     if(!wp_verify_nonce( $_POST['event_date_nonce'], 'event_meta')){
@@ -385,13 +389,19 @@ function event_update($post_id){
         return $post_id;
     }
 
-    $date = trim($_POST['date']);
+    $start_time = trim($_POST['start_time']);
+    $end_time = trim($_POST['end_time']);
     $place = trim($_POST['place']);
 
-    if($date == ''){
-        delete_post_meta($post_id, 'date');
+    if($start_time == ''){
+      delete_post_meta($post_id, 'start_time');
     } else {
-        update_post_meta($post_id, 'date', $date);
+      update_post_meta($post_id, 'start_time', $start_time);
+    }
+    if($end_time == ''){
+      delete_post_meta($post_id, 'end_time');
+    } else {
+      update_post_meta($post_id, 'end_time', $end_time);
     }
     if($place == ''){
         delete_post_meta($post_id, 'place');
@@ -747,5 +757,19 @@ function new_excerpt_more($post) {
   return '<a href="'. get_permalink($post->ID) . '">' . '続きを読む...' . '</a>';
 }
 
+/* Event Calender UI */
+function my_styles(){
+  wp_enqueue_style('my-jquery-ui', get_bloginfo('template_url') . '/jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css', array(), '1.7.2', 'all');
+}
+add_action('admin_print_styles', 'my_styles');
+
+function my_scripts(){
+  wp_enqueue_script('my-jquery-ui', get_bloginfo('template_url') . '/jquery-ui/js/jquery-ui-1.8.20.custom.min.js', array('jquery'), '1.7.2', true);
+  wp_enqueue_script('my-jquery-localize', get_bloginfo('template_url') . '/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-ja.js', array('my-jquery-ui'), '1.7.2', true);
+  wp_enqueue_script('my-jquery-addon', get_bloginfo('template_url') . '/jquery-ui/development-bundle/ui/jquery-ui-timepicker-addon.js', array('my-jquery-ui'), '1.7.2', true);
+
+  wp_enqueue_script('my-admin-script', get_bloginfo('template_url') . '/js/admin-script.js', array('my-jquery-ui'), false, true);
+}
+add_action('admin_print_scripts', 'my_scripts');
 
 ?>
