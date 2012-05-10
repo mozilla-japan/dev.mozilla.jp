@@ -750,6 +750,12 @@ function get_about_url () {
 	$path = '/aboutmodest/';//将来的に/about/に修正？
 	return ($base . $path);
 }
+/* return the url of "events" page (string) */
+function get_event_url () {
+  $base = get_bloginfo('url');
+	$path = '/events/'; //本番環境移行前にeventsスラッグの投稿のスラッグを変更しページのスラッグをeventsに変更する必要あり。(#78)
+	return ($base . $path);
+}
 
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');

@@ -36,7 +36,7 @@
     <nav id="header-nav">
       <ol>
         <li><a href="<?php echo get_about_url(); ?>">About</a></li>
-        <li><a href="">イベント</a></li>
+        <li><a href="<?php echo get_event_url(); ?>">イベント</a></li>
         <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
       </ol>
     </nav>
