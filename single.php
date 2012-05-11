@@ -29,7 +29,7 @@ get_header();
 
 		<h1><?php the_title(); ?></h1>
 
-		<dl class="metadata">
+		<dl class="postmeta">
 			<dt>投稿日時</dt>
 			<dd>
 				<?php
