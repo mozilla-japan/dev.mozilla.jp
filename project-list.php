@@ -6,15 +6,15 @@ get_header();
 ?>
 
 <article id="content">
-  <hgroup>
+  <header class="entry-header">
     <h1>プロジェクト</h1>
-    <h2>
-      <a class="button"
+    <p>
+      <a class="button button-white"
          href="<?php echo admin_url('post-new.php?post_type=project'); ?>">
         新しいプロジェクトを登録する
       </a>
-    </h2>
-  </hgroup>
+    </p>
+  </header>
       <?php
          $paged = get_query_var('paged');
          $posts = query_posts(array("post_type" => array("project"),
