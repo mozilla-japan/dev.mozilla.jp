@@ -33,6 +33,29 @@ a:hover,a:active{
   padding: 10px;
 }
 
+/* post's metadata*/
+.postmeta {
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 10px 20px;
+}
+.postmeta dt {
+  display: none;
+}
+.postmeta dd {
+  display: inline-block;
+}
+.postmeta dd {
+  margin: 0 10px 0 0;
+  padding-right: 10px;
+  border-right: 1px solid #DDDDDD;
+}
+.postmeta dd:last-child {
+  margin-right: 0;
+  border-right: none;
+}
+
 /*
  * Mozilla Sandstone
  * blue button style
