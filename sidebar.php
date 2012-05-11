@@ -7,11 +7,20 @@
 
 <nav id="sidebar">
 
-  <h3><a href="<?php get_join_modest_url(); ?>" class="button-blue">modestに参加する</a></h3>
+<?php if(is_user_logged_in() == false) : ?>
+  <h3><a href="<?php get_join_modest_url(); ?>" class="button-blue">ログインする/参加する</a></h3>
+<?php endif; ?>
+
+  <h3><a href="<?php get_add_post_url(); ?>" class="button-blue">記事を投稿する</a></h3>
 
   <h3><a href="<?php get_add_event_url(); ?>" class="button-blue">イベントを追加する</a></h3>
 
-  <h3><a href="<?php get_add_post_url(); ?>" class="button-blue">記事を投稿する</a></h3>
+  <?php if( is_user_logged_in() ) : ?>
+  <h3><a href="<?php get_add_project_url(); ?>" class="button-blue">プロジェクトを作成する</a></h3>
+
+  <h3><?php wp_loginout(); ?></h3>
+
+  <?php endif; ?>
 
   <h3 id="about"><a href="<?php echo get_about_url(); ?>">About modest</a></h3>
 
