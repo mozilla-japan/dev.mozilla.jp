@@ -41,7 +41,7 @@ get_header();
 			<dt>プロジェクト</dt>
 			<dd>
 				<?php
-					echo(get_the_category_list(''));
+					echo get_the_specified_project_page();
 				?>
 			</dd>
 		</dl>
