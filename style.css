@@ -392,7 +392,9 @@ body #sidebar{
 #searchform > label {
   display: none;
 }
-
+#searchform > #s {
+  width: 12em;
+}
 
 /* footer */
 #footer {
