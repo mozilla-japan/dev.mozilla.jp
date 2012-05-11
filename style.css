@@ -224,6 +224,15 @@ body {
   text-align: justify;
   padding: 15px 0;
 }
+
+body #content { 
+  width: 710px;
+}
+
+.home #content { 
+  width: 680px;
+}
+
 #content > section {
   background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
@@ -315,10 +324,18 @@ section#event {
 #sidebar {
   display: block;
   float: left;
-  width: 260px;
   padding: 15px;
   margin: 0 10px;
 }
+
+.home #sidebar{ 
+  width: 260px;
+}
+
+body #sidebar{ 
+  width: 230px;
+}
+
 #sidebar ul {
   padding-left: 0;
   margin-left: 15px;
