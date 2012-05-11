@@ -44,6 +44,17 @@ get_header();
 					echo get_the_specified_project_page();
 				?>
 			</dd>
+			<dt>投稿者</dt>
+			<dd>
+				<address>
+					<?php
+						$post = get_post($the_id);
+						$userID = $post->post_author;
+						echo get_avatar($userID, 15);//avatar image
+						echo get_the_author_link();//auther link
+					?>
+				</address>
+			</dd>
 		</dl>
 
 		<div id="edit_post button-blue">
