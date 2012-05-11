@@ -6,15 +6,15 @@ get_header();
 ?>
 
 <article id="content">
-  <hgroup>
+  <header class="entry-header">
     <h1>イベント</h1>
-    <h2>
-      <a class="button"
+    <p>
+      <a class="button button-white"
          href="<?php echo admin_url('post-new.php?post_type=event'); ?>">
         新しいイベントを登録する
       </a>
-    </h2>
-  </hgroup>
+    </p>
+  </header>
       <?php
          $paged = get_query_var('paged');
          $posts = query_posts(array("post_type" => array("event"),

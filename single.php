@@ -52,6 +52,7 @@ get_header();
 			<dt>プロジェクト</dt>
 			<dd>
 				<?php
+				  $cat_name = get_the_category_by_ID;
 					echo get_the_specified_project_page();
 				?>
 			</dd>
