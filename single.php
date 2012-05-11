@@ -30,6 +30,17 @@ get_header();
 		<h1><?php the_title(); ?></h1>
 
 		<dl class="postmeta">
+			<dt>投稿者</dt>
+			<dd>
+				<address>
+					<?php
+						$post = get_post($the_id);
+						$userID = $post->post_author;
+						echo get_avatar($userID, 15);//avatar image
+						echo get_the_author_link();//auther link
+					?>
+				</address>
+			</dd>
 			<dt>投稿日時</dt>
 			<dd>
 				<?php
@@ -43,17 +54,6 @@ get_header();
 				<?php
 					echo get_the_specified_project_page();
 				?>
-			</dd>
-			<dt>投稿者</dt>
-			<dd>
-				<address>
-					<?php
-						$post = get_post($the_id);
-						$userID = $post->post_author;
-						echo get_avatar($userID, 15);//avatar image
-						echo get_the_author_link();//auther link
-					?>
-				</address>
 			</dd>
 		</dl>
 
