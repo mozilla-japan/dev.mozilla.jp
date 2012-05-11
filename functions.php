@@ -293,6 +293,37 @@ function event_meta_html($post, $box){
 }
 
 /*
+ *カテゴリからプロジェクトの記事を参照するための項目を追加する
+ */
+add_action ( 'edit_category_form_fields', 'extra_category_fields');
+function extra_category_fields( $tag ) {
+  $t_id = $tag->term_id;
+  $cat_meta = get_option( "cat_$t_id");
+  if(isset($cat_meta['project_id'])){
+    $value = $cat_meta['project_id'];
+  }
+  echo '<tr class="form-field">';
+  echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
+  echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" value="'. $value .'" /></td>"';
+  echo '</tr>';
+}
+
+add_action ( 'edited_term' , 'save_extra_category_fileds');
+function save_extra_category_fileds( $term_id ){
+  if(isset ($_POST['Cat_meta'] ) ){
+    $t_id = $term_id;
+    $cat_meta = get_option( "cat_$t_id" );
+    $cat_keys = array_keys($_POST['Cat_meta']);
+    foreach ($cat_keys as $key) {
+      if (isset($_POST['Cat_meta'][$key])){
+        $cat_meta[$key] = $_POST['Cat_meta'][$key];
+      }
+    }
+    update_option( "cat_$t_id", $cat_meta );
+  }
+}
+
+/*
  *プロジェクトをポストしたときにそのプロジェクト用にカテゴリを用意する
 */
 add_action('save_post', 'project_cat_create');
@@ -357,6 +388,11 @@ function project_cat_create($post_id){
       }else{
         update_post_meta($post_id, 'catid', $tempcatid['term_id']);
       }
+
+      $t_id = $tempcatid['term_id'];
+      $cat_meta = get_option( "cat_$t_id" );
+      $cat_meta['project_id'] = $post_id;
+      update_option( "cat_$t_id", $cat_meta);
 		}
 	}
 }
