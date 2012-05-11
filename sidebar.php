@@ -22,7 +22,7 @@
 
   <?php endif; ?>
 
-  <h3 id="about"><a href="<?php echo get_about_url(); ?>">About modest</a></h3>
+  <h3 id="about"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></h3>
 
   <div id="search">
     <h3>Search</h3>

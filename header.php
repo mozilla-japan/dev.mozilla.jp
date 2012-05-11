@@ -35,7 +35,7 @@
   <header id="header">
     <nav id="header-nav">
       <ol>
-        <li><a href="<?php echo get_about_url(); ?>">About</a></li>
+        <li><a href="<?php echo get_about_url(); ?>">このサイトについて</a></li>
         <li><a href="<?php echo get_event_url(); ?>">イベント</a></li>
         <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
         <li><?php wp_loginout(); ?></li>
