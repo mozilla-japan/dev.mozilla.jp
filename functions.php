@@ -820,7 +820,11 @@ function get_add_post_url(){
 /* return the url of a specified project page (string) */
 function get_the_specified_project_page ($cat_id) {
   $page_id = get_project_page_ID($cat_id);
-  return (get_permalink($page_id));
+  if($page_id === false){
+    return false;
+  }else{
+    return (get_permalink($page_id));
+  }
 }
 /* return the ID of a specified project page */
 function get_project_page_ID ($cat_id) {
@@ -829,6 +833,8 @@ function get_project_page_ID ($cat_id) {
     $cat_meta = get_option( "cat_$t_id" );
     $project_id = $cat_meta['project_id'];
     return $project_id;
+  }else{
+    return false;
   }
 }
 

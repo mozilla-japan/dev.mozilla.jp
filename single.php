@@ -51,10 +51,19 @@ get_header();
 			</dd>
 			<dt>プロジェクト</dt>
 			<dd>
+        <ul>
 				<?php
-				  $cat_name = get_the_category_by_ID;
-					echo get_the_specified_project_page();
+           $catlist = get_the_category();
+           foreach($catlist as $cat){
+					   $project_array = get_post(get_project_page_ID($cat->cat_ID));
+             if($project_array->post_type == 'project'){
+               echo '<li><a href="'. get_permalink($project_array->ID) .'">';
+               echo $project_array->post_title;
+               echo '</a></li>';
+             }
+           }
 				?>
+        </ul>
 			</dd>
 		</dl>
 
