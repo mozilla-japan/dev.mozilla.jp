@@ -41,11 +41,7 @@ get_header();
 			<dt>プロジェクト</dt>
 			<dd>
 				<?php
-				  $post_type = get_post_type($the_id);
-					if ($post_type) {
-						$link = get_post_type_archive_link($post_type);
-						echo '<a href="'. $link .'">'. $post_type .'</a>';
-					}
+					echo(get_the_category_list(''));
 				?>
 			</dd>
 		</dl>
