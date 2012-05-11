@@ -756,6 +756,31 @@ function get_event_url () {
 	$path = '/events/'; //本番環境移行前にeventsスラッグの投稿のスラッグを変更しページのスラッグをeventsに変更する必要あり。(#78)
 	return ($base . $path);
 }
+/* return the url of "addevent" page (string) */
+function get_add_event_url() {
+  $base = get_bloginfo('url');
+	$path = '/addevent/';
+	return ($base . $path);
+}
+/* return the url of "addproject" page (string) */
+function get_add_project_url() {
+  $base = get_bloginfo('url');
+	$path = '/addproject/';
+  return ($base . $path);
+}
+/* return the url of "joinmodest" page (string) */
+function get_join_modest_url(){
+  $base = get_bloginfo('url');
+  $path = '/joinmodest/';
+  return ($base . $path);
+}
+/* return the url of "addpost" page (string) */
+function get_add_post_url(){
+  $base = get_bloginfo('url');
+  $path = '/addpost/';
+  return ($base . $path);
+}
+
 
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');
