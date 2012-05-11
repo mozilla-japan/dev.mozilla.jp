@@ -63,6 +63,15 @@ a:hover,a:active{
 .entry-body {
   line-height: 1.8em;
 }
+.entry-body h2,
+.entry-body h3,
+.entry-body h4,
+.entry-body h5,
+.entry-body h6 {
+  margin-top: 2.2em;
+  margin-bottom: 0.25em;
+}
+
 
 /*
  * Mozilla Sandstone
