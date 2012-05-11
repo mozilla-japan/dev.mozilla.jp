@@ -21,6 +21,17 @@ a:hover,a:active{
   color: #872727;
   text-decoration:underline;
 }
+.entry-header > h1 {
+  font-size: 2em;
+}
+
+.navigation {
+  display: block;
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 10px;
+}
 
 /*
  * Mozilla Sandstone
@@ -296,11 +307,8 @@ section#event {
 }
 
 /* projects page */
-.project_summary {
-  display: block;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid black;/* for debug */
+.project_summary > .project_title {
+  font-size: 1.6em;
 }
 
 /* sidebar */
