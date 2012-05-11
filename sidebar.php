@@ -59,16 +59,4 @@
       ?>
     </ul>
   </div>
-
-  <?php 
-    /**
-     * This login/out link is for debug
-     */
-  ?>
-  <aside>
-    <ul>
-      <li><?php wp_register(); ?></li>
-      <li><?php wp_loginout(); ?></li>
-    </ul>
-  </aside>
 </nav>
