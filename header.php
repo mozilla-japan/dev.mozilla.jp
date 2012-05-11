@@ -31,7 +31,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="outer-page">
 <div id="page">
   <header id="header">
     <nav id="header-nav">

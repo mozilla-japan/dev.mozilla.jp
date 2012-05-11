@@ -245,13 +245,9 @@ a:hover,a:active{
   display: block;
 }
 
-#outer-page {
+body {
   margin: 0;
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
-}
-#page {
-  width: 1050px;
-  margin: 0 auto;
 }
 
 /* header */
@@ -272,6 +268,11 @@ a:hover,a:active{
 #header-nav a:visited {
   color: #484848;
   text-decoration:none;
+}
+
+#page {
+  width: 1050px;
+  margin: 0 auto;
 }
 
 /* content */
