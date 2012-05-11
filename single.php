@@ -37,7 +37,7 @@ get_header();
 						$post = get_post($the_id);
 						$userID = $post->post_author;
 						echo get_avatar($userID, 15);//avatar image
-						echo get_the_author_link();//auther link
+						echo the_author_posts_link();//auther link
 					?>
 				</address>
 			</dd>
