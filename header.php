@@ -38,6 +38,7 @@
         <li><a href="<?php echo get_about_url(); ?>">About</a></li>
         <li><a href="<?php echo get_event_url(); ?>">イベント</a></li>
         <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
+        <li><?php wp_loginout(); ?></li>
       </ol>
     </nav>
     <h1><a href = "<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"></a></h1>
