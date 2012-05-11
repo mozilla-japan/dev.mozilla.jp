@@ -780,6 +780,10 @@ function get_add_post_url(){
   $path = '/addpost/';
   return ($base . $path);
 }
+/* return the url of a specified project page (string) */
+function get_the_specified_project_page () {
+  return '';
+}
 
 
 /* read more [...] link for the_excerpt() */
