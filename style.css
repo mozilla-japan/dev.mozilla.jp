@@ -9,6 +9,7 @@ Tags: mozilla
 */
 
 body, table *, form * {
+  color: #333;
   font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,Verdana,"ＭＳ Ｐゴシック","MS PGothic","VL Pゴシック","Takao Pゴシック","IPA Pゴシック",sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -406,7 +407,12 @@ body #sidebar{
   clear: both;
   margin: 0 auto;
   background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+#mozilla_ring_title {
+  display: none;
+}
+
 #mozilla_ring {
   width: 1050px;
   margin: 0 auto;
