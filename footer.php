@@ -10,6 +10,7 @@
 
 	<!-- #container -->
 	</div>
+	</div>
 
 	<footer id="footer">
 		<!-- Mozilla 関連サイト -->
