@@ -479,6 +479,13 @@ body #sidebar{
   display: none;
 }
 
+/* archive */
+.archive-post-title {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+
 /* footer */
 #footer {
   display: block;
