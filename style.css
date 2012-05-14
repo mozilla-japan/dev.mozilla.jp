@@ -53,6 +53,28 @@ a:hover,a:active{
   padding: 10px;
 }
 
+/* post's project list */
+.postmeta-project {
+  clear: both;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  margin: 24px 0 0;
+  padding: 12px 24px 8px;
+  background: rgba(0,0,0,.02);
+  box-shadow: inset 0 0 3px rgba(0,0,0,.1);
+  font: .785em/1.1 "Open Sans Regular", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+.postmeta-project  li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: .5em;
+}
+.postmeta-project  li:after {
+  content: ",";
+}
+.postmeta-project  li:last-child:after {
+  content: "";
+}
+
 /* post's metadata*/
 .postmeta {
   background: #fff;
