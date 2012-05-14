@@ -8,7 +8,7 @@ Template Name: index
 get_header();
 ?>
 <article id="content">
-  <section id="hottopic">
+  <section id="hottopic" class="section">
     <h2>注目トピック</h2>
     <?php
       $cat = get_query_var('hot');
@@ -52,7 +52,7 @@ get_header();
 
           //start here document
           $content = <<< DOC
-            <section>
+            <section class="section">
               <time datetime="$datetime">
                 <span class="posted-year">$year</span>/
                 <span class="posted-month">$month</span>/
@@ -85,7 +85,7 @@ DOC;
     </div>
   </section>
 
-  <section id="blogfeed">
+  <section id="blogfeed" class="section">
     <h2>ブログフィード</h2>
     <?php
       $posts = get_posts('posts_per_page=5');

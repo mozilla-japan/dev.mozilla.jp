@@ -292,7 +292,7 @@ body #content {
   width: 680px;
 }
 
-#content > section {
+#content .section {
   background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
   border-bottom: 1px solid #DDDDDD;
@@ -310,11 +310,8 @@ body #content {
 }
 
 section#event {
-  background: none;
-  box-shadow: none;
   margin: 0;
   padding: 0;
-  border: none;
 }
 #event > h2 {
   display:none;
@@ -327,9 +324,6 @@ section#event {
 }
 #event section {
   display: block;
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
   margin: 0 0 10px;
   padding: 5px;
 }
