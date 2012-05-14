@@ -442,6 +442,9 @@ body #sidebar{
   appearance: textfield;
   box-shadow: 0 0 0 3px rgba(0,0,0,0.02) inset;
 }
+#searchform > #searchsubmit {
+  display: none;
+}
 
 /* footer */
 #footer {
