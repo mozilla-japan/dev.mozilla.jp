@@ -29,7 +29,6 @@
   <h3 id="about"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></h3>
 
   <div id="search">
-    <h3>検索</h3>
     <?php get_search_form(); ?>
   </div>
 
