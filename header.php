@@ -41,5 +41,10 @@
         <li><?php wp_loginout(); ?></li>
       </ol>
     </nav>
-    <h1><a href = "<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"></a></h1>
+    <h1>
+      <a href= "<?php bloginfo('url'); ?>">
+        <img alt="<?php bloginfo('name'); ?>"
+             src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"/>
+      </a>
+    </h1>
   </header>
