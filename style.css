@@ -313,9 +313,6 @@ section#event {
   margin: 0;
   padding: 0;
 }
-#event > h2 {
-  display:none;
-}
 #event > div {
   float: left;
   width: 50%;
