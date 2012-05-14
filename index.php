@@ -109,6 +109,7 @@ DOC;
         ?>
         <ul>
             <?php
+              /*
                 $catlist = get_the_category();
                 foreach ($catlist as $cat) :
                     $project_array = get_post(get_project_page_ID($cat->cat_ID));
@@ -118,6 +119,7 @@ DOC;
                         echo '<li><a href="'. $link .'">'. $link_text .'</a></li>';
                     endif;
                 endforeach;
+              */
             ?>
         </ul>
       </footer>
