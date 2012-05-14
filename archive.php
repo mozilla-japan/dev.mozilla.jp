@@ -7,104 +7,135 @@
 get_header();
 ?>
 
-<article id="content" class="narrowcolumn" role="main">
+<article id="content">
 
-  <div id="content_title">
-    <h1>modest <?php wp_title(); ?></h1>
-  </div>
+	<h1 class="post-title"><?php bloginfo('name') . wp_title(); ?></h1>
 
-<?php if (have_posts()) : ?>
+<?php
+	if (have_posts()) :
+?>
 
-  <nav class="navigation">
-    <?php wp_pagenavi(); ?>
-  </nav>
+	<nav class="navigation">
+		<?php wp_pagenavi(); ?>
+	</nav>
 
-<?php while (have_posts()) : the_post(); ?>
+<?php
+		while (have_posts()) :
+			the_post();
+?>
 
-  <article <?php post_class();
-             $flag = odd_even($flag);?>>
+	<article class="archive-post">
 
-    <?php post_icon(get_the_ID(),array(70,70)); ?>
+		<header class="archive-post_header">
+			<?php
+				post_icon(get_the_ID(),array(70,70));
+			?>
 
-    <?php
-      /*
-       * article's title
-       */
-      $postID = get_the_ID();
-      $permaLink = get_permalink();
-      $titleText = get_the_title();
-      echo('<h1 id="post-' . $postID . '"><a href="' . $permaLink . '">' . $titleText . '</a></h1>');
-    ?>
+			<?php
+				/*
+				* article's title
+				*/
+				$permaLink = get_permalink();
+				$titleText = get_the_title();
+				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
+			?>
 
-    <header class="post_header">
-      <?php
-        /* Show the post date */
-        $datetime = get_the_time('Y-m-d H:i:s');
-        $date = get_the_time('Y年n月d日 G:i:s');
-        echo('<time datetime="' . $datetime . '">'. $date . '</time>');
-      ?>
+			<?php
+				if (is_user_logged_in()) :
+					$edit_link = get_edit_post_link($the_id);
+					//here document
+					echo <<< DOC
+					<a href="$edit_link"
+					   class="edit_post button-white">編集する</a>
+DOC;
+				endif;
+			?>
+		</header>
 
-      <address>
-        <?php
-          /* 投稿者とアイコンを表示する */
-          $post = get_post(get_the_ID());
-          $userID = $post->post_author;
-          echo get_avatar($userID, 15);//avatar image
-          echo get_the_author_link();//auther link
-        ?>
-      </address>
-      <nav>
-        <?php
-          edit_post_link(__('編集', 'kubrick'), '', '');
-        ?>
-      </nav>
-    </header>
+		<footer class="meta-container">
 
-    <div class="entry">
-      <?php the_content() ?>
-    </div>
+			<div class="postmeta-project">
+				<ul class="meta-project-list">
+					<?php
+						$catlist = get_the_category();
+						foreach ($catlist as $cat) :
+							$project_array = get_post(get_project_page_ID($cat->cat_ID));
+							if ($project_array->post_type == 'project') :
+								$link = get_permalink($project_array->ID);
+								$link_text = $project_array->post_title;
+								//here doc:
+								echo <<< DOC
+								<li>
+									<a href="$link">$link_text</a>
+								</li>
+DOC;
+							endif;
+						endforeach;
+					?>
+				</ul>
+			</div>
 
-    <footer>
-      <p class="postmetadata">
-      <?php 
-        $post_type = get_post_type(get_the_ID());
-        the_tags_post_type('タグ:', ', ', '<br />', $post_type);
-        printf(__('Posted in %s', 'kubrick'), get_the_category_list_post_type(', ', '', false, $post_type));
-      ?>
-       | 
-      <?php
-        comments_popup_link(__('No Comments &#187;', 'kubrick'),
-                            __('1 Comment &#187;', 'kubrick'),
-                            __('% Comments &#187;', 'kubrick'),
-                            '',
-                            __('Comments Closed', 'kubrick') );
-      ?>
-      </p>
-    </footer>
+			<div class="postmeta">
 
-  </article>
+				<p class="postmeta-title">投稿者</p>
+				<address class="postmeta-content">
+					<?php
+						$post = get_post($the_id);
+						$userID = $post->post_author;
+						echo get_avatar($userID, 15);//avatar image
+						echo the_author_posts_link();//auther link
+					?>
+				</address>
 
-<?php endwhile; ?>
+				<p class="postmeta-title">投稿日時</p>
+				<div class="postmeta-content">
+					<?php
+						$datetime = get_the_time('Y-m-d H:i:s');
+						$date = get_the_time('Y年n月j日 G:i:s');
+						echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+					?>
+				</div>
 
-<nav class="navigation">
-  <?php wp_pagenavi(); ?>
-</nav>
+			</div>
 
-<?php else :
-if ( is_category() ) { // If this is a category archive
-  printf("<h2 class='center'>".__("Sorry, but there aren't any posts in the %s category yet.", 'kubrick').'</h2>', single_cat_title('',false));
-} else if ( is_date() ) { // If this is a date archive
-  echo('<h2>'.__("Sorry, but there aren't any posts with this date.", 'kubrick').'</h2>');
-} else if ( is_author() ) { // If this is a category archive
-  $userdata = get_userdatabylogin(get_query_var('author_name'));
-  printf("<h2 class='center'>".__("Sorry, but there aren't any posts by %s yet.", 'kubrick')."</h2>", $userdata->display_name);
-} else {
-  echo("<h2 class='center'>".__('No posts found.', 'kubrick').'</h2>');
-}
-get_search_form();
-endif;
+		</footer>
+
+		<div class="entry-body">
+			<?php the_content() ?>
+		</div>
+
+	</article>
+
+<?php
+		endwhile;
+?>
+
+	<nav class="navigation">
+		<?php wp_pagenavi(); ?>
+	</nav>
+
+<?php
+	else :
+		$string;
+		if ( is_category() ) { // If this is a category archive
+			$string = 'このカテゴリに関連付けられた投稿はありません。';
+		} else if ( is_date() ) { // If this is a date archive
+			$string = 'この日付に投稿された投稿はありません。';
+		} else if ( is_author() ) { // If this is a category archive
+			$userdata = get_userdatabylogin(get_query_var('author_name'));
+			$string = $userdata->display_name .'によって書かれた投稿はありません。';
+		} else {
+			$string = '投稿が見つかりません。';
+		}
+		echo <<< DOC
+			<p class="postmeta">$string</p>
+DOC;
+			get_search_form();
+	endif;
 ?>
 
 </article>
 
-<?php get_footer(); ?>
+<?php
+	get_footer();
+?>
