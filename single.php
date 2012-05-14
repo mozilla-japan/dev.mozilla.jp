@@ -42,7 +42,7 @@ DOC;
 	</header>
 
 	<footer class="meta-container">
-		<ul class="postmeta-project">
+		<ul class="postmeta-project meta-project-list">
 			<?php
 				$catlist = get_the_category();
 				foreach ($catlist as $cat) :

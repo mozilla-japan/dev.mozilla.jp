@@ -63,15 +63,15 @@ a:hover,a:active{
   box-shadow: inset 0 0 3px rgba(0,0,0,.1);
   font: .785em/1.1 "Open Sans Regular", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
-.postmeta-project  li {
+.meta-project-list > li {
   display: inline-block;
   list-style-type: none;
   margin-right: .5em;
 }
-.postmeta-project  li:after {
+.meta-project-list > li:after {
   content: ",";
 }
-.postmeta-project  li:last-child:after {
+.meta-project-list > li:last-child:after {
   content: "";
 }
 

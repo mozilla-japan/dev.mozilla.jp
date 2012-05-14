@@ -107,7 +107,7 @@ DOC;
           $date = get_the_time('y-m-d (D)');
           echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
-        <ul>
+        <ul class="meta-project-list">
             <?php
               /*
                 $catlist = get_the_category();
