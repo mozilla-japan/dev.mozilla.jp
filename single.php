@@ -29,46 +29,40 @@ get_header();
 
 		<h1><?php the_title(); ?></h1>
 
-		<dl>
-			<div class="postmeta-project">
-				<dt>プロジェクト</dt>
-				<dd>
-					<ul>
-						<?php
-							$catlist = get_the_category();
-							foreach ($catlist as $cat) :
-								$project_array = get_post(get_project_page_ID($cat->cat_ID));
-								if ($project_array->post_type == 'project') :
-									echo '<li><a href="'. get_permalink($project_array->ID) .'">';
-									echo $project_array->post_title;
-									echo '</a></li>';
-								endif;
-							endforeach;
-						?>
-					</ul>
-				</dd>
-			</div>
-			<div class="postmeta">
-				<dt>投稿者</dt>
-				<dd>
-					<address>
-						<?php
-							$post = get_post($the_id);
-							$userID = $post->post_author;
-							echo get_avatar($userID, 15);//avatar image
-							echo the_author_posts_link();//auther link
-						?>
-					</address>
-				</dd>
-				<dt>投稿日時</dt>
-				<dd>
+		<ul class="postmeta-project">
+			<?php
+				$catlist = get_the_category();
+				foreach ($catlist as $cat) :
+					$project_array = get_post(get_project_page_ID($cat->cat_ID));
+					if ($project_array->post_type == 'project') :
+						echo '<li><a href="'. get_permalink($project_array->ID) .'">';
+						echo $project_array->post_title;
+						echo '</a></li>';
+					endif;
+				endforeach;
+			?>
+		</ul>
+
+		<dl class="postmeta">
+			<dt>投稿者</dt>
+			<dd>
+				<address>
 					<?php
-						$datetime = get_the_time('Y-m-d H:i:s');
-						$date = get_the_time('Y年n月d日 G:i:s');
-						echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+						$post = get_post($the_id);
+						$userID = $post->post_author;
+						echo get_avatar($userID, 15);//avatar image
+						echo the_author_posts_link();//auther link
 					?>
-				</dd>
-			</div>
+				</address>
+			</dd>
+			<dt>投稿日時</dt>
+			<dd>
+				<?php
+					$datetime = get_the_time('Y-m-d H:i:s');
+					$date = get_the_time('Y年n月d日 G:i:s');
+					echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+				?>
+			</dd>
 		</dl>
 
 		<div id="edit_post button-blue">
