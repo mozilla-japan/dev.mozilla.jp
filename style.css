@@ -399,13 +399,27 @@ body #sidebar{
   padding: 0;
   margin: 0;
 }
+#sidebar > * {
+  padding-bottom: 20px;
+  border-bottom: 1px dotted rgb(204, 204, 204);
+}
+#sidebar > .button-group {
+  padding: 0;
+}
+#sidebar > *:last-child {
+  border-bottom: none;
+}
 #sidebar ul {
   padding-left: 0;
   margin-left: 15px;
 }
 #sidebar ul > li {
   list-style-type: none;
-  padding: 5px;
+  border-bottom: 1px dotted rgb(204, 204, 204);
+}
+#sidebar ul a {
+  padding: 8px 0;
+  display: block;
 }
 #sidebar .button-blue {
   display:block;
