@@ -93,24 +93,35 @@ DOC;
         foreach($posts as $post):
           setup_postdata($post);
     ?>
-    <section>
+    <article class="blogfeed-article">
       <header>
         <h1>
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
             <?php the_title(); ?>
           </a>
         </h1>
+      </header>
+      <footer class="postmeta">
         <?php
           $datetime = get_the_time('Y-m-d');
           $date = get_the_time('y-m-d (D)');
           echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
-      </header>
-      <p><?php the_excerpt(); ?></p>
-      <footer>
-        <?php the_category(); ?>
+        <ul>
+            <?php
+                $catlist = get_the_category();
+                foreach ($catlist as $cat) :
+                    $project_array = get_post(get_project_page_ID($cat->cat_ID));
+                    $link = get_permalink($project_array->ID);
+                    $link_text = $project_array->post_title;
+                    if ($project_array->post_type == 'project') :
+                        echo '<li><a href="'. $link .'">'. $link_text .'</a></li>';
+                    endif;
+                endforeach;
+            ?>
+        </ul>
       </footer>
-    </section>
+    </article>
     <?php
         endforeach;
       endif;
