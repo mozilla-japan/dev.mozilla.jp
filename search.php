@@ -7,7 +7,7 @@
 get_header(); ?>
 
 
-<div id="content" class="narrowcolumn" role="main">
+<article id="content" role="main">
   <?php if (have_posts()) : ?>
   <h2 class="pagetitle">
 	<?php _e('Search Results', 'kubrick'); ?></h2>

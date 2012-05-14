@@ -85,7 +85,7 @@ DOC;
     </div>
   </section>
 
-  <section id="blogfeed" class="section">
+  <section id="blogfeed">
     <h2>ブログフィード</h2>
     <?php
       $posts = get_posts('posts_per_page=5');
