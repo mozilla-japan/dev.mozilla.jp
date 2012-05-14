@@ -47,10 +47,15 @@ DOC;
 				$catlist = get_the_category();
 				foreach ($catlist as $cat) :
 					$project_array = get_post(get_project_page_ID($cat->cat_ID));
+					$link = get_permalink($project_array->ID);
+					$link_text = $project_array->post_title;
 					if ($project_array->post_type == 'project') :
-						echo '<li><a href="'. get_permalink($project_array->ID) .'">';
-						echo $project_array->post_title;
-						echo '</a></li>';
+						//here doc:
+						echo <<< DOC
+							<li>
+								<a href="$link">$link_text</a>
+							</li>
+DOC;
 					endif;
 				endforeach;
 			?>
