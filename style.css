@@ -65,11 +65,15 @@ a:hover,a:active{
 .postmeta-project {
   clear: both;
   border-bottom: 1px solid rgba(255,255,255,.5);
-  margin: 24px 0 0;
+  margin: 24px 0;
   padding: 12px 24px 8px;
   background: rgba(0,0,0,.02);
   box-shadow: inset 0 0 3px rgba(0,0,0,.1);
   font: .785em/1.1 "Open Sans Regular", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+.meta-project-list {
+  padding: 0;
+  margin: 0;
 }
 .meta-project-list > li {
   display: inline-block;
@@ -92,6 +96,7 @@ a:hover,a:active{
   background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
   padding: 10px 20px;
+  margin: 24px 0;
 }
 .postmeta .postmeta-title {
   display: none;
