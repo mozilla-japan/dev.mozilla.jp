@@ -104,7 +104,7 @@ DOC;
       <footer class="postmeta">
         <?php
           $datetime = get_the_time('Y-m-d');
-          $date = get_the_time('y-m-d (D)');
+          $date = get_the_time('Y年n月j日');
           echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
         <ul class="meta-project-list">
