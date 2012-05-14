@@ -16,7 +16,7 @@
          type="text"
          name="s"
          value="<?php the_search_query(); ?>"
-         placeholder="modestを検索する" />
+         placeholder="modest を検索" />
   <input id="searchsubmit"
          class="button-white"
          type="submit"
