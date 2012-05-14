@@ -29,6 +29,20 @@ get_header();
 
 		<h1><?php the_title(); ?></h1>
 
+		<ul class="postmeta-project">
+			<?php
+				$catlist = get_the_category();
+				foreach ($catlist as $cat) :
+					$project_array = get_post(get_project_page_ID($cat->cat_ID));
+					if ($project_array->post_type == 'project') :
+						echo '<li><a href="'. get_permalink($project_array->ID) .'">';
+						echo $project_array->post_title;
+						echo '</a></li>';
+					endif;
+				endforeach;
+			?>
+		</ul>
+
 		<dl class="postmeta">
 			<dt>投稿者</dt>
 			<dd>
@@ -48,22 +62,6 @@ get_header();
 					$date = get_the_time('Y年n月d日 G:i:s');
 					echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 				?>
-			</dd>
-			<dt>プロジェクト</dt>
-			<dd>
-        <ul>
-				<?php
-           $catlist = get_the_category();
-           foreach($catlist as $cat){
-					   $project_array = get_post(get_project_page_ID($cat->cat_ID));
-             if($project_array->post_type == 'project'){
-               echo '<li><a href="'. get_permalink($project_array->ID) .'">';
-               echo $project_array->post_title;
-               echo '</a></li>';
-             }
-           }
-				?>
-        </ul>
 			</dd>
 		</dl>
 
