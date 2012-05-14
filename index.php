@@ -92,7 +92,6 @@ DOC;
       if($posts):
         foreach($posts as $post):
           setup_postdata($post);
-          $id = get_the_ID();
     ?>
     <article class="blogfeed-article">
       <header>
@@ -110,7 +109,7 @@ DOC;
         ?>
         <ul>
             <?php
-                $catlist = get_the_category($id);
+                $catlist = get_the_category();
                 foreach ($catlist as $cat) :
                     $project_array = get_post(get_project_page_ID($cat->cat_ID));
                     $link = get_permalink($project_array->ID);
