@@ -40,9 +40,11 @@ a:hover,a:active{
   color: #872727;
   text-decoration:underline;
 }
-.entry-header > h1 {
+.post-title {
   font-size: 2em;
   font-weight: normal;
+}
+.entry-header > .post-title {
   margin-bottom: 12px;
 }
 .entry-body {
