@@ -45,6 +45,9 @@ a:hover,a:active{
   font-weight: normal;
   margin-bottom: 12px;
 }
+.entry-body {
+  text-align: justify;
+}
 
 .navigation {
   display: block;
@@ -318,7 +321,6 @@ body {
   display: block;
   float: left;
   width: 680px;
-  text-align: justify;
   padding: 15px 0;
 }
 
