@@ -19,6 +19,10 @@ get_header();
 		$the_id = get_the_ID();
 	?>
 	<header class="entry-header">
+		<div class="breadcrumbs">
+			<?php breadcrumbs($the_id); ?>
+		</div>
+
 		<?php
 			post_icon($the_id,array(120,120));
 		?>
@@ -98,14 +102,12 @@ DOC;
 
 	<?php comments_template(); ?>
 
-	<?php
-			endwhile;
-		else:
-	?>
-		<p><?php _e('Sorry, no posts matched your criteria.', 'kubrick'); ?></p>
-	<?php
-		endif;
-	?>
+<?php
+		endwhile;
+	else:
+		echo '<p>Sorry, no posts matched your criteria</p>';
+	endif;
+?>
 
 </article>
 
