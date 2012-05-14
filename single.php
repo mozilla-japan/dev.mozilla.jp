@@ -29,6 +29,14 @@ get_header();
 
 		<h1><?php the_title(); ?></h1>
 
+		<div id="edit_post button-blue">
+			<?php
+				edit_post_link("編集する","","");
+			?>
+		</div>
+	</header>
+
+	<footer class="meta-container">
 		<ul class="postmeta-project">
 			<?php
 				$catlist = get_the_category();
@@ -64,13 +72,7 @@ get_header();
 				?>
 			</dd>
 		</dl>
-
-		<div id="edit_post button-blue">
-			<?php
-				edit_post_link("編集する","","");
-			?>
-		</div>
-	</header>
+	</footer>
 
 	<div class="entry-body">
 		<?php
