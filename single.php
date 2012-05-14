@@ -27,8 +27,6 @@ get_header();
 			post_icon($the_id,array(120,120));
 		?>
 
-		<h1><?php the_title(); ?></h1>
-
 		<?php
 			if (is_user_logged_in()) :
 				$edit_link = get_edit_post_link($the_id);
@@ -39,6 +37,9 @@ get_header();
 DOC;
 			endif;
 		?>
+
+		<h1 class="post-title"><?php the_title(); ?></h1>
+
 	</header>
 
 	<footer class="meta-container">

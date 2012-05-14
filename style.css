@@ -53,6 +53,14 @@ a:hover,a:active{
   padding: 10px;
 }
 
+/* entry's header*/
+.edit_post {
+  float: right;
+}
+.edit_post + * {
+  clear: both;
+}
+
 /* post's project list */
 .postmeta-project {
   clear: both;
