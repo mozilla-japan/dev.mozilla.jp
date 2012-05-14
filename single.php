@@ -29,7 +29,7 @@ get_header();
 
 		<h1><?php the_title(); ?></h1>
 
-		<div id="edit_post button-white">
+		<div class="edit_post button-white">
 			<?php
 				edit_post_link("編集する","","");
 			?>
