@@ -430,7 +430,17 @@ body #sidebar{
   display: none;
 }
 #searchform > #s {
-  width: 12em;
+  padding: 6px 5px;
+  width: 94%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "Open Sans Regular", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  background: rgba(255,255,255,.8);
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  -o-appearance: textfield;
+  appearance: textfield;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.02) inset;
 }
 
 /* footer */
