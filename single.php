@@ -19,10 +19,6 @@ get_header();
 		$the_id = get_the_ID();
 	?>
 	<header class="entry-header">
-		<div class="breadcrumbs">
-			<?php breadcrumbs($the_id); ?>
-		</div>
-
 		<?php
 			post_icon($the_id,array(120,120));
 		?>
