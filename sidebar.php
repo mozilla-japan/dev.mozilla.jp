@@ -20,8 +20,6 @@
     <?php if( is_user_logged_in() ) : ?>
       <h3><a href="<?php echo get_add_project_url(); ?>" class="button-blue">プロジェクトを作成</a></h3>
 
-      <h3><?php wp_loginout(); ?></h3>
-
     <?php endif; ?>
 
   </div>
