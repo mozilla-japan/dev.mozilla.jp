@@ -93,18 +93,18 @@ a:hover,a:active{
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
   padding: 10px 20px;
 }
-.postmeta dt {
+.postmeta .postmeta-title {
   display: none;
 }
-.postmeta dd {
+.postmeta .postmeta-content {
   display: inline-block;
 }
-.postmeta dd {
+.postmeta .postmeta-content {
   margin: 0 10px 0 0;
   padding-right: 10px;
   border-right: 1px solid #DDDDDD;
 }
-.postmeta dd:last-child {
+.postmeta .postmeta-content:last-child {
   margin-right: 0;
   border-right: none;
 }

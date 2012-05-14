@@ -43,46 +43,46 @@ DOC;
 	</header>
 
 	<footer class="meta-container">
-		<ul class="postmeta-project meta-project-list">
-			<?php
-				$catlist = get_the_category();
-				foreach ($catlist as $cat) :
-					$project_array = get_post(get_project_page_ID($cat->cat_ID));
-					$link = get_permalink($project_array->ID);
-					$link_text = $project_array->post_title;
-					if ($project_array->post_type == 'project') :
-						//here doc:
-						echo <<< DOC
-							<li>
-								<a href="$link">$link_text</a>
-							</li>
+		<div class="postmeta-project">
+			<ul class="meta-project-list">
+				<?php
+					$catlist = get_the_category();
+					foreach ($catlist as $cat) :
+						$project_array = get_post(get_project_page_ID($cat->cat_ID));
+						$link = get_permalink($project_array->ID);
+						$link_text = $project_array->post_title;
+						if ($project_array->post_type == 'project') :
+							//here doc:
+							echo <<< DOC
+								<li>
+									<a href="$link">$link_text</a>
+								</li>
 DOC;
-					endif;
-				endforeach;
-			?>
-		</ul>
+						endif;
+					endforeach;
+				?>
+			</ul>
+		</div>
 
-		<dl class="postmeta">
-			<dt>投稿者</dt>
-			<dd>
-				<address>
-					<?php
-						$post = get_post($the_id);
-						$userID = $post->post_author;
-						echo get_avatar($userID, 15);//avatar image
-						echo the_author_posts_link();//auther link
-					?>
-				</address>
-			</dd>
-			<dt>投稿日時</dt>
-			<dd>
+		<div class="postmeta">
+			<p class="postmeta-title">投稿者</p>
+			<address class="postmeta-content">
+				<?php
+					$post = get_post($the_id);
+					$userID = $post->post_author;
+					echo get_avatar($userID, 15);//avatar image
+					echo the_author_posts_link();//auther link
+				?>
+			</address>
+			<p class="postmeta-title">投稿日時</p>
+			<div class="postmeta-content">
 				<?php
 					$datetime = get_the_time('Y-m-d H:i:s');
 					$date = get_the_time('Y年n月j日 G:i:s');
 					echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 				?>
-			</dd>
-		</dl>
+			</div>
+		</div>
 	</footer>
 
 	<div class="entry-body">
