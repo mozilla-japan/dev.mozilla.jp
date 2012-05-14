@@ -77,7 +77,7 @@ DOC;
 			<dd>
 				<?php
 					$datetime = get_the_time('Y-m-d H:i:s');
-					$date = get_the_time('Y年n月d日 G:i:s');
+					$date = get_the_time('Y年n月j日 G:i:s');
 					echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 				?>
 			</dd>
