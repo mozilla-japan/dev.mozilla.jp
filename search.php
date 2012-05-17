@@ -101,7 +101,7 @@ DOC;
     <?php wp_pagenavi(); ?>
   </nav>
   <?php else : ?>
-  <h2 class="center">残念ながら、キーワードに一致する記事は見つけられませんでした。<br>別のキーワードをお試しください。</h2>
+  <h1 class="post-title"><p>残念ながら、キーワードに一致する記事は<br>見つけられませんでした。<br>別のキーワードをお試しください。</p></h1>
   <?php get_search_form(); ?>
   <?php endif; ?>
 </div>
