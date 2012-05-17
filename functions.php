@@ -685,9 +685,9 @@ function the_project_list_of_the_post ($postId) {
 DOC;
 }
 /* print a time of the post */
-function the_time_of_the_post ($postId) {
+function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
   $datetime = get_the_time('Y-m-d H:i:s', false, $postId);
-  $date = get_the_time('Y年n月j日 G:i:s', false, $postId);
+  $date = get_the_time($format, false, $postId);
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 }
 

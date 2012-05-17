@@ -104,7 +104,7 @@ DOC;
       </header>
       <footer class="postmeta">
         <?php
-          the_time_of_the_post($the_id);
+          the_time_of_the_post($the_id, 'Y年n月j日');
         ?>
         <?php
           the_project_list_of_the_post($the_id);
