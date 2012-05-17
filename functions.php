@@ -513,43 +513,6 @@ function my_form_tag_filter($tag){
 	return $tag;
 }
 
-/*
- * RSS読み込み
- */
-include_once("./wp-load.php");
-include_once(ABSPATH . WPINC . '/rss.php'); //MagpieRSS of Wordpress
-//RSSのキャッシュ設定
-define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
-define('MAGPIE_CACHE_DIR', './cache');
-define('MAGPIE_FETCH_TIME_OUT', 40);
-define('MAGPIE_CACHE_AGE', 15*60);
-
-function mixed_rss($rssURL){
-    foreach($rssURL as $key => $val){
-        $rssObj = fetch_rss($val);
-        $items[$key] = $rssObj->items;
-        $btitle = $rssObj->channel['title'];
-        $blink = $rssObj->channel['link'];
-        foreach($items[$key] as $item){
-            $item["btitle"] = $btitle;
-            $item["blink"] = $blink;
-            $entry[] = $item;
-            if(isset($item["pubdate"])){
-                $entryDate[] = strtotime($item["pubdate"]);
-            }
-            if(isset($item["dc"]["date"])){
-                $entryDate[] = strtotime($item["bc"]["date"]);
-            }
-        }
-    }
-    array_multisort($entryDate,SORT_DESC,SORT_NUMERIC,$entry);
-    return $entry;
-}
-
-/*
- *　ここまでRSSに関する記述
- */
-
 /**ポストアイコン**/
 function post_icon($id,$size=array(80,80)){
   echo "<div class='post_icon'>";
