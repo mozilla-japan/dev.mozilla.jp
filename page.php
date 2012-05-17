@@ -3,27 +3,39 @@
  * @package WordPress
  * @subpackage modest3
  */
+get_header();
+?>
 
-get_header(); ?>
+<article id="content"
+         role="main">
 
-<div id="content" class="narrowcolumn" role="main">
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div class="post" id="post-<?php the_ID(); ?>">
-		<h1><?php the_title(); ?></h1>
-			<div class="entry">
-			</div>
-		</div>
-		<?php endwhile; endif; ?>
+	<?php
+		if (have_posts()) :
+			while (have_posts()) :
+				the_post();
+	?>
 
-	<?php the_content('<p class="serif">' . __('Read the rest of this page &raquo;', 'kubrick') . '</p>'); ?>
+	<header class="entry-header">
 
- 	<?php wp_link_pages(array('before' => '<p><strong>' . __('Pages:', 'kubrick') . '</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+		<h1 class="post-title"><?php the_title(); ?></h1>
 
-	<?php/* edit_post_link(__('Edit this entry.', 'kubrick'), '<p>', '</p>');*/ ?>
-	
-	<?php/* comments_template();*/ ?> 
-	
+	</header>
+
+
+	<div class="entry-body">
+		<?php
+			the_content('‘±‚«‚ð“Ç‚Þ');
+		?>
 	</div>
 
-	<?php/* get_sidebar();*/ ?>
-	<?php get_footer(); ?>
+
+<?php
+		endwhile;
+	else:
+		echo '<p>Sorry, no posts matched your criteria</p>';
+	endif;
+?>
+
+</article>
+
+<?php get_footer(); ?>
