@@ -550,15 +550,6 @@ function mixed_rss($rssURL){
  *　ここまでRSSに関する記述
  */
 
-/*
- * RSSフィードで時刻がグリニッチ標準時で出てくるものを日本標準時に直す．
- */
-date_default_timezone_set('Asia/Tokyo');
-/*
- * RSSフィードで時刻がグリニッチ標準時で出てくるものを日本標準時に直す．
- */
-
-
 /**ポストアイコン**/
 function post_icon($id,$size=array(80,80)){
   echo "<div class='post_icon'>";
