@@ -61,6 +61,11 @@ a:hover,a:active{
   padding: 10px;
 }
 
+/* archive */
+.archive-post {
+  margin-bottom: 5em;
+}
+
 /* entry's header*/
 .edit_post {
   float: right;
