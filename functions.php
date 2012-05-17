@@ -653,6 +653,18 @@ function get_the_term_list_post_type( $id = 0, $taxonomy, $before = '', $sep = '
   return $before . join( $sep, $term_links ) . $after;
 }
 
+/* print the link of editing the post */
+function edit_the_link ($postId) {
+  if (is_user_logged_in()) :
+    $edit_link = get_edit_post_link($postId);
+    //here document
+    echo <<< DOC
+      <a href="$edit_link"
+         class="edit_post button-white">編集する</a>
+DOC;
+  endif;
+}
+
 /* return the url of "projects" page (string) */
 function get_project_url () {
   $base = get_bloginfo('url');

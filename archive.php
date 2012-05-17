@@ -24,6 +24,10 @@ get_header();
 			the_post();
 ?>
 
+	<?php
+		$the_id = get_the_ID();
+	?>
+
 	<article class="archive-post">
 
 		<header class="archive-post_header">
@@ -32,14 +36,7 @@ get_header();
 			?>
 
 			<?php
-				if (is_user_logged_in()) :
-					$edit_link = get_edit_post_link($the_id);
-					//here document
-					echo <<< DOC
-					<a href="$edit_link"
-					   class="edit_post button-white">編集する</a>
-DOC;
-				endif;
+				edit_the_link($the_id);
 			?>
 
 			<?php
