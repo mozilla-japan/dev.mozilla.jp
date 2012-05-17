@@ -141,7 +141,9 @@ a:hover,a:active{
   margin-top: 2.2em;
   margin-bottom: 0.25em;
 }
-
+.entry-body > *:first-child {
+  margin-top: 1em;
+}
 
 /*
  * Mozilla Sandstone
