@@ -39,7 +39,6 @@
     wp_head();
   ?>
 
-  <?php wp_enqueue_script('jquery'); ?>
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/ga.js" async defer></script>
 </head>
 <body <?php body_class(); ?>>
