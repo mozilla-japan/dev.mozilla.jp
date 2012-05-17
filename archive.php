@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<nav class="navigation">
-		<?php wp_pagenavi(); ?>
+		<?php navigation_bar(); ?>
 	</nav>
 
 <?php
@@ -110,7 +110,7 @@ DOC;
 ?>
 
 	<nav class="navigation">
-		<?php wp_pagenavi(); ?>
+		<?php navigation_bar(); ?>
 	</nav>
 
 <?php
