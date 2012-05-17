@@ -859,4 +859,17 @@ function my_scripts(){
 }
 add_action('admin_print_scripts', 'my_scripts');
 
+  /*アドオンが見つからない場合に元のナビゲーションバーを表示する。*/
+function navigation_bar(){
+  if(function_exists('wp_pagenavi')){
+    wp_pagenavi();
+  }else{
+    echo '<div class="alignleft">';
+    previous_posts_link(__('&laquo; 新しい投稿へ', 'kubrick'));
+    echo '</div>';
+    echo '<div class="alignright">';
+    next_posts_link(__('前の投稿へ &raquo;', 'kubrick'));
+    echo '</div>';
+  }
+}
 ?>
