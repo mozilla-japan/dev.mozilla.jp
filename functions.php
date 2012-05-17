@@ -234,7 +234,6 @@ function create_Event(){
             'label' => 'イベント',
             'labels' => $labels,
             'public' => true,
-            'rewrite' => array('slug' => 'event'),
             'menu_position' => 4,
             'has_archive' => 'event',
             'taxonomies' => array('post_tag','category'),
