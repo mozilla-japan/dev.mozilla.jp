@@ -607,24 +607,6 @@ function my_category_tag_cloud($args) {
   echo $return;
 }
 
-/**投稿の偶奇カラー設定**/
-/**使い方 ループ内で 
-   $flag = odd_even($flag);
-**/
-function odd_even($color_flag){
-  /*
-   *投稿の種類によって背景の色を変更する
-   */
-  if($color_flag == false){
-    $color_flag = true;
-    echo ' id="odd_post"';
-  }else if($color_flag == true){
-    $color_flag = false;
-    echo ' id="even_post"';
-  }
-  return $color_flag;
-}
-
 /**ポストアイコン**/
 function post_icon($id,$size=array(80,80)){
   echo "<div class='post_icon'>";
