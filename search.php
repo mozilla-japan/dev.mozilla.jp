@@ -12,7 +12,7 @@ get_header(); ?>
   <h2 class="pagetitle">
 	<?php _e('Search Results', 'kubrick'); ?></h2>
   <nav class="navigation">
-    <?php wp_pagenavi(); ?>
+    <?php navigation_bar(); ?>
   </nav>
   <?php while (have_posts()) : the_post(); ?>
   	<article class="archive-post">
@@ -91,7 +91,7 @@ DOC;
 
   <?php endwhile; ?>
   <nav class="navigation">
-    <?php wp_pagenavi(); ?>
+    <?php navigation_bar(); ?>
   </nav>
   <?php else : ?>
   <h1 class="post-title"><p>残念ながら、キーワードに一致する記事は<br>見つけられませんでした。<br>別のキーワードをお試しください。</p></h1>

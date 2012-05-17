@@ -25,7 +25,7 @@ get_header();
                                     "orderby" => "date"));
       ?>
       <nav class="navigation">
-        <?php wp_pagenavi(); ?>
+        <?php navigation_bar(); ?>
       </nav>
       <?php
         if(have_posts()) :
@@ -55,7 +55,7 @@ get_header();
        endif;
     ?>
     <nav class="navigation">
-      <?php wp_pagenavi(); ?>
+      <?php navigation_bar(); ?>
     </nav>
 </article>
 
