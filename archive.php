@@ -24,6 +24,10 @@ get_header();
 			the_post();
 ?>
 
+	<?php
+		$the_id = get_the_ID();
+	?>
+
 	<article class="archive-post">
 
 		<header class="archive-post_header">
@@ -32,14 +36,7 @@ get_header();
 			?>
 
 			<?php
-				if (is_user_logged_in()) :
-					$edit_link = get_edit_post_link($the_id);
-					//here document
-					echo <<< DOC
-					<a href="$edit_link"
-					   class="edit_post button-white">編集する</a>
-DOC;
-				endif;
+				edit_the_link($the_id);
 			?>
 
 			<?php
@@ -55,24 +52,9 @@ DOC;
 		<footer class="meta-container">
 
 			<div class="postmeta-project">
-				<ul class="meta-project-list">
-					<?php
-						$catlist = get_the_category();
-						foreach ($catlist as $cat) :
-							$project_array = get_post(get_project_page_ID($cat->cat_ID));
-							if ($project_array->post_type == 'project') :
-								$link = get_permalink($project_array->ID);
-								$link_text = $project_array->post_title;
-								//here doc:
-								echo <<< DOC
-								<li>
-									<a href="$link">$link_text</a>
-								</li>
-DOC;
-							endif;
-						endforeach;
-					?>
-				</ul>
+				<?php
+					the_project_list_of_the_post($the_id);
+				?>
 			</div>
 
 		</footer>
@@ -95,9 +77,7 @@ DOC;
 				<p class="postmeta-title">投稿日時</p>
 				<div class="postmeta-content">
 					<?php
-						$datetime = get_the_time('Y-m-d H:i:s');
-						$date = get_the_time('Y年n月j日 G:i:s');
-						echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+						the_time_of_the_post($the_id);
 					?>
 				</div>
 			</div>

@@ -683,6 +683,44 @@ function get_the_term_list_post_type( $id = 0, $taxonomy, $before = '', $sep = '
   return $before . join( $sep, $term_links ) . $after;
 }
 
+/* print the link of editing the post */
+function edit_the_link ($postId) {
+  if (is_user_logged_in()) :
+    $edit_link = get_edit_post_link($postId);
+    //here document
+    echo <<< DOC
+      <a href="$edit_link"
+         class="edit_post button-white">編集する</a>
+DOC;
+  endif;
+}
+/* print the project list which the post is releted to */
+function the_project_list_of_the_post ($postId) {
+  $catlist = get_the_category($postId);
+  $list = '';
+  foreach ($catlist as $cat) :
+    $project_array = get_post(get_project_page_ID($cat->cat_ID));
+    if ($project_array->post_type === 'project') :
+      $link = get_permalink($project_array->ID);
+      $link_text = $project_array->post_title;
+      $list .= ('<li><a href="'. $link .'">'. $link_text .'</a></li>');
+    endif;
+  endforeach;
+
+  // here doc:
+  echo <<< DOC
+  <ul class="meta-project-list">
+    $list
+  </ul>
+DOC;
+}
+/* print a time of the post */
+function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
+  $datetime = get_the_time('Y-m-d H:i:s', false, $postId);
+  $date = get_the_time($format, false, $postId);
+  echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+}
+
 /* return the url of "projects" page (string) */
 function get_project_url () {
   $base = get_bloginfo('url');

@@ -92,6 +92,7 @@ DOC;
       if($posts):
         foreach($posts as $post):
           setup_postdata($post);
+          $the_id = get_the_ID();
     ?>
     <article class="blogfeed-article">
       <header>
@@ -103,23 +104,11 @@ DOC;
       </header>
       <footer class="postmeta">
         <?php
-          $datetime = get_the_time('Y-m-d');
-          $date = get_the_time('Y年n月j日');
-          echo '<time datetime="' . $datetime . '">'. $date . '</time>';
+          the_time_of_the_post($the_id, 'Y年n月j日');
         ?>
-        <ul class="meta-project-list">
-            <?php
-                $catlist = get_the_category();
-                foreach ($catlist as $cat) :
-                    $project_array = get_post(get_project_page_ID($cat->cat_ID));
-                    $link = get_permalink($project_array->ID);
-                    $link_text = $project_array->post_title;
-                    if ($project_array->post_type == 'project') :
-                        echo '<li><a href="'. $link .'">'. $link_text .'</a></li>';
-                    endif;
-                endforeach;
-            ?>
-        </ul>
+        <?php
+          the_project_list_of_the_post($the_id);
+        ?>
       </footer>
     </article>
     <?php
