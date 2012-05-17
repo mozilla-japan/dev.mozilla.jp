@@ -294,6 +294,9 @@ body {
 }
 
 /* header */
+.site-logo-image {
+  border: none;
+}
 #header-nav {
   float: right;
   text-transform: uppercase;

@@ -43,7 +43,8 @@
     </nav>
     <h1>
       <a href= "<?php bloginfo('url'); ?>">
-        <img alt="<?php bloginfo('name'); ?>"
+        <img class="site-logo-image"
+             alt="<?php bloginfo('name'); ?>"
              src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"/>
       </a>
     </h1>
