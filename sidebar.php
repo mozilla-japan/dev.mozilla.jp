@@ -7,7 +7,7 @@
 
 <nav id="sidebar">
 
-  <div class="button-group">
+  <div id="sidebar-button-group">
 
     <?php if(is_user_logged_in() == false) : ?>
       <h3><a href="<?php echo get_join_modest_url(); ?>" class="button-blue">ログインする/参加する</a></h3>
