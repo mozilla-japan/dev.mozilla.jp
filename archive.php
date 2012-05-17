@@ -75,8 +75,14 @@ DOC;
 				</ul>
 			</div>
 
-			<div class="postmeta">
+		</footer>
 
+		<div class="entry-body">
+			<?php the_content() ?>
+		</div>
+
+		<footer class="entry-footer">
+			<div class="postmeta">
 				<p class="postmeta-title">投稿者</p>
 				<address class="postmeta-content">
 					<?php
@@ -86,7 +92,6 @@ DOC;
 						echo the_author_posts_link();//auther link
 					?>
 				</address>
-
 				<p class="postmeta-title">投稿日時</p>
 				<div class="postmeta-content">
 					<?php
@@ -95,14 +100,8 @@ DOC;
 						echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 					?>
 				</div>
-
 			</div>
-
 		</footer>
-
-		<div class="entry-body">
-			<?php the_content() ?>
-		</div>
 
 	</article>
 
