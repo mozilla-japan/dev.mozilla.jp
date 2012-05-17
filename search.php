@@ -12,7 +12,7 @@ get_header(); ?>
   <h2 class="pagetitle">
 	<?php _e('Search Results', 'kubrick'); ?></h2>
   <nav class="navigation">
-    <?php navigation_bar(); ?>
+    <?php wp_pagenavi(); ?>
   </nav>
   <?php while (have_posts()) : the_post(); ?>
   	<article class="archive-post">
