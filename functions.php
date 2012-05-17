@@ -664,6 +664,26 @@ function edit_the_link ($postId) {
 DOC;
   endif;
 }
+/* print the project list which the post is releted to */
+function the_project_list_of_the_post ($postId) {
+  $catlist = get_the_category($postId);
+  $list = '';
+  foreach ($catlist as $cat) :
+    $project_array = get_post(get_project_page_ID($cat->cat_ID));
+    if ($project_array->post_type === 'project') :
+      $link = get_permalink($project_array->ID);
+      $link_text = $project_array->post_title;
+      $list .= ('<li><a href="'. $link .'">'. $link_text .'</a></li>');
+    endif;
+  endforeach;
+
+  // here doc:
+  echo <<< DOC
+  <ul class="meta-project-list">
+    $list
+  </ul>
+DOC;
+}
 
 /* return the url of "projects" page (string) */
 function get_project_url () {

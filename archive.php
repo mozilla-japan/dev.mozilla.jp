@@ -52,24 +52,9 @@ get_header();
 		<footer class="meta-container">
 
 			<div class="postmeta-project">
-				<ul class="meta-project-list">
-					<?php
-						$catlist = get_the_category();
-						foreach ($catlist as $cat) :
-							$project_array = get_post(get_project_page_ID($cat->cat_ID));
-							if ($project_array->post_type == 'project') :
-								$link = get_permalink($project_array->ID);
-								$link_text = $project_array->post_title;
-								//here doc:
-								echo <<< DOC
-								<li>
-									<a href="$link">$link_text</a>
-								</li>
-DOC;
-							endif;
-						endforeach;
-					?>
-				</ul>
+				<?php
+					the_project_list_of_the_post($the_id);
+				?>
 			</div>
 
 		</footer>
