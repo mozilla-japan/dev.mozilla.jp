@@ -109,15 +109,8 @@ DOC;
         ?>
         <ul class="meta-project-list">
             <?php
-                $catlist = get_the_category();
-                foreach ($catlist as $cat) :
-                    $project_array = get_post(get_project_page_ID($cat->cat_ID));
-                    $link = get_permalink($project_array->ID);
-                    $link_text = $project_array->post_title;
-                    if ($project_array->post_type == 'project') :
-                        echo '<li><a href="'. $link .'">'. $link_text .'</a></li>';
-                    endif;
-                endforeach;
+                $the_id = get_the_ID();
+                the_project_list_of_the_post($the_id);
             ?>
         </ul>
       </footer>
