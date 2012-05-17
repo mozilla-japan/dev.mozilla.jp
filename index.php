@@ -107,12 +107,10 @@ DOC;
           $date = get_the_time('Y年n月j日');
           echo '<time datetime="' . $datetime . '">'. $date . '</time>';
         ?>
-        <ul class="meta-project-list">
-            <?php
-                $the_id = get_the_ID();
-                the_project_list_of_the_post($the_id);
-            ?>
-        </ul>
+        <?php
+          $the_id = get_the_ID();
+          the_project_list_of_the_post($the_id);
+        ?>
       </footer>
     </article>
     <?php
