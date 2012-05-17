@@ -61,9 +61,7 @@ get_header();
 			<p class="postmeta-title">投稿日時</p>
 			<div class="postmeta-content">
 				<?php
-					$datetime = get_the_time('Y-m-d H:i:s');
-					$date = get_the_time('Y年n月j日 G:i:s');
-					echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+					the_time_of_the_post($the_id);
 				?>
 			</div>
 		</div>

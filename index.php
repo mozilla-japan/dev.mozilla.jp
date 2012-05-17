@@ -92,6 +92,7 @@ DOC;
       if($posts):
         foreach($posts as $post):
           setup_postdata($post);
+          $the_id = get_the_ID();
     ?>
     <article class="blogfeed-article">
       <header>
@@ -103,12 +104,9 @@ DOC;
       </header>
       <footer class="postmeta">
         <?php
-          $datetime = get_the_time('Y-m-d');
-          $date = get_the_time('Y年n月j日');
-          echo '<time datetime="' . $datetime . '">'. $date . '</time>';
+          the_time_of_the_post($the_id);
         ?>
         <?php
-          $the_id = get_the_ID();
           the_project_list_of_the_post($the_id);
         ?>
       </footer>

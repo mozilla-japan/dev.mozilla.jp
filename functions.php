@@ -684,6 +684,12 @@ function the_project_list_of_the_post ($postId) {
   </ul>
 DOC;
 }
+/* print a time of the post */
+function the_time_of_the_post ($postId) {
+  $datetime = get_the_time('Y-m-d H:i:s', false, $postId);
+  $date = get_the_time('Y年n月j日 G:i:s', false, $postId);
+  echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+}
 
 /* return the url of "projects" page (string) */
 function get_project_url () {
