@@ -279,16 +279,28 @@ function event_meta_box($post){
 
 function event_meta_html($post, $box){
   echo '<label for="start_time">開始日時</label>';
-  echo '<input class="datepicker" type="text" name="start_time" value="'. get_post_meta($post->ID, 'start_time', true) .'" size="25" />';
+  echo '<input class="datepicker" type="text" placeholder="YYYY/MM/DD hh:mm" name="start_time" value="'. get_post_meta($post->ID, 'start_time', true) .'" size="25" />';
   echo '<a class="clear_start_time" href="#start_time">クリア</a>';
 
   echo '<label for="end_time"> 〜 終了日時</label>';
-  echo '<input class="datepicker" type="text" name="end_time" value="'. get_post_meta($post->ID, 'end_time', true) .'" size="25" />';
+  echo '<input class="datepicker" type="text" placeholder="YYYY/MM/DD hh:mm" name="end_time" value="'. get_post_meta($post->ID, 'end_time', true) .'" size="25" />';
   echo '<a class="clear_end_time" href="#end_time">クリア</a>';
+
+  $capacity = get_post_meta($post->ID, '定員', true);
+  echo wp_nonce_field('event_meta', 'event_date_nonce');
+  echo '<p>定員:<input type="text" size="20" placeholder="人数" name="capacity" value="'.$capacity.'"></p>';
 
   $place = get_post_meta($post->ID, '会場', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>会場:<input type="text" size="50" name="place" value="'.$place.'"></p>';
+  echo '<p>会場:<input type="text" size="50" placeholder="会場" name="place" value="'.$place.'"></p>';
+
+  $eventurl = get_post_meta($post->ID, 'URL', true);
+  echo wp_nonce_field('event_meta', 'event_date_nonce');
+  echo '<p>詳細URL:<input type="text" size="50" placeholder="'.get_bloginfo('url').'" name="eventurl" value="'.$eventurl.'"></p>';
+
+  $hashtag = get_post_meta($post->ID, 'ハッシュタグ', true);
+  echo wp_nonce_field('event_meta', 'event_date_nonce');
+  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#modest" name="hashtag" value="'.$hashtag.'"></p>';
 }
 
 /*
@@ -427,6 +439,9 @@ function event_update($post_id){
     $start_time = trim($_POST['start_time']);
     $end_time = trim($_POST['end_time']);
     $place = trim($_POST['place']);
+    $capacity = trim($_POST['capacity']);
+    $eventurl = trim($_POST['eventurl']);
+    $hashtag = trim($_POST['hashtag']);
 
     if($start_time == ''){
       delete_post_meta($post_id, 'start_time');
@@ -442,6 +457,21 @@ function event_update($post_id){
         delete_post_meta($post_id, 'place');
     } else {
         update_post_meta($post_id, 'place', $place);
+    }
+    if($capacity == ''){
+      delete_post_meta($post_id, 'capacity');
+    } else {
+      update_post_meta($post_id, 'capacity', $capacity);
+    }
+    if($eventurl == ''){
+      delete_post_meta($post_id, 'eventurl');
+    } else {
+      update_post_meta($post_id, 'eventurl', $eventurl);
+    }
+    if($hashtag == ''){
+      delete_post_meta($post_id, 'hashtag');
+    } else {
+      update_post_meta($post_id, 'hashtag', $hashtag);
     }
 }
 
