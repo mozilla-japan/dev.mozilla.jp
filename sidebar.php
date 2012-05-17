@@ -13,7 +13,7 @@
       <h3><a href="<?php echo get_join_modest_url(); ?>" class="button-blue">ログインする/参加する</a></h3>
     <?php endif; ?>
 
-    <h3><a href="<?php echo get_add_post_url(); ?>" class="button-blue">記事を投稿する</a></h3>
+    <h3><a href="<?php echo get_add_post_url(); ?>" class="button-blue">トピックを投稿する</a></h3>
 
     <h3><a href="<?php echo get_add_event_url(); ?>" class="button-blue">イベントを追加する</a></h3>
 
