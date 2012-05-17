@@ -48,13 +48,11 @@ a:hover,a:active{
   font-weight: normal;
 }
 .entry-header > .post-title {
+  display: inline-block;
   margin-bottom: 12px;
 }
 .edit_post {
-  float: right;
-}
-.edit_post + * {
-  clear: both;
+  display: inline-block;
 }
 
 /* post's project list */
