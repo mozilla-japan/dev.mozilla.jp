@@ -60,7 +60,15 @@ DOC;
 				?>
 			</ul>
 		</div>
+	</footer>
 
+	<div class="entry-body">
+		<?php
+			the_content('続きを読む');
+		?>
+	</div>
+
+	<footer class="entry-footer">
 		<div class="postmeta">
 			<p class="postmeta-title">投稿者</p>
 			<address class="postmeta-content">
@@ -80,15 +88,7 @@ DOC;
 				?>
 			</div>
 		</div>
-	</footer>
 
-	<div class="entry-body">
-		<?php
-			the_content('続きを読む');
-		?>
-	</div>
-
-	<footer class="entry-footer">
 		<?php
 			//wp_link_pages(array('before' => '<p><strong>' . __('Pages:', 'kubrick') . '</strong> ', 'after' => '</p>', 'next_or_number' => 'number'));
 
