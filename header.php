@@ -40,7 +40,6 @@
   ?>
 
   <?php wp_enqueue_script('jquery'); ?>
-  <?php wp_enqueue_script('thema-js', get_bloginfo('template_directory').'/js/function.js', array('jquery')); ?>
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/ga.js" async defer></script>
 </head>
 <body <?php body_class(); ?>>
