@@ -24,17 +24,17 @@
 
   </div>
 
-  <h3 id="about"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></h3>
+  <h3 id="sidebar-about"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></h3>
 
-  <div id="search">
+  <div id="sidebar-search">
     <?php get_search_form(); ?>
   </div>
 
-  <div id="project">
+  <div id="sidebar-project">
     <h3>
       <a href="<?php echo get_project_url(); ?>">プロジェクト</a>
     </h3>
-    <ul>
+    <ul id="sidebar-project-list">
       <?php
          $paged = get_query_var('paged');
          $posts = query_posts(array("post_type" => array("project"),
