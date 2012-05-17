@@ -651,14 +651,6 @@ function post_icon($id,$size=array(80,80)){
   echo "</div>";
 }
 
-/**投稿者アイコン**/
-function auther_icon($args){
-  $post = get_post($args);
-  $userID = $post->post_author;
-  $user = get_userdata($userID);
-  echo get_author_link($echo = false,$userID);
-}
-
 /*
  * パンくずリスト
  */
