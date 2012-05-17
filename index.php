@@ -8,11 +8,11 @@ Template Name: index
 get_header();
 ?>
 <article id="content">
+  <h2>注目トピック</h2>
   <section id="hottopic" class="section">
-    <h2>注目トピック</h2>
     <?php
       $cat = get_query_var('hot');
-      $posts = get_posts("order=desc&category=". $cat ."&numberposts=6");
+      $posts = get_posts("order=desc&category=". $cat ."&numberposts=3");
       if($posts):
         foreach($posts as $post):
           setup_postdata($post);
