@@ -717,6 +717,19 @@ function get_project_page_ID ($cat_id) {
   }
 }
 
+/* print edit the post link */
+function edit_the_post () {
+  if (is_user_logged_in()) :
+    $id = get_the_ID();
+    $edit_link = get_edit_post_link(id);
+    //here document
+    echo <<< DOC
+      <a href="$edit_link"
+         class="edit_post button-white">編集する</a>
+DOC;
+  endif;
+}
+
 
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');
