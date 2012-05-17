@@ -33,6 +33,9 @@
 <body <?php body_class(); ?>>
 <div id="page">
   <header id="header">
+    <a id="tabzilla"
+       href="http://mozilla.jp"
+       class="tabzilla-closed">Mozilla Japan</a>
     <nav id="header-nav">
       <ol>
         <li><a href="<?php echo get_about_url(); ?>">このサイトについて</a></li>
