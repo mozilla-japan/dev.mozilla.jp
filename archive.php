@@ -32,15 +32,6 @@ get_header();
 			?>
 
 			<?php
-				/*
-				* article's title
-				*/
-				$permaLink = get_permalink();
-				$titleText = get_the_title();
-				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
-			?>
-
-			<?php
 				if (is_user_logged_in()) :
 					$edit_link = get_edit_post_link($the_id);
 					//here document
@@ -49,6 +40,15 @@ get_header();
 					   class="edit_post button-white">編集する</a>
 DOC;
 				endif;
+			?>
+
+			<?php
+				/*
+				* article's title
+				*/
+				$permaLink = get_permalink();
+				$titleText = get_the_title();
+				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
 			?>
 		</header>
 
