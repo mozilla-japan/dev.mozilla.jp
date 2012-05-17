@@ -297,6 +297,38 @@ body {
 .site-logo-image {
   border: none;
 }
+
+/* tabzilla */
+#tabzilla {
+  float: right;
+  display: block;
+  background: url(./images/tab.png);
+  height: 45px;
+  width: 150px;
+  position: relative;
+  text-indent: -2000px;
+  overflow: hidden;
+  z-index: 999;
+}
+#tabzilla:after {
+  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX%2F%2F%2F9ISEhr7AOpAAAAAXRSTlMAQObYZgAAACVJREFUCNdjYEACHAIMMhYMdjUM8j8Y%2BD8wsD9gYD7AwNiArAQAd4oFaCu14IQAAAAASUVORK5CYII%3D);
+  content: " ";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 11px;
+  right: 23px;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
 #header-nav {
   float: right;
   text-transform: uppercase;
