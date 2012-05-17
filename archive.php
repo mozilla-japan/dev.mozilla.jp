@@ -36,16 +36,16 @@ get_header();
 			?>
 
 			<?php
-				edit_the_link($the_id);
-			?>
-
-			<?php
 				/*
 				* article's title
 				*/
 				$permaLink = get_permalink();
 				$titleText = get_the_title();
 				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
+			?>
+
+			<?php
+				edit_the_link($the_id);
 			?>
 		</header>
 
