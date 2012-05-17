@@ -525,6 +525,9 @@ body #sidebar{
   font-weight: normal;
   margin-bottom: 10px;
 }
+.archive-post_header > archive-post-title {
+  display: inline-block;
+}
 .archive-post {
   margin-bottom: 5em;
 }
