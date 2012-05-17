@@ -44,7 +44,7 @@
         <li><?php wp_loginout(); ?></li>
       </ol>
     </nav>
-    <h1>
+    <h1 id="site-title">
       <a href= "<?php bloginfo('url'); ?>">
         <img class="site-logo-image"
              alt="<?php bloginfo('name'); ?>"

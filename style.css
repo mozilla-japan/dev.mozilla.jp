@@ -294,6 +294,10 @@ body {
 }
 
 /* header */
+#site-title {
+  padding-top: 21px;
+  margin-top: 0;
+}
 .site-logo-image {
   border: none;
 }
