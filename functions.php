@@ -513,118 +513,6 @@ function my_form_tag_filter($tag){
 	return $tag;
 }
 
-/*
- * RSS読み込み
- */
-include_once("./wp-load.php");
-include_once(ABSPATH . WPINC . '/rss.php'); //MagpieRSS of Wordpress
-//RSSのキャッシュ設定
-define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
-define('MAGPIE_CACHE_DIR', './cache');
-define('MAGPIE_FETCH_TIME_OUT', 40);
-define('MAGPIE_CACHE_AGE', 15*60);
-
-function mixed_rss($rssURL){
-    foreach($rssURL as $key => $val){
-        $rssObj = fetch_rss($val);
-        $items[$key] = $rssObj->items;
-        $btitle = $rssObj->channel['title'];
-        $blink = $rssObj->channel['link'];
-        foreach($items[$key] as $item){
-            $item["btitle"] = $btitle;
-            $item["blink"] = $blink;
-            $entry[] = $item;
-            if(isset($item["pubdate"])){
-                $entryDate[] = strtotime($item["pubdate"]);
-            }
-            if(isset($item["dc"]["date"])){
-                $entryDate[] = strtotime($item["bc"]["date"]);
-            }
-        }
-    }
-    array_multisort($entryDate,SORT_DESC,SORT_NUMERIC,$entry);
-    return $entry;
-}
-
-/*
- *　ここまでRSSに関する記述
- */
-
-/*
- * RSSフィードで時刻がグリニッチ標準時で出てくるものを日本標準時に直す．
- */
-date_default_timezone_set('Asia/Tokyo');
-/*
- * RSSフィードで時刻がグリニッチ標準時で出てくるものを日本標準時に直す．
- */
-
-/*
- * タグクラウド
- */
-function my_category_tag_cloud($args) {
-  $defaults = array(
-    'smallest' => 8, 'largest' => 18, 'unit' => 'pt', 'number' => 45,
-    'format' => 'flat', 'separator' => "\n", 'orderby' => 'rand',
-    'exclude' => '', 'include' => '', 'link' => 'view', 'taxonomy' => 'post_tag', 'echo' => true
-  );
-  $args = wp_parse_args( $args, $defaults );
-
-  global $wpdb;
-  $query = "
-    SELECT DISTINCT terms2.term_id as term_id, terms2.name as name, t2.count as count
-    FROM
-      $wpdb->posts as p1
-        LEFT JOIN $wpdb->term_relationships as r1 ON p1.ID = r1.object_ID
-        LEFT JOIN $wpdb->term_taxonomy as t1 ON r1.term_taxonomy_id = t1.term_taxonomy_id
-        LEFT JOIN $wpdb->terms as terms1 ON t1.term_id = terms1.term_id,
-      $wpdb->posts as p2
-        LEFT JOIN $wpdb->term_relationships as r2 ON p2.ID = r2.object_ID
-        LEFT JOIN $wpdb->term_taxonomy as t2 ON r2.term_taxonomy_id = t2.term_taxonomy_id
-        LEFT JOIN $wpdb->terms as terms2 ON t2.term_id = terms2.term_id
-      WHERE
-        t1.taxonomy = 'category' AND p1.post_status = 'publish' AND terms1.term_id = " . $args['cat'] . " AND
-        t2.taxonomy = 'post_tag' AND p2.post_status = 'publish'
-        AND p1.ID = p2.ID
-  ";
-  $tags = $wpdb->get_results($query);
-  foreach ( $tags as $key => $tag ) {
-    if ( 'edit' == $args['link'] )
-      $link = get_edit_tag_link( $tag->term_id, $args['taxonomy'] );
-    else
-      $link = get_term_link( intval($tag->term_id), $args['taxonomy'] );
-    if ( is_wp_error( $link ) )
-      return false;
-
-    $tags[ $key ]->link = $link;
-    $tags[ $key ]->id = $tag->term_id;
-  }
-  $return = wp_generate_tag_cloud( $tags, $args );
-  $return = apply_filters( 'wp_tag_cloud', $return, $args );
-
-  if ( 'array' == $args['format'] || empty($args['echo']) )
-    return $return;
-
-  echo $return;
-}
-
-/**投稿の偶奇カラー設定**/
-/**使い方 ループ内で 
-   $flag = odd_even($flag);
-**/
-function odd_even($color_flag){
-  /*
-   *投稿の種類によって背景の色を変更する
-   */
-  if($color_flag == false){
-    $color_flag = true;
-    echo ' id="odd_post"';
-  }else if($color_flag == true){
-    $color_flag = false;
-    echo ' id="even_post"';
-  }
-  return $color_flag;
-}
-
 /**ポストアイコン**/
 function post_icon($id,$size=array(80,80)){
   echo "<div class='post_icon'>";
@@ -649,14 +537,6 @@ function post_icon($id,$size=array(80,80)){
     }
   }
   echo "</div>";
-}
-
-/**投稿者アイコン**/
-function auther_icon($args){
-  $post = get_post($args);
-  $userID = $post->post_author;
-  $user = get_userdata($userID);
-  echo get_author_link($echo = false,$userID);
 }
 
 /*
