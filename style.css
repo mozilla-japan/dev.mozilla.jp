@@ -438,13 +438,24 @@ body #content {
   font-size: 1.5em;
 }
 
-.blogfeed-article {
+.feed-article {
   margin: 1em 0 3em;
 }
-.blogfeed-article h1 {
+.feed-article h1 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
 }
+.feed-article .postmeta > * {
+  padding-right: .25em;
+  border-right: 1px solid rgb(221, 221, 221);
+  margin-right: 1em;
+}
+.feed-article .postmeta > ul {
+  display: inline-block;
+  margin-right: 0;
+  border-right: none;
+}
+
 
 /* projects page */
 .project_summary > .project_title {
