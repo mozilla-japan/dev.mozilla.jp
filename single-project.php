@@ -83,15 +83,15 @@ get_header();
 					$the_id = get_the_ID();
 		?>
 
-		<article class="archive-post">
-			<header class="archive-post_header">
+		<article class="feed-article">
+			<header>
 				<?php
 					/*
 					 * articles title
 					 */
 					$permaLink = get_permalink();
 					$titleText = get_the_title();
-					echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
+					echo '<h1><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
 				?>
 
 				<?php

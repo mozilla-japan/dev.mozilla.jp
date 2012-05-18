@@ -286,6 +286,7 @@ a:hover,a:active{
 body {
   margin: 0;
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
+  border-top: 2px solid rgb(255, 255, 255);
 }
 #page {
   width: 1050px;
