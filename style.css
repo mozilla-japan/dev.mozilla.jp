@@ -398,7 +398,7 @@ body #content {
   padding: 0;
 }
 #event + {
-  clear: both;
+  clear + both;
 }
 #event .section {
   display: block;
