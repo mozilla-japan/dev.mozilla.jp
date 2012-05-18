@@ -378,24 +378,25 @@ body #content {
   background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
   border-bottom: 1px solid #DDDDDD;
-  margin: 15px 0px;
   padding: 20px;
+  margin: 15px 0px;
 }
 
-#hottopic > h2 {
+#hottopic > h2,
+#event > h2,
+#blogfeed > h2 {
   margin: 0px;
   font-size: 2em;
 }
 
-section#event {
-  margin: 0;
-  padding: 0;
-}
 #event > div {
   float: left;
   width: 50%;
   margin: 0;
   padding: 0;
+}
+#event + {
+  clear + both;
 }
 #event .section {
   display: block;
@@ -413,7 +414,6 @@ section#event {
 #event > .event-old > section:last-child {
   margin-bottom: 20px;
 }
-
 #event section > * {
   margin:0;
   padding:0;
@@ -423,24 +423,6 @@ section#event {
 }
 #event section time {
   font-size: 1.5em;
-}
-
-
-#blogfeed {
-  clear: both;
-}
-#blogfeed > h2 {
-  margin: 0px;
-  font-size: 2em;
-}
-#blogfeed section {
-  display: block;
-  margin: 5px;
-  padding: 5px;
-  border-bottom: 1px dotted #d6d6d6;
-}
-#blogfeed section:last-child {
-  border-bottom: none;
 }
 
 /* projects page */
