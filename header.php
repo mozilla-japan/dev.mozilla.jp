@@ -120,7 +120,7 @@
 
         <li id="payload_projects" class="headbox">
           <?php
-                     $page = get_page_by_title('projects');
+                     $page = get_page_by_title('プロジェクトリスト');
                      $page_link = get_page_link($page->ID);
            ?>
           <a href="<?php echo $page_link; ?>">
@@ -132,7 +132,7 @@
 
         <li id="payload_developers" class="headbox">
           <?php
-                       $page = get_page_by_title('developer');
+                       $page = get_page_by_title('ユーザリスト');
                        $page_link = get_page_link($page->ID);
            ?>
           <a href="<?php echo $page_link; ?>">
