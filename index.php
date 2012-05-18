@@ -108,6 +108,12 @@ DOC;
         </h1>
       </header>
       <footer>
+        <div class="postmeta-project">
+          <?php
+            the_project_list_of_the_post($the_id);
+          ?>
+        </div>
+
         <div class="postmeta">
           <p class="postmeta-title">投稿者</p>
           <address class="postmeta-content">
@@ -126,11 +132,7 @@ DOC;
             ?>
           </div>
         </div>
-        <div class="postmeta-project">
-          <?php
-            the_project_list_of_the_post($the_id);
-          ?>
-        </div>
+
       </footer>
     </article>
     <?php
