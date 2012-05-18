@@ -107,23 +107,24 @@ DOC;
           </a>
         </h1>
       </header>
-      <footer class="postmeta">
+      <footer>
+        <div class="postmeta">
+          <p class="postmeta-title">投稿者</p>
+          <address class="postmeta-content">
+            <?php
+              $post = get_post($the_id);
+              $userID = $post->post_author;
+              echo get_avatar($userID, 15);//avatar image
+              echo the_author_posts_link();//auther link
+            ?>
+          </address>
 
-        <p class="postmeta-title">投稿者</p>
-        <address class="postmeta-content">
-          <?php
-            $post = get_post($the_id);
-            $userID = $post->post_author;
-            echo get_avatar($userID, 15);//avatar image
-            echo the_author_posts_link();//auther link
-          ?>
-        </address>
-
-        <p class="postmeta-title">投稿日時</p>
-        <div class="postmeta-content">
-          <?php
-            the_time_of_the_post($the_id);
-          ?>
+          <p class="postmeta-title">投稿日時</p>
+          <div class="postmeta-content">
+            <?php
+              the_time_of_the_post($the_id);
+            ?>
+          </div>
         </div>
         <div class="postmeta-project">
           <?php
