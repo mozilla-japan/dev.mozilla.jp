@@ -9,8 +9,7 @@ get_header(); ?>
 
 <article id="content" role="main">
   <?php if (have_posts()) : ?>
-  <h2 class="pagetitle">
-	<?php _e('Search Results', 'kubrick'); ?></h2>
+  <h1 class="pagetitle">検索結果</h1>
   <nav class="navigation">
     <?php navigation_bar(); ?>
   </nav>
@@ -82,8 +81,8 @@ get_header(); ?>
     <?php navigation_bar(); ?>
   </nav>
   <?php else : ?>
-  <h1 class="post-title"><p>残念ながら、キーワードに一致する記事は<br>見つけられませんでした。<br>別のキーワードをお試しください。</p></h1>
-  <?php get_search_form(); ?>
+    <h1 class="post-title">残念ながら、キーワードに一致する記事は<br>見つけられませんでした。<br>別のキーワードをお試しください。</h1>
+    <?php get_search_form(); ?>
   <?php endif; ?>
 </div>
 <?php get_footer(); ?>
