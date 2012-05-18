@@ -9,7 +9,7 @@ get_header(); ?>
 
 <article id="content" role="main">
   <?php if (have_posts()) : ?>
-  <h1 class="pagetitle">検索結果</h1>
+  <h1 class="post-title">検索結果</h1>
   <nav class="navigation">
     <?php navigation_bar(); ?>
   </nav>
