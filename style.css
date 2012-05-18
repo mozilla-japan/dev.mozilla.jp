@@ -398,9 +398,8 @@ body #content {
   background: url("images/dino.png") no-repeat right 0px,
               #fff;
 }
-#hottopic > h3 {
-  display: inline-block;
-  background: #fff;
+#hottopic h3 > a {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #event > div {
