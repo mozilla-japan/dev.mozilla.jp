@@ -544,15 +544,6 @@ body #sidebar{
   margin-bottom: 5em;
 }
 
-/* project page */
-#project-latest-topics-list > h1 {
-  font-size: 2em;
-  margin: 1em 0 5em;
-}
-.postmeta.project-description {
-  border-bottom: 1px dotted rgb(204, 204, 204);
-}
-
 /* footer */
 #footer {
   display: block;
