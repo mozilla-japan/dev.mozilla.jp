@@ -125,9 +125,11 @@ DOC;
             the_time_of_the_post($the_id);
           ?>
         </div>
-        <?php
-          the_project_list_of_the_post($the_id);
-        ?>
+        <div class="postmeta-project">
+          <?php
+            the_project_list_of_the_post($the_id);
+          ?>
+        </div>
       </footer>
     </article>
     <?php
