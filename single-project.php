@@ -65,7 +65,7 @@ get_header();
 	  endif;
   ?>
 
-<h1>プロジェクトフィード</h1> 
+<h1>プロジェクトの最新の投稿</h1> 
   <section>
     <?php $cat_id = get_post_meta($post->ID, 'cat', true); 
     $args = array('posts_per_page' => 5,
