@@ -89,7 +89,9 @@ DOC;
   </section>
 
   <section id="blogfeed">
-    <a href="<?php echo get_all_post_url(); ?>"><h2>ブログフィード</h2></a>
+    <h2>
+      <a href="<?php echo get_all_post_url(); ?>">ブログフィード</a>
+    </h2>
     <?php
       $posts = get_posts('posts_per_page=5');
       if($posts):
