@@ -550,7 +550,9 @@ body #sidebar{
   margin: 1em 0 0.5em;
 }
 .entry-body.project-description {
+  padding-bottom: 3em;
   border-bottom: 1px dotted rgb(204, 204, 204);
+  margin-bottom: 3em;
 }
 
 /* footer */
