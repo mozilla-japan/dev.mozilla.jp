@@ -99,7 +99,7 @@ DOC;
           setup_postdata($post);
           $the_id = get_the_ID();
     ?>
-    <article class="blogfeed-article">
+    <article class="feed-article">
       <header>
         <h1>
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
@@ -108,9 +108,23 @@ DOC;
         </h1>
       </header>
       <footer class="postmeta">
-        <?php
-          the_time_of_the_post($the_id, 'Y年n月j日');
-        ?>
+
+        <p class="postmeta-title">投稿者</p>
+        <address class="postmeta-content">
+          <?php
+            $post = get_post($the_id);
+            $userID = $post->post_author;
+            echo get_avatar($userID, 15);//avatar image
+            echo the_author_posts_link();//auther link
+          ?>
+        </address>
+
+        <p class="postmeta-title">投稿日時</p>
+        <div class="postmeta-content">
+          <?php
+            the_time_of_the_post($the_id);
+          ?>
+        </div>
         <?php
           the_project_list_of_the_post($the_id);
         ?>
