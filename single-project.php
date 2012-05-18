@@ -21,7 +21,7 @@ get_header();
 	<header class="entry-header">
 
 		<?php
-			//post_icon($the_id,array(120,120));
+			post_icon($the_id,array(120,120));
 		?>
 
 		<h1 class="post-title"><?php the_title(); ?></h1>
