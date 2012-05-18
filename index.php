@@ -8,24 +8,27 @@ Template Name: index
 get_header();
 ?>
 <article id="content">
-  <h2>注目トピック</h2>
-  <section id="hottopic" class="section">
-    <?php
-      $cat = get_query_var('hot');
-      $posts = get_posts("order=desc&category=". $cat ."&numberposts=3");
-      if($posts):
-        foreach($posts as $post):
-          setup_postdata($post);
-    ?>
-      <h3>
-        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <?php the_title(); ?>
-        </a>
-      </h3>
-    <?php
-        endforeach;
-      endif;
-    ?>
+
+  <section id="hottopic">
+    <h2>注目トピック</h2>
+    <div class="section">
+      <?php
+        $cat = get_query_var('hot');
+        $posts = get_posts("order=desc&category=". $cat ."&numberposts=3");
+        if($posts):
+          foreach($posts as $post):
+            setup_postdata($post);
+      ?>
+        <h3>
+          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </h3>
+      <?php
+          endforeach;
+        endif;
+      ?>
+    </div>
   </section>
 
   <section id="event">
