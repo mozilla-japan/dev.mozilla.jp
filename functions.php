@@ -784,7 +784,12 @@ function get_project_page_ID ($cat_id) {
     return false;
   }
 }
-
+/* return the url of a "all-post" page (string) */
+function get_all_post_url(){
+  $base = get_bloginfo('url');
+  $path = '/archives/';
+  return ($base . $path);
+}
 
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');
