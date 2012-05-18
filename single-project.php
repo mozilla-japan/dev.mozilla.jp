@@ -57,7 +57,7 @@ get_header();
 		</div>
 	</footer>
 
-	<div class="entry-body">
+	<div class="entry-body project-description">
 		<?php
 			the_content();
 		?>
