@@ -67,7 +67,7 @@ get_header();
 
 <h1>プロジェクトフィード</h1> 
   <section>
-    <?php $cat_id = get_post_meta($post->ID, 'catid', true); 
+    <?php $cat_id = get_post_meta($post->ID, 'cat', true); 
     $args = array('posts_per_page' => 5,
                   'category' => $cat_id);
     $posts = get_posts($args);
