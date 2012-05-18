@@ -17,6 +17,7 @@ get_header();
 	?>
 	<?php
 		$the_id = get_the_ID();
+		$title = get_the_title();
 	?>
 
 	<header class="entry-header">
@@ -24,7 +25,7 @@ get_header();
 			//post_icon($the_id,array(120,120));
 		?>
 
-		<h1 class="post-title"><?php the_title(); ?></h1>
+		<h1 class="post-title"><?php echo($title); ?></h1>
 
 		<?php
 			edit_the_link($the_id);
@@ -71,7 +72,7 @@ get_header();
 	?>
 
 	<section id="project-latest-topics-list">
-		<h1>プロジェクトの最新の投稿</h1>
+		<h1><?php echo($title); ?>の最新の投稿</h1>
 		<?php
 			$cat_id = get_post_meta($post->ID, 'cat', true);
 			$args = array('posts_per_page' => 5,
