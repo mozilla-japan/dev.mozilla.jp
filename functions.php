@@ -724,6 +724,7 @@ function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
 /* print a event data */
 function data_of_the_event ($id, $param) {
   $data = get_post_meta($id, $param, true);
+  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
   $str = '';
   if($data){
     switch ($param) {
