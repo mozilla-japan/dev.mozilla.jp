@@ -23,7 +23,7 @@ get_header(); ?>
 
 		<header class="archive-post_header">
 			<?php
-				post_icon(get_the_ID(),array(70,70));
+				//post_icon(get_the_ID(),array(70,70));
 			?>
 
 			<?php
