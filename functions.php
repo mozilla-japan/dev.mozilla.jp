@@ -746,6 +746,27 @@ function data_of_the_event ($id, $param) {
   echo $str;
 }
 
+/* print a project data */
+function data_of_the_project ($id, $param) {
+  $data = get_post_meta($id, $param, true);
+  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
+  $str = '';
+  if ($data) {
+    switch ($param) {
+      case 'url':
+        $str = '<a href="'. $data .'">'. $data .'</a>';
+        break;
+      default:
+        $str = $data;
+        break;
+    }
+  }
+  else {
+    $str = 'なし';
+  }
+  echo $str;
+}
+
 
 /* return the url of "projects" page (string) */
 function get_project_url () {

@@ -50,12 +50,7 @@ get_header();
 				<dt>Web サイト</dt>
 				<dd>
 					<?php
-						$url = get_post_meta($post->ID, 'url', true);
-						if ($url) :
-							echo '<a href="'. $url .'">プロジェクトのWebサイト</a>';
-						else :
-							echo 'なし';
-						endif;
+						data_of_the_project($the_id, 'url');
 					?>
 				</dd>
 			</dl>
