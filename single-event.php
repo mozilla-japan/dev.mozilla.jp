@@ -40,69 +40,39 @@ get_header();
         <dt>開催時間</dt>
         <dd>
           <?php
-            $start_time = get_post_meta($post->ID, 'start_time', true);
-            if($start_time){
-              echo $start_time;
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'start_time');
           ?>
            -
           <?php
-            $end_time = get_post_meta($post->ID, 'end_time', true);
-            if($end_time){
-              echo $end_time;
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'end_time');
           ?>
         </dd>
 
         <dt>定員</dt>
         <dd>
           <?php
-            $capacity = get_post_meta($post->ID, 'capacity', true);
-            if($capacity){
-              echo $capacity;
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'capacity');
           ?>
         </dd>
 
         <dt>会場</dt>
         <dd>
           <?php
-            $place = get_post_meta($post->ID, 'place', true);
-            if($place){
-              echo $place;
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'place');
           ?>
         </dd>
 
         <dt>参考URL</dt>
         <dd>
           <?php
-            $url = get_post_meta($post->ID, 'url', true);
-            if($url){
-              echo "<a href=". $url .">". $url ."</a>";
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'url');
           ?>
         </dd>
 
         <dt>ハッシュタグ</dt>
         <dd>
           <?php
-            $hashtag = get_post_meta($post->ID, 'hashtag', true);
-            if($hashtag){
-              echo $hashtag;
-            }else{
-              echo "未定";
-            }
+            data_of_the_event($the_id, 'hashtag');
           ?>
         </dd>
 
