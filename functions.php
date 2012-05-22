@@ -733,6 +733,7 @@ function data_of_the_event ($id, $param) {
       case 'hashtag':
         $url = 'http://twitter.com/search?q='. urlencode($data);
         $str = '<a href="'. $url .'">'. $data .'</a>';
+        break;
       default:
         $str = $data;
         break;
