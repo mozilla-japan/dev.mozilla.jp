@@ -380,14 +380,6 @@ body {
   padding: 10px;
 }
 
-body #content {
-  width: 710px;
-}
-
-.home #content {
-  width: 680px;
-}
-
 #content > section {
   margin-bottom: 4em;
 }
