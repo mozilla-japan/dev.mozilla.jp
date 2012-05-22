@@ -61,6 +61,10 @@ a:hover,a:active{
   display: inline-block;
 }
 
+.avatar {
+  margin-right: 0.5em;
+}
+
 /* post's project list */
 .postmeta-project {
   clear: both;
