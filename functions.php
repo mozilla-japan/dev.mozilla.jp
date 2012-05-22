@@ -263,7 +263,7 @@ function menu_meta_html($post, $box){
 	echo '<p>カテゴリのスラッグ:<input type="text" size="50" name="cat" value="'.$cat.'"></p>';
 	$url = get_post_meta($post->ID, 'url', true);
 	echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
-	echo '<p>プロジェクトのWebサイト: http://<input type="text" size="50" name="url" value="'.$url.'"></p>';
+	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" name="url" value="'.$url.'"></p>';
 	$email = get_post_meta($post->ID, 'email', true);
 	echo wp_nonce_field('menu_meta', 'menu_email_nonce');
 	echo '<p>プロジェクトの公開用メールアドレス:<input type="text" size="50" name="email" value="'.$email.'"></p>';
