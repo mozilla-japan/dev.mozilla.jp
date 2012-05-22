@@ -35,7 +35,7 @@ get_header();
 	</header>
 
 	<footer class="entry-footer">
-		<div class="postmeta projectmeta">
+		<div class="projectmeta">
 			<dl>
 				<dt>投稿者</dt>
 				<dd>
