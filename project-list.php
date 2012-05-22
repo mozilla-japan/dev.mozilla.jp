@@ -56,9 +56,36 @@ get_header();
         </a>
       </h1>
  
-      <div class="project-summary">
-        <?php the_excerpt(); ?>
-      </div>
+      <footer class="entry-footer">
+
+        <div class="projectmeta">
+          <dl>
+            <dt>投稿者</dt>
+            <dd>
+              <address>
+                <?php
+                $post = get_post($the_id);
+                $userID = $post->post_author;
+                  echo get_avatar($userID, 15);//avatar image
+                  echo the_author_posts_link();//auther link
+                ?>
+              </address>
+            </dd>
+
+            <dt>Web サイト</dt>
+            <dd>
+              <?php
+                data_of_the_project($the_id, 'url');
+              ?>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="project-summary">
+          <?php the_excerpt(); ?>
+        </div>
+
+      </footer>
 
     </section>
 
