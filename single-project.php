@@ -33,28 +33,32 @@ get_header();
 	</header>
 
 	<footer class="entry-footer">
-		<div class="postmeta">
-			<p class="postmeta-title">投稿者</p>
-			<address class="postmeta-content">
-				<?php
-					$post = get_post($the_id);
-					$userID = $post->post_author;
-					echo get_avatar($userID, 15);//avatar image
-					echo the_author_posts_link();//auther link
-				?>
-			</address>
+		<div class="postmeta projectmeta">
+			<dl>
+				<dt>投稿者</dt>
+				<dd>
+					<address>
+						<?php
+							$post = get_post($the_id);
+							$userID = $post->post_author;
+							echo get_avatar($userID, 15);//avatar image
+							echo the_author_posts_link();//auther link
+						?>
+					</address>
+				</dd>
 
-			<p class="postmeta-title">Web サイト</p>
-			<address class="postmeta-content">
-				<?php
-					$url = get_post_meta($post->ID, 'url', true);
-					if ($url) :
-						echo '<a href="'. $url .'">プロジェクトのWebサイト</a>';
-					else :
-						echo 'なし';
-					endif;
-				?>
-			</address>
+				<dt>Web サイト</dt>
+				<dd>
+					<?php
+						$url = get_post_meta($post->ID, 'url', true);
+						if ($url) :
+							echo '<a href="'. $url .'">プロジェクトのWebサイト</a>';
+						else :
+							echo 'なし';
+						endif;
+					?>
+				</dd>
+			</dl>
 		</div>
 	</footer>
 
