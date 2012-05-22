@@ -35,7 +35,7 @@ get_header();
 
   <footer>
 
-    <div class="event-meta">
+    <div class="eventmeta">
 
       <dl>
         <dt>開催時間</dt>
