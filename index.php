@@ -18,11 +18,10 @@ get_header();
         if($posts):
           foreach($posts as $post):
             setup_postdata($post);
-            $the_id = get_the_ID();
       ?>
         <h3>
-          <a href="<?php the_permalink() ?>" title="<?php the_escaped_title($the_id); ?>">
-            <?php the_escaped_title($the_id); ?>
+          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+            <?php the_title(); ?>
           </a>
         </h3>
       <?php
@@ -52,7 +51,7 @@ get_header();
           $month = get_the_time('n');
           $date = get_the_time('j');
           $href = get_permalink($post->ID);
-          $title = get_the_escaped_title($post->ID);
+          $title = get_the_title();
 
           //start here document
           $content = <<< DOC
@@ -103,8 +102,8 @@ DOC;
     <article class="feed-article">
       <header>
         <h1>
-          <a href="<?php the_permalink() ?>" title="<?php the_escaped_title($the_id); ?>">
-            <?php the_escaped_title($the_id); ?>
+          <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+            <?php the_title(); ?>
           </a>
         </h1>
       </header>

@@ -31,7 +31,6 @@ get_header();
         if(have_posts()) :
           foreach ($posts as $post) :
             setup_postdata($post);
-            $the_id = get_the_ID();
       ?>
     <section class="project_summary">
       <div class="project_icon">
@@ -43,8 +42,8 @@ get_header();
          ?>
       </div>
       <h1 class="project_title">
-        <a href="<?php the_permalink() ?>" title="<?php the_escaped_title($the_id); ?>">
-          <?php the_escaped_title($the_id); ?>
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
         </a>
       </h1>
       <p class="project_description">

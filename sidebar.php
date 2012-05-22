@@ -44,16 +44,15 @@
       if(have_posts()){
         foreach ($posts as $post):
         setup_postdata($post);
-        $the_id = get_the_ID();
         echo '<li class="project-item project-item-';
                          the_ID();
                          echo '">';
           echo '<a href="';
                          the_permalink();
                          echo '" title="';
-                                        the_escaped_title($the_id);
+                                        the_title();
                                         echo '" > ';
-            the_escaped_title($the_id);
+            the_title();
             echo '</a>';
           echo '</li>';
         endforeach;

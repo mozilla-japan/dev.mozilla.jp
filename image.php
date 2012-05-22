@@ -12,14 +12,14 @@ get_header();
 
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<?php $the_id = get_the_ID(); ?>
+
 	<div class="post" id="post-<?php the_ID(); ?>">
 		<h2>
 			<a href="<?php echo get_permalink($post->post_parent); ?>"
-				rev="attachment"><?php echo get_the_escaped_title($post->post_parent); ?> </a>
+				rev="attachment"><?php echo get_the_title($post->post_parent); ?> </a>
 			&raquo;
 			
-			 <?php the_escaped_title($the_id); ?></h2>
+			 <?php the_title(); ?></h2>
 		<div class="entry">
 			<p class="attachment">
 				<a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?>
