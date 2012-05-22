@@ -117,6 +117,11 @@ a:hover,a:active{
   border-right: none;
 }
 
+.projectmeta dt,
+.eventmeta dt {
+  font-weight: bold;
+}
+
 /* entry body */
 .entry-body {
   text-align: justify;
