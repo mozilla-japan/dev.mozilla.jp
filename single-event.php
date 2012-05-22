@@ -29,99 +29,103 @@ get_header();
 		<?php
 			edit_the_link($the_id);
 		?>
-    <?php
-       /*
-       button-blueとかにすれば分かりやすいかも？
-       */
-       $url = get_post_meta($post->ID, 'url', true);
-       echo "<a href=". $url .">プロジェクトのWebサイト</a>";
-    ?>
-    <div class="section">
-      <ul>
-        <li>
-          開催時間：
-          <?php 
-             $start_time = get_post_meta($post->ID, 'start_time', true);
-             if($start_time){
-               echo $start_time;
-             }else{
-               echo "未定";
-             }
-          ?>
-           〜 
+
+  </header>
+
+  <footer>
+
+    <div class="event-meta">
+
+      <dl>
+        <dt>開催時間</dt>
+        <dd>
           <?php
-             $end_time = get_post_meta($post->ID, 'end_time', true);
-          if($end_time){
-            echo $end_time;
-          }else{
-            echo "未定";
-          }
+            $start_time = get_post_meta($post->ID, 'start_time', true);
+            if($start_time){
+              echo $start_time;
+            }else{
+              echo "未定";
+            }
           ?>
-        </li>
-        <li>
-          定員：<?php 
-                   $capacity = get_post_meta($post->ID, 'capacity', true); 
-          if($capacity){
-            echo $capacity;
-          }else{
-            echo "未定";
-          }
+           -
+          <?php
+            $end_time = get_post_meta($post->ID, 'end_time', true);
+            if($end_time){
+              echo $end_time;
+            }else{
+              echo "未定";
+            }
           ?>
-        </li>
-        <li>
-          会場：<?php 
-                   $place = get_post_meta($post->ID, 'place', true); 
-          if($place){
-            echo $place;
-          }else{
-            echo "未定";
-          }
+        </dd>
+
+        <dt>定員</dt>
+        <dd>
+          <?php
+            $capacity = get_post_meta($post->ID, 'capacity', true);
+            if($capacity){
+              echo $capacity;
+            }else{
+              echo "未定";
+            }
           ?>
-        </li>
-        <li>
-          参考URL：
-          <?php $url = get_post_meta($post->ID, 'url', true);
-          if($url){
-            echo "<a href=". $url .">". $url ."</a>";
-          }else{
-            echo "未定";
-          }?>
-        </li>
-        <li>
-          ハッシュタグ：<?php 
-                           $hashtag = get_post_meta($post->ID, 'hashtag', true); 
-          if($hashtag){
-            echo $hashtag;
-          }else{
-            echo "未定";
-          }
+        </dd>
+
+        <dt>会場</dt>
+        <dd>
+          <?php
+            $place = get_post_meta($post->ID, 'place', true);
+            if($place){
+              echo $place;
+            }else{
+              echo "未定";
+            }
           ?>
-        </li>
-        <li>
+        </dd>
+
+        <dt>参考URL</dt>
+        <dd>
+          <?php
+            $url = get_post_meta($post->ID, 'url', true);
+            if($url){
+              echo "<a href=". $url .">". $url ."</a>";
+            }else{
+              echo "未定";
+            }
+          ?>
+        </dd>
+
+        <dt>ハッシュタグ</dt>
+        <dd>
+          <?php
+            $hashtag = get_post_meta($post->ID, 'hashtag', true);
+            if($hashtag){
+              echo $hashtag;
+            }else{
+              echo "未定";
+            }
+          ?>
+        </dd>
+
+        <dt>イベント管理者</dt>
+        <dd>
 				  <?php
-					   $post = get_post($the_id);
-					   $userID = $post->post_author;
-					echo get_avatar($userID, 15);//avatar image
-					echo the_author_posts_link();//auther link
+					  $post = get_post($the_id);
+					  $userID = $post->post_author;
+  					echo get_avatar($userID, 15);//avatar image
+  					echo the_author_posts_link();//auther link
 				  ?>
-        </li>
-      </ul>
+        </dd>
+      </dl>
+
     </div>
-	</header>
+
+	</footer>
 
 	<div class="entry-body">
 		<?php
 			the_content();
 		?>
 	</div>
-
-	<footer class="entry-footer">
-    <div class="postmeta">
-			<p class="postmeta-title">投稿者</p>
-			<address class="postmeta-content">
-			</address>
-		</div>    
-	</footer>
 
   <?php
 	  	endwhile;
