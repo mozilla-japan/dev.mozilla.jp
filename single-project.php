@@ -25,11 +25,13 @@ get_header();
 			//post_icon($the_id,array(120,120));
 		?>
 
-		<h1 class="post-title"><?php echo($title); ?></h1>
+		<h1 class="post-title">
+			<?php
+				echo($title);
+				edit_the_link($the_id);
+			?>
+		</h1>
 
-		<?php
-			edit_the_link($the_id);
-		?>
 	</header>
 
 	<footer class="entry-footer">
