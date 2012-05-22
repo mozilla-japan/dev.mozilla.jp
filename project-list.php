@@ -56,9 +56,9 @@ get_header();
         </a>
       </h1>
  
-      <p class="project-summary">
+      <div class="project-summary">
         <?php the_excerpt(); ?>
-      </p>
+      </div>
 
     </section>
 
