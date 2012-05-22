@@ -459,6 +459,14 @@ body {
   clear: both;
 }
 
+/* project list */
+.project-title {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* sidebar */
 #sidebar {
   display: block;
