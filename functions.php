@@ -296,11 +296,11 @@ function event_meta_html($post, $box){
 
   $eventurl = get_post_meta($post->ID, 'URL', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>詳細URL:<input type="text" size="50" placeholder="'.get_bloginfo('url').'" name="eventurl" value="'.$eventurl.'"></p>';
+  echo '<p>詳細URL:<input type="text" size="50" placeholder="http://www.example.com" name="eventurl" value="'.$eventurl.'"></p>';
 
   $hashtag = get_post_meta($post->ID, 'ハッシュタグ', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#modest" name="hashtag" value="'.$hashtag.'"></p>';
+  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#example" name="hashtag" value="'.$hashtag.'"></p>';
 }
 
 /*
