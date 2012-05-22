@@ -17,7 +17,7 @@ get_header();
 	?>
 	<?php
 		$the_id = get_the_ID();
-		$title = get_the_title();
+		$title = get_the_escaped_title(the_id);
 	?>
 
 	<header class="entry-header">

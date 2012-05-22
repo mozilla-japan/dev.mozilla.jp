@@ -746,6 +746,15 @@ function data_of_the_event ($id, $param) {
   echo $str;
 }
 
+/* print the escaped title */
+function the_escaped_title ($id) {
+  echo get_the_escaped_title($id);
+}
+/* return the escaped title */
+function get_the_escaped_title ($id) {
+  $title = get_the_title($id);
+  return htmlspecialchars($title, ENT_QUOTES | ENT_HTML5);
+}
 
 /* return the url of "projects" page (string) */
 function get_project_url () {

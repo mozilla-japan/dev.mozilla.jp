@@ -22,10 +22,7 @@ get_header();
 <?php
 		while (have_posts()) :
 			the_post();
-?>
-
-	<?php
-		$the_id = get_the_ID();
+			$id = get_the_ID();
 	?>
 
 	<article class="archive-post">
@@ -40,7 +37,7 @@ get_header();
 				* article's title
 				*/
 				$permaLink = get_permalink();
-				$titleText = get_the_title();
+				$titleText = get_the_escaped_title($id);
 				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
 			?>
 

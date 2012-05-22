@@ -31,7 +31,7 @@ get_header(); ?>
 				* article's title
 				*/
 				$permaLink = get_permalink();
-				$titleText = get_the_title();
+				$titleText = get_the_escaped_title($the_id);
 				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
 			?>
 

@@ -13,11 +13,12 @@ get_header();
 		if (have_posts()) :
 			while (have_posts()) :
 				the_post();
+				$id =  get_the_ID();
 	?>
 
 	<header class="entry-header">
 
-		<h1 class="post-title"><?php the_title(); ?></h1>
+		<h1 class="post-title"><?php the_escaped_title($id); ?></h1>
 
 	</header>
 
