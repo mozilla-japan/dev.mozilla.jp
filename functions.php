@@ -725,7 +725,7 @@ function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
 function data_of_the_event ($id, $param) {
   $data = get_post_meta($id, $param, true);
   $str = '';
-  if($start_time){
+  if($data){
     switch ($param) {
       case 'url':
         $str = '<a href="'. $data .'">'. $data .'</a>';
