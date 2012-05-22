@@ -451,6 +451,7 @@ body #content {
   margin: 1em 0 2.5em;
 }
 .feed-article h1 {
+  display: inline-block;
   font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 0;
