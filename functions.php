@@ -3,6 +3,8 @@
  * @package WordPress
  * @subpackage modest3
  */
+// Support RSS feed
+add_theme_support('automatic-feed-links');
 
 function getPageTitle( $url ){
 	$html = file_get_contents($url); //(1)
