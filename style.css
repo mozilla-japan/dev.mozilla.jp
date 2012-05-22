@@ -456,6 +456,12 @@ body #content {
   margin-top: 0;
   margin-bottom: 0;
 }
+.feed-article .edit_post {
+  float: right;
+}
+.feed-article .edit_post + * {
+  clear: both;
+}
 
 /* projects page */
 .project_summary > .project_title {
