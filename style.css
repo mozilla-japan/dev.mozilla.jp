@@ -67,6 +67,7 @@ a:hover,a:active{
 
 /* post's project list */
 .project-section,
+.event-section,
 .postmeta-project {
   clear: both;
   border-bottom: 1px solid rgba(255,255,255,.5);
@@ -98,6 +99,7 @@ a:hover,a:active{
   content: "";
 }
 
+.event-section,
 .project-section {
   margin: 3em 0;
 }
@@ -144,6 +146,8 @@ a:hover,a:active{
 .eventmeta dt {
   font-weight: bold;
 }
+
+.event-section .eventmeta,
 .project-section .projectmeta {
   border-bottom: none;
   padding: 0;
@@ -487,6 +491,7 @@ body {
 }
 
 /* project list */
+.event-title,
 .project-title {
   display: inline-block;
   font-size: 1.5em;
