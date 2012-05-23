@@ -98,6 +98,10 @@ a:hover,a:active{
   content: "";
 }
 
+.project-section {
+  margin: 3em 0;
+}
+
 /* post's metadata*/
 .postmeta {
   background: rgba(0,0,0,.02);
