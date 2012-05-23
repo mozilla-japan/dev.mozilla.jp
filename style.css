@@ -140,6 +140,13 @@ a:hover,a:active{
 .eventmeta dt {
   font-weight: bold;
 }
+.project-section .projectmeta {
+  border-bottom: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 
 /* entry body */
 .entry-body {
