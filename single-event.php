@@ -34,6 +34,12 @@ get_header();
 
   <footer>
 
+    <div class="postmeta-project">
+      <?php
+        the_project_list_of_the_post($the_id);
+      ?>
+    </div>
+
     <div class="eventmeta">
 
       <dl>

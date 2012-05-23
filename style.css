@@ -66,6 +66,7 @@ a:hover,a:active{
 }
 
 /* post's project list */
+.project-section,
 .postmeta-project {
   clear: both;
   border-bottom: 1px solid rgba(255,255,255,.5);
@@ -77,6 +78,8 @@ a:hover,a:active{
   background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
   background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+.postmeta-project {
   font: .785em/1.1 "Open Sans Regular", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
 .meta-project-list {
