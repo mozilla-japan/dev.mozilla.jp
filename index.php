@@ -55,7 +55,7 @@ get_header();
 
           //start here document
           $content = <<< DOC
-            <section class="section">
+            <section>
               <time datetime="$datetime">
                 <span class="posted-year">$year</span>
                 <span class="posted-month">$month</span>
