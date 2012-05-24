@@ -899,7 +899,7 @@ function onemozilla_comment($comment, $args, $depth) {
          <cite class="author fn"><?php esc_html(comment_author()); ?></cite>
          <?php if (function_exists('get_avatar')) : echo ('<span class="photo">'.get_avatar( $comment, 48 ).'</span>'); endif; ?>
        </a>
-       <span class="comment-meta"><?php _e('wrote on', 'onemozilla'); ?> <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" rel="bookmark" title="<?php _e('Permanent link to this comment by ','onemozilla'); comment_author(); ?>"><time class="published" datetime="<?php comment_date('Y-m-d'); ?>" title="<?php comment_date('Y-m-d'); ?>"><?php comment_date('F jS, Y'); ?> at <?php comment_time(); ?></time></a>:</span>
+       <span class="comment-meta"> 投稿日時: <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" rel="bookmark" ><time class="published" datetime="<?php comment_date('Y-m-d'); ?>" title="<?php comment_date('Y-m-d'); ?>"><?php comment_date('F jS, Y'); ?> at <?php comment_time(); ?></time></a>:</span>
      </h3>
     <?php else : // author has no link ?>
       <h3 class="entry-title vcard">
@@ -911,7 +911,7 @@ function onemozilla_comment($comment, $args, $depth) {
   <?php endif; ?>
 
     <?php if ($comment->comment_approved == '0') : ?>
-      <p class="mod"><strong><?php _e('Your comment is awaiting moderation.', 'onemozilla'); ?></strong></p>
+      <p class="mod"><strong><?php echo 'あなたのコメントは承認待ちです.'; ?></strong></p>
     <?php endif; ?>
 
     <blockquote class="entry-content">
@@ -919,7 +919,7 @@ function onemozilla_comment($comment, $args, $depth) {
     </blockquote>
 
   <?php if ( (get_option('thread_comments') == true) || (current_user_can('edit_post', $comment->comment_post_ID)) ) : ?>
-    <p class="comment-util"><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?> <?php if ( current_user_can('edit_post', $comment->comment_post_ID) ) : ?><span class="edit"><?php edit_comment_link(__('Edit Comment','onemozilla'),'',''); ?></span><?php endif; ?></p>
+    <p class="comment-util"><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?> <?php if ( current_user_can('edit_post', $comment->comment_post_ID) ) : ?><span class="edit"><?php edit_comment_link('コメントを編集する','',''); ?></span><?php endif; ?></p>
   <?php endif; ?>
 <?php
 } /* end onemozilla_comment */
