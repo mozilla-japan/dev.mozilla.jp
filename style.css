@@ -573,11 +573,184 @@ body #sidebar{
   margin-bottom: 3em;
 }
 
-#comments {
-  padding-top: 1.5em;
-  border-top: 1px dotted rgb(204, 204, 204);
-  margin-top: 3em;
+
+/* @Comments *********/
+.comments-head {
+  clear: both;
+  margin: 48px 0 24px;
 }
+#comment-list {
+  list-style: none;
+  margin: 0 0 48px;
+  padding: 0;
+}
+#comment-list .comment,
+#comment-list .pingback,
+#comment-list .trackback {
+  font-size: .875em;
+  padding: 19px;
+  margin: 0 0 24px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: rgba(0,0,0,0.05);
+  -o-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  -ms-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+#comment-list .alt { 
+  background: #f7f7f7; 
+  -o-box-shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 1px rgba(0,0,0,0.1);
+  -ms-box-shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 1px rgba(0,0,0,0.1);
+}
+#comment-list .byuser {
+  border-color: #dccccc;
+  -o-box-shadow: inset 0 2px 12px rgba(175,38,38,.01), 0 1px 1px rgba(0,0,0,0.1);
+  -ms-box-shadow: inset 0 2px 12px rgba(175,38,38,.01), 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0 2px 12px rgba(175,38,38,.01), 0 1px 1px rgba(0,0,0,0.1);
+}
+
+#comment-list.av .comment {
+  position: relative; padding-left: 92px; min-height: 70px;
+}
+
+#comment-list .entry-title {
+  font-size: 1.25em;
+  min-height: 0;
+  letter-spacing: normal;
+  margin: 0 0 1.5em;
+}
+#comment-list .author {
+  font-style: normal;
+}
+#comment-list .entry-title cite {
+  font-style: normal;
+}
+#comment-list .comment-meta {
+  font-size: .857em;
+}
+
+#comment-list .avatar {
+  position: absolute;
+  left: 19px;
+  top: 19px;
+  border: 1px solid #fff; box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  -moz-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -ms-transition: all .1s linear;
+  transition: all .1s linear;
+}
+#comment-list a:hover .avatar,
+#comment-list a:focus .avatar,
+#comment-list a:active .avatar {
+  border-color: inherit;
+}
+
+#comment-list .entry-content p,
+#comment-list .entry-content pre,
+#comment-list .entry-content blockquote {
+  margin: .75em 0 0;
+}
+#comment-list .mod {
+  margin-top: 1em;
+  border: 1px solid #f0dfc0;
+  color: #3c3c3c;
+  font-size: 1.07em;
+  text-align: center;
+  padding: .5em 15px;
+  background: #fff2db;
+}
+
+#comment-list .comment-util {
+  margin: 1em 0 0;
+  font-size: .846em;
+}
+#comment-list .comment-reply-link:after {
+  content: "\00A0\00BB";
+  font-size: 1.2em;
+} /* nbsp raquo */
+#comment-list .comment-util .edit {
+  margin-left: 20px;
+}
+
+#comment-list ol.children {
+  list-style: none;
+  margin: 24px 0 0;
+}
+#comment-list ol.children .comment {
+  font-size: 1em;
+  margin: 0 0 0 -72px;
+}
+
+/* @Comment @Form *********/
+#comment-form {
+  position: relative;
+  padding: 3em 0 0;
+}
+#comment-form legend span {
+  position: absolute;
+  top: 0;
+  margin: 0 0 .25em;
+  letter-spacing: -1px;
+  font: 1.5em/1 "Open Sans Light", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+#comment-form .self {
+  margin-bottom: 1em;
+}
+#comment-form .self .logout {
+  font-size: .923em;
+  margin-left: 1em;
+}
+
+#comment-list #respond {
+  width: auto;
+  margin: 1em 20px;
+}
+#comment-list .children #respond {
+  margin-left: -50px;
+}
+#cancel-comment-reply {
+  position: absolute;
+  right: 0;
+  font-size: .857em;
+  top: .15em;
+}
+#cancel-comment-reply a {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 1px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #eee; 
+  background: -moz-linear-gradient(top, #fff 0, #eee 100%);
+  background: -webkit-linear-gradient(top, #fff 0, #eee 100%);
+  background: linear-gradient(top, #fff 0, #eee 100%);
+}
+#cancel-comment-reply a:hover,
+#cancel-comment-reply a:focus,
+#cancel-comment-reply a:active {
+  border-color: #999;
+}
+
+#comment-form #errors {
+  border: 1px solid #f0dfc0;
+  padding: .5em 15px .25em;
+  background: #fff2db;
+  margin-bottom: 1em;
+}
+#comment-form #errors p {
+  margin-bottom: .5em;
+}
+#comment-form .err {
+  background: #fff2db;
+}
+
+#comment-form input, #comment-form textarea {
+  font-size: .857em;
+  width: 96%;
+}
+
 
 /* footer */
 #footer {
