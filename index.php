@@ -54,7 +54,7 @@ get_header();
           $title = get_the_title();
 
           //start here document
-          $content = <<< DOC
+          echo <<< DOC
             <section>
               <time datetime="$datetime">
                 <span class="posted-year">$year</span>年
@@ -70,22 +70,9 @@ get_header();
 DOC;
 //end of here document
 
-          if ($postcount === 0) {
-            $latest = $content;
-          }
-          else {
-            $old .= $content;
-          }
-          ++$postcount;
         endforeach;
       endif;
     ?>
-    <div class="event-latest">
-      <?php echo($latest); ?>
-    </div>
-    <div class="event-old">
-      <?php echo($old); ?>
-    </div>
   </section>
 
   <section id="blogfeed">
