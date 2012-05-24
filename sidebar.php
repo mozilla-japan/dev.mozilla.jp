@@ -36,17 +36,12 @@
     </h3>
     <ul id="sidebar-project-list">
       <?php
-         $paged = get_query_var('paged');
-         $posts = query_posts(array("post_type" => array("project"),
-      "paged" => $paged,
-      "orderby" => "date",
-      "nopaging" => true));
-      if(have_posts()){
-        foreach ($posts as $post):
-        setup_postdata($post);
-        echo '<li class="project-item project-item-';
-                         the_ID();
-                         echo '">';
+      $args = array( 'post_type' => 'project');
+      $loop = new WP_Query( $args );
+      while($loop->have_posts() ) : $loop-> the_post();
+      echo '<li class="project-item project-tem-';
+      the_ID();
+      echo '">';
           echo '<a href="';
                          the_permalink();
                          echo '" title="';
@@ -55,8 +50,7 @@
             the_title();
             echo '</a>';
           echo '</li>';
-        endforeach;
-      }
+      endwhile;
       ?>
     </ul>
   </div>
