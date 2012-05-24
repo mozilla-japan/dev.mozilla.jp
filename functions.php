@@ -777,7 +777,7 @@ function get_project_url () {
 /* return the url of "projects" page (string) */
 function get_about_url () {
   $base = get_bloginfo('url');
-	$path = '/aboutmodest/';//将来的に/about/に修正？
+	$path = '/about/';//将来的に/about/に修正？
 	return ($base . $path);
 }
 /* return the url of "events" page (string) */
