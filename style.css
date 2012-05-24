@@ -438,42 +438,6 @@ body {
   background: rgba(255, 255, 255, 0.5);
 }
 
-#event > div {
-  float: left;
-  width: 50%;
-  margin: 0 0 4em;
-  padding: 0;
-}
-#event + * {
-  clear: both;
-}
-#event .section {
-  display: block;
-  margin: 0 0 10px;
-  padding: 5px;
-}
-#event > .event-latest > section {
-  height: 255px;
-  margin-right: 10px;
-}
-#event > .event-old > section {
-  height: 117px;
-}
-#event > .event-latest > section,
-#event > .event-old > section:last-child {
-  margin-bottom: 20px;
-}
-#event section > * {
-  margin:0;
-  padding:0;
-}
-#event section h3{
-  font-size: 2em;
-}
-#event section time {
-  font-size: 1.5em;
-}
-
 .feed-article {
   margin: 1em 0 2.5em;
 }
