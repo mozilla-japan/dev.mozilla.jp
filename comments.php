@@ -29,7 +29,7 @@
 ?>
 
   <header class="comments-head">
-    <h2><?php comments_number('コメント', '1 件のコメント', '% 件のコメント' );?></h2>
+    <h2><?php comments_number('', '1 件のコメント', '% 件のコメント' );?></h2>
   </header>
 
 <?php if ( have_comments() ) : // If there are comments ?>
