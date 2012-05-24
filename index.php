@@ -57,9 +57,9 @@ get_header();
           $content = <<< DOC
             <section>
               <time datetime="$datetime">
-                <span class="posted-year">$year</span>
-                <span class="posted-month">$month</span>
-                <span class="posted-date">$date</span>
+                <span class="posted-year">$year</span>年
+                <span class="posted-month">$month</span>月
+                <span class="posted-date">$date</span>日
               </time>
               <h3>
                 <a href="$href" title="$title">
