@@ -35,7 +35,7 @@ get_header();
     <h2>イベント</h2>
     <?php
       $args = array( 'post_type' => 'event',
-                     'numberposts' => 3,
+                     'numberposts' => 2,
                    );
       $posts = get_posts($args);
       $latest = '';
