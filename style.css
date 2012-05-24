@@ -587,6 +587,12 @@ body #sidebar{
   margin-bottom: 3em;
 }
 
+#comments {
+  padding-top: 1.5em;
+  border-top: 1px dotted rgb(204, 204, 204);
+  margin-top: 3em;
+}
+
 /* footer */
 #footer {
   display: block;
