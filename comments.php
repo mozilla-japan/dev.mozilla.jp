@@ -29,8 +29,8 @@
 ?>
 
   <header class="comments-head">
-    <h2><?php comments_number('No responses', 'One response', '% responses' );?></h2>
-    <?php if (comments_open()) : ?><p class="cmt-post"><a href="#respond"><?php _e('Post a comment','onemozilla'); ?></a></p><?php endif; ?>
+    <h2><?php comments_number('コメントを投稿する', '1 件のコメント', '% 件のコメント' );?></h2>
+    <?php if (comments_open()) : ?><p class="cmt-post"><a href="#respond"><?php echo 'コメントを投稿する' ?></a></p><?php endif; ?>
   </header>
 
 <?php if ( have_comments() ) : // If there are comments ?>
@@ -39,7 +39,7 @@
   </ol>
 
   <?php if ( get_comment_pages_count() > 1 ) : // If comment paging is enabled and there are enough comments to paginate, show the comment paging ?>
-    <p class="pages"><?php _e('More comments:', 'onemozilla'); paginate_comments_links(); ?></p>
+    <p class="pages"><?php echo '更なるコメント:'; paginate_comments_links(); ?></p>
   <?php endif; ?>
 
 <?php endif; ?>
@@ -49,32 +49,32 @@
   <div id="respond">
   <?php if ( get_option('comment_registration') ) : // If registration is required and you're not logged in, show a message ?>
     
-    <p><?php printf( __('You must be <a href="%s">logged in</a> to post a comment.', 'onemozilla'), esc_attr(wp_login_url(get_permalink())) ); ?></p>
+    <p><?php printf('<a class="button-white" href="%s">ログイン</a>する必要があります.', esc_attr(wp_login_url(get_permalink())) ); ?></p>
 
   <?php else : // else show the form ?>
     <form id="comment-form" action="<?php echo esc_attr(get_option('siteurl')); ?>/wp-comments-post.php" method="post">
       <fieldset>
-        <legend><span><?php comment_form_title( __('Post Your Comment'), __('Reply to %s' ) ); ?></span></legend>
-        <p id="cancel-comment-reply"><?php cancel_comment_reply_link('Cancel Reply'); ?></p>
+        <legend><span><?php comment_form_title( __('コメントを投稿する'), __('%s に返信' ) ); ?></span></legend>
+        <p id="cancel-comment-reply"><?php cancel_comment_reply_link('返信を止める'); ?></p>
         <ol>
         <?php if ( $user_ID ) : ?>
-          <li class="self"><?php printf( __( 'You are logged in as <a href="%1$s">%2$s</a>. <a class="logout" href="%3$s">Log out?</a>', 'onemozilla' ), admin_url( 'profile.php' ), esc_html($user_identity), wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ); ?></li>
+          <li class="self"><?php printf( __( '<a href="%1$s">%2$s</a> としてログインしています. <a class="logout button-white" href="%3$s">Log out</a>', '' ), admin_url( 'profile.php' ), esc_html($user_identity), wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ); ?></li>
         <?php else : ?>
           <li id="cmt-name">
-            <label for="author"><?php _e('Name', 'onemozilla'); ?> <?php if ($req) : _e('<span class="note">(required)</span>', 'onemozilla'); endif; ?></label> 
+            <label for="author">名前 <?php if ($req) :echo '<span class="note">(必須, 実際のコメントには表示されません)</span>'; endif; ?></label> 
             <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="25" <?php if ($req) echo "required aria-required='true'"; ?>>
           </li>
           <li id="cmt-email">
-            <label for="email"><?php _e('E-mail', 'onemozilla'); ?> <?php if ($req) : _e('<span class="note">(required, will not be published)</span>', 'onemozilla'); endif; ?></label> 
+            <label for="email">メールアドレス <?php if ($req) : echo '<span class="note">(必須, 実際のコメントには表示されません)</span>'; endif; ?></label> 
             <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="25" <?php if ($req) echo "required aria-required='true'"; ?>>
           </li>
           <li id="cmt-web">
-            <label for="url"><?php _e('Website', 'onemozilla'); ?></label> 
+            <label for="url">Webサイト</label>
             <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="25">
           </li>
         <?php endif; ?>
-          <li id="cmt-cmt"><label for="comment"><?php _e('Your comment', 'onemozilla'); ?></label> <textarea name="comment" id="comment" cols="50" rows="10"></textarea></li>
-          <li id="comment-submit"><button name="submit" class="button-blue" type="submit"><?php _e('Submit Comment', 'onemozilla'); ?></button>
+          <li id="cmt-cmt"><label for="comment">コメント本文</label> <textarea name="comment" id="comment" cols="50" rows="10"></textarea></li>
+          <li id="comment-submit"><button name="submit" class="button-blue" type="submit">コメントを送信</button>
           <?php comment_id_fields(); ?>
           <?php do_action('comment_form', $post->ID); ?></li>
         </ol>
