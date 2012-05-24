@@ -29,8 +29,7 @@
 ?>
 
   <header class="comments-head">
-    <h2><?php comments_number('コメントを投稿する', '1 件のコメント', '% 件のコメント' );?></h2>
-    <?php if (comments_open()) : ?><p class="cmt-post"><a href="#respond"><?php echo 'コメントを投稿する' ?></a></p><?php endif; ?>
+    <h2><?php comments_number('コメント', '1 件のコメント', '% 件のコメント' );?></h2>
   </header>
 
 <?php if ( have_comments() ) : // If there are comments ?>
