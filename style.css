@@ -751,8 +751,11 @@ body #sidebar{
   width: 96%;
 }
 
-#comment-form > fieldset {
+#comment-form > fieldset,
+#comment-form ol {
+  padding: 0;
   border: none;
+  margin: 0;
 }
 #comment-form li {
   list-style-type: none;
