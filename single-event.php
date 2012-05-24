@@ -103,6 +103,8 @@ get_header();
 		?>
 	</div>
 
+  <?php comments_template(); ?>
+
   <?php
 	  	endwhile;
 	  else:
