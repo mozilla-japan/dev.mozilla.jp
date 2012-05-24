@@ -761,6 +761,11 @@ body #sidebar{
   list-style-type: none;
 }
 
+#comments > .comments-head {
+  padding-top: .5em;
+  border-top: 1px dotted rgb(204, 204, 204);
+  margin-top: 3em;
+}
 
 /* footer */
 #footer {
