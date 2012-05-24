@@ -751,6 +751,13 @@ body #sidebar{
   width: 96%;
 }
 
+#comment-form > fieldset {
+  border: none;
+}
+#comment-form li {
+  list-style-type: none;
+}
+
 
 /* footer */
 #footer {
