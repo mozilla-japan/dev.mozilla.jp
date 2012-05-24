@@ -23,7 +23,7 @@ if (isset($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['S
 
 <!-- You can start editing here. -->
 <section id="comments">
-  <h3>この記事へのコメント</h3>
+  <h2>この記事へのコメント</h2>
 
 <?php
   if ( have_comments() ) :
@@ -56,11 +56,7 @@ if (isset($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['S
 ?>
 
     <div id="respond">
-      <h3>
-        <?php
-          comment_form_title( __('Leave a Reply', 'kubrick'), __('Leave a Reply for %s' , 'kubrick') );
-        ?>
-      </h3>
+      <h3>コメントを残す</h3>
 
       <div id="cancel-comment-reply">
         <small><?php cancel_comment_reply_link() ?> </small>
