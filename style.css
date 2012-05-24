@@ -438,6 +438,28 @@ body {
   background: rgba(255, 255, 255, 0.5);
 }
 
+#event section {
+  background:white;
+  padding: 20px;
+  margin: 0.5em 0 1.5em;
+}
+#event section > time {
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+}
+#event section > h3 {
+  display: block;
+  font-size: 2.5em;
+  margin: 0;
+}
+.posted-year,
+.posted-month,
+.posted-date {
+  font-size: 1.7em;
+}
+
 .feed-article {
   margin: 1em 0 2.5em;
 }
