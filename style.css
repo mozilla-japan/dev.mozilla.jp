@@ -693,7 +693,7 @@ body #sidebar{
   top: 0;
   margin: 0 0 .25em;
   letter-spacing: -1px;
-  font: 1.5em/1 "Open Sans Light", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.5em/1;
 }
 #comment-form .self {
   margin-bottom: 1em;
