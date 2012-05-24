@@ -308,20 +308,6 @@ a:hover,a:active{
   box-shadow:0 1px 1px rgba(255,255,255,0.75),0 1px 3px rgba(0,0,0,0.1) inset
 }
 
-/* post date */
-.published {
-  display: block;
-  width: 60px;
-  padding: 6px 10px 16px;
-  background: url("images/bg-date-lt.png") no-repeat scroll center top transparent;
-  text-align: center;
-}
-.published > .posted-year,
-.published > .posted-month,
-.published > .posted-date {
-  display: block;
-}
-
 /*
  * layout
  */
