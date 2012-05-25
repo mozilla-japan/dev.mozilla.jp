@@ -727,9 +727,10 @@ function get_event_url () {
 	return ($base . $path);
 }
 /* return the url of "addevent" page (string) */
-function get_add_event_url() {
+function 
+_event_url() {
   $base = get_bloginfo('url');
-	$path = '/addevent/';
+	$path = '/newevent/';
 	return ($base . $path);
 }
 /* return the url of "addproject" page (string) */
@@ -747,7 +748,7 @@ function get_join_modest_url(){
 /* return the url of "addpost" page (string) */
 function get_add_post_url(){
   $base = get_bloginfo('url');
-  $path = '/addpost/';
+  $path = '/newpost/';
   return ($base . $path);
 }
 
