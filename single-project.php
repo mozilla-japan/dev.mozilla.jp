@@ -29,7 +29,7 @@ get_header();
 		?>
 	</header>
 
-	<footer class="entry-footer">
+	<footer class="projectmeta">
 
 		<div class="project-icon">
 			<?php
@@ -39,16 +39,15 @@ get_header();
 			?>
 		</div>
 
-		<div class="projectmeta">
-			<dl>
-				<dt>Web サイト</dt>
-				<dd>
-					<?php
-						data_of_the_project($the_id, 'url');
-					?>
-				</dd>
-			</dl>
-		</div>
+		<dl>
+			<dt>Web サイト</dt>
+			<dd>
+				<?php
+					data_of_the_project($the_id, 'url');
+				?>
+			</dd>
+		</dl>
+
 	</footer>
 
 	<div class="entry-body project-description">

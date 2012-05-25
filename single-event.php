@@ -32,62 +32,58 @@ get_header();
 
   </header>
 
-  <footer>
+  <footer class="eventmeta">
 
-    <div class="eventmeta">
+    <dl>
+      <dt>開催時間</dt>
+      <dd>
+        <?php
+          data_of_the_event($the_id, 'start_time');
+        ?>
+         -
+        <?php
+          data_of_the_event($the_id, 'end_time');
+        ?>
+      </dd>
 
-      <dl>
-        <dt>開催時間</dt>
-        <dd>
-          <?php
-            data_of_the_event($the_id, 'start_time');
-          ?>
-           -
-          <?php
-            data_of_the_event($the_id, 'end_time');
-          ?>
-        </dd>
+      <dt>定員</dt>
+      <dd>
+        <?php
+          data_of_the_event($the_id, 'capacity');
+        ?>
+      </dd>
 
-        <dt>定員</dt>
-        <dd>
-          <?php
-            data_of_the_event($the_id, 'capacity');
-          ?>
-        </dd>
+      <dt>会場</dt>
+      <dd>
+        <?php
+          data_of_the_event($the_id, 'place');
+        ?>
+      </dd>
 
-        <dt>会場</dt>
-        <dd>
-          <?php
-            data_of_the_event($the_id, 'place');
-          ?>
-        </dd>
+      <dt>参考URL</dt>
+      <dd>
+        <?php
+          data_of_the_event($the_id, 'url');
+        ?>
+      </dd>
 
-        <dt>参考URL</dt>
-        <dd>
-          <?php
-            data_of_the_event($the_id, 'url');
-          ?>
-        </dd>
+      <dt>ハッシュタグ</dt>
+      <dd>
+        <?php
+          data_of_the_event($the_id, 'hashtag');
+        ?>
+      </dd>
 
-        <dt>ハッシュタグ</dt>
-        <dd>
-          <?php
-            data_of_the_event($the_id, 'hashtag');
-          ?>
-        </dd>
-
-        <dt>イベント管理者</dt>
-        <dd>
-				  <?php
-					  $post = get_post($the_id);
-					  $userID = $post->post_author;
-  					echo get_avatar($userID, 15);//avatar image
-  					echo the_author_posts_link();//auther link
-				  ?>
-        </dd>
-      </dl>
-
-    </div>
+      <dt>イベント管理者</dt>
+      <dd>
+        <?php
+          $post = get_post($the_id);
+          $userID = $post->post_author;
+          echo get_avatar($userID, 15);//avatar image
+          echo the_author_posts_link();//auther link
+        ?>
+      </dd>
+    </dl>
 
 	</footer>
 
