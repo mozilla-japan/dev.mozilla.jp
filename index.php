@@ -77,7 +77,7 @@ DOC;
 
   <section id="blogfeed">
     <h2>
-      <a href="<?php echo get_all_post_url(); ?>">最新の投稿</a>
+      <a href="<?php echo get_all_post_url(); ?>">最新のトピック</a>
     </h2>
     <?php
       $posts = get_posts('posts_per_page=5');

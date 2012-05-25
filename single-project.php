@@ -62,7 +62,7 @@ get_header();
     <?php $cat_id = get_post_meta($post->ID, 'catid', true);
     $category_link = get_category_link($cat_id);
     ?>
-	  <h2><a href="<?php echo $category_link ?>">最新の投稿</a></h2>
+	  <h2><a href="<?php echo $category_link ?>">最新のトピック</a></h2>
 		<?php
 			$args = array('posts_per_page' => 5,
 			              'category' => $cat_id);
