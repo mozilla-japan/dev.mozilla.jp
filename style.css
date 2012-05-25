@@ -486,6 +486,17 @@ body {
   font-weight: bold;
 }
 
+.projectmeta .project-icon {
+  float: right;
+}
+/* claer fix */
+.projectmeta:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+
 /* project page */
 #project-latest-topics-list > h1 {
   font-size: 2em;
