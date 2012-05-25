@@ -17,15 +17,15 @@
 
 <section id="comments">
 <?php if ( post_password_required() ) : ?>
-	<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'onemozilla' ); ?></p>
+  <p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'onemozilla' ); ?></p>
 </section><!-- #comments -->
 <?php
-		/* Stop the rest of comments.php from being processed,
-		 * but don't kill the script entirely -- we still have
-		 * to fully load the template.
-		 */
-		return;
-	endif;
+    /* Stop the rest of comments.php from being processed,
+     * but don't kill the script entirely -- we still have
+     * to fully load the template.
+     */
+    return;
+  endif;
 ?>
 
   <header class="comments-head">
@@ -60,7 +60,7 @@
           <li class="self"><?php printf( __( '<a href="%1$s">%2$s</a> としてログインしています. <a class="logout button-white" href="%3$s">Log out</a>', '' ), admin_url( 'profile.php' ), esc_html($user_identity), wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ); ?></li>
         <?php else : ?>
           <li id="cmt-name">
-            <label for="author">名前 <?php if ($req) :echo '<span class="note">(必須, 実際のコメントには表示されません)</span>'; endif; ?></label> 
+            <label for="author">名前 <?php if ($req) :echo '<span class="note">(必須)</span>'; endif; ?></label> 
             <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="25" <?php if ($req) echo "required aria-required='true'"; ?>>
           </li>
           <li id="cmt-email">

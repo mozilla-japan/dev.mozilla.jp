@@ -35,18 +35,6 @@ get_header();
 	<footer class="entry-footer">
 		<div class="projectmeta">
 			<dl>
-				<dt>投稿者</dt>
-				<dd>
-					<address>
-						<?php
-							$post = get_post($the_id);
-							$userID = $post->post_author;
-							echo get_avatar($userID, 15);//avatar image
-							echo the_author_posts_link();//auther link
-						?>
-					</address>
-				</dd>
-
 				<dt>Web サイト</dt>
 				<dd>
 					<?php
@@ -74,7 +62,7 @@ get_header();
     <?php $cat_id = get_post_meta($post->ID, 'catid', true);
     $category_link = get_category_link($cat_id);
     ?>
-	  <h1><a href="<?php echo $category_link ?>"><?php echo($title); ?>の最新の投稿</a></h1>
+	  <h2><a href="<?php echo $category_link ?>">最新のトピック</a></h2>
 		<?php
 			$args = array('posts_per_page' => 5,
 			              'category' => $cat_id);
