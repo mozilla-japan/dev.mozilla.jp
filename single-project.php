@@ -21,9 +21,6 @@ get_header();
 	?>
 
 	<header class="entry-header">
-		<?php
-			//post_icon($the_id,array(120,120));
-		?>
 
 		<h1 class="post-title"><?php echo($title); ?></h1>
 
@@ -33,6 +30,15 @@ get_header();
 	</header>
 
 	<footer class="entry-footer">
+
+		<div class="project-icon">
+			<?php
+				if (has_post_thumbnail($post->ID)) {
+					the_post_thumbnail();
+				}
+			?>
+		</div>
+
 		<div class="projectmeta">
 			<dl>
 				<dt>Web サイト</dt>
