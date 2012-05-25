@@ -250,7 +250,7 @@ function menu_meta_html($post, $box){
     $catid = (int)get_post_meta($post->ID, 'catid', true);
     if($catid == 0)$catid = '';
     echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
-    echo '<p>カテゴリID: <input type="text" size="50" name="catid" value="'.$catid.'"></p>';
+    echo '<p>カテゴリID（変更禁止）: <input type="text" size="50" name="catid" value="'.$catid.'"></p>';
   }
 }
 
@@ -456,6 +456,9 @@ function menu_update($post_id){
 	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
 		return $post_id;
 	}
+  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
+    return $post_id;
+  }
 	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
 		return $post_id;
 	}
@@ -470,7 +473,11 @@ function menu_update($post_id){
 
 	$cat = trim($_POST['cat']);
 	$url = trim($_POST['url']);
+  $catid = trim($_POST['catid']);
 
+  if($catid != '' || $catid != 0){
+    update_post_meta($post_id, 'catid', $catid);
+  }
 	if($cat == ''){
 		delete_post_meta($post_id, 'cat');
 	} else {
