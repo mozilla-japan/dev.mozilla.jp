@@ -129,6 +129,19 @@ a:hover,a:active{
   border-right: none;
 }
 
+/* archive */
+.archive-post-title {
+  font-size: 2em;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.archive-post_header > .archive-post-title {
+  display: inline-block;
+}
+.archive-post {
+  margin-bottom: 5em;
+}
+
 /* project & event page */
 .projectmeta,
 .eventmeta {
@@ -156,6 +169,13 @@ a:hover,a:active{
   box-shadow: none;
 }
 
+.navigation {
+  display: block;
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 10px;
+}
 
 /* entry body */
 .entry-body {
@@ -174,6 +194,76 @@ a:hover,a:active{
 }
 .entry-body > *:first-child {
   margin-top: 1em;
+}
+
+#content .section {
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 20px;
+  margin: 15px 0px;
+}
+
+#hottopic > h2,
+#event > h2,
+#blogfeed > h2 {
+  margin: 0px;
+  font-size: 2em;
+  font-weight: normal;
+}
+#hottopic > .section {
+  background: url("images/dino.png") no-repeat right 0px,
+              #fff;
+}
+#hottopic h3 > a {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#event section {
+  background:white;
+  padding: 20px;
+  margin: 0.5em 0 1.5em;
+}
+#event section > time {
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+}
+#event section > h3 {
+  display: block;
+  font-size: 2.5em;
+  margin: 0;
+}
+.posted-year,
+.posted-month,
+.posted-date {
+  font-size: 1.7em;
+}
+
+.feed-article {
+  margin: 1em 0 2.5em;
+}
+.feed-article h1 {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.feed-article .edit_post {
+  float: right;
+}
+.feed-article .edit_post + * {
+  clear: both;
+}
+
+/* project list */
+.event-title,
+.project-title {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /*
@@ -241,6 +331,17 @@ a:hover,a:active{
 .button-blue small,.button-blue:link small,.button-blue:visited small{
   text-decoration:none;
   display:block
+}
+
+/* project page */
+#project-latest-topics-list > h1 {
+  font-size: 2em;
+  margin: 1em 0 0.5em;
+}
+.entry-body.project-description {
+  padding-bottom: 3em;
+  border-bottom: 1px dotted rgb(204, 204, 204);
+  margin-bottom: 3em;
 }
 
 /*
@@ -390,87 +491,11 @@ body {
   margin-right: 50px;
 }
 
-.navigation {
-  display: block;
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 10px;
-}
-
 #content > section {
   margin-bottom: 4em;
 }
 
-#content .section {
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 20px;
-  margin: 15px 0px;
-}
 
-#hottopic > h2,
-#event > h2,
-#blogfeed > h2 {
-  margin: 0px;
-  font-size: 2em;
-  font-weight: normal;
-}
-#hottopic > .section {
-  background: url("images/dino.png") no-repeat right 0px,
-              #fff;
-}
-#hottopic h3 > a {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-#event section {
-  background:white;
-  padding: 20px;
-  margin: 0.5em 0 1.5em;
-}
-#event section > time {
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  padding-bottom: 0.3em;
-  margin-bottom: 1em;
-}
-#event section > h3 {
-  display: block;
-  font-size: 2.5em;
-  margin: 0;
-}
-.posted-year,
-.posted-month,
-.posted-date {
-  font-size: 1.7em;
-}
-
-.feed-article {
-  margin: 1em 0 2.5em;
-}
-.feed-article h1 {
-  display: inline-block;
-  font-size: 1.5em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.feed-article .edit_post {
-  float: right;
-}
-.feed-article .edit_post + * {
-  clear: both;
-}
-
-/* project list */
-.event-title,
-.project-title {
-  display: inline-block;
-  font-size: 1.5em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 /* sidebar */
 #sidebar {
@@ -550,29 +575,6 @@ body #sidebar{
   display: none;
 }
 
-/* archive */
-.archive-post-title {
-  font-size: 2em;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-.archive-post_header > .archive-post-title {
-  display: inline-block;
-}
-.archive-post {
-  margin-bottom: 5em;
-}
-
-/* project page */
-#project-latest-topics-list > h1 {
-  font-size: 2em;
-  margin: 1em 0 0.5em;
-}
-.entry-body.project-description {
-  padding-bottom: 3em;
-  border-bottom: 1px dotted rgb(204, 204, 204);
-  margin-bottom: 3em;
-}
 
 
 /* @Comments *********/
@@ -767,6 +769,8 @@ body #sidebar{
   border-top: 1px dotted rgb(204, 204, 204);
   margin-top: 3em;
 }
+
+
 
 /* footer */
 #footer {
