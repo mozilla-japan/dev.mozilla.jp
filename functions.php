@@ -811,7 +811,7 @@ function get_add_event_url() {
 /* return the url of "addproject" page (string) */
 function get_add_project_url() {
   $base = get_bloginfo('url');
-	$path = '/addproject/';
+	$path = '/newproject/';
   return ($base . $path);
 }
 /* return the url of "joinmodest" page (string) */
