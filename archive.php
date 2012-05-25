@@ -109,7 +109,6 @@ get_header();
 		echo <<< DOC
 			<p class="postmeta">$string</p>
 DOC;
-			get_search_form();
 	endif;
 ?>
 
