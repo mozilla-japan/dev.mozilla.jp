@@ -727,8 +727,7 @@ function get_event_url () {
 	return ($base . $path);
 }
 /* return the url of "addevent" page (string) */
-function 
-_event_url() {
+function get_add_event_url() {
   $base = get_bloginfo('url');
 	$path = '/newevent/';
 	return ($base . $path);
