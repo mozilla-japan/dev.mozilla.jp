@@ -35,18 +35,6 @@ get_header();
 	<footer class="entry-footer">
 		<div class="projectmeta">
 			<dl>
-				<dt>投稿者</dt>
-				<dd>
-					<address>
-						<?php
-							$post = get_post($the_id);
-							$userID = $post->post_author;
-							echo get_avatar($userID, 15);//avatar image
-							echo the_author_posts_link();//auther link
-						?>
-					</address>
-				</dd>
-
 				<dt>Web サイト</dt>
 				<dd>
 					<?php
