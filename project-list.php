@@ -39,23 +39,25 @@ get_header();
 
     <section class="project-section">
 
-      <div class="project-icon">
-        <?php
-          if (has_post_thumbnail($post->ID)) {
-           the_post_thumbnail();
-          }
-        ?>
-      </div>
+      <header>
+        <h1 class="project-title">
+          <?php
+            $title = get_the_title();
+          ?>
+          <a href="<?php the_permalink() ?>" title="<?php echo $title; ?>">
+            <?php echo $title; ?>
+          </a>
+        </h1>
 
-      <h1 class="project-title">
-        <?php
-          $title = get_the_title();
-        ?>
-        <a href="<?php the_permalink() ?>" title="<?php echo $title; ?>">
-          <?php echo $title; ?>
-        </a>
-      </h1>
- 
+        <div class="project-icon">
+          <?php
+            if (has_post_thumbnail($post->ID)) {
+             the_post_thumbnail();
+            }
+          ?>
+        </div>
+      </header>
+
       <footer class="entry-footer">
 
         <div class="projectmeta">

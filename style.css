@@ -526,7 +526,9 @@ body {
   background: transparent;
   box-shadow: none;
 }
-
+.project-section .project-icon {
+  float: right;
+}
 
 /************************************************
  * sidebar
