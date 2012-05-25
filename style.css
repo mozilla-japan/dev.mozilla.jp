@@ -8,16 +8,36 @@ Author: Enseki
 Tags: mozilla
 */
 
+
+/************************************************
+ * basic
+ */
 body, table *, form * {
   color: #333;
-  font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,Verdana,"ＭＳ Ｐゴシック","MS PGothic","VL Pゴシック","Takao Pゴシック","IPA Pゴシック",sans-serif;
+  font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",
+               "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,Verdana,
+               "ＭＳ Ｐゴシック","MS PGothic","VL Pゴシック","Takao Pゴシック","IPA Pゴシック",
+               sans-serif;
 }
 section, div {
   display: block;
   padding: 0;
   margin: 0;
 }
-
+/* headline */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+  font-weight: normal;
+}
+/* link */
+a{
+  color: #af3232;
+  text-decoration:none;
+}
+a:hover,a:active{
+  color: #872727;
+  text-decoration:underline;
+}
 /* ::selection pseudo-element */
 ::-moz-selection {
   background: #6bd7f3;
@@ -32,76 +52,35 @@ img::selection {
   background: transparent;
 }
 
-/* headline */
-h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
-  font-weight: normal;
-}
 
-/* link */
-a{
-  color: #af3232;
-  text-decoration:none;
-}
-a:hover,a:active{
-  color: #872727;
-  text-decoration:underline;
-}
 
-/* entry's header*/
+/************************************************
+ * common parts
+ */
+
+/* entry's title */
 .post-title {
   font-size: 2em;
   font-weight: normal;
-}
-.entry-header > .post-title {
   display: inline-block;
   margin-bottom: 12px;
 }
+/* "edit" button */
 .edit_post {
   display: inline-block;
 }
-
+/* avatar icon */
 .avatar {
   margin-right: 0.5em;
 }
 
-/* post's project list */
-.project-section,
-.event-section,
-.postmeta-project {
-  clear: both;
-  border-bottom: 1px solid rgba(255,255,255,.5);
-  margin: 0;
-  padding: 12px 24px 8px;
+/* navigation */
+.navigation {
+  display: block;
   background: #fff;
-  background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
-}
-.postmeta-project {
-  font: .785em;
-}
-.meta-project-list {
-  padding: 0;
-  margin: 0;
-}
-.meta-project-list > li {
-  display: inline-block;
-  list-style-type: none;
-  margin-right: .5em;
-}
-.meta-project-list > li:after {
-  content: ",";
-}
-.meta-project-list > li:last-child:after {
-  content: "";
-}
-
-.event-section,
-.project-section {
-  margin: 3em 0;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 10px;
 }
 
 /* post's metadata*/
@@ -129,54 +108,6 @@ a:hover,a:active{
   border-right: none;
 }
 
-/* archive */
-.archive-post-title {
-  font-size: 2em;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-.archive-post_header > .archive-post-title {
-  display: inline-block;
-}
-.archive-post {
-  margin-bottom: 5em;
-}
-
-/* project & event page */
-.projectmeta,
-.eventmeta {
-  border-bottom: 1px solid rgba(255,255,255,.5);
-  padding: 10px 20px;
-  margin: 0;
-  font-size: 0.9em;
-  background: #fff;
-  background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
-}
-.projectmeta dt,
-.eventmeta dt {
-  font-weight: bold;
-}
-
-.event-section .eventmeta,
-.project-section .projectmeta {
-  border-bottom: none;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.navigation {
-  display: block;
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 10px;
-}
-
 /* entry body */
 .entry-body {
   text-align: justify;
@@ -196,51 +127,39 @@ a:hover,a:active{
   margin-top: 1em;
 }
 
-#content .section {
+/* projects list */
+.postmeta-project {
+  clear: both;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  margin: 0;
+  padding: 12px 24px 8px;
   background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 20px;
-  margin: 15px 0px;
+  background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
-
-#hottopic > h2,
-#event > h2,
-#blogfeed > h2 {
-  margin: 0px;
-  font-size: 2em;
-  font-weight: normal;
+.postmeta-project {
+  font-size: .785em;
 }
-#hottopic > .section {
-  background: url("images/dino.png") no-repeat right 0px,
-              #fff;
-}
-#hottopic h3 > a {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-#event section {
-  background:white;
-  padding: 20px;
-  margin: 0.5em 0 1.5em;
-}
-#event section > time {
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  padding-bottom: 0.3em;
-  margin-bottom: 1em;
-}
-#event section > h3 {
-  display: block;
-  font-size: 2.5em;
+.meta-project-list {
+  padding: 0;
   margin: 0;
 }
-.posted-year,
-.posted-month,
-.posted-date {
-  font-size: 1.7em;
+.meta-project-list > li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: .5em;
+}
+.meta-project-list > li:after {
+  content: ",";
+}
+.meta-project-list > li:last-child:after {
+  content: "";
 }
 
+/* topics */
 .feed-article {
   margin: 1em 0 2.5em;
 }
@@ -257,14 +176,6 @@ a:hover,a:active{
   clear: both;
 }
 
-/* project list */
-.event-title,
-.project-title {
-  display: inline-block;
-  font-size: 1.5em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 /*
  * Mozilla Sandstone
@@ -333,17 +244,6 @@ a:hover,a:active{
   display:block
 }
 
-/* project page */
-#project-latest-topics-list > h1 {
-  font-size: 2em;
-  margin: 1em 0 0.5em;
-}
-.entry-body.project-description {
-  padding-bottom: 3em;
-  border-bottom: 1px dotted rgb(204, 204, 204);
-  margin-bottom: 3em;
-}
-
 /*
  * Mozilla Sandstone
  * secondary button style
@@ -410,7 +310,9 @@ a:hover,a:active{
   box-shadow:0 1px 1px rgba(255,255,255,0.75),0 1px 3px rgba(0,0,0,0.1) inset
 }
 
-/*
+
+
+/************************************************
  * layout
  */
 body {
@@ -422,8 +324,22 @@ body {
   width: 1050px;
   margin: 0 auto;
 }
+#content {
+  width: 680px;
+}
+#sidebar{
+  width: 230px;
+}
+.home #sidebar {
+  width: 260px;
+}
+#mozilla_ring {
+  width: 1050px;
+}
 
-/* header */
+/************************************************
+ * header
+ */
 #site-title {
   padding-top: 21px;
   margin-top: 0;
@@ -482,35 +398,150 @@ body {
   border-radius: 8px;
 }
 
-/* content */
+
+
+/************************************************
+ * content
+ */
 #content {
   display: block;
   float: left;
-  width: 680px;
   padding: 15px 0;
   margin-right: 50px;
 }
-
 #content > section {
   margin-bottom: 4em;
 }
 
+/* top page */
+#content .section {
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 20px;
+  margin: 15px 0px;
+}
+
+#hottopic > h2,
+#event > h2,
+#blogfeed > h2 {
+  margin: 0px;
+  font-size: 2em;
+  font-weight: normal;
+}
+#hottopic > .section {
+  background: url("images/dino.png") no-repeat right 0px,
+              #fff;
+}
+#hottopic h3 > a {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#event section {
+  background:white;
+  padding: 20px;
+  margin: 0.5em 0 1.5em;
+}
+#event section > time {
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+}
+#event section > h3 {
+  display: block;
+  font-size: 2.5em;
+  margin: 0;
+}
+#event .posted-year,
+#event .posted-month,
+#event .posted-date {
+  font-size: 1.7em;
+}
+
+/* archive page */
+.archive-post-title {
+  font-size: 2em;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.archive-post_header > .archive-post-title {
+  display: inline-block;
+}
+.archive-post {
+  margin-bottom: 5em;
+}
 
 
-/* sidebar */
+/* project & event page */
+.projectmeta,
+.eventmeta {
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 0.9em;
+  background: #fff;
+  background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+.projectmeta dt,
+.eventmeta dt {
+  font-weight: bold;
+}
+
+/* project page */
+#project-latest-topics-list > h1 {
+  font-size: 2em;
+  margin: 1em 0 0.5em;
+}
+.entry-body.project-description {
+  padding-bottom: 3em;
+  border-bottom: 1px dotted rgb(204, 204, 204);
+  margin-bottom: 3em;
+}
+
+
+/* project & event list page */
+.event-section,
+.project-section {
+  clear: both;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  margin: 3em 0;
+  padding: 12px 24px 8px;
+  background: #fff;
+  background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+.event-title,
+.project-title {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.event-section .eventmeta,
+.project-section .projectmeta {
+  border-bottom: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+
+/************************************************
+ * sidebar
+ */
 #sidebar {
   display: block;
   float: left;
   padding: 15px;
   margin: 0 10px 20px;
-}
-
-.home #sidebar{
-  width: 260px;
-}
-
-body #sidebar{
-  width: 230px;
 }
 
 #sidebar > * {
@@ -577,7 +608,9 @@ body #sidebar{
 
 
 
-/* @Comments *********/
+/************************************************
+ * @Comments
+ */
 .comments-head {
   clear: both;
   margin: 48px 0 24px;
@@ -772,7 +805,9 @@ body #sidebar{
 
 
 
-/* footer */
+/************************************************
+ * footer
+ */
 #footer {
   display: block;
   clear: both;
@@ -782,7 +817,6 @@ body #sidebar{
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 #mozilla_ring {
-  width: 1050px;
   padding: 0;
   margin: 0 auto;
 }
