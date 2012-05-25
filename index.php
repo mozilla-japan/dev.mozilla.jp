@@ -13,7 +13,8 @@ get_header();
     <h2>注目トピック</h2>
     <div id="hottopic-list">
       <?php
-        $cat = get_query_var('hot');
+        $cat = get_category_by_slug('hot');
+        $cat = $cat->term_id;
         $posts = get_posts("order=desc&category=". $cat ."&numberposts=3");
         if($posts):
           foreach($posts as $post):
