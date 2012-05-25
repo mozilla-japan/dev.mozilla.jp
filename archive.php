@@ -9,7 +9,7 @@ get_header();
 
 <article id="content">
 
-	<h1 class="post-title"><?php bloginfo('name') . wp_title(); ?></h1>
+	<h1 class="post-title"><?php wp_title(); ?></h1>
 
 <?php
 	if (have_posts()) :
