@@ -788,7 +788,12 @@ body {
   margin: 0;
 }
 #comment-form li {
+  margin-bottom: 0.7em;
   list-style-type: none;
+}
+#comment-form input,
+#comment-form textarea {
+  margin-top: 0.2em;
 }
 
 #comments > .comments-head {
