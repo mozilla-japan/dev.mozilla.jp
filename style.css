@@ -414,14 +414,6 @@ body {
 }
 
 /* top page */
-#content .section {
-  background: #fff;
-  box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
-  padding: 20px;
-  margin: 15px 0px;
-}
-
 #hottopic > h2,
 #event > h2,
 #blogfeed > h2 {
@@ -429,7 +421,12 @@ body {
   font-size: 2em;
   font-weight: normal;
 }
-#hottopic > .section {
+#hottopic-list {
+  background: #fff;
+  box-shadow: 0 0 0 1px #fff inset;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 20px;
+  margin: 15px 0px;
   background: url("images/dino.png") no-repeat right 0px,
               #fff;
 }

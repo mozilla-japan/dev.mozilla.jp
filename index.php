@@ -11,7 +11,7 @@ get_header();
 
   <section id="hottopic">
     <h2>注目トピック</h2>
-    <div class="section">
+    <div id="hottopic-list">
       <?php
         $cat = get_query_var('hot');
         $posts = get_posts("order=desc&category=". $cat ."&numberposts=3");
