@@ -59,7 +59,7 @@
     </nav>
     <h1 id="site-title">
       <a href= "<?php bloginfo('url'); ?>">
-        <img class="site-logo-image"
+        <img id="site-title-image"
              alt="<?php bloginfo('name'); ?>"
              src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"/>
       </a>
