@@ -196,24 +196,6 @@ function create_Project(){
 	);
 }
 
-add_action('init','create_Contact',0);
-function create_Contact(){
-	register_post_type(
-        'contact_page',
-	array(
-            'label' => 'コンタクト',
-            'public' => true,
-            'show_ui' => false,
-            'hierarchical' => false,
-            'exclude_from_search' => true,
-            'supports' => array(
-                'title',
-                'editor'
-                )
-        )
-	);
-}
-
 add_action('init','create_Event',0);
 function create_Event(){
   $labels = array(
@@ -263,12 +245,10 @@ function menu_meta_html($post, $box){
 	$url = get_post_meta($post->ID, 'url', true);
 	echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
 	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" placeholder="http://www.example.com" name="url" value="'.$url.'"></p>';
-	$email = get_post_meta($post->ID, 'email', true);
-	echo wp_nonce_field('menu_meta', 'menu_email_nonce');
-	echo '<p>プロジェクトの公開用メールアドレス:<input type="text" size="50" name="email" placeholder="example@example.com" value="'.$email.'"></p>';
   $user = wp_get_current_user();
   if($user->roles[0] == 'administrator'){
     $catid = (int)get_post_meta($post->ID, 'catid', true);
+    if($catid == 0)$catid = '';
     echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
     echo '<p>カテゴリID: <input type="text" size="50" name="catid" value="'.$catid.'"></p>';
   }
@@ -346,7 +326,6 @@ function save_extra_category_fileds( $term_id ){
  *プロジェクトをポストしたときにそのプロジェクト用にカテゴリを用意する
  */
 add_action('save_post', 'project_cat_create');
-
 function project_cat_create($post_id){
 	/*
 	 *このコードを入れるとリビジョンのidを使ってしまうため、カテゴリへの反映が次回の編集で行われる。
@@ -362,17 +341,6 @@ function project_cat_create($post_id){
 		$desc = $post_info->post_excerpt;
 		$slug = $_POST['cat'];
 		$catid = (int)get_post_meta($post_id, 'catid', true);
-		$contact_id = (int)get_post_meta($post_id, 'contact_id', true);
-		//コンタクトページの作成
-		$contact_post = array();
-		$contact_post['ID'] = $contact_id;
-		$contact_post['post_type'] = 'contact_page';
-		$contact_post['post_title'] = $title.'へのコンタクト';
-		//コンタクトフォームはサーバにアップすると変わるかもしれない．37がmichi.mozlabs.jp用 2108がLocalhost用
-		$contact_post['post_content'] = '[contact-form-7 id="37" title="Contact Form"],[contact-form-7 id="2108" title="Contact Form"]';
-		$contact_post['post_status'] = 'publish';
-		$contact_id = wp_update_post( $contact_post );
-		update_post_meta($post_id, 'contact_id', $contact_id);
 		//カテゴリの作成
 		if($catid == 0){
 			$procat = array(
@@ -387,6 +355,7 @@ function project_cat_create($post_id){
 			} else {
 				update_post_meta($post_id, 'catid', $tempcatid);
 			}
+      $t_id = $tempcatid;
 		} else {
 			$termarr = array(
                 'name' => $title,
@@ -406,12 +375,11 @@ function project_cat_create($post_id){
       }else{
         update_post_meta($post_id, 'catid', $tempcatid['term_id']);
       }
-
       $t_id = $tempcatid['term_id'];
-      $cat_meta = get_option( "cat_$t_id" );
-      $cat_meta['project_id'] = $post_id;
-      update_option( "cat_$t_id", $cat_meta);
 		}
+    $cat_meta = get_option( "cat_$t_id" );
+    $cat_meta['project_id'] = $post_id;
+    update_option( "cat_$t_id", $cat_meta);
 	}
 }
 
@@ -420,9 +388,7 @@ function delete_project($post_id){
 	$post_info = get_post($post_id);
 	if($post_info->post_type == 'project'){
 		$catid = (int)get_post_meta($post_id, 'catid', true);
-		$contact_id = (int)get_post_meta($post_id, 'contact_id', true);
 		wp_delete_category( $catid );
-		wp_delete_post( $contact_id );
 	}
 }
 
@@ -484,18 +450,12 @@ function event_update($post_id){
 
 add_action('save_post', 'menu_update');
 function menu_update($post_id){
-	if(!wp_verify_nonce( $_POST['menu_email_nonce'], 'menu_meta')){
-		return $post_id;
-	}
 	if(!wp_verify_nonce( $_POST['menu_cat_nonce'], 'menu_meta')){
 		return $post_id;
 	}
 	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
 		return $post_id;
 	}
-  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
-    return $post_id;
-  }
 	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
 		return $post_id;
 	}
@@ -510,14 +470,7 @@ function menu_update($post_id){
 
 	$cat = trim($_POST['cat']);
 	$url = trim($_POST['url']);
-	$email = trim($_POST['email']);
-  $catid = trim($_POST['catid']);
 
-	if($email == ''){
-		delete_post_meta($post_id, 'email');
-	} else {
-		update_post_meta($post_id, 'email', $email);
-	}
 	if($cat == ''){
 		delete_post_meta($post_id, 'cat');
 	} else {
@@ -528,35 +481,6 @@ function menu_update($post_id){
 	} else {
 		update_post_meta($post_id, 'url', $url);
 	}
-  if($catid == ''){
-    delete_post_meta($post_id, 'catid');
-  } else {
-    update_post_meta($post_id, 'catid', $catid);
-  }
-}
-
-add_filter('wpcf7_form_tag', 'my_form_tag_filter', 11);
-function my_form_tag_filter($tag){
-	if( ! is_array($tag)){
-		return $tag;
-	}
-
-	$name = $tag['name'];
-
-	if(is_user_logged_in()){
-		global $current_user;
-		get_currentuserinfo();
-
-		if($name == 'your-name'){
-			$tag['values'] = (array) $current_user -> display_name;
-		}else if($name == 'your-email'){
-			$tag['values'] = (array) $current_user -> user_email;
-		}else if($name == 'the-author'){
-			$email = get_post_meta(get_the_ID(), 'email', true);
-			$tag['values'] = $email;
-		}
-	}
-	return $tag;
 }
 
 /**ポストアイコン**/
