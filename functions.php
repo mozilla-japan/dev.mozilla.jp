@@ -256,7 +256,6 @@ function create_Event(){
 function project_meta_box($post){
 	add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
 }
-
 function menu_meta_html($post, $box){
 	$cat = get_post_meta($post->ID, 'cat', true);
 	echo wp_nonce_field('menu_meta', 'menu_cat_nonce');
@@ -267,6 +266,12 @@ function menu_meta_html($post, $box){
 	$email = get_post_meta($post->ID, 'email', true);
 	echo wp_nonce_field('menu_meta', 'menu_email_nonce');
 	echo '<p>プロジェクトの公開用メールアドレス:<input type="text" size="50" name="email" placeholder="example@example.com" value="'.$email.'"></p>';
+  $user = wp_get_current_user();
+  if($user->roles[0] == 'administrator'){
+    $catid = (int)get_post_meta($post->ID, 'catid', true);
+    echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
+    echo '<p>カテゴリID: <input type="text" size="50" name="catid" value="'.$catid.'"></p>';
+  }
 }
 
 /*
@@ -313,10 +318,13 @@ function extra_category_fields( $tag ) {
   if(isset($cat_meta['project_id'])){
     $value = $cat_meta['project_id'];
   }
-  echo '<tr class="form-field">';
-  echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
-  echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" value="'. $value .'" /></td>"';
-  echo '</tr>';
+  $user = wp_get_current_user();
+  if($user->roles[0] == 'administrator'){
+    echo '<tr class="form-field">';
+    echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
+    echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" value="'. $value .'" /></td>"';
+    echo '</tr>';
+  }
 }
 
 add_action ( 'edited_term' , 'save_extra_category_fileds');
@@ -336,23 +344,22 @@ function save_extra_category_fileds( $term_id ){
 
 /*
  *プロジェクトをポストしたときにそのプロジェクト用にカテゴリを用意する
-*/
+ */
 add_action('save_post', 'project_cat_create');
 
 function project_cat_create($post_id){
 	/*
 	 *このコードを入れるとリビジョンのidを使ってしまうため、カテゴリへの反映が次回の編集で行われる。
-	*しかし、Wordpressのリファレンスにはwp_is_post_revisionを使わないと最新版ではないと書いてあった。
-	if(wp_is_post_revision($post_id)){
-	$post_id = wp_is_post_revision($post_id);
-	}
-	*/
+   *しかし、Wordpressのリファレンスにはwp_is_post_revisionを使わないと最新版ではないと書いてあった。
+   *if(wp_is_post_revision($post_id)){
+   *$post_id = wp_is_post_revision($post_id);
+   *}
+   */
 	$post_info = get_post($post_id);
 
 	if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish'){
 		$title = $post_info->post_title;
 		$desc = $post_info->post_excerpt;
-
 		$slug = $_POST['cat'];
 		$catid = (int)get_post_meta($post_id, 'catid', true);
 		$contact_id = (int)get_post_meta($post_id, 'contact_id', true);
@@ -486,6 +493,9 @@ function menu_update($post_id){
 	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
 		return $post_id;
 	}
+  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
+    return $post_id;
+  }
 	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
 		return $post_id;
 	}
@@ -501,6 +511,7 @@ function menu_update($post_id){
 	$cat = trim($_POST['cat']);
 	$url = trim($_POST['url']);
 	$email = trim($_POST['email']);
+  $catid = trim($_POST['catid']);
 
 	if($email == ''){
 		delete_post_meta($post_id, 'email');
@@ -517,6 +528,11 @@ function menu_update($post_id){
 	} else {
 		update_post_meta($post_id, 'url', $url);
 	}
+  if($catid == ''){
+    delete_post_meta($post_id, 'catid');
+  } else {
+    update_post_meta($post_id, 'catid', $catid);
+  }
 }
 
 add_filter('wpcf7_form_tag', 'my_form_tag_filter', 11);

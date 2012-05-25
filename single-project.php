@@ -71,9 +71,11 @@ get_header();
 	?>
 
 	<section id="project-latest-topics-list">
-		<h1><?php echo($title); ?>の最新の投稿</h1>
+    <?php $cat_id = get_post_meta($post->ID, 'catid', true);
+    $category_link = get_category_link($cat_id);
+    ?>
+	  <h1><a href="<?php echo $category_link ?>"><?php echo($title); ?>の最新の投稿</a></h1>
 		<?php
-			$cat_id = get_post_meta($post->ID, 'cat', true);
 			$args = array('posts_per_page' => 5,
 			              'category' => $cat_id);
 			$posts = get_posts($args);
