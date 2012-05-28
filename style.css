@@ -552,6 +552,11 @@ body {
   display: block;
   clear: both;
 }
+.project-metadata-list dt {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
 .event-summary,
 .project-summary {
   text-align: justify;
