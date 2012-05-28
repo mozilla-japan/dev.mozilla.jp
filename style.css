@@ -931,6 +931,18 @@ body {
   #sidebar-button-group .button-blue:visited {
     font-size: 15px;
   }
+
+  /* footer */
+  #mozilla_ring {
+    width: 100%;
+  }
+  #mozilla_ring_title {
+    float: none;
+    margin-left: 10px;
+  }
+  .mozilla_ring_category {
+    margin: 0 10px;
+  }
 }
 
 /*
