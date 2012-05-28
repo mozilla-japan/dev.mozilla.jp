@@ -85,7 +85,7 @@ img::selection {
   background: rgb(240, 236, 227);
   background: rgba(0,0,0,.02);
   box-shadow: inset 0 0 3px rgba(0,0,0,.1);
-  padding: 10px 20px;
+  padding: 10px 10px;
   margin: 0;
   font-size: 0.9em;
 }
@@ -96,7 +96,7 @@ img::selection {
   display: inline-block;
 }
 .postmeta .postmeta-content {
-  margin: 0 10px 0;
+  margin: 0 10px 0 0;
   padding-left: 10px;
   border-left: 1px solid #DDDDDD;
 }
