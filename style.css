@@ -976,14 +976,35 @@ body {
   #sidebar {
     float: none;
   }
+
+  /* footer */
   #mozilla_ring {
-    width: 100%;
+    width: 95%;
   }
   #mozilla_ring_title {
     float: none;
+    margin: 0.5em auto 1em;
+    font-size: 1.6em;
+    text-align: center;
   }
   .mozilla_ring_category {
     float: none;
+    width: 80%;
+    padding: 0.8em 0;
+    border-top: 1px dotted #ccc;
+    margin: 0.8em auto;
+    text-align: center;
+  }
+  .mozilla_ring_category:last-of-type {
+    border-bottom: 1px dotted #ccc;
+  }
+  .mozilla_ring_category_title {
+    font-size: 1.4em;
+  }
+  .mozilla_ring_menu > a {
+    display: block;
+    margin: 0.3em auto;
+    font-size: 1.2em;
   }
 }
 
