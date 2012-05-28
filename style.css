@@ -973,8 +973,17 @@ body {
     float: none;
     width: 100%;
   }
+
+  /* sidebar */
   #sidebar {
     float: none;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 3em;
+    text-align: center;
+  }
+  #sidebar-project-list {
+    margin: 0;
   }
 
   /* footer */
