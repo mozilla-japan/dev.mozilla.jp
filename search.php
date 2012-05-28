@@ -25,8 +25,11 @@ get_header(); ?>
   <article class="searchresult-article">
     <header>
       <h1>
-        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-          <?php the_title(); ?>
+        <?php
+          $title = get_the_title();
+        ?>
+        <a href="<?php the_permalink() ?>" title="<?php echo esc_attr($title); ?>">
+          <?php echo esc_html($title); ?>
         </a>
       </h1>
     </header>
