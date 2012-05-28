@@ -552,6 +552,7 @@ body {
   display: block;
   clear: both;
 }
+.event-metadata-list dt,
 .project-metadata-list dt {
   margin: 0;
   font-size: 0.9em;

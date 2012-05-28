@@ -52,7 +52,7 @@ get_header();
  
       <footer class="event-footer">
 
-        <div class="eventmeta">
+        <div class="event-metadata-list">
           <dl>
             <dt>開催時間</dt>
             <dd>
