@@ -675,6 +675,11 @@ function data_of_the_event ($id, $param) {
   $str = '';
   if($data){
     switch ($param) {
+      case 'start_time':
+      case 'end_time':
+        $datetime = str_replace('/', '-', $data);
+        $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
+        break;
       case 'url':
         $str = '<a href="'. $data .'">'. $data .'</a>';
         break;
