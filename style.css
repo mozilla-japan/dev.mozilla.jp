@@ -596,9 +596,9 @@ body {
  */
 #sidebar {
   display: block;
-  float: left;
-  padding: 15px;
-  margin: 0 10px 20px;
+  float: right;
+  padding: 10px;
+  margin: 0 0 20px;
 }
 
 #sidebar > * {
