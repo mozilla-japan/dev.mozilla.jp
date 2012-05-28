@@ -961,6 +961,30 @@ body {
  * Inherits styles from: Default Layout.
  */
 @media only screen and (max-width: 767px) {
+  #page {
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  #header-nav {
+    display: none;
+  }
+  #content {
+    float: none;
+    width: 100%;
+  }
+  #sidebar {
+    float: none;
+  }
+  #mozilla_ring {
+    width: 100%;
+  }
+  #mozilla_ring_title {
+    float: none;
+  }
+  .mozilla_ring_category {
+    float: none;
+  }
 }
 
 /*
