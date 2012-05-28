@@ -825,13 +825,13 @@ function navigation_bar(){
   }
 }
 
-function the_auther_post_link_with_avatar () {
+function the_author_post_link_with_avatar () {
     $user_id = get_the_author_meta('ID');
     $url = esc_url( get_author_posts_url($user_id) );
-    $auther_name = get_the_author();
-    $title = esc_attr($auther_name) . 'の投稿を表示';
+    $author_name = get_the_author();
+    $title = esc_attr($author_name) . 'の投稿を表示';
     $avatar = get_avatar($user_id, 48);
-    echo '<a href="'. $url .'" title="'. $title .'">'. $avatar . $auther_name .'</a>';
+    echo '<a href="'. $url .'" title="'. $title .'">'. $avatar . $author_name .'</a>';
 }
 
 
