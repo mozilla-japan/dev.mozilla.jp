@@ -368,7 +368,7 @@ body {
 #tabzilla {
   float: right;
   display: block;
-  background: url(./images/tab.png);
+/*  background: url(./images/tab.png); */
   height: 45px;
   width: 150px;
   position: relative;
