@@ -920,6 +920,10 @@ body {
     width: 96%;
     padding: 0 16px;
   }
+  #header-nav > ol > li:first-child {
+    display: none;
+  }
+
   #content {
     width: 70%;
   }
