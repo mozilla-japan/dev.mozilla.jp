@@ -916,6 +916,21 @@ body {
  * Inherits styles from: Default Layout.
  */
 @media only screen and (min-width: 768px) and (max-width: 1081px) {
+  #page {
+    width: 96%;
+    padding: 0 16px;
+  }
+  #content {
+    width: 525px;
+  }
+  #sidebar {
+    width: 180px;
+  }
+  #sidebar-button-group .button-blue,
+  #sidebar-button-group .button-blue:link,
+  #sidebar-button-group .button-blue:visited {
+    font-size: 15px;
+  }
 }
 
 /*
