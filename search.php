@@ -18,59 +18,43 @@ get_header(); ?>
   </nav>
   <?php while (have_posts()) : the_post(); ?>
 
-	<?php
-		$the_id = get_the_ID();
-	?>
+  <?php
+    $the_id = get_the_ID();
+  ?>
 
-  	<article class="archive-post">
+  <article class="searchresult-article">
+    <header>
+      <h1>
+        <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
+      </h1>
+    </header>
+    <footer>
+      <div class="postmeta-project">
+        <?php
+          the_project_list_of_the_post($the_id);
+        ?>
+      </div>
 
-		<header class="archive-post_header">
-			<?php
-				//post_icon(get_the_ID(),array(70,70));
-			?>
+      <div class="postmeta">
+        <p class="postmeta-title">投稿者</p>
+        <address class="postmeta-content author">
+          <?php
+            the_author_post_link_with_avatar();
+          ?>
+        </address>
 
-			<?php
-				/*
-				* article's title
-				*/
-				$permaLink = get_permalink();
-				$titleText = get_the_title();
-				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
-			?>
+        <p class="postmeta-title">投稿日時</p>
+        <div class="postmeta-content">
+          <?php
+            the_time_of_the_post($the_id);
+          ?>
+        </div>
+      </div>
 
-			<?php
-				edit_the_link($the_id);
-			?>
-		</header>
-
-		<footer class="meta-container">
-
-			<div class="postmeta-project">
-				<?php
-					the_project_list_of_the_post($the_id);
-				?>
-			</div>
-
-		</footer>
-
-		<footer class="entry-footer">
-			<div class="postmeta">
-				<p class="postmeta-title">投稿者</p>
-				<address class="postmeta-content author">
-					<?php
-						the_author_post_link_with_avatar();
-					?>
-				</address>
-				<p class="postmeta-title">投稿日時</p>
-				<div class="postmeta-content">
-					<?php
-						the_time_of_the_post($the_id);
-					?>
-				</div>
-			</div>
-		</footer>
-
-	</article>
+    </footer>
+  </article>
 
   <?php endwhile; ?>
   <nav class="navigation">
