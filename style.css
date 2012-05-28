@@ -485,6 +485,23 @@ body {
   margin-bottom: 5em;
 }
 
+/* search result */
+.searchresult-article {
+  margin: 1em 0 2.5em;
+}
+.searchresult-article h1 {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.searchresult-article .edit_post {
+  float: right;
+}
+.searchresult-article .edit_post + * {
+  clear: both;
+}
+
 
 /* project & event page */
 .projectmeta,
