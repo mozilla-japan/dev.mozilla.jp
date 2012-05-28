@@ -52,10 +52,7 @@ get_header();
 			<p class="postmeta-title">投稿者</p>
 			<address class="postmeta-content">
 				<?php
-					$post = get_post($the_id);
-					$userID = $post->post_author;
-					echo get_avatar($userID, 15);//avatar image
-					echo the_author_posts_link();//auther link
+					the_auther_post_link_with_avatar();
 				?>
 			</address>
 			<p class="postmeta-title">投稿日時</p>
