@@ -50,10 +50,6 @@ get_header(); ?>
 
 		</footer>
 
-		<div class="entry-body">
-			<?php the_content() ?>
-		</div>
-
 		<footer class="entry-footer">
 			<div class="postmeta">
 				<p class="postmeta-title">投稿者</p>
