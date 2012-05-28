@@ -936,15 +936,19 @@ body {
 
   /* footer */
   #mozilla_ring {
-    width: 100%;
+    width: 85%;
   }
   #mozilla_ring_title {
     float: none;
-    margin: 0 0 20px 10px;
   }
   .mozilla_ring_category {
-    margin: 0 10px;
-    font-size: 14px;
+    margin: 2em 6% 1em 0;
+  }
+  .mozilla_ring_category_title {
+    margin-bottom: 0.5em;
+  }
+  .mozilla_ring_menu {
+    margin: 0.5em 0;
   }
 }
 
