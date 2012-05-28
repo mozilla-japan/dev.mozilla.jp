@@ -54,10 +54,10 @@
 				<h5 class="mozilla_ring_category_title">開発情報</h5>
 				<ul>
 					<li class="mozilla_ring_menu">
-						<a href="https://developer.mozilla.org/ja/">開発ドキュメント (MDN)</a>
+						<a href="https://developer.mozilla.org/ja/">MDN</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="https://bugzilla.mozilla.org/">バグ管理システム (Bugzilla)</a>
+						<a href="https://bugzilla.mozilla.org/">Bugzilla</a>
 					</li>
 					<li class="mozilla_ring_menu">
 						<a href="http://mozillalabs.com/">Mozilla Labs</a>
