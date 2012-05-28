@@ -72,6 +72,12 @@ img::selection {
   border: 1px solid rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
+.author-link {
+  vertical-align: middle;
+}
+.author-link:hover > .avatar {
+  border-color: inherit;
+}
 
 /* navigation */
 .navigation {
@@ -106,9 +112,7 @@ img::selection {
   margin-left: 0;
   border-left: none;
 }
-.author .avatar {
-  vertical-align: middle;
-}
+
 
 /* entry body */
 .entry-body {
