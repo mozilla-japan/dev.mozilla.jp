@@ -39,7 +39,7 @@ get_header();
 
     <section class="project-section">
 
-      <header>
+      <header class="project-header">
         <h1 class="project-title">
           <?php
             $title = get_the_title();
