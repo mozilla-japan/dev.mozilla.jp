@@ -394,12 +394,6 @@ body {
   transition: all 0.2s ease-in-out;
   border-radius: 8px;
 }
-#tabzilla {
-  background-image: url("/images/tabzilla-tab.png") !important;
-}
-#tabzilla:after {
-    background: none repeat scroll 0 0 transparent;
-}
 
 
 
