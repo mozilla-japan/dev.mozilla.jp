@@ -540,6 +540,11 @@ body {
 .project-section .project-icon {
   float: right;
 }
+.event-summary,
+.project-summary {
+  text-align: justify;
+}
+
 
 /************************************************
  * sidebar
