@@ -10,6 +10,8 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+
   <meta name="title" content="<?php if (is_singular()) : single_post_title(); echo ' | '; endif; bloginfo('name'); ?>">
   <meta name="description" content="<?php fc_meta_desc(); ?>">
 
