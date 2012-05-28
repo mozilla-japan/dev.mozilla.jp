@@ -15,9 +15,6 @@ get_header();
 	if (have_posts()) :
 ?>
 
-	<nav class="navigation">
-		<?php navigation_bar(); ?>
-	</nav>
 
 <?php
 		while (have_posts()) :

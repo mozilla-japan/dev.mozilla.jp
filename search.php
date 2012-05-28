@@ -19,9 +19,7 @@ get_header(); ?>
     wp_reset_query();
   ?>
   <h1 class="post-title"><?php the_search_query(); ?> の検索結果: <?php echo($result_count) ?>件</h1>
-  <nav class="navigation">
-    <?php navigation_bar(); ?>
-  </nav>
+
   <?php while (have_posts()) : the_post(); ?>
 
   <?php

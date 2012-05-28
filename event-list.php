@@ -27,10 +27,6 @@ get_header();
                                 "orderby" => "date"));
   ?>
 
-  <nav class="navigation">
-    <?php navigation_bar(); ?>
-  </nav>
-
   <?php
     if (have_posts()) :
       foreach ($posts as $post) :
