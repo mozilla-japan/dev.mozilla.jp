@@ -33,16 +33,16 @@
 			</div>
 
 			<div class="mozilla_ring_category">
-				<h5 class="mozilla_ring_category_title">サポート</h5>
+				<h5 class="mozilla_ring_category_title">サポート情報</h5>
 				<ul>
 					<li class="mozilla_ring_menu">
-						<a href="http://support.mozilla.com/ja/home">Firefox サポート</a>
+						<a href="http://support.mozilla.com/ja/home">Firefox</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="https://support.mozillamessaging.com/ja/home">Thunderbird サポート</a>
+						<a href="https://support.mozillamessaging.com/ja/home">Thunderbird</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="http://forums.mozillazine.jp/">MozillaZine.jp フォーラム</a>
+						<a href="http://forums.mozillazine.jp/">MozillaZine.jp</a>
 					</li>
 					<li class="mozilla_ring_menu">
 						<a href="http://mozilla.jp/business/">法人向け情報</a>
