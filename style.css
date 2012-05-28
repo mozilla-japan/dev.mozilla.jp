@@ -376,6 +376,7 @@ body {
   overflow: hidden;
   z-index: 999;
 }
+/*
 #tabzilla:after {
   background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX%2F%2F%2F9ISEhr7AOpAAAAAXRSTlMAQObYZgAAACVJREFUCNdjYEACHAIMMhYMdjUM8j8Y%2BD8wsD9gYD7AwNiArAQAd4oFaCu14IQAAAAASUVORK5CYII%3D);
   content: " ";
@@ -394,13 +395,15 @@ body {
   transition: all 0.2s ease-in-out;
   border-radius: 8px;
 }
+*/
 #tabzilla {
   background-image: url("./images/tabzilla-tab.png") !important;
 }
+/*
 #tabzilla:after {
     background: none repeat scroll 0 0 transparent;
 }
-
+*/
 
 
 /************************************************
