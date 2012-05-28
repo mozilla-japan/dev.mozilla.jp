@@ -36,7 +36,8 @@
     </h3>
     <ul id="sidebar-project-list">
       <?php
-      $args = array( 'post_type' => 'project');
+      $args = array( 'post_type' => 'project',
+                     'posts_per_page' => -1 );
       $loop = new WP_Query( $args );
       while($loop->have_posts() ) : $loop-> the_post();
       echo '<li class="project-item project-tem-';
