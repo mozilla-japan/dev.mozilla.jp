@@ -95,10 +95,7 @@ get_header();
           <dt>イベント管理者</dt>
           <dd>
             <?php
-              $post = get_post($the_id);
-              $userID = $post->post_author;
-              echo get_avatar($userID, 15);//avatar image
-              echo the_author_posts_link();//auther link
+              the_author_post_link_with_avatar();
             ?>
           </dd>
         </dl>

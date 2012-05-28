@@ -97,12 +97,9 @@ get_header();
 		  <footer class="meta-container">
 				<div class="postmeta">
 					<p class="postmeta-title">投稿者</p>
-					<address class="postmeta-content">
+					<address class="postmeta-content author">
 						<?php
-							$post = get_post($the_id);
-							$userID = $post->post_author;
-							echo get_avatar($userID, 15);//avatar image
-							echo the_author_posts_link();//auther link
+							the_author_post_link_with_avatar();
 						?>
 					</address>
 					<p class="postmeta-title">投稿日時</p>
