@@ -543,15 +543,21 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+.project-footer .project-icon {
+  float: right;
+}
+/* claer fix */
+.project-footer:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
 .event-section .eventmeta,
 .project-section .projectmeta {
   border-bottom: none;
   padding: 0;
   background: transparent;
   box-shadow: none;
-}
-.project-section .project-icon {
-  float: right;
 }
 .event-summary,
 .project-summary {
