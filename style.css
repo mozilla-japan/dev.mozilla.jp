@@ -328,6 +328,7 @@ body {
 }
 #page {
   width: 1050px;
+  padding: 0 1em;
   margin: 0 auto;
 }
 #content {
