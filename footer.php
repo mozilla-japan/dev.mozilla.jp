@@ -18,13 +18,52 @@
 			<h3 id="mozilla_ring_title">Mozilla 関連サイト</h3>
 
 			<div class="mozilla_ring_category">
-				<h5 class="mozilla_ring_category_title">ニュース</h5>
+				<h5 class="mozilla_ring_category_title">最新情報</h5>
 				<ul>
+					<li class="mozilla_ring_menu">
+						<a href="http://mozilla.jp/blog/">Mozilla Japan ブログ</a>
+					</li>
 					<li class="mozilla_ring_menu">
 						<a href="http://mozillazine.jp/">MozillaZine.jp</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="http://mozlinks-jp.blogspot.com/">Mozilla Links 日本語版</a>
+						<a href="https://twitter.com/mozillajp">Twitter</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="mozilla_ring_category">
+				<h5 class="mozilla_ring_category_title">サポート</h5>
+				<ul>
+					<li class="mozilla_ring_menu">
+						<a href="http://support.mozilla.com/ja/home">Firefox サポート</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="https://support.mozillamessaging.com/ja/home">Thunderbird サポート</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://forums.mozillazine.jp/">MozillaZine.jp フォーラム</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://mozilla.jp/business/">法人向け情報</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="mozilla_ring_category">
+				<h5 class="mozilla_ring_category_title">開発情報</h5>
+				<ul>
+					<li class="mozilla_ring_menu">
+						<a href="https://developer.mozilla.org/ja/">開発ドキュメント (MDN)</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="https://bugzilla.mozilla.org/">バグ管理システム (Bugzilla)</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://mozillalabs.com/">Mozilla Labs</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://jpmoz.net/">MCNJ</a>
 					</li>
 				</ul>
 			</div>
@@ -33,62 +72,21 @@
 				<h5 class="mozilla_ring_category_title">コミュニティ</h5>
 				<ul>
 					<li class="mozilla_ring_menu">
-						<a href="http://mozillazine.jp/">MozillaZine.jp</a>
+						<a href="http://www.mozilla.org/">Mozilla Project</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="http://www.mozilla.gr.jp/">もじら組</a>
+						<a href="http://www.mozillafactory.org/">Mozilla Factory</a>
 					</li>
 					<li class="mozilla_ring_menu">
-						<a href="http://jpmoz.net/">mcnj</a>
-					</li> <!-- ul class="mozilla_ring_menu_current"><span>modest</span></ul -->
-				</ul>
-			</div>
+						<a href="http://mozilla.jp/students/team/">学生マーケティング</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://code.google.com/p/mozja/">日本語化 (L10n)</a>
+					</li>
+					<li class="mozilla_ring_menu">
+						<a href="http://forums.firehacks.org/trans/">翻訳フォーラム</a>
+					</li>
 
-			<div class="mozilla_ring_category">
-				<h5 class="mozilla_ring_category_title">開発</h5>
-				<ul>
-					<li class="mozilla_ring_menu">
-						<a href="http://bugzilla.mozilla.gr.jp/">Bugzilla-jp</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="https://developer.mozilla.org/ja">MDC</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://forums.firehacks.org/l10n/">l10n forum</a>
-					</li> <!-- ul class="mozilla_ring_menu_current"><span>modest</span></ul -->
-				</ul>
-			</div>
-
-			<div class="mozilla_ring_category">
-				<h5 class="mozilla_ring_category_title">ドキュメント</h5>
-				<ul>
-					<li class="mozilla_ring_menu">
-						<a href="https://developer.mozilla.org/ja">MDC</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://support.mozilla.com/ja/">SUMO</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://forums.firehacks.org/trans/">翻訳 forum</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="mozilla_ring_category">
-				<h5 class="mozilla_ring_category_title">オフィシャル</h5>
-				<ul>
-					<li class="mozilla_ring_menu">
-						<a href="http://mozilla.jp/">Mozilla Japan</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://www.mozilla.com/">Mozilla.com</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://www.mozilla.org/">Mozilla.org</a>
-					</li>
-					<li class="mozilla_ring_menu">
-						<a href="http://mozillalabs.com/">Mozilla Labs</a>
-					</li>
 				</ul>
 			</div>
 
