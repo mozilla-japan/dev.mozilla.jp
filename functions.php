@@ -887,3 +887,53 @@ function onemozilla_comment($comment, $args, $depth) {
 <?php
 } /* end onemozilla_comment */
 endif;
+
+/*********
+* Use auto-excerpts for meta description if hand-crafted exerpt is missing
+*/
+function fc_meta_desc() {
+	$post_desc_length  = 25; // auto-excerpt length in number of words
+
+	global $cat, $cache_categories, $wp_query, $wp_version;
+	if(is_single() || is_page()) {
+		$post = $wp_query->post;
+		$post_custom = get_post_custom($post->ID);
+
+    if(!empty($post->post_excerpt)) {
+			$text = $post->post_excerpt;
+		} else {
+			$text = $post->post_content;
+		}
+		$text = str_replace(array("\r\n", "\r", "\n", "  "), " ", $text);
+		$text = str_replace(array("\""), "", $text);
+		$text = trim(strip_tags($text));
+		$text = explode(' ', $text);
+		if(count($text) > $post_desc_length) {
+			$l = $post_desc_length;
+			$ellipsis = '...';
+		} else {
+			$l = count($text);
+			$ellipsis = '';
+		}
+		$description = '';
+		for ($i=0; $i<$l; $i++)
+			$description .= $text[$i] . ' ';
+
+		$description .= $ellipsis;
+	} 
+	elseif(is_category()) {
+	  $category = $wp_query->get_queried_object();
+	  if (!empty($category->category_description)) {
+	    $description = trim(strip_tags($category->category_description));
+	  } else {
+	    $description = single_cat_title('Articles posted in ');
+	  }
+  } 
+	else {
+		$description = trim(strip_tags(get_bloginfo('description')));
+	}
+
+	if($description) {
+		echo $description;
+	}
+}

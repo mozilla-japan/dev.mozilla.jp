@@ -15,6 +15,19 @@
     <?php bloginfo('name'); ?>
   </title>
 
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
+  <meta property="og:title" content="<?php if (is_singular()) : single_post_title(); else : bloginfo('name'); endif; ?>">
+  <meta property="og:url" content="<?php if (is_singular()) : the_permalink(); else : bloginfo('url'); endif; ?>">
+  <meta property="og:description" content="<?php fc_meta_desc(); ?>">
+<?php if (is_singular() && has_post_thumbnail()) : ?>
+  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
+  <meta property="og:image" content="<?php echo $thumb['0']; ?>">
+<?php elseif (get_header_image()) : ?>
+  <meta property="og:image" content="<?php echo get_header_image(); ?>">
+<?php endif; ?>
+
+  <meta name="description" content="<?php fc_meta_desc(); ?>">
+
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
