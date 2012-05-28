@@ -58,16 +58,14 @@ get_header();
             }
           ?>
         </div>
-        <div class="project-metadata-list">
-          <dl>
-            <dt>Web サイト</dt>
-            <dd>
-              <?php
-                data_of_the_project($the_id, 'url');
-              ?>
-            </dd>
-          </dl>
-        </div>
+        <dl class="project-metadata-list">
+          <dt>Web サイト</dt>
+          <dd>
+            <?php
+              data_of_the_project($the_id, 'url');
+            ?>
+          </dd>
+        </dl>
 
         <div class="project-summary">
           <?php the_excerpt(); ?>
