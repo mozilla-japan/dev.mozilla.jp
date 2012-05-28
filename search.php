@@ -12,7 +12,13 @@ get_header(); ?>
     query_posts($query_string .'&posts_per_page=20');
     if (have_posts()) :
   ?>
-  <h1 class="post-title"><?php the_search_query(); ?> の検索結果</h1>
+  <?php
+    /* Search Count */
+    $allsearch = &new WP_Query("s=$s&posts_per_page =-1");
+    $result_count = $allsearch->post_count;
+    wp_reset_query();
+  ?>
+  <h1 class="post-title"><?php the_search_query(); ?> の検索結果: <?php echo($result_count) ?>件</h1>
   <nav class="navigation">
     <?php navigation_bar(); ?>
   </nav>
