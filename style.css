@@ -942,10 +942,11 @@ body {
   }
   #mozilla_ring_title {
     float: none;
-    margin-left: 10px;
+    margin: 0 0 20px 10px;
   }
   .mozilla_ring_category {
     margin: 0 10px;
+    font-size: 14px;
   }
 }
 
