@@ -916,6 +916,10 @@ body {
 @media only screen and (min-width: 768px) and (max-width: 1081px) {
   #page {
     width: 96%;
+    width: -moz-calc(100% - 32px);
+    width: -webkit-calc(100% - 32px);
+    width: -o-calc(100% - 32px);
+    width: calc(100% - 32px);
     padding: 0 16px;
   }
   #header-nav > ol > li:first-child {
