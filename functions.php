@@ -825,12 +825,12 @@ function navigation_bar(){
   }
 }
 
-function the_author_post_link_with_avatar () {
+function the_author_post_link_with_avatar ($size = 24) {
     $user_id = get_the_author_meta('ID');
     $url = esc_url( get_author_posts_url($user_id) );
     $author_name = get_the_author();
     $title = esc_attr($author_name) . 'の投稿を表示';
-    $avatar = get_avatar($user_id, 48);
+    $avatar = get_avatar($user_id, $size);
     echo '<a href="'. $url .'" title="'. $title .'">'. $avatar . $author_name .'</a>';
 }
 

@@ -52,7 +52,7 @@ get_header();
 			<p class="postmeta-title">投稿者</p>
 			<address class="postmeta-content author">
 				<?php
-					the_author_post_link_with_avatar();
+					the_author_post_link_with_avatar(48);
 				?>
 			</address>
 			<p class="postmeta-title">投稿日時</p>
