@@ -72,7 +72,7 @@ img::selection {
   border: 1px solid rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
-.author-link {
+.author-link > .avatar{
   vertical-align: middle;
 }
 .author-link:hover > .avatar {
