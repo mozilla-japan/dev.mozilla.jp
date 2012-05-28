@@ -422,8 +422,6 @@ body {
 #content {
   display: block;
   float: left;
-  padding: 15px 0;
-  margin-right: 50px;
 }
 #content > section {
   margin-bottom: 4em;
