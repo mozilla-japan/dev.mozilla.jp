@@ -48,7 +48,9 @@ get_header();
             <?php echo $title; ?>
           </a>
         </h1>
+      </header>
 
+      <footer class="entry-footer">
         <div class="project-icon">
           <?php
             if (has_post_thumbnail($post->ID)) {
@@ -56,10 +58,6 @@ get_header();
             }
           ?>
         </div>
-      </header>
-
-      <footer class="entry-footer">
-
         <div class="projectmeta">
           <dl>
             <dt>Web サイト</dt>
