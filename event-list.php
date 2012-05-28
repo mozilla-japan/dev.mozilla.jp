@@ -50,7 +50,7 @@ get_header();
         </h1>
       </header>
  
-      <footer class="entry-footer">
+      <footer class="event-footer">
 
         <div class="eventmeta">
           <dl>
