@@ -50,7 +50,7 @@ get_header();
 	<footer class="entry-footer">
 		<div class="postmeta">
 			<p class="postmeta-title">投稿者</p>
-			<address class="postmeta-content">
+			<address class="postmeta-content author">
 				<?php
 					the_auther_post_link_with_avatar();
 				?>
