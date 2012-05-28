@@ -39,15 +39,16 @@ get_header();
   ?>
 
     <section class="event-section">
-
-      <h1 class="event-title">
-        <?php
-          $title = get_the_title();
-        ?>
-        <a href="<?php the_permalink() ?>" title="<?php echo $title; ?>">
-          <?php echo $title; ?>
-        </a>
-      </h1>
+      <header class="event-header">
+        <h1 class="event-title">
+          <?php
+            $title = get_the_title();
+          ?>
+          <a href="<?php the_permalink() ?>" title="<?php echo $title; ?>">
+            <?php echo $title; ?>
+          </a>
+        </h1>
+      </header>
  
       <footer class="entry-footer">
 
