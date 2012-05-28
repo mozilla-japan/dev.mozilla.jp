@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="title" content="<?php if (is_singular()) : single_post_title(); echo ' | '; endif; bloginfo('name'); ?>">
+  <meta name="description" content="<?php fc_meta_desc(); ?>">
 
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
   <meta property="og:title" content="<?php if (is_singular()) : single_post_title(); else : bloginfo('name'); endif; ?>">
@@ -22,8 +23,6 @@
 <?php elseif (get_header_image()) : ?>
   <meta property="og:image" content="<?php echo get_header_image(); ?>">
 <?php endif; ?>
-
-  <meta name="description" content="<?php fc_meta_desc(); ?>">
 
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
