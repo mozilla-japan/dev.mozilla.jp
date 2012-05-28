@@ -422,6 +422,7 @@ body {
 #content {
   display: block;
   float: left;
+  padding-bottom: 30px;
 }
 #content > section {
   margin-bottom: 4em;
