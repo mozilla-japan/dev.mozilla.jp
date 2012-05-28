@@ -552,13 +552,6 @@ body {
   display: block;
   clear: both;
 }
-.event-section .eventmeta,
-.project-section .projectmeta {
-  border-bottom: none;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
 .event-summary,
 .project-summary {
   text-align: justify;

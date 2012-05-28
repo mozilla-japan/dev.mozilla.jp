@@ -58,7 +58,7 @@ get_header();
             }
           ?>
         </div>
-        <div class="projectmeta">
+        <div class="project-metadata-list">
           <dl>
             <dt>Web サイト</dt>
             <dd>
