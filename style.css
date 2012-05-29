@@ -869,6 +869,7 @@ body {
 #footer {
   display: block;
   clear: both;
+  width: 100%;
   margin: 0 auto;
   padding: 25px 0;
   background: #fff;
