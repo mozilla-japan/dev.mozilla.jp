@@ -611,6 +611,9 @@ body {
   padding:0 12px;
   font-size: 18px;
 }
+#sidebar-button-group .join {
+  white-space: nowrap;
+}
 #sidebar-about,
 #sidebar-search ,
 #sidebar-project > h3 {

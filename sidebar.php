@@ -10,15 +10,15 @@
   <div id="sidebar-button-group">
 
     <?php if(is_user_logged_in() == false) : ?>
-      <h3><a href="<?php echo get_join_modest_url(); ?>" class="button-blue">ログインする/参加する</a></h3>
+      <h3><a href="<?php echo get_join_modest_url(); ?>" class="button-blue join">ログインする/参加する</a></h3>
     <?php endif; ?>
 
-    <h3><a href="<?php echo get_add_post_url(); ?>" class="button-blue">トピックを投稿する</a></h3>
+    <h3><a href="<?php echo get_add_post_url(); ?>" class="button-blue join">トピックを投稿する</a></h3>
 
-    <h3><a href="<?php echo get_add_event_url(); ?>" class="button-blue">イベントを追加する</a></h3>
+    <h3><a href="<?php echo get_add_event_url(); ?>" class="button-blue join">イベントを追加する</a></h3>
 
     <?php if( is_user_logged_in() ) : ?>
-      <h3><a href="<?php echo get_add_project_url(); ?>" class="button-blue">プロジェクトを作成</a></h3>
+      <h3><a href="<?php echo get_add_project_url(); ?>" class="button-blue join">プロジェクトを作成</a></h3>
 
     <?php endif; ?>
 
