@@ -62,7 +62,7 @@ get_header();
                 <span class="posted-month">$month</span>月
                 <span class="posted-date">$date</span>日
               </time>
-              <h3>
+              <h3 class="event-title">
                 <a href="$href" title="$title">
                   $title
                 </a>
