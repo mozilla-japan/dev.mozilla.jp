@@ -57,7 +57,7 @@ get_header();
           //start here document
           echo <<< DOC
             <section>
-              <time datetime="$datetime">
+              <time class="event-time" datetime="$datetime">
                 <span class="posted-year">$year</span>年
                 <span class="posted-month">$month</span>月
                 <span class="posted-date">$date</span>日
