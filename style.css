@@ -929,6 +929,11 @@ body {
   #content {
     width: 70%;
   }
+
+  #event section > h3 {
+    font-size: 2.3em;
+  }
+
   #sidebar {
     width: 25%;
   }
