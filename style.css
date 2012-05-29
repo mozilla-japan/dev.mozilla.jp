@@ -946,13 +946,16 @@ body {
     float: none;
   }
   .mozilla_ring_category {
-    margin: 2em 6% 1em 0;
+    width: 22%;
+    margin: 2em 3% 2em 0;
   }
   .mozilla_ring_category_title {
     margin-bottom: 0.5em;
+    font-size: 0.95em;
   }
   .mozilla_ring_menu {
     margin: 0.5em 0;
+    font-size: 0.9em;
   }
 }
 
