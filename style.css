@@ -1011,6 +1011,9 @@ body {
   #header-nav {
     display: none;
   }
+  .add-button {
+    display: none;
+  }
   #site-title-image {
     width: 50%;
     min-width: 120px;

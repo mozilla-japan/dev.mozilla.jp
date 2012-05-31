@@ -9,7 +9,7 @@ get_header();
 
   <header class="entry-header">
     <h1 class="post-title">イベント</h1>
-    <p>
+    <p class="add-button">
       <a class="button button-white"
          href="<?php echo admin_url('post-new.php?post_type=event'); ?>">
         新しいイベントを登録する
