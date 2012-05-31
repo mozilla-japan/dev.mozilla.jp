@@ -626,7 +626,7 @@ body {
 }
 #sidebar-about > a,
 #sidebar-search,
-#sidebar-event,
+#sidebar-event > a,
 #sidebar-project > h3 > a {
   display: block;
   padding: 17px 0;
