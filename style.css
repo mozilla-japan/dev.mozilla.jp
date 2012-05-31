@@ -983,6 +983,14 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  .postmeta .postmeta-content {
+    display: block;
+    border: none;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+
   #page {
     width: 95%;
     padding: 0;
