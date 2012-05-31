@@ -1003,6 +1003,9 @@ body {
     float: none;
     width: 100%;
   }
+  #content > section {
+    margin-bottom: 2.5em;
+  }
   #hottopic-list {
     background-image: none;
     padding: 10px;
