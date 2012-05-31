@@ -1074,6 +1074,21 @@ body {
     padding: 14px auto;
   }
 
+
+  #comment-list.av .comment {
+    padding-left: 19px;
+  }
+  #comment-list ol.children .comment {
+    margin: 0 -10px -10px;
+  }
+  #comment-list .avatar {
+    display: none;
+  }
+  #comment-list .entry-title {
+    font-size: 1em;
+  }
+
+
   /* footer */
   #mozilla_ring {
     width: 95%;
