@@ -8,12 +8,7 @@ get_header();
 
 <article id="content">
   <header class="entry-header">
-    <p>
-      <a class="button button-white"
-         href="<?php echo admin_url('post-new.php'); ?>">
-        新しいトピックを投稿する
-      </a>
-    </p>
+    <h1 class="post-title">投稿されたすべてのトピック</h1>
   </header>
       <?php
          $paged = get_query_var('paged');
