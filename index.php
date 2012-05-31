@@ -45,12 +45,13 @@ get_header();
         $postcount = 0;
         foreach ($posts as $post) :
           setup_postdata($post);
+          $date_hash = get_the_date_of_the_event(get_the_ID());
 
           //post data
-          $datetime = get_the_time('Y-m-d');
-          $year = get_the_time('Y');
-          $month = get_the_time('n');
-          $date = get_the_time('j');
+          $datetime = $date_hash['datetime'];
+          $year = $date_hash['year'];
+          $month = $date_hash['month'];
+          $day = $date_hash['day'];
           $href = get_permalink($post->ID);
           $title = get_the_title();
 
@@ -60,7 +61,7 @@ get_header();
               <time class="event-time" datetime="$datetime">
                 <span class="posted-year">$year</span>年
                 <span class="posted-month">$month</span>月
-                <span class="posted-date">$date</span>日
+                <span class="posted-date">$day</span>日
               </time>
               <h3 class="event-title">
                 <a href="$href" title="$title">
