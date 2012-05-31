@@ -239,9 +239,6 @@ function project_meta_box($post){
 	add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
 }
 function menu_meta_html($post, $box){
-	$cat = get_post_meta($post->ID, 'cat', true);
-	echo wp_nonce_field('menu_meta', 'menu_cat_nonce');
-	echo '<p>カテゴリのスラッグ:<input type="text" size="50" name="cat" value="'.$cat.'"></p>';
 	$url = get_post_meta($post->ID, 'url', true);
 	echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
 	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" placeholder="http://www.example.com" name="url" value="'.$url.'"></p>';
@@ -339,7 +336,7 @@ function project_cat_create($post_id){
 	if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish'){
 		$title = $post_info->post_title;
 		$desc = $post_info->post_excerpt;
-		$slug = $_POST['cat'];
+		$slug = $post_info->post_name;
 		$catid = (int)get_post_meta($post_id, 'catid', true);
 		//カテゴリの作成
 		if($catid == 0){
@@ -450,9 +447,6 @@ function event_update($post_id){
 
 add_action('save_post', 'menu_update');
 function menu_update($post_id){
-	if(!wp_verify_nonce( $_POST['menu_cat_nonce'], 'menu_meta')){
-		return $post_id;
-	}
 	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
 		return $post_id;
 	}
@@ -471,18 +465,12 @@ function menu_update($post_id){
 		return $post_id;
 	}
 
-	$cat = trim($_POST['cat']);
 	$url = trim($_POST['url']);
   $catid = trim($_POST['catid']);
 
   if($catid != '' || $catid != 0){
     update_post_meta($post_id, 'catid', $catid);
   }
-	if($cat == ''){
-		delete_post_meta($post_id, 'cat');
-	} else {
-		update_post_meta($post_id, 'cat', $cat);
-	}
 	if($url == ''){
 		delete_post_meta($post_id, 'url');
 	} else {
