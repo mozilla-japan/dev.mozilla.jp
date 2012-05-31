@@ -285,8 +285,7 @@ function event_meta_html($post, $box){
 
   $hashtag = get_post_meta($post->ID, 'hashtag', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#example" name="hashtag" value="'.$hashtag.'"></p>';
- 
+  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#example" name="hashtag" value="'.$hashtag.'"></p>'; 
 }
 
 /*
@@ -710,7 +709,7 @@ function get_the_date_of_the_event ($id) {
   $date_array = explode('-', $datetime);
   $year = $date_array[0];
   $month = $date_array[1];
-  $day = substr($dare_array[2], 0, 2);
+  $day = substr($date_array[2], 0, 2);
   return array(
            'datetime' => $datetime,
            'year' => $year,
@@ -854,7 +853,6 @@ function the_author_post_link_with_avatar ($size = 24) {
     $avatar = get_avatar($user_id, $size);
     echo '<a href="'. $url .'" title="'. $title .'" class="author-link">'. $avatar . $author_name .'</a>';
 }
-
 
 
 /*********
