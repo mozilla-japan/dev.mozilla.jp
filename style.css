@@ -1046,6 +1046,7 @@ body {
   }
   #sidebar-project-list {
     margin: 0;
+    padding-left: 20px;
   }
   #sidebar-project-list a {
     padding: 14px auto;
