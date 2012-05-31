@@ -995,6 +995,10 @@ body {
     float: none;
     width: 100%;
   }
+  #hottopic-list {
+    background-image: none;
+  }
+
 
   #event section {
     padding: 10px;
@@ -1052,6 +1056,9 @@ body {
     display: block;
     margin: 0.3em auto;
     font-size: 1.2em;
+  }
+  #copyright {
+    width: 80%;
   }
 }
 
