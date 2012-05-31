@@ -997,6 +997,10 @@ body {
     padding: 0.5em;
   }
 
+  .archive-post-title {
+    font-size: 1.5em;
+  }
+
   #page {
     width: 85%;
     padding: 0;
