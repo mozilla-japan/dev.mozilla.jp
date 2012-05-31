@@ -1017,6 +1017,10 @@ body {
     font-size: 1.4em;
   }
 
+  .feed-article h1 {
+    font-size: 1.2em;
+  }
+
   #comment-submit > button {
     width: 100%
   }
