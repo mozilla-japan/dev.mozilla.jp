@@ -955,6 +955,7 @@ body {
   /* footer */
   #mozilla_ring {
     width: 85%;
+    text-align: center;
   }
   #mozilla_ring_title {
     float: none;
