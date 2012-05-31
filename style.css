@@ -1002,6 +1002,8 @@ body {
   #content {
     float: none;
     width: 100%;
+    border-top: 1px dotted rgb(204, 204, 204);
+    border-bottom: 1px dotted rgb(204, 204, 204);
   }
   #content > section {
     margin-bottom: 2.5em;
