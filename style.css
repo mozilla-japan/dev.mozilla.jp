@@ -958,18 +958,19 @@ body {
   }
   #mozilla_ring_title {
     float: none;
+    font-size: 1.4em;
   }
   .mozilla_ring_category {
-    width: 22%;
+    width: 40%;
     margin: 2em 3% 2em 0;
   }
   .mozilla_ring_category_title {
     margin-bottom: 0.5em;
-    font-size: 0.95em;
+    font-size: 1.2em;
   }
   .mozilla_ring_menu {
     margin: 0.5em 0;
-    font-size: 0.9em;
+    font-size: 1em;
   }
   #copyright {
     width: 85%;
