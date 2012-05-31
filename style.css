@@ -999,7 +999,14 @@ body {
     background-image: none;
   }
 
-
+  #hottopic > h2,
+  #event > h2,
+  #blogfeed > h2 {
+    font-size: 1.7em;
+  }
+  #hottopic h3 {
+    font-size: 1.2em;
+  }
   #event section {
     padding: 10px;
   }
@@ -1007,7 +1014,7 @@ body {
     font-size: .8em;
   }
   #event .event-title {
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 
   #comment-submit > button {
