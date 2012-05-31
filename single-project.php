@@ -116,6 +116,18 @@ get_header();
 		endif;
 	?>
 	</section>
+
+  <section id="project_rss_feed">
+      <?php
+      $rss_url = get_post_meta($post->ID, 'rss', true);
+      if($rss_url === ''){
+        echo "test";
+      }else{
+        echo "<h2> プロジェクトフィード </h2>";
+        include("projectfeed.php.inc");
+      }
+      ?>
+  </section>
 </article>
 
 <?php

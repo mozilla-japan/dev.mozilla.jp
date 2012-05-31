@@ -242,6 +242,10 @@ function menu_meta_html($post, $box){
 	$url = get_post_meta($post->ID, 'url', true);
 	echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
 	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" placeholder="http://www.example.com" name="url" value="'.$url.'"></p>';
+
+	$rss = get_post_meta($post->ID, 'rss', true);
+	echo '<p>プロジェクトのRSSフィード: <input type="text" size="50" placeholder="http://www.example.com/rss.xml" name="rss" value="'.$rss.'"></p>';
+
   $user = wp_get_current_user();
   if($user->roles[0] == 'administrator'){
     $catid = (int)get_post_meta($post->ID, 'catid', true);
@@ -466,6 +470,7 @@ function menu_update($post_id){
 	}
 
 	$url = trim($_POST['url']);
+  $rss = trim($_POST['rss']);
   $catid = trim($_POST['catid']);
 
   if($catid != '' || $catid != 0){
@@ -475,6 +480,11 @@ function menu_update($post_id){
 		delete_post_meta($post_id, 'url');
 	} else {
 		update_post_meta($post_id, 'url', $url);
+	}
+	if($rss == ''){
+		delete_post_meta($post_id, 'rss');
+	} else {
+		update_post_meta($post_id, 'rss', $rss);
 	}
 }
 
