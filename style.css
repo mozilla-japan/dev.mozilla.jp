@@ -1087,7 +1087,9 @@ body {
   #comment-list .entry-title {
     font-size: 1em;
   }
-
+  .comment-meta {
+    display: block;
+  }
 
   /* footer */
   #mozilla_ring {
