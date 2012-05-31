@@ -999,6 +999,11 @@ body {
   #header-nav {
     display: none;
   }
+  #site-title-image {
+    width: 50%;
+    min-width: 120px;
+    max-width: 180px;
+  }
   #content {
     float: none;
     width: 100%;
