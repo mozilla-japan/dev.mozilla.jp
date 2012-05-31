@@ -979,9 +979,6 @@ body {
  * Inherits styles from: Default Layout.
  */
 @media only screen and (max-width: 767px) {
-  img, object {
-    max-width: 100%;
-  }
   #page {
     width: 95%;
     padding: 0;
