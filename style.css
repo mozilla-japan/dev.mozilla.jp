@@ -984,6 +984,9 @@ body {
     height: auto;
   }
 
+  .post-title {
+    font-size: 1.7em;
+  }
   .postmeta .postmeta-content {
     display: block;
     border: none;
