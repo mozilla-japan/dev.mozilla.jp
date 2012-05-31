@@ -996,6 +996,16 @@ body {
     width: 100%;
   }
 
+  #event section {
+    padding: 10px 20px;
+  }
+  #event .event-time {
+    font-size: .8em;
+  }
+  #event .event-title {
+    font-size: 1.8em;
+  }
+
   /* sidebar */
   #sidebar {
     float: none;
