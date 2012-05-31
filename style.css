@@ -997,6 +997,7 @@ body {
   }
   .meta-project-list li > a {
     padding: 0.5em;
+    font-size: 1.2em;
   }
 
   .archive-post-title {
