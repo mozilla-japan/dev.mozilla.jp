@@ -168,7 +168,7 @@ img::selection {
 
 /* topics */
 .feed-article {
-  margin: 1em 0 2.5em;
+  margin: 2em 0 2.5em;
 }
 .feed-article h1 {
   display: inline-block;
@@ -952,9 +952,14 @@ body {
     font-size: 15px;
   }
 
+  .comment-meta {
+    display: block;
+  }
+
   /* footer */
   #mozilla_ring {
     width: 85%;
+    text-align: center;
   }
   #mozilla_ring_title {
     float: none;
@@ -1057,10 +1062,6 @@ body {
     font-size: 1.2em;
   }
 
-  #comment-submit > button {
-    width: 100%
-  }
-
   /* sidebar */
   #sidebar {
     float: none;
@@ -1076,7 +1077,9 @@ body {
     padding: 14px auto;
   }
 
-
+  #comment-submit > button {
+    width: 100%
+  }
   #comment-list.av .comment {
     padding-left: 19px;
   }
