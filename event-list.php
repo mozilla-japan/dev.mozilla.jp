@@ -77,7 +77,7 @@ get_header();
           <dt>参考URL</dt>
           <dd>
             <?php
-              data_of_the_event($the_id, 'url');
+              data_of_the_event($the_id, 'website');
             ?>
           </dd>
 

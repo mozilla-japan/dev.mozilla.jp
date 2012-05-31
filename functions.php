@@ -271,21 +271,22 @@ function event_meta_html($post, $box){
   echo '<input class="datepicker" type="text" placeholder="YYYY/MM/DD hh:mm" name="end_time" value="'. get_post_meta($post->ID, 'end_time', true) .'" size="25" />';
   echo '<a class="clear_end_time" href="#end_time">クリア</a>';
 
-  $capacity = get_post_meta($post->ID, '定員', true);
+  $capacity = get_post_meta($post->ID, 'capacity', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
   echo '<p>定員:<input type="text" size="20" placeholder="人数" name="capacity" value="'.$capacity.'"></p>';
 
-  $place = get_post_meta($post->ID, '会場', true);
+  $place = get_post_meta($post->ID, 'place', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
   echo '<p>会場:<input type="text" size="50" placeholder="会場" name="place" value="'.$place.'"></p>';
 
-  $eventurl = get_post_meta($post->ID, 'URL', true);
+  $website = get_post_meta($post->ID, 'website', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>詳細URL:<input type="text" size="50" placeholder="http://www.example.com" name="eventurl" value="'.$eventurl.'"></p>';
+  echo '<p>詳細URL:<input type="text" size="50" placeholder="http://www.example.com" name="website" value="'.$website.'"></p>';
 
-  $hashtag = get_post_meta($post->ID, 'ハッシュタグ', true);
+  $hashtag = get_post_meta($post->ID, 'hashtag', true);
   echo wp_nonce_field('event_meta', 'event_date_nonce');
   echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#example" name="hashtag" value="'.$hashtag.'"></p>';
+ 
 }
 
 /*
@@ -413,7 +414,7 @@ function event_update($post_id){
     $end_time = trim($_POST['end_time']);
     $place = trim($_POST['place']);
     $capacity = trim($_POST['capacity']);
-    $eventurl = trim($_POST['eventurl']);
+    $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
 
     if($start_time == ''){
@@ -436,10 +437,10 @@ function event_update($post_id){
     } else {
       update_post_meta($post_id, 'capacity', $capacity);
     }
-    if($eventurl == ''){
-      delete_post_meta($post_id, 'eventurl');
+    if($website == ''){
+      delete_post_meta($post_id, 'website');
     } else {
-      update_post_meta($post_id, 'eventurl', $eventurl);
+      update_post_meta($post_id, 'website', $website);
     }
     if($hashtag == ''){
       delete_post_meta($post_id, 'hashtag');
@@ -680,8 +681,12 @@ function data_of_the_event ($id, $param) {
         $datetime = str_replace('/', '-', $data);
         $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
         break;
-      case 'url':
-        $str = '<a href="'. $data .'">'. $data .'</a>';
+      case 'website':
+        if(preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/',$data)){
+          $str = '<a href="'. $data .'">'. $data .'</a>';
+        }else{
+          $str = $data;
+        }
         break;
       case 'hashtag':
         $url = 'http://twitter.com/search?q='. urlencode($data);
