@@ -244,7 +244,7 @@ function menu_meta_html($post, $box){
 	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" placeholder="http://www.example.com" name="url" value="'.$url.'"></p>';
 
 	$rss = get_post_meta($post->ID, 'rss', true);
-	echo '<p>プロジェクトのRSSフィード: <input type="text" size="50" placeholder="http://www.example.com/rss.xml" name="rss" value="'.$rss.'"></p>';
+	//echo '<p>プロジェクトのRSSフィード: <input type="text" size="50" placeholder="http://www.example.com/rss.xml" name="rss" value="'.$rss.'"></p>';
 
   $user = wp_get_current_user();
   if($user->roles[0] == 'administrator'){
