@@ -703,22 +703,6 @@ function data_of_the_event ($id, $param) {
   echo $str;
 }
 
-function get_the_date_of_the_event ($id) {
-  $raw_date_str = get_post_meta($id, 'start_time', true);
-  $raw_date_str = htmlspecialchars($raw_date_str, ENT_QUOTES | ENT_HTML5);
-  $datetime = str_replace('/', '-', $raw_date_str);
-  $date_array = explode('-', $datetime);
-  $year = $date_array[0];
-  $month = $date_array[1];
-  $day = substr($dare_array[2], 0, 5);
-  return array(
-           'datetime' => $datetime,
-           'year' => $year,
-           'month' => $month,
-           'day' => $day,
-         );
-}
-
 /* print a project data */
 function data_of_the_project ($id, $param) {
   $data = get_post_meta($id, $param, true);
