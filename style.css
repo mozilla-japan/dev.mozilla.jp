@@ -993,6 +993,9 @@ body {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
   }
+  .meta-project-list li > a {
+    padding: 0.5em;
+  }
 
   #page {
     width: 85%;
