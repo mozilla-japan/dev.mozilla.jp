@@ -1005,6 +1005,7 @@ body {
   }
   #hottopic-list {
     background-image: none;
+    padding: 10px;
   }
 
   #hottopic > h2,
