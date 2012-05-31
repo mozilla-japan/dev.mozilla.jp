@@ -972,17 +972,13 @@ body {
   #copyright {
     width: 85%;
   }
-
+}
 
 /*
  * @Mobile
  * Inherits styles from: Default Layout.
  */
 @media only screen and (max-width: 767px) {
-  img, object {
-    max-width: 100%;
-    height: auto;
-  }
   #page {
     width: 95%;
     padding: 0;
