@@ -855,6 +855,43 @@ function the_author_post_link_with_avatar ($size = 24) {
 }
 
 
+/*post-new?cat=$catidでカテゴリをひとつ指定して投稿することができる用にするスクリプト ※jQuery必須********/
+
+if ( in_array( $pagenow, array( 'edit.php', 'post-new.php' ) ) ) {
+  add_action( 'admin_footer', 'mytheme_admin_footer' );
+}
+function mytheme_admin_footer() {
+  ?>
+  <script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready( function() {
+        // URLからcatパラメータの値を取得
+        var cat = '';
+        var term = window.location.href.slice( window.location.href.indexOf( '?' )+1 ).split( '&' );
+        for ( var i = 0; i < term.length; i++ ) {
+          query = term[i].split( '=' );
+          if ( query[0] == 'cat' ) {
+            cat = query[1];
+            break;
+          }
+        }
+        if ( cat != '' ) {
+          // カレントメニューの切り替え
+          var uri = window.location.href.split( '/' );
+          jQuery( '.wp-submenu-wrap li.current' ).removeClass( 'current' ).find( 'a.current' ).removeClass( 'current' );
+          jQuery( '.wp-submenu-wrap li a[href="'+uri[uri.length-1]+'"]' ).addClass( 'current' ).parent().addClass( 'current' );
+          // 一覧
+          jQuery( '#wpbody-content a[href="post-new.php"]' ).attr( 'href', 'post-new.php?cat='+cat );
+          // 新規投稿
+          jQuery( '#in-category-'+cat ).attr( 'checked', 'checked' );
+        }
+      } );
+  //]]>
+  </script>
+<?php
+}
+
+
 /*********
 * Comment Template
 */
