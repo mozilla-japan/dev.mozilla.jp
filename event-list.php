@@ -48,7 +48,53 @@ get_header();
  
       <footer class="event-footer">
 
-        the_metadata_of_event($the_id);
+        <dl class="event-metadata-list">
+          <dt class="event-metadata-list-title">開催時間</dt>
+          <dd>
+            <?php
+              data_of_the_event($the_id, 'start_time');
+            ?>
+             -
+            <?php
+              data_of_the_event($the_id, 'end_time');
+            ?>
+          </dd>
+
+          <dt class="event-metadata-list-title">定員</dt>
+          <dd>
+            <?php
+              data_of_the_event($the_id, 'capacity');
+            ?>
+          </dd>
+
+          <dt class="event-metadata-list-title">会場</dt>
+          <dd>
+            <?php
+              data_of_the_event($the_id, 'place');
+            ?>
+          </dd>
+
+          <dt class="event-metadata-list-title">参考URL</dt>
+          <dd>
+            <?php
+              data_of_the_event($the_id, 'website');
+            ?>
+          </dd>
+
+          <dt class="event-metadata-list-title">ハッシュタグ</dt>
+          <dd>
+            <?php
+              data_of_the_event($the_id, 'hashtag');
+            ?>
+          </dd>
+
+          <dt class="event-metadata-list-title">イベント管理者</dt>
+          <dd>
+            <?php
+              the_author_post_link_with_avatar();
+            ?>
+          </dd>
+        </dl>
 
         <div class="event-summary">
           <?php the_excerpt(); ?>
