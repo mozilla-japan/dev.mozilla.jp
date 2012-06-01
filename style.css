@@ -470,14 +470,12 @@ body {
 }
 
 /* top page */
-#hottopic > h2,
-#event > h2,
-#blogfeed > h2 {
+.topsection-title {
   margin: 0px;
   font-size: 2em;
   font-weight: normal;
 }
-#hottopic > h2 {
+#hottopic > .topsection-title {
   margin-top: 28px;
 }
 #hottopic-list {
@@ -1083,9 +1081,7 @@ body {
     padding: 10px;
   }
 
-  #hottopic > h2,
-  #event > h2,
-  #blogfeed > h2 {
+  .topsection-title {
     font-size: 1.7em;
   }
   #hottopic h3 {

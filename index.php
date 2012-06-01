@@ -10,7 +10,7 @@ get_header();
 <article id="content">
 
   <section id="hottopic">
-    <h2>注目トピック</h2>
+    <h2 class="topsection-title">注目トピック</h2>
     <div id="hottopic-list">
       <?php
         $cat = get_category_by_slug('hot');
@@ -33,7 +33,7 @@ get_header();
   </section>
 
   <section id="event">
-    <h2>イベント</h2>
+    <h2 class="topsection-title">イベント</h2>
     <?php
       $args = array( 'post_type' => 'event',
                      'numberposts' => 2,
@@ -78,7 +78,7 @@ DOC;
   </section>
 
   <section id="blogfeed">
-    <h2>
+    <h2 class="topsection-title">
       <a href="<?php echo get_all_post_url(); ?>">最新のトピック</a>
     </h2>
     <?php
