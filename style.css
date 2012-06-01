@@ -1096,6 +1096,7 @@ body {
     font-size: 1.2em;
   }
 
+  .project-footer .project-icon,
   .projectmeta .project-icon {
     float: none;
   }
