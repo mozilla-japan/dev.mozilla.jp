@@ -28,22 +28,22 @@
 
 @font-face {
     font-family: "Open Sans";
-    src: url("./fonts/OpenSans-Semibold-webfont.eot");
-    src: url("./fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-Semibold-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-Semibold-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-Semibold-webfont.svg#OpenSansRegular") format("svg");
+    src: url("./fonts/OpenSans-Bold-webfont.eot");
+    src: url("./fonts/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+         url("./fonts/OpenSans-Bold-webfont.woff") format("woff"),
+         url("./fonts/OpenSans-Bold-webfont.ttf") format("truetype"),
+         url("./fonts/OpenSans-Bold-webfont.svg#OpenSansRegular") format("svg");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url("./fonts/OpenSans-SemiboldItalic-webfont.eot");
-    src: url("./fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-SemiboldItalic-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-SemiboldItalic-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-SemiboldItalic-webfont.svg#OpenSansRegular") format("svg");
+    src: url("./fonts/OpenSans-BoldItalic-webfont.eot");
+    src: url("./fonts/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"),
+         url("./fonts/OpenSans-BoldItalic-webfont.woff") format("woff"),
+         url("./fonts/OpenSans-BoldItalic-webfont.ttf") format("truetype"),
+         url("./fonts/OpenSans-BoldItalic-webfont.svg#OpenSansRegular") format("svg");
     font-weight: bold;
     font-style: italic;
 }
