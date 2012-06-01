@@ -32,14 +32,16 @@ get_header();
 				//post_icon(get_the_ID(),array(70,70));
 			?>
 
-			<?php
-				/*
-				* article's title
-				*/
-				$permaLink = get_permalink();
-				$titleText = get_the_title();
-				echo '<h1 class="archive-post-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
-			?>
+			<h1 class="archive-post-title">
+				<?php
+					/*
+					* article's title
+					*/
+					$permaLink = get_permalink();
+					$titleText = get_the_title();
+					echo '<a href="'. $permaLink .'">'. $titleText .'</a>';
+				?>
+			</h1>
 
 			<?php
 				edit_the_link($the_id);
