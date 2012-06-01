@@ -869,6 +869,61 @@ function cat_set_wp_insert_post( $post_id )
 
 /***********/
 
+/*********
+* Event metadata Template
+*/
+function the_metadata_of_event ($id) {
+?>
+<dl class="event-metadata-list">
+  <dt class="event-metadata-list-title">開催時間</dt>
+  <dd>
+    <?php
+      data_of_the_event($id, 'start_time');
+    ?>
+     -
+    <?php
+      data_of_the_event($id, 'end_time');
+    ?>
+  </dd>
+
+  <dt class="event-metadata-list-title">定員</dt>
+  <dd>
+    <?php
+      data_of_the_event($id, 'capacity');
+    ?>
+  </dd>
+
+  <dt class="event-metadata-list-title">会場</dt>
+  <dd>
+    <?php
+      data_of_the_event($id, 'place');
+    ?>
+  </dd>
+
+  <dt class="event-metadata-list-title">参考URL</dt>
+  <dd>
+    <?php
+      data_of_the_event($id, 'website');
+    ?>
+  </dd>
+
+  <dt class="event-metadata-list-title">ハッシュタグ</dt>
+  <dd>
+    <?php
+      data_of_the_event($id, 'hashtag');
+    ?>
+  </dd>
+
+  <dt class="event-metadata-list-title">イベント管理者</dt>
+  <dd>
+    <?php
+      the_author_post_link_with_avatar();
+    ?>
+  </dd>
+</dl>
+<?php
+}
+
 
 /*********
 * Comment Template
