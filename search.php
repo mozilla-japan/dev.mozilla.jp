@@ -22,7 +22,7 @@ get_header(); ?>
 
   <article class="searchresult-article">
     <header>
-      <h1>
+      <h1 class="searchresult-article-title">
         <?php
           $title = get_the_title();
         ?>

@@ -530,7 +530,7 @@ body {
 .searchresult-article {
   margin: 1em 0 3em;
 }
-.searchresult-article h1 {
+.searchresult-article-title {
   display: inline-block;
   font-size: 1.5em;
   margin-top: 0;
