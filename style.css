@@ -197,15 +197,15 @@ img::selection {
   padding: 0;
   margin: 0;
 }
-.meta-project-list > li {
+.meta-project-list-item {
   display: inline-block;
   list-style-type: none;
   margin-right: .5em;
 }
-.meta-project-list > li:after {
+.meta-project-list-item:after {
   content: ",";
 }
-.meta-project-list > li:last-child:after {
+.meta-project-list-item:last-child:after {
   content: "";
 }
 
