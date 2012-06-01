@@ -213,7 +213,7 @@ img::selection {
 .feed-article {
   margin: 2em 0 2.5em;
 }
-.feed-article h1 {
+.feed-article-title {
   display: inline-block;
   font-size: 1.5em;
   margin-top: 0;
@@ -1101,7 +1101,7 @@ body {
     font-size: 1.4em;
   }
 
-  .feed-article h1 {
+  .feed-article-title {
     font-size: 1.2em;
   }
 

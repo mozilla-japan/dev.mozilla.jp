@@ -86,7 +86,7 @@ get_header();
 					 */
 					$permaLink = get_permalink();
 					$titleText = get_the_title();
-					echo '<h1><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
+					echo '<h1 class="feed-article-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
 				?>
 
 				<?php

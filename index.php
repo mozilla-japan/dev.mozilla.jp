@@ -90,7 +90,7 @@ DOC;
     ?>
     <article class="feed-article">
       <header>
-        <h1>
+        <h1 class="feed-article-title">
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
             <?php the_title(); ?>
           </a>
