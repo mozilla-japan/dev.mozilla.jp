@@ -967,7 +967,7 @@ body {
   }
   .mozilla_ring_category {
     width: 40%;
-    margin: 2em 3% 2em 0;
+    margin: 2em auto 2em;
   }
   .mozilla_ring_category_title {
     margin-bottom: 0.5em;
@@ -1152,7 +1152,7 @@ body {
     float: left;
     width: 40%;
     border: none;
-    margin: 2em 3% 2em 0;
+    margin: 2em auto 2em;
   }
   .mozilla_ring_category:last-of-type {
     border: none;
