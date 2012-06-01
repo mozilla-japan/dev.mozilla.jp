@@ -41,18 +41,11 @@
       $args = array( 'post_type' => 'project',
                      'posts_per_page' => -1 );
       $loop = new WP_Query( $args );
-      while($loop->have_posts() ) : $loop-> the_post();
-      echo '<li class="project-item project-tem-';
-      the_ID();
-      echo '">';
-          echo '<a href="';
-                         the_permalink();
-                         echo '" title="';
-                                        the_title();
-                                        echo '" > ';
-            the_title();
-            echo '</a>';
-          echo '</li>';
+      while($loop->have_posts() ) : 
+        $loop-> the_post();
+        $link = get_permalink();
+        $title = get_the_title();
+        echo '<li><a href="'.$link.'" title="'.esc_attr($title).'" >'.esc_html($title).'</a></li>';
       endwhile;
       ?>
     </ul>
