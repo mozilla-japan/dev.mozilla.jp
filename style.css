@@ -122,6 +122,10 @@ img::selection {
   border-color: inherit;
 }
 
+.project-icon {
+  padding: 10px;
+}
+
 /* navigation */
 .navigation {
   display: block;
