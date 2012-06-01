@@ -502,7 +502,7 @@ body {
   padding-bottom: 0.3em;
   margin-bottom: 1em;
 }
-#event .event-title {
+.eventtop-event-section > .event-title {
   display: block;
   font-size: 2.5em;
   margin: 0;
@@ -980,7 +980,7 @@ body {
     width: 70%;
   }
 
-  #event .event-title {
+  .eventtop-event-section > .event-title {
     font-size: 2.3em;
   }
 
@@ -1093,7 +1093,7 @@ body {
   #event .event-time {
     font-size: .8em;
   }
-  #event .event-title {
+  .eventtop-event-section > .event-title {
     font-size: 1.4em;
   }
 
