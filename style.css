@@ -154,6 +154,7 @@ img::selection {
 .postmeta .author.postmeta-content {
   margin-left: 0;
   border-left: none;
+  font-style: normal;
 }
 
 
