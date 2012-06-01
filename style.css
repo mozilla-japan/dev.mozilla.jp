@@ -550,7 +550,6 @@ body {
   border-bottom: 1px solid rgba(255,255,255,.5);
   padding: 10px 20px;
   margin: 0;
-  font-size: 0.9em;
   background: #fff;
   background: -moz-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
   background: -webkit-linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
