@@ -1090,7 +1090,7 @@ body {
   .top-event-section {
     padding: 10px;
   }
-  #event .event-time {
+  .top-event-section > .event-time {
     font-size: .8em;
   }
   .top-event-section > .event-title {
