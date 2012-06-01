@@ -575,7 +575,7 @@ body {
 
 
 /* project page */
-#project-latest-topics-list > h1 {
+#project-latest-topics-list > h2 {
   font-size: 2em;
   margin: 1em 0 0.5em;
 }
