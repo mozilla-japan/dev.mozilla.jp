@@ -61,7 +61,7 @@ get_header();
               <time class="event-time" datetime="$datetime">
                 <span class="posted-year">$year</span>年
                 <span class="posted-month">$month</span>月
-                <span class="posted-date">$day</span>日
+                <span class="posted-day">$day</span>日
               </time>
               <h3 class="event-title">
                 <a href="$href" title="$title">
