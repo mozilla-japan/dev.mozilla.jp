@@ -558,8 +558,8 @@ body {
   background: linear-gradient(left, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.75) 10%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.75) 90%, rgba(255,255,255,0.75) 100%);
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
-.projectmeta dt,
-.eventmeta dt {
+.projectmeta-list-title,
+.eventmeta-list-title {
   font-weight: bold;
 }
 
