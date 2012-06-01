@@ -31,6 +31,7 @@ get_header();
     if (have_posts()) :
       foreach ($posts as $post) :
         setup_postdata($post);
+        $the_id = get_the_ID();
   ?>
 
     <section class="project-section">
@@ -54,14 +55,8 @@ get_header();
             }
           ?>
         </div>
-        <dl class="project-metadata-list">
-          <dt class="project-metadata-list-title">Web サイト</dt>
-          <dd>
-            <?php
-              data_of_the_project($the_id, 'url');
-            ?>
-          </dd>
-        </dl>
+
+        <?php the_metadata_of_project($the_id) ?>
 
         <div class="project-summary">
           <?php the_excerpt(); ?>

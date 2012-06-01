@@ -870,6 +870,21 @@ function cat_set_wp_insert_post( $post_id )
 /***********/
 
 /*********
+* Project metadata Template
+*/
+function the_metadata_of_project ($id) {
+?>
+
+<dl class="project-metadata-list">
+  <dt class="project-metadata-list-title">Web サイト</dt>
+  <dd>
+    <?php data_of_the_project($id, 'url'); ?>
+  </dd>
+</dl>
+
+<?php
+}
+/*********
 * Event metadata Template
 */
 function the_metadata_of_event ($id) {

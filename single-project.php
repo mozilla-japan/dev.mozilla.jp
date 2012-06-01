@@ -39,14 +39,7 @@ get_header();
 			?>
 		</div>
 
-		<dl>
-			<dt class="project-metadata-list-title">Web サイト</dt>
-			<dd>
-				<?php
-					data_of_the_project($the_id, 'url');
-				?>
-			</dd>
-		</dl>
+		<?php the_metadata_of_project($the_id) ?>
 
 	</footer>
 
