@@ -1096,6 +1096,10 @@ body {
     font-size: 1.2em;
   }
 
+  .projectmeta .project-icon {
+    float: none;
+  }
+
   /* sidebar */
   #sidebar {
     float: none;
