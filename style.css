@@ -620,8 +620,8 @@ body {
   display: block;
   clear: both;
 }
-.event-metadata-list dt,
-.project-metadata-list dt {
+.event-metadata-list-title,
+.project-metadata-list-title {
   margin: 0;
   font-size: 0.9em;
   font-weight: bold;
