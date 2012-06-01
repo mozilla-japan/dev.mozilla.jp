@@ -648,7 +648,7 @@ function the_project_list_of_the_post ($postId) {
     if ($project_array->post_type === 'project') :
       $link = get_permalink($project_array->ID);
       $link_text = $project_array->post_title;
-      $list .= ('<li><a class="meta-project-list-item" href="'. $link .'">'. $link_text .'</a></li>');
+      $list .= ('<li class="meta-project-list-item"><a href="'. $link .'">'. $link_text .'</a></li>');
     endif;
   endforeach;
 
