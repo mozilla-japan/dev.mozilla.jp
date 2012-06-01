@@ -1135,4 +1135,7 @@ body {
  * Inherits styles from: Default Layout, Mobile Layout.
  */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+ #sidebar {
+   max-width: 500px;
+ }
 }
