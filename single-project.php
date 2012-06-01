@@ -40,7 +40,7 @@ get_header();
 		</div>
 
 		<dl>
-			<dt class="projectmeta-list-title">Web サイト</dt>
+			<dt class="project-metadata-list-title">Web サイト</dt>
 			<dd>
 				<?php
 					data_of_the_project($the_id, 'url');
