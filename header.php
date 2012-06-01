@@ -62,10 +62,10 @@
        class="tabzilla-closed">Mozilla Japan</a>
     <nav id="header-nav">
       <ol>
-        <li><a href="<?php echo get_about_url(); ?>">このサイトについて</a></li>
-        <li><a href="<?php echo get_event_url(); ?>">イベント</a></li>
-        <li><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
-        <li><?php wp_loginout(); ?></li>
+        <li class="header-nav-item"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></li>
+        <li class="header-nav-item"><a href="<?php echo get_event_url(); ?>">イベント</a></li>
+        <li class="header-nav-item"><a href="<?php echo get_project_url(); ?>">プロジェクト</a></li>
+        <li class="header-nav-item"><?php wp_loginout(); ?></li>
       </ol>
     </nav>
     <h1 id="site-title">

@@ -403,14 +403,14 @@ body {
 #header-nav > ol {
   margin: 0;
 }
-#header-nav li {
+.header-nav-item {
   display: inline-block;
   list-style-type: none;
   padding: 12px;
 }
-#header-nav a,
-#header-nav a:hover,
-#header-nav a:visited {
+.header-nav-item > a,
+.header-nav-item > a:hover,
+.header-nav-item > a:visited {
   color: #484848;
   text-decoration:none;
 }
