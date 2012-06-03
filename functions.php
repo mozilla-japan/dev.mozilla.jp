@@ -295,9 +295,9 @@ function event_meta_html($post, $box){
       $capacity = get_post_meta($id, 'capacity', true);
     ?>
     <label for="capacity">定員</label>
-    <input name="capacity" type="text"
+    <input name="capacity" type="number"
            value="<?php echo($capacity); ?>"
-           placeholder="10人" size="20" />
+           placeholder="10" size="20" />
   </div>
 
   <div>
@@ -316,7 +316,7 @@ function event_meta_html($post, $box){
       $website = get_post_meta($id, 'website', true);
     ?>
     <label for="website">詳細URL</label>
-    <input name="website" type="text"
+    <input name="website" type="url"
            value="<?php echo($website); ?>"
            placeholder="http://www.example.com/"
            size="50" />
