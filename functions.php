@@ -264,29 +264,76 @@ function event_meta_box($post){
 }
 
 function event_meta_html($post, $box){
-  echo '<label for="start_time">開始日時</label>';
-  echo '<input class="datepicker" type="text" placeholder="YYYY/MM/DD hh:mm" name="start_time" value="'. get_post_meta($post->ID, 'start_time', true) .'" size="25" />';
-  echo '<a class="clear_start_time" href="#start_time">クリア</a>';
+  $id = $post->ID;
+?>
+  <div>
+    <?php
+     $start_time = get_post_meta($id, 'start_time', true);
+    ?>
+    <label for="start_time">開始日時</label>
+    <input name="start_time" type="text"
+           placeholder="2010/01/01 00:00"
+           value="<?php echo($start_time); ?>"
+           class="datepicker" size="25" />
+    <a class="clear_start_time" href="#start_time">クリア</a>
+  </div>
 
-  echo '<label for="end_time"> 〜 終了日時</label>';
-  echo '<input class="datepicker" type="text" placeholder="YYYY/MM/DD hh:mm" name="end_time" value="'. get_post_meta($post->ID, 'end_time', true) .'" size="25" />';
-  echo '<a class="clear_end_time" href="#end_time">クリア</a>';
+  <div>
+    <?php
+      $end_time = get_post_meta($id, 'end_time', true);
+    ?>
+    <label for="end_time">終了日時</label>
+    <input name="end_time" type="text"
+           placeholder="2010/01/01 00:00"
+           value="<?php echo($end_time); ?>"
+           class="datepicker" size="25" />
+    <a class="clear_end_time" href="#end_time">クリア</a>
+  </div>
 
-  $capacity = get_post_meta($post->ID, 'capacity', true);
+  <div>
+    <?php
+      $capacity = get_post_meta($id, 'capacity', true);
+    ?>
+    <label for="capacity">定員</label>
+    <input name="capacity" type="text"
+           value="<?php echo($capacity); ?>"
+           placeholder="10人" size="20" />
+  </div>
+
+  <div>
+   <?php
+     $place = get_post_meta($id, 'place', true);
+   ?>
+   <label for="place">会場</label>
+   <input name="place" type="text"
+          value="<?php echo($place); ?>"
+          placeholder="東京都千代田区貸会議室"
+          size="50" />
+  </div>
+
+  <div>
+    <?php
+      $website = get_post_meta($id, 'website', true);
+    ?>
+    <label for="website">詳細URL</label>
+    <input name="website" type="text"
+           value="<?php echo($website); ?>"
+           placeholder="http://www.example.com/"
+           size="50" />
+  </div>
+
+  <div>
+   <?php
+     $hashtag = get_post_meta($id, 'hashtag', true);
+   ?>
+   <label for="hashtag">ハッシュタグ</label>
+   <input name="hashtag" type="text"
+          value="<?php echo($hashtag); ?>"
+          placeholder="#example"
+          size="50" />
+  </div>
+<?php
   echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>定員:<input type="text" size="20" placeholder="人数" name="capacity" value="'.$capacity.'"></p>';
-
-  $place = get_post_meta($post->ID, 'place', true);
-  echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>会場:<input type="text" size="50" placeholder="会場" name="place" value="'.$place.'"></p>';
-
-  $website = get_post_meta($post->ID, 'website', true);
-  echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>詳細URL:<input type="text" size="50" placeholder="http://www.example.com" name="website" value="'.$website.'"></p>';
-
-  $hashtag = get_post_meta($post->ID, 'hashtag', true);
-  echo wp_nonce_field('event_meta', 'event_date_nonce');
-  echo '<p>ハッシュタグ:<input type="text" size="50" placeholder="#example" name="hashtag" value="'.$hashtag.'"></p>'; 
 }
 
 /*
