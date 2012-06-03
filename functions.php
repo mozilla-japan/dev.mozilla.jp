@@ -239,20 +239,52 @@ function project_meta_box($post){
 	add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
 }
 function menu_meta_html($post, $box){
-	$url = get_post_meta($post->ID, 'url', true);
-	echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
-	echo '<p>プロジェクトのWebサイト: <input type="text" size="50" placeholder="http://www.example.com" name="url" value="'.$url.'"></p>';
+  $id = $post->ID;
+?>
+  <div>
+    <?php
+      $url = get_post_meta($id, 'url', true);
+    ?>
+    <label for="url">プロジェクトのWebサイト</label>
+    <input name="url" type="url"
+           value="<?php echo esc_attr($url);?>"
+           placeholder="http://www.example.com/"
+           size="50" />
+  </div>
+  <div>
+    <?php
+      /*
+      $rss = get_post_meta($id, 'rss', true);
 
-	$rss = get_post_meta($post->ID, 'rss', true);
-	//echo '<p>プロジェクトのRSSフィード: <input type="text" size="50" placeholder="http://www.example.com/rss.xml" name="rss" value="'.$rss.'"></p>';
+    <label for="rss">プロジェクトのRSSフィード</label>
+    <input name="rss" type="url"
+           value="<?php echo esc_attr($rss);?>"
+           placeholder="http://www.example.com/rss.xml"
+           size="50" />
+      */
+    ?>
+  </div>
 
-  $user = wp_get_current_user();
-  if($user->roles[0] == 'administrator'){
-    $catid = (int)get_post_meta($post->ID, 'catid', true);
-    if($catid == 0)$catid = '';
-    echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
-    echo '<p>カテゴリID（変更禁止）: <input type="text" size="50" name="catid" value="'.$catid.'"></p>';
-  }
+<?php
+    $user = wp_get_current_user();
+    if ($user->roles[0] == 'administrator') {
+      $catid = (int)get_post_meta($id, 'catid', true);
+      if($catid == 0) {
+        $catid = '';
+      }
+      $catid = esc_attr($catid);
+      echo <<< DOC
+  <div>
+    <label for="catid">カテゴリID（変更禁止）</label>
+    <input name="catid" type="text"
+           value="$catid" size="50" />
+  </div>
+DOC;
+    }
+?>
+
+<?php
+  echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 }
 
 /*
