@@ -273,7 +273,7 @@ function event_meta_html($post, $box){
     <label for="start_time">開始日時</label>
     <input name="start_time" type="text"
            placeholder="2010/01/01 00:00"
-           value="<?php echo($start_time); ?>"
+           value="<?php echo esc_attr($start_time); ?>"
            class="datepicker" size="25" />
     <a class="clear_start_time" href="#start_time">クリア</a>
   </div>
@@ -285,7 +285,7 @@ function event_meta_html($post, $box){
     <label for="end_time">終了日時</label>
     <input name="end_time" type="text"
            placeholder="2010/01/01 00:00"
-           value="<?php echo($end_time); ?>"
+           value="<?php echo esc_attr($end_time); ?>"
            class="datepicker" size="25" />
     <a class="clear_end_time" href="#end_time">クリア</a>
   </div>
@@ -296,7 +296,7 @@ function event_meta_html($post, $box){
     ?>
     <label for="capacity">定員</label>
     <input name="capacity" type="number"
-           value="<?php echo($capacity); ?>"
+           value="<?php echo esc_attr($capacity); ?>"
            placeholder="10" size="20" />
   </div>
 
@@ -306,7 +306,7 @@ function event_meta_html($post, $box){
    ?>
    <label for="place">会場</label>
    <input name="place" type="text"
-          value="<?php echo($place); ?>"
+          value="<?php echo esc_attr($place); ?>"
           placeholder="東京都千代田区貸会議室"
           size="50" />
   </div>
@@ -317,7 +317,7 @@ function event_meta_html($post, $box){
     ?>
     <label for="website">詳細URL</label>
     <input name="website" type="url"
-           value="<?php echo($website); ?>"
+           value="<?php echo esc_attr($website); ?>"
            placeholder="http://www.example.com/"
            size="50" />
   </div>
@@ -328,7 +328,7 @@ function event_meta_html($post, $box){
    ?>
    <label for="hashtag">ハッシュタグ</label>
    <input name="hashtag" type="text"
-          value="<?php echo($hashtag); ?>"
+          value="<?php echo esc_attr($hashtag); ?>"
           placeholder="#example"
           size="50" />
   </div>
