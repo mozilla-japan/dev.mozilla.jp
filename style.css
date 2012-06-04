@@ -169,7 +169,6 @@ img::selection {
 
 /* entry body */
 .entry-body {
-  text-align: justify;
   font-size: .95em;
   line-height: 1.8em;
 }
