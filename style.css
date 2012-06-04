@@ -378,12 +378,31 @@ body {
   width: 1050px;
   padding: 0 1em;
   margin: 0 auto;
+  -moz-transition: padding, width .5s linear;
+  -webkit-transition: padding, width .5s linear;
+  -o-transition: padding, width .5s linear;
+  -ms-transition: padding, width .5s linear;
+  transition: padding, width .5s linear;
 }
 #content {
+  display: block;
+  float: left;
   width: 750px;
+  -moz-transition: float, width .5s linear;
+  -webkit-transition: float, width .5s linear;
+  -o-transition: float, width .5s linear;
+  -ms-transition: float, width .5s linear;
+  transition: float, width .5s linear;
 }
 #sidebar{
+  display: block;
+  float: right;
   width: 230px;
+  -moz-transition: float, width .5s linear;
+  -webkit-transition: float, width .5s linear;
+  -o-transition: float, width .5s linear;
+  -ms-transition: float, width .5s linear;
+  transition: float, width .5s linear;
 }
 #mozilla_ring {
   width: 1050px;
@@ -411,6 +430,11 @@ body {
   display: inline-block;
   list-style-type: none;
   padding: 12px;
+  -moz-transition: display .5s linear;
+  -webkit-transition: display .5s linear;
+  -o-transition: display .5s linear;
+  -ms-transition: display .5s linear;
+  transition: display .5s linear;
 }
 .header-nav-item > a,
 .header-nav-item > a:hover,
@@ -465,8 +489,6 @@ body {
  * content
  */
 #content {
-  display: block;
-  float: left;
   padding-bottom: 30px;
 }
 #content > section {
@@ -635,8 +657,6 @@ body {
  * sidebar
  */
 #sidebar {
-  display: block;
-  float: right;
   padding: 10px;
   margin: 0 0 20px;
 }
