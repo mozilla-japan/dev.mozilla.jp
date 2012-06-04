@@ -922,17 +922,21 @@ function print_metadata_as_definition_item ($id, $param, $title) {
     }
   ?>
 
-  <dt class="metadata-list-title"><?php echo($title); ?></dt>
-  <dd>
-    <?php
-      if ($param === 'event_admin') {
-        the_author_post_link_with_avatar();
-      }
-      else {
-        echo($content);
-      }
-    ?>
-  </dd>
+  <?php
+    if ( strlen($content) > 0 ) :
+  ?>
+    <dt class="metadata-list-title"><?php echo($title); ?></dt>
+    <dd>
+      <?php
+        if ($param === 'event_admin') {
+          the_author_post_link_with_avatar();
+        }
+        else {
+          echo($content);
+        }
+      ?>
+    </dd>
+  <?php endif; ?>
 <?php
 }
 function get_data_of_the_meta ($id, $param) {
@@ -966,7 +970,7 @@ function get_data_of_the_meta ($id, $param) {
     }
   }
   else{
-    $str = '未定';
+    $str = '';
   }
   return $str;
 }
