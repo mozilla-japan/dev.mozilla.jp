@@ -126,7 +126,7 @@ DOC;
     <nav class="navigation">
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link "href="<?php echo get_permalink(); ?>">投稿されたすべてのトピック</a>
+          <a class="navigation-list-item-link "href="<?php echo get_permalink(); ?>">投稿されたすべてのトピック &raquo;</a>
         </li>
       </ul>
     </nav>
