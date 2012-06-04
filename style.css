@@ -344,31 +344,31 @@ body {
   width: 1050px;
   padding: 0 1em;
   margin: 0 auto;
-  -moz-transition: padding, width .5s linear;
-  -webkit-transition: padding, width .5s linear;
-  -o-transition: padding, width .5s linear;
-  -ms-transition: padding, width .5s linear;
-  transition: padding, width .5s linear;
+  -moz-transition: width .5s linear;
+  -webkit-transition: width .5s linear;
+  -o-transition: width .5s linear;
+  -ms-transition: width .5s linear;
+  transition: width .5s linear;
 }
 #content {
   display: block;
   float: left;
   width: 750px;
-  -moz-transition: float, width .5s linear;
-  -webkit-transition: float, width .5s linear;
-  -o-transition: float, width .5s linear;
-  -ms-transition: float, width .5s linear;
-  transition: float, width .5s linear;
+  -moz-transition: float .5s linear,  width .5s linear;
+  -webkit-transition: float .5s linear,  width .5s linear;
+  -o-transition: float .5s linear,  width .5s linear;
+  -ms-transition: float .5s linear,  width .5s linear;
+  transition: float .5s linear,  width .5s linear;
 }
 #sidebar{
   display: block;
   float: right;
   width: 230px;
-  -moz-transition: float, width .5s linear;
-  -webkit-transition: float, width .5s linear;
-  -o-transition: float, width .5s linear;
-  -ms-transition: float, width .5s linear;
-  transition: float, width .5s linear;
+  -moz-transition: float .5s linear, width .5s linear;
+  -webkit-transition: float .5s linear,  width .5s linear;
+  -o-transition: float .5s linear,  width .5s linear;
+  -ms-transition: float .5s linear,  width .5s linear;
+  transition: float .5s linear,  width .5s linear;
 }
 #mozilla_ring {
   width: 1050px;
@@ -936,11 +936,11 @@ body {
 .mozilla_ring_category {
   float: left;
   margin: 0 20px;
-  -moz-transition: width .5s linear, font-size .5s linear;
-  -webkit-transition: width .5s linear, font-size .5s linear;
-  -o-transition: width .5s linear, font-size .5s linear;
-  -ms-transition: width .5s linear, font-size .5s linear;
-  transition: width .5s linear, font-size .5s linear;
+  -moz-transition: float .5s linear, width .5s linear, font-size .5s linear;
+  -webkit-transition: float .5s linear, width .5s linear, font-size .5s linear;
+  -o-transition: float .5s linear, width .5s linear, font-size .5s linear;
+  -ms-transition: float .5s linear, width .5s linear, font-size .5s linear;
+  transition: float .5s linear, width .5s linear, font-size .5s linear;
 }
 #mozilla_ring_title {
   margin-left: 0;
