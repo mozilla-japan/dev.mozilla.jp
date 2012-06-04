@@ -78,9 +78,7 @@ DOC;
   </section>
 
   <section id="blogfeed">
-    <h2 class="topsection-title">
-      <a href="<?php echo get_all_post_url(); ?>">最新のトピック</a>
-    </h2>
+    <h2 class="topsection-title">最新のトピック</h2>
     <?php
       $posts = get_posts('posts_per_page=5');
       if($posts):
@@ -125,7 +123,13 @@ DOC;
         endforeach;
       endif;
     ?>
-
+    <nav class="navigation">
+      <ul>
+        <li class="navigation-list-item">
+          <a class="navigation-list-item-link "href="<?php echo get_permalink(); ?>">投稿されたすべてのトピック</a>
+        </li>
+      </ul>
+    </nav>
   </section>
 
   <?php

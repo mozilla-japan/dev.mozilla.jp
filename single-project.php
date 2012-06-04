@@ -77,9 +77,9 @@ get_header();
 					/*
 					 * articles title
 					 */
-					$permaLink = get_permalink();
+					
 					$titleText = get_the_title();
-					echo '<h1 class="feed-article-title"><a href="'. $permaLink .'">'. $titleText .'</a></h1>';
+					echo '<h1 class="feed-article-title">'. $titleText .'</h1>';
 				?>
 
 				<?php
@@ -108,6 +108,13 @@ get_header();
 			endforeach;
 		endif;
 	?>
+		<nav class="navigation">
+			<ul>
+				<li class="navigation-list-item">
+					<a class="navigation-list-item-link "href="<?php echo get_permalink(); ?>">投稿されたすべてのトピック</a>
+				</li>
+			</ul>
+		</nav>
 	</section>
 
   <section id="project_rss_feed">
