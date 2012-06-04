@@ -276,7 +276,7 @@ function menu_meta_html($post, $box){
       echo <<< DOC
   <div>
     <label for="catid">カテゴリID（変更禁止）</label>
-    <input name="catid" type="text"
+    <input name="catid" type="text" readonly="true"
            value="$catid" size="50" />
   </div>
 DOC;
