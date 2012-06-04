@@ -58,9 +58,8 @@ get_header();
 
 	<section id="project-latest-topics-list">
     <?php $cat_id = get_post_meta($post->ID, 'catid', true);
-    $category_link = get_category_link($cat_id);
     ?>
-	  <h2><a href="<?php echo $category_link ?>">最新のトピック</a></h2>
+	  <h2>最新のトピック</h2>
 		<?php
 			$args = array('posts_per_page' => 5,
 			              'category' => $cat_id);
@@ -77,9 +76,9 @@ get_header();
 					/*
 					 * articles title
 					 */
-					
+					$link = get_permalink();
 					$titleText = get_the_title();
-					echo '<h1 class="feed-article-title">'. $titleText .'</h1>';
+					echo '<h1 class="feed-article-title"><a href="'. $link .'">'. $titleText .'</h1>';
 				?>
 
 				<?php
@@ -109,9 +108,12 @@ get_header();
 		endif;
 	?>
 		<nav class="navigation">
+			<?php
+				$category_link = get_category_link($cat_id);
+			?>
 			<ul class="navigation-list">
 				<li class="navigation-list-item">
-					<a class="navigation-list-item-link "href="<?php echo get_permalink(); ?>">投稿されたすべてのトピック &raquo;</a>
+					<a class="navigation-list-item-link" href="<?php echo $category_link ?>">投稿されたすべてのトピック</a>
 				</li>
 			</ul>
 		</nav>
