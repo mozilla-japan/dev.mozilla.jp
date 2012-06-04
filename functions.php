@@ -927,11 +927,16 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 ?>
   <?php
     $content = '';
-    if ($param === 'event_time') {
-      $content = get_data_of_the_meta($id, 'start_time') .' - '. get_data_of_the_meta($id, 'end_time');
-    }
-    else if ($param !== 'event_admin') {
-      $content = get_data_of_the_meta($id, $param);
+    switch ($param) {
+      case 'event_time':
+        $content = get_data_of_the_meta($id, 'start_time') .' - '. get_data_of_the_meta($id, 'end_time');
+        break;
+      case 'event_admin':
+        $content = ' '; // trick to make $isEmpty false.
+        break;
+      default:
+        $content = get_data_of_the_meta($id, $param);
+        break;
     }
 
     $isEmpty = (strlen($content) > 0) ? false : true;
@@ -946,11 +951,13 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
     <dt class="metadata-list-title"><?php echo($title); ?></dt>
     <dd>
       <?php
-        if ($param === 'event_admin') {
-          the_author_post_link_with_avatar();
-        }
-        else {
-          echo($content);
+        switch ($param) {
+          case 'event_admin':
+            the_author_post_link_with_avatar();
+            break;
+          default:
+            echo($content);
+            break;
         }
       ?>
     </dd>
