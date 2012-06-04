@@ -909,7 +909,17 @@ function the_metadata_of_event ($id) {
 </dl>
 <?php
 }
-/* print a event data */
+/*
+ * print a event data
+ * 
+ * @param $id
+ *   メタ情報を出力するプロジェクト・イベントのid
+ * @param $param
+ *   メタ情報の内部プロパティ名
+ * @param $title
+ *   <html:dt>要素のテキスト
+ * 
+ */
 function print_metadata_as_definition_item ($id, $param, $title) {
 ?>
   <?php
