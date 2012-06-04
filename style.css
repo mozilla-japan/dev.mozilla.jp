@@ -5,55 +5,12 @@
  * Author    : Enseki
  */
 
-@font-face {
-    font-family: "Open Sans";
-    src: url("./fonts/OpenSans-Regular-webfont.eot");
-    src: url("./fonts/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-Regular-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-Regular-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: "Open Sans";
-    src: url("./fonts/OpenSans-Italic-webfont.eot");
-    src: url("./fonts/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-Italic-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-Italic-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-Italic-webfont.svg#OpenSansRegular") format("svg");
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("./fonts/OpenSans-Bold-webfont.eot");
-    src: url("./fonts/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-Bold-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-Bold-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-Bold-webfont.svg#OpenSansRegular") format("svg");
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("./fonts/OpenSans-BoldItalic-webfont.eot");
-    src: url("./fonts/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"),
-         url("./fonts/OpenSans-BoldItalic-webfont.woff") format("woff"),
-         url("./fonts/OpenSans-BoldItalic-webfont.ttf") format("truetype"),
-         url("./fonts/OpenSans-BoldItalic-webfont.svg#OpenSansRegular") format("svg");
-    font-weight: bold;
-    font-style: italic;
-}
-
 /************************************************
  * basic
  */
 body, table *, form * {
   color: #333;
-  font-family: "Open Sans", "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",
+  font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",
                "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,Verdana,
                "ＭＳ Ｐゴシック","MS PGothic","VL Pゴシック","Takao Pゴシック","IPA Pゴシック",
                sans-serif;
@@ -262,7 +219,7 @@ img::selection {
   line-height:48px;
   border:0;
   text-shadow:0 1px 0 rgba(0,0,0,0.25);
-  font-family:'Open Sans',sans-serif;
+  font-family:sans-serif;
   -webkit-transition:all linear .25s;
   -moz-transition:all linear .25s;
   -o-transition:all linear .25s;
@@ -317,7 +274,7 @@ img::selection {
   *zoom:1;
   text-align:center;
   text-decoration:none;
-  font-family:'Open Sans',sans-serif;
+  font-family:sans-serif;
   -webkit-transition:all linear .25s;
   -moz-transition:all linear .25s;
   -o-transition:all linear .25s;
@@ -743,7 +700,7 @@ body {
   width: 94%;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
   background: rgba(255,255,255,.8);
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
