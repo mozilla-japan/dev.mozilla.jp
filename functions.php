@@ -883,7 +883,7 @@ function the_metadata_of_project ($id) {
 ?>
 
 <dl class="project-metadata-list">
-  <?php print_metadata_as_definition_item($id, 'url', 'Web サイト'); ?>
+  <?php print_metadata_as_definition_item($id, 'url', '外部 Web サイト', true); ?>
 </dl>
 
 <?php
@@ -918,9 +918,12 @@ function the_metadata_of_event ($id) {
  *   メタ情報の内部プロパティ名
  * @param $title
  *   <html:dt>要素のテキスト
- * 
+ * @param $showEmptyItem
+ *   データが存在しない場合にも、dt/dd要素を出力するか？
+ * @param $emptyText
+ *   $showEmptyItem が TRUE の場合、dd要素のテキストとして使う文字列
  */
-function print_metadata_as_definition_item ($id, $param, $title) {
+function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem = false, $emptyText = 'なし') {
 ?>
   <?php
     $content = '';
@@ -930,10 +933,15 @@ function print_metadata_as_definition_item ($id, $param, $title) {
     else if ($param !== 'event_admin') {
       $content = get_data_of_the_meta($id, $param);
     }
+
+    $isEmpty = (strlen($content) > 0) ? false : true;
+    if ($isEmpty && $showEmptyItem) {
+      $content = $emptyText;
+    }
   ?>
 
   <?php
-    if ( strlen($content) > 0 ) :
+    if ( !$isEmpty || $showEmptyItem ) :
   ?>
     <dt class="metadata-list-title"><?php echo($title); ?></dt>
     <dd>
