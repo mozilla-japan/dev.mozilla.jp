@@ -994,7 +994,7 @@ function the_metadata_of_event ($id) {
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">参考URL</dt>
+  <dt class="event-metadata-list-title">詳細URL</dt>
   <dd>
     <?php
       data_of_the_event($id, 'website');
