@@ -955,7 +955,7 @@ function the_metadata_of_project ($id) {
 ?>
 
 <dl class="project-metadata-list">
-  <dt class="project-metadata-list-title">Web サイト</dt>
+  <dt class="metadata-list-title">Web サイト</dt>
   <dd>
     <?php data_of_the_project($id, 'url'); ?>
   </dd>
@@ -969,7 +969,7 @@ function the_metadata_of_project ($id) {
 function the_metadata_of_event ($id) {
 ?>
 <dl class="event-metadata-list">
-  <dt class="event-metadata-list-title">開催時間</dt>
+  <dt class="metadata-list-title">開催時間</dt>
   <dd>
     <?php
       data_of_the_event($id, 'start_time');
@@ -980,35 +980,35 @@ function the_metadata_of_event ($id) {
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">定員</dt>
+  <dt class="metadata-list-title">定員</dt>
   <dd>
     <?php
       data_of_the_event($id, 'capacity');
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">会場</dt>
+  <dt class="metadata-list-title">会場</dt>
   <dd>
     <?php
       data_of_the_event($id, 'place');
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">詳細URL</dt>
+  <dt class="metadata-list-title">詳細URL</dt>
   <dd>
     <?php
       data_of_the_event($id, 'website');
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">ハッシュタグ</dt>
+  <dt class="metadata-list-title">ハッシュタグ</dt>
   <dd>
     <?php
       data_of_the_event($id, 'hashtag');
     ?>
   </dd>
 
-  <dt class="event-metadata-list-title">イベント管理者</dt>
+  <dt class="metadata-list-title">イベント管理者</dt>
   <dd>
     <?php
       the_author_post_link_with_avatar();
