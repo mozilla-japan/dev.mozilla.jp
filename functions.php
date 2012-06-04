@@ -745,78 +745,6 @@ function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 }
 
-/* print a event data */
-function data_of_the_event ($id, $param) {
-  $data = get_post_meta($id, $param, true);
-  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
-  $str = '';
-  if($data){
-    switch ($param) {
-      case 'start_time':
-      case 'end_time':
-        $datetime = str_replace('/', '-', $data);
-        $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
-        break;
-      case 'website':
-        if(preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/',$data)){
-          $str = '<a href="'. $data .'">'. $data .'</a>';
-        }else{
-          $str = $data;
-        }
-        break;
-      case 'hashtag':
-        $url = 'http://twitter.com/search?q='. urlencode($data);
-        $str = '<a href="'. $url .'">'. $data .'</a>';
-        break;
-      default:
-        $str = $data;
-        break;
-    }
-  }
-  else{
-    $str = '未定';
-  }
-  echo $str;
-}
-
-function get_the_date_of_the_event ($id) {
-  $raw_date_str = get_post_meta($id, 'start_time', true);
-  $raw_date_str = htmlspecialchars($raw_date_str, ENT_QUOTES | ENT_HTML5);
-  $datetime = str_replace('/', '-', $raw_date_str);
-  $date_array = explode('-', $datetime);
-  $year = $date_array[0];
-  $month = $date_array[1];
-  $day = substr($date_array[2], 0, 2);
-  return array(
-           'datetime' => $datetime,
-           'year' => $year,
-           'month' => $month,
-           'day' => $day,
-         );
-}
-
-/* print a project data */
-function data_of_the_project ($id, $param) {
-  $data = get_post_meta($id, $param, true);
-  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
-  $str = '';
-  if ($data) {
-    switch ($param) {
-      case 'url':
-        $str = '<a href="'. $data .'">'. $data .'</a>';
-        break;
-      default:
-        $str = $data;
-        break;
-    }
-  }
-  else {
-    $str = 'なし';
-  }
-  echo $str;
-}
-
-
 /* return the url of "projects" page (string) */
 function get_project_url () {
   $base = get_bloginfo('url');
@@ -955,67 +883,107 @@ function the_metadata_of_project ($id) {
 ?>
 
 <dl class="project-metadata-list">
-  <dt class="metadata-list-title">Web サイト</dt>
-  <dd>
-    <?php data_of_the_project($id, 'url'); ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'url', 'Web サイト'); ?>
 </dl>
 
 <?php
 }
+
 /*********
 * Event metadata Template
 */
 function the_metadata_of_event ($id) {
 ?>
 <dl class="event-metadata-list">
-  <dt class="metadata-list-title">開催時間</dt>
-  <dd>
-    <?php
-      data_of_the_event($id, 'start_time');
-    ?>
-     -
-    <?php
-      data_of_the_event($id, 'end_time');
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'event_time', '開催時間'); ?>
 
-  <dt class="metadata-list-title">定員</dt>
-  <dd>
-    <?php
-      data_of_the_event($id, 'capacity');
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'capacity', '定員'); ?>
 
-  <dt class="metadata-list-title">会場</dt>
-  <dd>
-    <?php
-      data_of_the_event($id, 'place');
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'place', '会場'); ?>
 
-  <dt class="metadata-list-title">詳細URL</dt>
-  <dd>
-    <?php
-      data_of_the_event($id, 'website');
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'website', '詳細URL'); ?>
 
-  <dt class="metadata-list-title">ハッシュタグ</dt>
-  <dd>
-    <?php
-      data_of_the_event($id, 'hashtag');
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'hashtag', 'ハッシュタグ'); ?>
 
-  <dt class="metadata-list-title">イベント管理者</dt>
-  <dd>
-    <?php
-      the_author_post_link_with_avatar();
-    ?>
-  </dd>
+  <?php print_metadata_as_definition_item($id, 'event_admin', 'イベント管理者'); ?>
 </dl>
 <?php
+}
+/* print a event data */
+function print_metadata_as_definition_item ($id, $param, $title) {
+?>
+  <?php
+    $content = '';
+    if ($param === 'event_time') {
+      $content = get_data_of_the_meta($id, 'start_time') .' - '. get_data_of_the_meta($id, 'end_time');
+    }
+    else if ($param !== 'event_admin') {
+      $content = get_data_of_the_meta($id, $param);
+    }
+  ?>
+
+  <dt class="metadata-list-title"><?php echo($title); ?></dt>
+  <dd>
+    <?php
+      if ($param === 'event_admin') {
+        the_author_post_link_with_avatar();
+      }
+      else {
+        echo($content);
+      }
+    ?>
+  </dd>
+<?php
+}
+function get_data_of_the_meta ($id, $param) {
+  $data = get_post_meta($id, $param, true);
+  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
+  $str = '';
+  if($data){
+    switch ($param) {
+      case 'start_time':// for event
+      case 'end_time':// for event
+        $datetime = str_replace('/', '-', $data);
+        $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
+        break;
+      case 'website':// for event
+        if(preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/',$data)){
+          $str = '<a href="'. $data .'">'. $data .'</a>';
+        }else{
+          $str = $data;
+        }
+        break;
+      case 'hashtag':// for event
+        $url = 'http://twitter.com/search?q='. urlencode($data);
+        $str = '<a href="'. $url .'">'. $data .'</a>';
+        break;
+      case 'url':// for project
+        $str = '<a href="'. $data .'">'. $data .'</a>';
+        break;
+      default:
+        $str = $data;
+        break;
+    }
+  }
+  else{
+    $str = '未定';
+  }
+  return $str;
+}
+function get_the_date_of_the_event ($id) {
+  $raw_date_str = get_post_meta($id, 'start_time', true);
+  $raw_date_str = htmlspecialchars($raw_date_str, ENT_QUOTES | ENT_HTML5);
+  $datetime = str_replace('/', '-', $raw_date_str);
+  $date_array = explode('-', $datetime);
+  $year = $date_array[0];
+  $month = $date_array[1];
+  $day = substr($date_array[2], 0, 2);
+  return array(
+           'datetime' => $datetime,
+           'year' => $year,
+           'month' => $month,
+           'day' => $day,
+         );
 }
 
 
