@@ -999,7 +999,7 @@ function get_data_of_the_meta ($id, $param) {
   }
   return $str;
 }
-function get_the_date_of_the_event ($id) {
+function get_the_time_of_the_event ($id) {
   $raw_date_str = get_post_meta($id, 'start_time', true);
   $raw_date_str = htmlspecialchars($raw_date_str, ENT_QUOTES | ENT_HTML5);
   $datetime = str_replace('/', '-', $raw_date_str);

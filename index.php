@@ -45,7 +45,7 @@ get_header();
         $postcount = 0;
         foreach ($posts as $post) :
           setup_postdata($post);
-          $date_hash = get_the_date_of_the_event(get_the_ID());
+          $date_hash = get_the_time_of_the_event(get_the_ID());
 
           //post data
           $datetime = $date_hash['datetime'];
