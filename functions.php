@@ -991,11 +991,7 @@ function get_data_of_the_meta ($id, $param) {
         $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
         break;
       case 'website':// for event
-        if(preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/',$data)){
-          $str = '<a href="'. $data .'">'. $data .'</a>';
-        }else{
-          $str = $data;
-        }
+        $str = '<a href="'. $data .'">'. $data .'</a>';
         break;
       case 'hashtag':// for event
         $url = 'http://twitter.com/search?q='. urlencode($data);
