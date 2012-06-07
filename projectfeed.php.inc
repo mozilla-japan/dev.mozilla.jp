@@ -32,6 +32,10 @@ xml_parser_free($parser);
 // パースして得た連想配列をまわす
 $in_item = 0;
 
+//表示数の制限
+$counter = 0;
+$count_limit = 5;
+
 foreach ($values as $value) {
     $tag  = $value["tag"];
     $type = $value["type"];
@@ -42,7 +46,15 @@ foreach ($values as $value) {
         $in_item = 1;
     } else if ($tag == "item" && $type == "close") {
 
-		// community feedsの表示
+      //Feedsの行数制限
+      if($counter >= $count_limit){
+        $counter = 0;
+        break;
+      }else{
+        $counter++;
+      }
+
+      // feedsの表示      
         echo <<<EOM
 			<div class = "post_row_com table-row">
 				<div class = "post_datetime table-cell">
@@ -51,9 +63,6 @@ foreach ($values as $value) {
 				<div class = "post_container_com table-cell">
 					<div class = "post_title_com">
 						<a href = "$com_link">$com_title</a>
-					</div>
-					<div class = "post_description_space post_description">
-						$com_description
 					</div>
 					<div class="post_gradient_space post_gradient_com"></div>
 				</div>
@@ -79,14 +88,8 @@ EOM;
             case "link":
                 $com_link = $value;
                 break;
-            case "description":
-                // UTF-8ドキュメントの場合ここで
-                // $value = mb_convert_encoding($value, "EUC-JP", "UTF-8"); などする必要あり
-                $com_description = $value;
-                break;
         }
     }
 }
 
 ?>
-
