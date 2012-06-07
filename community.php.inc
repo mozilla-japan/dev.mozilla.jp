@@ -8,7 +8,10 @@
 <?php
 
  // 外部RSSを読み込んで出力するルーチン
-$rss_url = "http://pipes.yahoo.com/pipes/pipe.run?_id=4ca627cffb9c117406bf928791b272d4&_render=rss&itemlimit=10";
+$template = get_bloginfo('template_url');
+$rss_url = $template.'/mozdevfeeds.xml';
+
+//$rss_url = "http://pipes.yahoo.com/pipes/pipe.run?_id=4ca627cffb9c117406bf928791b272d4&_render=rss&itemlimit=10";
 
 $buff = "";
 $fp = fopen($rss_url,"r");
@@ -46,15 +49,11 @@ foreach ($values as $value) {
         echo <<<EOM
 			<div class = "post_row_com table-row">
 				<div class = "post_datetime table-cell">
-					<a href = "$siteurl/about/communityfeeds/"><span class="intro_community_title">community</span></a>
 					$com_date
 				</div>
 				<div class = "post_container_com table-cell">
 					<div class = "post_title_com">
 						<a href = "$com_link">$com_title</a>
-					</div>
-					<div class = "post_description_space post_description">
-						$com_description
 					</div>
 					<div class="post_gradient_space post_gradient_com"></div>
 				</div>

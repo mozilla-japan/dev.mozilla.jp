@@ -132,13 +132,9 @@ DOC;
     </nav>
   </section>
 
-  <?php
-  /*
   <section id="communityfeed">
     <h2>コミュニティフィード</h2>
     <?php include("community.php.inc"); ?>
   </section>
-  */
-  ?>
 </article>
 <?php get_footer(); ?>
