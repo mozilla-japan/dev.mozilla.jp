@@ -1063,6 +1063,12 @@ body {
     max-width: 100%;
     height: auto;
   }
+  ul, ol {
+    padding-left: 1em;
+  }
+  blockquote {
+    margin-left: 1em;
+  }
 
   .post-title {
     font-size: 1.7em;
