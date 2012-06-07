@@ -296,49 +296,29 @@ function event_meta_box($post){
 function event_meta_html($post, $box){
   $id = $post->ID;
 ?>
-  <dl>
+  <div>
     <?php
-      $datetime = get_post_meta($id, 'start_time', true);
-      $date_array = explode('/', $datetime);
-      $year = $date_array[0];
-      $month = $date_array[1];
-      $day = substr($date_array[2], 0, 2);
-      $hm = substr($date_array[2], 3, 5);
+     $start_time = get_post_meta($id, 'start_time', true);
     ?>
-    <dt>開始日時</dt>
-    <dd>
-      <label><input name="start_time-year" type="text" placeholder="2010"
-                    value="<?php echo esc_attr($year); ?>"/>年</label>
-      <label><input name="start_time-month" type="text" placeholder="01"
-                    value="<?php echo esc_attr($month); ?>"/>月</label>
-      <label><input name="start_time-day" type="text" placeholder="01"
-                    value="<?php echo esc_attr($day); ?>"/>日</label>
-      <input name="start_time-time" type="text" placeholder="12:00"
-                    value="<?php echo esc_attr($hm); ?>"/>
-    </dd>
+    <label for="start_time">開始日時</label>
+    <input name="start_time" type="text"
+           placeholder="2010/01/01 00:00"
+           value="<?php echo esc_attr($start_time); ?>"
+           class="datepicker" size="25" />
+    <a class="clear_start_time" href="#start_time">クリア</a>
   </div>
 
   <div>
     <?php
-      $datetime = get_post_meta($id, 'end_time', true);
-      $date_array = explode('/', $datetime);
-      $year = $date_array[0];
-      $month = $date_array[1];
-      $day = substr($date_array[2], 0, 2);
-      $hm = substr($date_array[2], 3, 5);
+      $end_time = get_post_meta($id, 'end_time', true);
     ?>
-    <dt><label for="end_time">終了日時</label></dt>
-    <dd>
-      <label><input name="start_time-year" type="text" placeholder="2010"
-                    value="<?php echo esc_attr($year); ?>"/>年</label>
-      <label><input name="start_time-month" type="text" placeholder="01"
-                    value="<?php echo esc_attr($month); ?>"/>月</label>
-      <label><input name="start_time-day" type="text" placeholder="01"
-                    value="<?php echo esc_attr($day); ?>"/>日</label>
-      <input name="start_time-time" type="text" placeholder="12:00"
-                    value="<?php echo esc_attr($hm); ?>"/>
-    </dd>
-  </dl>
+    <label for="end_time">終了日時</label>
+    <input name="end_time" type="text"
+           placeholder="2010/01/01 00:00"
+           value="<?php echo esc_attr($end_time); ?>"
+           class="datepicker" size="25" />
+    <a class="clear_end_time" href="#end_time">クリア</a>
+  </div>
 
   <div>
     <?php
@@ -507,10 +487,8 @@ function event_update($post_id){
         return $post_id;
     }
 
-    $start_time = trim($_POST['start_time-year']).'/'.trim($_POST['start_time-month']).
-                  '/'.trim($_POST['start_time-day']).' '.trim($_POST['start_time-time']);
-    $end_time = trim($_POST['end_time-year']).'/'.trim($_POST['end_time-month']).
-                '/'.trim($_POST['end_time-day']).' '.trim($_POST['end_time-time']);
+    $start_time = trim($_POST['start_time']);
+    $end_time = trim($_POST['end_time']);
     $place = trim($_POST['place']);
     $capacity = trim($_POST['capacity']);
     $website = trim($_POST['website']);
@@ -851,10 +829,16 @@ function new_excerpt_more($post) {
 
 /* Event Calender UI */
 function my_styles(){
+  wp_enqueue_style('my-jquery-ui', get_bloginfo('template_url') . '/jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css', array(), '1.7.2', 'all');
 }
 add_action('admin_print_styles', 'my_styles');
 
 function my_scripts(){
+  wp_enqueue_script('my-jquery-ui', get_bloginfo('template_url') . '/jquery-ui/js/jquery-ui-1.8.20.custom.min.js', array('jquery'), '1.7.2', true);
+  wp_enqueue_script('my-jquery-localize', get_bloginfo('template_url') . '/jquery-ui/development-bundle/ui/i18n/jquery.ui.datepicker-ja.js', array('my-jquery-ui'), '1.7.2', true);
+  wp_enqueue_script('my-jquery-addon', get_bloginfo('template_url') . '/jquery-ui/development-bundle/ui/jquery-ui-timepicker-addon.js', array('my-jquery-ui'), '1.7.2', true);
+
+  wp_enqueue_script('my-admin-script', get_bloginfo('template_url') . '/js/admin-script.js', array('my-jquery-ui'), false, true);
 }
 add_action('admin_print_scripts', 'my_scripts');
 
