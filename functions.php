@@ -1045,12 +1045,14 @@ function item_of_the_author_data ($user_data, $title, $param) {
       break;
   }
 
-  if (strlen($content) > 0) :
+  if ( !(strlen($content) > 0) ) {
+    return;
+  }
+
 ?>
-    <dt class="metadata-list-title"><?php echo($title); ?></dt>
-    <dd><?php echo($content); ?></dd>
+  <dt class="metadata-list-title"><?php echo($title); ?></dt>
+  <dd><?php echo($content); ?></dd>
 <?php
-  endif;
 }
 
 /*********
