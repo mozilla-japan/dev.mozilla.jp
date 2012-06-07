@@ -1027,10 +1027,6 @@ function get_the_time_of_the_event ($id) {
 }
 
 function item_of_the_author_data ($user_data, $title, $param) {
-  if (!$user_data || !$title || !$param) {
-    return;
-  }
-
   $value = $user_data[$param];
   $content = '';
 
