@@ -1026,20 +1026,34 @@ function get_the_time_of_the_event ($id) {
          );
 }
 
-function item_of_the_author_data ($title, $content) {
-  if (!$title || !$content) {
+function item_of_the_author_data ($user_data, $title, $param) {
+  if (!$title || !$param) {
     return;
   }
 
   $title = esc_html($title);
+  $value = $user_data[$param];
   $content = '';
-  $href = '';
-  switch ($content) {
+
+  switch ($param) {
+    case 'user_url':
+      $content = '<a href="'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    case 'twitter_id':
+      $content = '<a href="http://twitter.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    case 'facebook_id':
+      $content = '<a href="	http://facebook.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    default:
+      $content = esc_html($value);
+      break;
   }
 
   if ( !(strlen($content) > 0) ) {
     return;
   }
+
 ?>
   <dt class="metadata-list-title"><?php echo($title); ?></dt>
   <dd><?php echo($content); ?></dd>

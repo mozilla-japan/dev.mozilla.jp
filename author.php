@@ -11,33 +11,28 @@ get_header();
          role="main">
 	<?php
 		if (have_posts()) :
+			$user_data = get_userdata($author);
 	?>
 
 		<header class="entry-header">
-
 			<?php
 				//post_icon($the_id,array(120,120));
 			?>
-
-			<h1 class="post-title"><?php the_title(); ?></h1>
-
+			<h1 class="post-title"><?php echo($author->display_name); ?></h1>
 		</header>
 
 		<footer class="authormeta">
-			<?php
-				$user_data = get_userdata($author);
-			?>
-			<dl>
-				<?php item_of_the_author_data('Web サイト', "user_url"); ?>
-				<?php item_of_the_author_data('Twitter', "twitter"); ?>
-				<?php item_of_the_author_data('Facebook', "facebook"); ?>
-				<?php item_of_the_author_data('Skype', "skype"); ?>
+			<dl class="author-metadata-list">
+				<?php item_of_the_author_data($user_data, 'Web サイト', 'user_url'); ?>
+				<?php item_of_the_author_data($user_data, 'Twitter', 'twitter_id'); ?>
+				<?php item_of_the_author_data($user_data, 'Facebook', 'facebook_id'); ?>
+				<?php item_of_the_author_data($user_data, 'Skype', 'skype_id'); ?>
 			</dl>
 		</footer>
 
 		<div class="entry-body">
 			<?php
-				the_content();
+				echo esc_html($user_data->description);
 			?>
 		</div>
 
