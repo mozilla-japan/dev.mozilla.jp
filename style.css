@@ -76,6 +76,37 @@ a .alignright {
   text-align: center;
 }
 
+/* Images */
+.entry-body img {
+  padding: 1px;
+  background-color: #fff;
+  border: 11px solid #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  -moz-transition: all .1s ease-out;
+  -webkit-transition: all .1s ease-out;
+  -o-transition: all .1s ease-out;
+  -ms-transition: all .1s ease-out;
+  transition: all .1s ease-out; 
+}
+.entry-body a:hover img,
+.entry-body a:focus img,
+.entry-body a:active img {
+  background-color: #872727;
+  -moz-transition: all .1s ease-out;
+  -webkit-transition: all .1s ease-out;
+  -o-transition: all .1s ease-out;
+  -ms-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+.entry-body .wp-smiley {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+
 
 /* headline */
 h1, h2, h3, h4, h5, h6 {
