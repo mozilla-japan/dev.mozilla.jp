@@ -788,6 +788,13 @@ function get_add_post_url(){
   return ($base . $path);
 }
 
+/* return the url of "new-post-for-project" (string) */
+function get_post_new_url(){
+  $base = admin_url();
+  $path = 'post-new.php';
+  return ($base . $path);
+}
+
 /* return the url of a specified project page (string) */
 function get_the_specified_project_page ($cat_id) {
   $page_id = get_project_page_ID($cat_id);
@@ -872,6 +879,15 @@ function cat_set_load_post_new()
 function cat_set_wp_insert_post( $post_id )
 {
     wp_set_post_categories( $post_id, $_REQUEST['category_id'] );
+}
+
+function project_insert_post( $cat_id )
+{
+  if( $cat_id != ''){
+    if( is_user_logged_in() ){
+      echo '<a href="'.get_post_new_url(). '?category_id[]=' . $cat_id.'" class="button-blue" style="float: right;">このプロジェクトに投稿する</a>';
+    }
+  }
 }
 
 /***********/

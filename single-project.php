@@ -58,6 +58,7 @@ get_header();
 
 	<section id="project-latest-topics-list">
     <?php $cat_id = get_post_meta($post->ID, 'catid', true);
+    project_insert_post( $cat_id );
     ?>
 	  <h2>最新のトピック</h2>
 		<?php
