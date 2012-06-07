@@ -253,16 +253,13 @@ function menu_meta_html($post, $box){
   </div>
   <div>
     <?php
-      /*
       $rss = get_post_meta($id, 'rss', true);
-
+     ?>
     <label for="rss">プロジェクトのRSSフィード</label>
     <input name="rss" type="url"
            value="<?php echo esc_attr($rss);?>"
            placeholder="http://www.example.com/rss.xml"
            size="50" />
-      */
-    ?>
   </div>
 
 <?php
