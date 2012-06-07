@@ -1030,6 +1030,25 @@ function get_the_time_of_the_event ($id) {
          );
 }
 
+function item_of_the_author_data ($title, $content) {
+  if (!$title || !$content) {
+    return;
+  }
+
+  $title = esc_html($title);
+  $content = '';
+  $href = '';
+  switch ($content) {
+  }
+
+  if ( !(strlen($content) > 0) ) {
+    return;
+  }
+?>
+  <dt class="metadata-list-title"><?php echo($title); ?></dt>
+  <dd><?php echo($content); ?></dd>
+<?php
+}
 
 /*********
 * Comment Template
