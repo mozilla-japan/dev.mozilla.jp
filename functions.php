@@ -240,6 +240,8 @@ function project_meta_box($post){
 }
 function menu_meta_html($post, $box){
   $id = $post->ID;
+  echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
+  echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 ?>
   <div>
     <?php
@@ -281,7 +283,6 @@ DOC;
 ?>
 
 <?php
-  echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 }
 
 /*
@@ -530,6 +531,7 @@ function menu_update($post_id){
 	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
 		return $post_id;
 	}
+
   if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
     return $post_id;
   }
