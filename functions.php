@@ -1027,11 +1027,10 @@ function get_the_time_of_the_event ($id) {
 }
 
 function item_of_the_author_data ($user_data, $title, $param) {
-  if (!$title || !$param) {
+  if (!$user_data || !$title || !$param) {
     return;
   }
 
-  $title = esc_html($title);
   $value = $user_data[$param];
   $content = '';
 
