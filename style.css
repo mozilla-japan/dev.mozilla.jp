@@ -40,7 +40,7 @@ img, object, embed, iframe, video {
 .entry-body a:hover img,
 .entry-body a:focus img,
 .entry-body a:active img {
-  background-color: #872727;
+  border-color: #872727;
   -moz-transition: all .1s ease-out;
   -webkit-transition: all .1s ease-out;
   -o-transition: all .1s ease-out;
@@ -93,7 +93,7 @@ a .alignright {
 .wp-caption img {
   display: block;
   margin: 0;
-  border: 0;
+  border: 1px solid transparent;
   max-width: 100%;
   box-shadow: none;
 }
