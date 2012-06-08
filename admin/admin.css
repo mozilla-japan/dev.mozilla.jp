@@ -3,3 +3,11 @@
 /*
  * style for admin page
  */
+
+.metadata-form-list > dd {
+  margin-left: 0;
+  margin-bottom: 1em;
+}
+.metadata-form-list > dd input {
+  width: 100%;
+}
