@@ -4,6 +4,10 @@
  * style for admin page
  */
 
+.metadata-form-list {
+  width: 97%;
+  margin-left: 0 auto;
+}
 .metadata-form-list > dd {
   margin-left: 0;
   margin-bottom: 1em;
