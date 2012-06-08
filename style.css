@@ -157,10 +157,12 @@ img::selection {
 /* avatar icon */
 .avatar {
   margin-right: 0.8em;
+  margin-right: 0.8rem;
   border: 1px solid rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
-.author-link > .avatar{
+.author-link > .avatar,
+.post-title > .avatar {
   vertical-align: middle;
 }
 .author-link:hover > .avatar {
@@ -650,7 +652,8 @@ body {
 
 /* project & event page */
 .projectmeta,
-.eventmeta {
+.eventmeta,
+.authormeta {
   border-bottom: 1px solid rgba(255,255,255,.5);
   padding: 10px 20px;
   margin: 0;
@@ -674,7 +677,8 @@ body {
 
 
 /* project page */
-#project-latest-topics-list > h2 {
+#project-latest-topics-list > h2,
+#author-latest-topics-list > h2 {
   font-size: 2em;
   margin: 1em 0 0.5em;
 }
@@ -682,6 +686,17 @@ body {
   padding-bottom: 3em;
   border-bottom: 1px dotted rgb(204, 204, 204);
   margin-bottom: 3em;
+}
+
+
+/* author page*/
+.authormeta {
+  margin-top: 1em;
+}
+.authormeta:empty {
+  border-bottom: none;
+  background: none;
+  box-shadow: none;
 }
 
 
@@ -720,7 +735,8 @@ body {
   clear: both;
 }
 .event-metadata-list > .metadata-list-title,
-.project-metadata-list > .metadata-list-title {
+.project-metadata-list > .metadata-list-title,
+.author-metadata-list > .metadata-list-title {
   margin: 0;
   font-size: 0.9em;
   font-weight: bold;
