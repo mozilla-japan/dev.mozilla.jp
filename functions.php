@@ -319,15 +319,19 @@ function event_meta_html($post, $box){
   </dt>
   <dd>
     <label><input name="start_time-year" type="text" placeholder="2010"
+                  maxlength="4"
                   value="<?php echo esc_attr($year); ?>"
                   style="width: 4em;"/>年</label>
     <label><input name="start_time-month" type="text" placeholder="01"
+                  maxlength="2"
                   value="<?php echo esc_attr($month); ?>"
                   style="width: 2em;"/>月</label>
     <label><input name="start_time-day" type="text" placeholder="01"
+                  maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
     <input name="start_time-time" type="text" placeholder="12:00"
+                  maxlength="5"
                   value="<?php echo esc_attr($hm); ?>"
                   style="width: 5em;"/>
   </dd>
@@ -345,15 +349,19 @@ function event_meta_html($post, $box){
   </dt>
   <dd>
     <label><input name="end_time-year" type="text" placeholder="2010"
+                  maxlength="4"
                   value="<?php echo esc_attr($year); ?>"
                   style="width: 4em;"/>年</label>
     <label><input name="end_time-month" type="text" placeholder="01"
                   value="<?php echo esc_attr($month); ?>"
+                  maxlength="2"
                   style="width: 2em;"/>月</label>
     <label><input name="end_time-day" type="text" placeholder="01"
+                  maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
     <input name="end_time-time" type="text" placeholder="12:00"
+                  maxlength="5"
                   value="<?php echo esc_attr($hm); ?>"
                   style="width: 5em;"/>
   </dd>
