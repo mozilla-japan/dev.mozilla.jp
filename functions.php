@@ -307,12 +307,12 @@ function event_meta_html($post, $box){
 <dl class="metadata-form-list">
 
   <?php
-    $datetime = get_post_meta($id, 'start_time', true);
-    $date_array = explode('/', $datetime);
-    $year = $date_array[0];
-    $month = $date_array[1];
-    $day = substr($date_array[2], 0, 2);
-    $hm = substr($date_array[2], 3, 5);
+    $date = new DateTime();
+    $date->setTimestamp(get_post_meta($id, 'start_time', true));
+    $year = $date->format('Y');
+    $month = $date->format('m');
+    $day = $date->format('d');
+    $time = $date->format('H:i');
   ?>
   <dt>
     <label>開始日時</label>
@@ -332,17 +332,17 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="start_time-time" type="text" placeholder="12:00"
                   maxlength="5"
-                  value="<?php echo esc_attr($hm); ?>"
+                  value="<?php echo esc_attr($time); ?>"
                   style="width: 5em;"/>
   </dd>
 
   <?php
-    $datetime = get_post_meta($id, 'end_time', true);
-    $date_array = explode('/', $datetime);
-    $year = $date_array[0];
-    $month = $date_array[1];
-    $day = substr($date_array[2], 0, 2);
-    $hm = substr($date_array[2], 3, 5);
+    $date = new DateTime();
+    $date->setTimestamp(get_post_meta($id, 'end_time', true));
+    $year = $date->format('Y');
+    $month = $date->format('m');
+    $day = $date->format('d');
+    $time = $date->format('H:i');
   ?>
   <dt>
     <label for="end_time">終了日時</label>
@@ -362,7 +362,7 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="end_time-time" type="text" placeholder="12:00"
                   maxlength="5"
-                  value="<?php echo esc_attr($hm); ?>"
+                  value="<?php echo esc_attr($time); ?>"
                   style="width: 5em;"/>
   </dd>
 
@@ -540,10 +540,8 @@ function event_update($post_id){
         return $post_id;
     }
 
-    $start_time = trim($_POST['start_time-year']).'/'.trim($_POST['start_time-month']).
-                  '/'.trim($_POST['start_time-day']).' '.trim($_POST['start_time-time']);
-    $end_time = trim($_POST['end_time-year']).'/'.trim($_POST['end_time-month']).
-                '/'.trim($_POST['end_time-day']).' '.trim($_POST['end_time-time']);
+    $start_time = getUnixTimeStamp('start_time');
+    $end_time = getUnixTimeStamp('end_time');
     $place = trim($_POST['place']);
     $capacity = trim($_POST['capacity']);
     $website = trim($_POST['website']);
@@ -580,6 +578,14 @@ function event_update($post_id){
       update_post_meta($post_id, 'hashtag', $hashtag);
     }
 }
+function getUnixTimeStamp ($time_point) {
+  $year = trim($_POST[$time_point .'-year']);
+  $month = trim($_POST[$time_point .'-month']);
+  $day = trim($_POST[$time_point .'-day']);
+  $time = explode(':', trim($_POST[$time_point .'-time']) );
+  return mktime($time[0], $time[1], 0, $month, $day, $year);
+}
+
 
 add_action('save_post', 'menu_update');
 function menu_update($post_id){
@@ -1037,7 +1043,10 @@ function get_data_of_the_meta ($id, $param) {
     switch ($param) {
       case 'start_time':// for event
       case 'end_time':// for event
-        $datetime = str_replace('/', '-', $data);
+        $date = new DateTime();
+        $date->setTimestamp($data);
+        $data = $date->format('Y年n月j日 H:i');
+        $datetime = $date->format('Y-m-d H:i');
         $str = '<time datetime="'. $datetime. '">'. $data .'</time>';
         break;
       case 'website':// for event
@@ -1061,13 +1070,13 @@ function get_data_of_the_meta ($id, $param) {
   return $str;
 }
 function get_the_time_of_the_event ($id) {
-  $raw_date_str = get_post_meta($id, 'start_time', true);
-  $raw_date_str = htmlspecialchars($raw_date_str, ENT_QUOTES | ENT_HTML5);
-  $datetime = str_replace('/', '-', $raw_date_str);
-  $date_array = explode('-', $datetime);
-  $year = $date_array[0];
-  $month = $date_array[1];
-  $day = substr($date_array[2], 0, 2);
+  $date = new DateTime();
+  $date->setTimestamp(get_post_meta($id, 'start_time', true));
+  $year = $date->format('Y');
+  $month = $date->format('n');
+  $day = $date->format('j');
+  $datetime = $date->format('Y-m-d H:i');
+
   return array(
            'datetime' => $datetime,
            'year' => $year,
