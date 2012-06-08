@@ -15,10 +15,12 @@ get_header();
 	?>
 
 		<header class="entry-header">
-			<?php
-				//post_icon($the_id,array(120,120));
-			?>
-			<h1 class="post-title"><?php echo($user_data->display_name); ?></h1>
+			<h1 class="post-title">
+				<?php
+					echo get_avatar($user_data->ID, 48);
+					echo ($user_data->display_name);
+				?>
+			</h1>
 		</header>
 
 		<footer class="authormeta">
