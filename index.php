@@ -136,7 +136,7 @@ DOC;
     <?php
        $rss = "http://pipes.yahoo.com/pipes/pipe.run?_id=4ca627cffb9c117406bf928791b272d4&_render=rss&itemlimit=25";
        ?>
-    <h2><a href="<?php echo $rss; ?>"> コミュニティフィード</a></h2>
+    <h2 class="topsection-title"><a href="<?php echo $rss; ?>"> コミュニティフィード</a></h2>
     <?php
        $template = get_bloginfo('template_url');
        $rss_url = $template.'/mozdevfeeds.xml';
