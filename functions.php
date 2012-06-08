@@ -1078,8 +1078,8 @@ function the_author_data ($user_data) {
 
   if (strlen($content) > 0) :
 ?>
-    <footer>
-      <dl class="authormeta author-metadata-list">
+    <footer class="authormeta">
+      <dl class="author-metadata-list">
         <?php echo $content; ?>
       </dl>
     </footer>

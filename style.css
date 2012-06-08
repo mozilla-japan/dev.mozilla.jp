@@ -693,11 +693,6 @@ body {
 .authormeta {
   margin-top: 1em;
 }
-.authormeta:empty {
-  border-bottom: none;
-  background: none;
-  box-shadow: none;
-}
 
 
 /* project & event list page */
