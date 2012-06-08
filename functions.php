@@ -1290,11 +1290,7 @@ function php_feed_list($php_url, $count_limit) {
          </footer>
       </article>
       <?php 
-    
-    //  $value = $values[value][items];
-    print_r($value);
-    echo "<br><br>";
-    
+        
   }
 }
 

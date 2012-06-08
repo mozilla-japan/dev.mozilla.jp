@@ -142,7 +142,7 @@ DOC;
        //$rss_url = $template.'/mozdevfeeds.xml';
        $php_url = $template.'/pipe.run';
        //rss_feed_list($rss_url, 5);
-       php_feed_list($php_url, 100);
+       php_feed_list($php_url, 5);
        //include("community.php.inc"); 
      ?>
   </section>
