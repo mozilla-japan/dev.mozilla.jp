@@ -1071,11 +1071,6 @@ function get_data_of_the_meta ($id, $param) {
       case 'website':// for event
         $str = '<a href="'. $data .'">'. $data .'</a>';
         break;
-      case 'address':
-        // https://developers.google.com/maps/documentation/staticmaps/?hl=ja
-        $url = "https://maps.googleapis.com/maps/api/staticmap?"
-        $alt = $data;
-        break;
       case 'hashtag':// for event
         $url = 'http://twitter.com/search?q='. urlencode($data);
         $str = '<a href="'. $url .'">'. $data .'</a>';
