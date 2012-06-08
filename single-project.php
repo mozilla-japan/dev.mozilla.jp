@@ -126,7 +126,8 @@ get_header();
       if($rss_url === ''){
         //何かやりますかね？
       }else{
-        echo '<h2><a href=' . $rss_url . '> プロジェクトフィード </a></h2>';
+        echo '<h2>プロジェクトフィード</h2>';
+        echo '<a style="float: right; margin-bottom: 20px;" href="'.$rss_url.'"> RSS </a>';
         rss_feed_list($rss_url, 5);
       }
       ?>
