@@ -1088,7 +1088,6 @@ function the_author_data ($user_data) {
 }
 function get_item_of_the_author_data ($user_data, $title, $param) {
   $value = $user_data->$param;
-  $str = '';
 
   if ( !(strlen($value) > 0) ) {
     return;
@@ -1110,11 +1109,7 @@ function get_item_of_the_author_data ($user_data, $title, $param) {
       break;
   }
 
-  $str = <<< DOC
-<dt class="metadata-list-title">$title</dt>
-<dd>$content</dd>
-DOC;
-
+  $str = '<dt class="metadata-list-title">'.$title.'</dt><dd>'.$content.'</dd>';
   return $str;
 }
 
