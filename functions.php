@@ -855,6 +855,13 @@ function get_post_new_url(){
   return ($base . $path);
 }
 
+/* return the url of "com-feed" (string) */
+function get_feed_url(){
+  $base = get_bloginfo('url');
+  $path = '/com-feed/';
+  return ($base . $path);
+}
+
 /* return the url of a specified project page (string) */
 function get_the_specified_project_page ($cat_id) {
   $page_id = get_project_page_ID($cat_id);
@@ -1234,6 +1241,83 @@ function fc_meta_desc() {
 	}
 }
 
+function php_feed_list($php_url, $count_limit) {
+  $buff = "";
+  $fp = fopen($php_url,"r");
+  while(!feof($fp)) {
+    $buff .= fgets($fp,4096);
+  }
+  fclose($fp);
+  
+  $values = unserialize($buff);
+  //表示数用カウンタ
+  $counter = 0;
+
+  foreach($values[value][items] as $value){
+    //Feedsの行数制限
+    if($counter >= $count_limit){
+      $counter = 0;
+      break;
+    }else{
+      $counter++;
+    }
+    
+    $com_link = $value[link];
+    $com_title = $value[title];
+    $com_site = $value[sitelink];
+    $com_site_name = $value[sitename];
+    $com_author = $value[author][name];
+    $com_author_url = $value[author][uri];
+    $com_date = $value[pubDate];
+    $com_date = strtotime($com_date);
+    $com_date_number = date('YmdHi',$com_date);
+    $com_date = date('Y年m月d日',$com_date);
+    
+    // community feedsの表示
+    ?>
+      <article class="feed-article">
+         <header>
+           <h1 class="feed-article-title">
+             <a href="<?php echo $com_link; ?>" title="<? echo $com_title; ?>">
+         <?php echo $com_title; ?>
+             </a>
+           </h1>
+         </header>
+         <footer>
+           <div class="postmeta">
+             <?php
+               if($com_author != ''){
+                 echo '<p class="postmeta-title">投稿者</p>
+                   <div class="postmeta-content">';
+                 if($com_author_url != ''){
+                   echo '<a href="'.$com_author_url.'">'.$com_author.'</a>';
+                 }else{
+                   echo $com_author;
+                 }
+                 echo '</div>';
+               }
+               $com_author_url = '';
+               $com_author = '';
+               if($com_site != ''){
+                 echo '<p class="postmeta-title">Webサイト</p>
+                   <div class="postmeta-content">';
+                 echo '<a href="'.$com_site.'">'.$com_site.'</a>';
+                 echo '</div>';
+               }
+         ?>
+             <p class="postmeta-title">投稿日時</p>
+             <div class="postmeta-content">
+               <?php echo $com_date; ?>
+             </div>
+           </div>
+         </footer>
+      </article>
+      <?php 
+        
+  }
+}
+
+
 function rss_feed_list($rss_url, $count_limit) {
   $buff = "";
   $fp = fopen($rss_url,"r");
@@ -1292,16 +1376,7 @@ function rss_feed_list($rss_url, $count_limit) {
                    . $com_author .
                 '</div>';
          }
-         if($com_sitetitle != '' && $com_siteurl != ''){
-           echo '<p class="postmeta-title">投稿サイト</p>
-                   <div class="postmeta-content">
-                   <a href="'.$com_siteurl.'">'
-                   . $com_sitetitle .
-                '</a></div>';
-         }
          $com_author = '';
-         $com_sitetitle = '';
-         $com_siteurl ='';
          ?>
              <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
@@ -1334,15 +1409,16 @@ function rss_feed_list($rss_url, $count_limit) {
       case "author":
         $com_author = $value;
         break;
-      case "sitetitle":
-        $com_sitetitle = $value;
-        break;
-      case "siteurl":
-        $com_siteurl = $value;
-        break;
       }
     }
   }
 }  
+
+function myfeed_request($qv) {
+  if (isset($qv['feed']))
+    $qv['post_type'] = get_post_types();
+  return $qv;
+}
+add_filter('request', 'myfeed_request');
 
 ?>
