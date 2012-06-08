@@ -1049,7 +1049,7 @@ function get_data_of_the_meta ($id, $param) {
       case 'start_time':// for event
       case 'end_time':// for event
         $timestamp = (int)$data;
-        $time = strftime('%Y年%m月%e日 %H:%M', $timestamp);
+        $time = strftime('%Y年%m月%d日 %H:%M', $timestamp);
         $datetime = strftime('%Y-%m-%d %H:%M', $timestamp);
         $str = '<time datetime="'. $datetime. '">'. $time .'</time>';
         break;
