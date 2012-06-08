@@ -650,7 +650,8 @@ body {
 
 /* project & event page */
 .projectmeta,
-.eventmeta {
+.eventmeta,
+.authormeta {
   border-bottom: 1px solid rgba(255,255,255,.5);
   padding: 10px 20px;
   margin: 0;
@@ -720,7 +721,8 @@ body {
   clear: both;
 }
 .event-metadata-list > .metadata-list-title,
-.project-metadata-list > .metadata-list-title {
+.project-metadata-list > .metadata-list-title,
+.author-metadata-list > .metadata-list-title {
   margin: 0;
   font-size: 0.9em;
   font-weight: bold;
