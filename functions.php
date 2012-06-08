@@ -1111,6 +1111,10 @@ function get_the_time_of_the_event ($id) {
 function map_image_of_the_event ($id, $size='400') {
   $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES | ENT_HTML5);
 
+  if (strlen($data) <= 0) {
+    return;
+  }
+
   // Google Maps Static API v2
   $img_src = 'http://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
   $alt = $data;
