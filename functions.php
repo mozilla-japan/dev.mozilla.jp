@@ -311,7 +311,8 @@ function event_meta_html($post, $box){
     $year = strftime('%Y', $timestamp);
     $month = strftime('%m', $timestamp);
     $day = strftime('%d', $timestamp);
-    $time = strftime('%H:%M', $timestamp);
+    $hour = strftime('%H', $timestamp);
+    $minute = strftime('%M', $timestamp);
   ?>
   <dt>
     <label>開始日時</label>
@@ -329,10 +330,19 @@ function event_meta_html($post, $box){
                   maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
-    <input name="start_time-time" type="text" placeholder="12:00"
-                  maxlength="5"
-                  value="<?php echo esc_attr($time); ?>"
-                  style="width: 5em;"/>
+    <input name="start_time-hour"
+           type="text"
+           placeholder="24"
+           maxlength="2"
+           value="<?php echo esc_attr($hour); ?>"
+           style="width: 2em;"/>
+    :
+    <input name="start_time-minute"
+           type="text"
+           placeholder="00"
+           maxlength="2"
+           value="<?php echo esc_attr($minute); ?>"
+           style="width: 2em;"/>
   </dd>
 
   <?php
@@ -340,7 +350,8 @@ function event_meta_html($post, $box){
     $year = strftime('%Y', $timestamp);
     $month = strftime('%m', $timestamp);
     $day = strftime('%d', $timestamp);
-    $time = strftime('%H:%M', $timestamp);
+    $hour = strftime('%H', $timestamp);
+    $minute = strftime('%M', $timestamp);
   ?>
   <dt>
     <label for="end_time">終了日時</label>
@@ -358,10 +369,19 @@ function event_meta_html($post, $box){
                   maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
-    <input name="end_time-time" type="text" placeholder="12:00"
-                  maxlength="5"
-                  value="<?php echo esc_attr($time); ?>"
-                  style="width: 5em;"/>
+    <input name="end_time-hour"
+           type="text"
+           placeholder="24"
+           maxlength="2"
+           value="<?php echo esc_attr($hour); ?>"
+           style="width: 2em;"/>
+    :
+    <input name="end_time-minute"
+           type="text"
+           placeholder="00"
+           maxlength="2"
+           value="<?php echo esc_attr($minute); ?>"
+           style="width: 2em;"/>
   </dd>
 
   <?php
@@ -601,8 +621,9 @@ function getUnixTimeStamp ($time_point) {
   $year = trim($_POST[$time_point .'-year']);
   $month = trim($_POST[$time_point .'-month']);
   $day = trim($_POST[$time_point .'-day']);
-  $time = explode(':', trim($_POST[$time_point .'-time']) );
-  return mktime($time[0], $time[1], 0, $month, $day, $year);
+  $hour = trim($_POST[$time_point .'-hour']);
+  $minute = trim($_POST[$time_point .'-minute']);
+  return mktime($hour, $minute, 0, $month, $day, $year);
 }
 
 
