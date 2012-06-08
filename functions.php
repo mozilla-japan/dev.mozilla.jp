@@ -404,7 +404,7 @@ function event_meta_html($post, $box){
    <?php
      $hashtag = get_post_meta($id, 'hashtag', true);
    ?>
-   <th style="width: 6em;"><label for="hashtag">ハッシュタグ</label></th>
+   <th><label for="hashtag">ハッシュタグ</label></th>
    <td>
      <input name="hashtag" type="text"
             value="<?php echo esc_attr($hashtag); ?>"
