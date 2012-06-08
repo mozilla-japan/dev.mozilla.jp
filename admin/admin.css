@@ -10,4 +10,8 @@
 }
 .metadata-form-list > dd input {
   width: 100%;
+  -moz-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  -ms-box-sizing: inherit;
+  box-sizing: inherit;
 }
