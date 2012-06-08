@@ -1122,8 +1122,7 @@ function map_image_of_the_event ($id, $size='400') {
 
   echo <<< DOC
 <a href="$url">
-  <img src="$img_src" alt="$alt" />
-  <br />
+  <img src="$img_src" alt="$alt" /><br />
   Google Map
 </a>
 DOC;
