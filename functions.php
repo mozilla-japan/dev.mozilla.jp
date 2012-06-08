@@ -316,10 +316,10 @@ function event_meta_html($post, $box){
                     style="width: 2em;"/>月</label>
       <label><input name="start_time-day" type="text" placeholder="01"
                     value="<?php echo esc_attr($day); ?>"
-                    style="width: 2em;"/>/>日</label>
+                    style="width: 2em;"/>日</label>
       <input name="start_time-time" type="text" placeholder="12:00"
                     value="<?php echo esc_attr($hm); ?>"
-                    style="width: 5em;"/>/>
+                    style="width: 5em;"/>
     </td>
   </tr>
 
@@ -335,13 +335,17 @@ function event_meta_html($post, $box){
     <th><label for="end_time">終了日時</label></th>
     <td>
       <label><input name="end_time-year" type="text" placeholder="2010"
-                    value="<?php echo esc_attr($year); ?>"/>年</label>
+                    value="<?php echo esc_attr($year); ?>"
+                    style="width: 4em;"/>年</label>
       <label><input name="end_time-month" type="text" placeholder="01"
-                    value="<?php echo esc_attr($month); ?>"/>月</label>
+                    value="<?php echo esc_attr($month); ?>"
+                    style="width: 2em;"/>月</label>
       <label><input name="end_time-day" type="text" placeholder="01"
-                    value="<?php echo esc_attr($day); ?>"/>日</label>
+                    value="<?php echo esc_attr($day); ?>"
+                    style="width: 2em;"/>日</label>
       <input name="end_time-time" type="text" placeholder="12:00"
-                    value="<?php echo esc_attr($hm); ?>"/>
+                    value="<?php echo esc_attr($hm); ?>"
+                    style="width: 5em;"/>
     </td>
   </tr>
 
