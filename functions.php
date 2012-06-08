@@ -911,7 +911,6 @@ function project_insert_post( $cat_id )
     }
   }
 }
-
 /***********/
 
 /*********
@@ -1176,3 +1175,92 @@ function fc_meta_desc() {
 		echo $description;
 	}
 }
+
+function rss_feed_list($rss_url, $count_limit) {
+  $buff = "";
+  $fp = fopen($rss_url,"r");
+  while (!feof($fp)) {
+    $buff .= fgets($fp,4096);
+  }
+  fclose($fp);
+   
+  // パーサ作成
+  $parser = xml_parser_create();
+  // パーサオプションを指定
+  xml_parser_set_option($parser,XML_OPTION_SKIP_WHITE,1);
+  // パース実行、連想配列にパース結果代入
+  xml_parse_into_struct($parser,$buff,$values,$idx);
+  // パーサ開放
+  xml_parser_free($parser);
+  // パースして得た連想配列をまわす
+  $in_item = 0;
+  // トップページ用のカウンタ
+  $counter = 0;
+
+  foreach ($values as $value) {
+    
+    $tag  = $value["tag"];
+    $type = $value["type"];
+    $value = $value["value"];
+    
+    $tag = strtolower($tag);
+    if ($tag == "item" && $type == "open") {
+      $in_item = 1;
+    } else if ($tag == "item" && $type == "close") {
+      //Feedsの行数制限
+      if($counter >= $count_limit){
+        $counter = 0;
+        break;
+      }else{
+        $counter++;
+      }
+     
+      // community feedsの表示
+      ?>
+      <article class="feed-article">
+         <header>
+           <h1 class="feed-article-title">
+             <a href="<?php echo $com_link; ?>" title="<? echo $com_title; ?>">
+         <?php echo $com_title; ?>
+             </a>
+           </h1>
+         </header>
+         <footer>
+           <div class="postmeta">
+             <p class="postmeta-title">投稿日時</p>
+             <div class="postmeta-content">
+               <?php echo $com_date; ?>
+             </div>
+           </div>
+         </footer>
+      </article>
+      <?php 
+      $in_item = 0;
+		  $lp++;
+    }
+    if ($in_item) {
+      switch ($tag) {
+      case "pubdate":
+      case "pubDate":
+        $com_date = $value;
+				$com_date = strtotime($com_date);
+				$com_date_number = date('YmdHi',$com_date);
+				$com_date = date('Y年m月d日',$com_date);
+        break;
+      case "title":
+        // UTF-8ドキュメントの場合ここで
+        // $value = mb_convert_encoding($value, "EUC-JP", "UTF-8"); などする必要あり
+        $com_title = $value;
+        break;
+      case "link":
+        $com_link = $value;
+        break;
+      case "author":
+        $com_author = $value;
+        break;
+      }
+    }
+  }
+}  
+
+?>

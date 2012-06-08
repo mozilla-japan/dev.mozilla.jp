@@ -8,8 +8,8 @@
 <?php
 
  // 外部RSSを読み込んで出力するルーチン
-$template = get_bloginfo('template_url');
-$rss_url = $template.'/mozdevfeeds.xml';
+//$template = get_bloginfo('template_url');
+//$rss_url = $template.'/mozdevfeeds.xml';
 
 //$rss_url = "http://pipes.yahoo.com/pipes/pipe.run?_id=4ca627cffb9c117406bf928791b272d4&_render=rss&itemlimit=10";
 
@@ -35,6 +35,10 @@ xml_parser_free($parser);
 // パースして得た連想配列をまわす
 $in_item = 0;
 
+// トップページ用のカウンタ
+$counter = 0;
+$count_limit = 5;
+
 foreach ($values as $value) {
     $tag  = $value["tag"];
     $type = $value["type"];
@@ -45,8 +49,36 @@ foreach ($values as $value) {
         $in_item = 1;
     } else if ($tag == "item" && $type == "close") {
 
+      //Feedsの行数制限
+      if($counter >= $count_limit){
+        $counter = 0;
+        break;
+      }else{
+        $counter++;
+      }
+
 		// community feedsの表示
         echo <<<EOM
+    <article class="feed-article">
+      <header>
+        <h1 class="feed-article-title">
+          <a href="$com_link" title="$com_title">
+            $com_title
+          </a>
+        </h1>
+      </header>
+      <footer>
+        <div class="postmeta">
+
+          <p class="postmeta-title">投稿日時</p>
+          <div class="postmeta-content">
+          $com_date
+          </div>
+        </div>
+
+      </footer>
+    </article>
+<!-- //元のコード
 			<div class = "post_row_com table-row">
 				<div class = "post_datetime table-cell">
 					$com_date
@@ -58,7 +90,8 @@ foreach ($values as $value) {
 					<div class="post_gradient_space post_gradient_com"></div>
 				</div>
 				<div class="post_blind_space"></div>
-			</div><!-- row_com -->
+			</div><!-- row_com 
+-->
 EOM;
         $in_item = 0;
 		$lp++;
@@ -69,7 +102,7 @@ EOM;
                 $com_date = $value;
 				$com_date = strtotime($com_date);
 				$com_date_number = date('YmdHi',$com_date);
-				$com_date = date('Y/m/d',$com_date);
+				$com_date = date('Y年m月d日',$com_date);
                 break;
             case "title":
                 // UTF-8ドキュメントの場合ここで
@@ -78,11 +111,6 @@ EOM;
                 break;
             case "link":
                 $com_link = $value;
-                break;
-            case "description":
-                // UTF-8ドキュメントの場合ここで
-                // $value = mb_convert_encoding($value, "EUC-JP", "UTF-8"); などする必要あり
-                $com_description = $value;
                 break;
         }
     }

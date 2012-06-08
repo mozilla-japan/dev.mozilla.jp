@@ -133,8 +133,16 @@ DOC;
   </section>
 
   <section id="communityfeed">
-    <h2>コミュニティフィード</h2>
-    <?php include("community.php.inc"); ?>
+    <?php
+       $rss = "http://pipes.yahoo.com/pipes/pipe.run?_id=4ca627cffb9c117406bf928791b272d4&_render=rss&itemlimit=25";
+       ?>
+    <h2><a href="<?php echo $rss; ?>"> コミュニティフィード</a></h2>
+    <?php
+       $template = get_bloginfo('template_url');
+       $rss_url = $template.'/mozdevfeeds.xml';
+       rss_feed_list($rss_url, 5);
+       //include("community.php.inc"); 
+     ?>
   </section>
 </article>
 <?php get_footer(); ?>

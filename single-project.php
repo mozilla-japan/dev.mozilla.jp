@@ -126,8 +126,8 @@ get_header();
       if($rss_url === ''){
         //何かやりますかね？
       }else{
-        echo "<h2> プロジェクトフィード </h2>";
-        include("projectfeed.php.inc");
+        echo '<h2><a href=' . $rss_url . '> プロジェクトフィード </a></h2>';
+        rss_feed_list($rss_url, 5);
       }
       ?>
   </section>

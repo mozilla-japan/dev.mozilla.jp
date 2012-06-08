@@ -13,10 +13,10 @@
 $buff = "";
 $fp = fopen($rss_url,"r");
 while (!feof($fp)) {
-    $buff .= fgets($fp,4096);
+  $buff .= fgets($fp,4096);
 }
 fclose($fp);
-
+  
 // パーサ作成
 $parser = xml_parser_create();
 
@@ -25,7 +25,7 @@ xml_parser_set_option($parser,XML_OPTION_SKIP_WHITE,1);
 
 // パース実行、連想配列にパース結果代入
 xml_parse_into_struct($parser,$buff,$values,$idx);
-
+  
 // パーサ開放
 xml_parser_free($parser);
 
@@ -34,62 +34,82 @@ $in_item = 0;
 
 //表示数の制限
 $counter = 0;
-$count_limit = 5;
+$count_limit = $limit;
 
 foreach ($values as $value) {
-    $tag  = $value["tag"];
-    $type = $value["type"];
-    $value = $value["value"];
+  $tag  = $value["tag"];
+  $type = $value["type"];
+  $value = $value["value"];
+  
+  $tag = strtolower($tag);
+  if ($tag == "item" && $type == "open") {
+    $in_item = 1;
+  } else if ($tag == "item" && $type == "close") {
     
-    $tag = strtolower($tag);
-    if ($tag == "item" && $type == "open") {
-        $in_item = 1;
-    } else if ($tag == "item" && $type == "close") {
-
-      //Feedsの行数制限
-      if($counter >= $count_limit){
-        $counter = 0;
-        break;
-      }else{
-        $counter++;
-      }
-
-      // feedsの表示      
-        echo <<<EOM
-			<div class = "post_row_com table-row">
-				<div class = "post_datetime table-cell">
-					$com_date
-				</div>
-				<div class = "post_container_com table-cell">
-					<div class = "post_title_com">
-						<a href = "$com_link">$com_title</a>
-					</div>
-					<div class="post_gradient_space post_gradient_com"></div>
-				</div>
-				<div class="post_blind_space"></div>
-			</div><!-- row_com -->
-EOM;
-        $in_item = 0;
-		$lp++;
+    //Feedsの行数制限
+    if($counter >= $count_limit){
+      $counter = 0;
+      break;
+    }else{
+      $counter++;
     }
-    if ($in_item) {
-        switch ($tag) {
-            case "pubdate":
-                $com_date = $value;
-				$com_date = strtotime($com_date);
-				$com_date_number = date('YmdHi',$com_date);
-				$com_date = date('Y/m/d',$com_date);
-                break;
-            case "title":
-                // UTF-8ドキュメントの場合ここで
-                // $value = mb_convert_encoding($value, "EUC-JP", "UTF-8"); などする必要あり
-                $com_title = $value;
-                break;
-            case "link":
-                $com_link = $value;
-                break;
-        }
+    
+    // feedsの表示      
+    echo <<<EOM
+              <article class="feed-article">
+                <header>
+                  <h1 class="feed-article-title">
+                    <a href="$com_link" title="$com_title">
+                      $com_title
+                    </a>
+                  </h1>
+                </header>
+                <footer>
+                  <div class="postmeta">
+                    
+                    <p class="postmeta-title">投稿日時</p>
+                    <div class="postmeta-content">
+                      $com_date
+                    </div>
+                  </div>
+                  
+                </footer>
+              </article>
+              <!-- //元のコード
+                   <div class = "post_row_com table-row">
+				             <div class = "post_datetime table-cell">
+                       $com_date
+				             </div>
+				             <div class = "post_container_com table-cell">
+                       <div class = "post_title_com">
+                         <a href = "$com_link">$com_title</a>
+                       </div>
+                       <div class="post_gradient_space post_gradient_com"></div>
+				             </div>
+				             <div class="post_blind_space"></div>
+                   </div><!-- row_com 
+      -->
+      EOM;
+    $in_item = 0;
+    $lp++;
+  }
+  if ($in_item) {
+    switch ($tag) {
+    case "pubdate":
+      $com_date = $value;
+      $com_date = strtotime($com_date);
+      $com_date_number = date('YmdHi',$com_date);
+      $com_date = date('Y年m月d日',$com_date);
+      break;
+    case "title":
+      // UTF-8ドキュメントの場合ここで
+      // $value = mb_convert_encoding($value, "EUC-JP", "UTF-8"); などする必要あり
+      $com_title = $value;
+      break;
+    case "link":
+      $com_link = $value;
+      break;
     }
+  }
 }
-
 ?>
