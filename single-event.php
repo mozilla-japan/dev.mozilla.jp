@@ -33,6 +33,11 @@ get_header();
   </header>
 
   <footer class="eventmeta">
+		<div class="">
+			<?php
+				map_image_of_the_event($the_id);
+			?>
+		</div>
     <?php the_metadata_of_event($the_id); ?>
 	</footer>
 
