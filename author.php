@@ -23,6 +23,8 @@ get_header();
 			</h1>
 		</header>
 
+		<?php the_author_data($user_data); ?>
+
 		<div class="entry-body">
 			<?php
 				echo esc_html($user_data->description);
