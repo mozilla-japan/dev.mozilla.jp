@@ -1078,6 +1078,12 @@ function get_data_of_the_meta ($id, $param) {
 }
 function get_the_time_of_the_event ($id) {
   $date = new DateTime();
+  if (!$date) {
+    $e = date_get_last_errors();
+    foreach ($e['errors'] as $error) {
+        echo "$error\n";
+    }
+  }
   $date->setTimestamp(get_post_meta($id, 'start_time', true));
   $year = $date->format('Y');
   $month = $date->format('n');
