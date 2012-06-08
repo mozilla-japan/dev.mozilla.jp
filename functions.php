@@ -1108,6 +1108,23 @@ function get_the_time_of_the_event ($id) {
            'day' => $day,
          );
 }
+function map_image_of_the_event ($id, $size='400') {
+  $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES | ENT_HTML5);
+
+  // Google Maps Static API v2
+  $img_src = 'http://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
+  $alt = $data;
+  $url = 'http://www.google.com/maps?q='.$data.'&amp;z=17';
+
+  echo <<< DOC
+<a href="$url">
+  <img src="$img_src" alt="$alt" />
+  <br />
+  Google Map
+</a>
+DOC;
+}
+
 
 function the_author_data ($user_data) {
   $content = '';
