@@ -391,18 +391,6 @@ function event_meta_html($post, $box){
   </dd>
 
   <?php
-    $place = get_post_meta($id, 'address', true);
-  ?>
-  <dt>
-    <label for="address">会場の住所（地図表示用）</label>
-  </dt>
-  <dd>
-    <input name="address" type="text"
-          value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区麹町0-0-0"/>
-  </dd>
-
-  <?php
     $website = get_post_meta($id, 'website', true);
   ?>
   <dt>
@@ -557,7 +545,6 @@ function event_update($post_id){
     $end_time = trim($_POST['end_time-year']).'/'.trim($_POST['end_time-month']).
                 '/'.trim($_POST['end_time-day']).' '.trim($_POST['end_time-time']);
     $place = trim($_POST['place']);
-    $address = trim($_POST['address']);
     $capacity = trim($_POST['capacity']);
     $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
@@ -577,14 +564,6 @@ function event_update($post_id){
     } else {
         update_post_meta($post_id, 'place', $place);
     }
-
-    //update 'address'
-    if($address == ''){
-        delete_post_meta($post_id, 'address');
-    } else {
-        update_post_meta($post_id, 'address', $address);
-    }
-
     if($capacity == ''){
       delete_post_meta($post_id, 'capacity');
     } else {
