@@ -145,6 +145,14 @@ DOC;
        php_feed_list($php_url, 5);
        //include("community.php.inc"); 
      ?>
+    <nav class="navigation">
+      <ul class="navigation-list">
+        <li class="navigation-list-item">
+          <a class="navigation-list-item-link "href="<?php echo get_feed_url(); ?>">より古いコミュニティフィードを読む &raquo;</a>
+        </li>
+      </ul>
+    </nav>
+
   </section>
-</article>
+/article>
 <?php get_footer(); ?>

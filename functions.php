@@ -849,6 +849,13 @@ function get_post_new_url(){
   return ($base . $path);
 }
 
+/* return the url of "com-feed" (string) */
+function get_feed_url(){
+  $base = get_bloginfo('url');
+  $path = '/com-feed/';
+  return ($base . $path);
+}
+
 /* return the url of a specified project page (string) */
 function get_the_specified_project_page ($cat_id) {
   $page_id = get_project_page_ID($cat_id);
