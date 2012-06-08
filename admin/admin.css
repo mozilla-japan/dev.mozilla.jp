@@ -3,13 +3,3 @@
 /*
  * style for admin page
  */
-
-.metadata-form-table th {
-  width: 25%;
-}
-.metadata-form-table td {
-  width: 75%;
-}
-.metadata-form-table td > input {
-  width: 100%;
-}

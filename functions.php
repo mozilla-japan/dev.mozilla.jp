@@ -242,34 +242,31 @@ function menu_meta_html($post, $box){
   echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 ?>
 
-<table class="metadata-form-table">
-  <tr>
-    <?php
-      $url = get_post_meta($id, 'url', true);
-    ?>
-    <th>
-      <label for="url">プロジェクトのWebサイト</label>
-    </th>
-    <td>
-      <input name="url" type="url"
-             value="<?php echo esc_attr($url);?>"
-             placeholder="http://www.example.com/"/>
-    </td>
-  </tr>
+<dl class="metadata-form-list">
 
-  <tr>
-    <?php
-      $rss = get_post_meta($id, 'rss', true);
-     ?>
-    <th>
-      <label for="rss">プロジェクトのRSSフィード</label>
-    </th>
-    <td>
-      <input name="rss" type="url"
-             value="<?php echo esc_attr($rss);?>"
-             placeholder="http://www.example.com/rss.xml"/>
-    </td>
-  </tr>
+  <?php
+    $url = get_post_meta($id, 'url', true);
+  ?>
+  <dt>
+    <label for="url">プロジェクトのWebサイト</label>
+  </dt>
+  <dd>
+    <input name="url" type="url"
+           value="<?php echo esc_attr($url);?>"
+           placeholder="http://www.example.com/"/>
+  </dd>
+
+  <?php
+    $rss = get_post_meta($id, 'rss', true);
+  ?>
+  <dt>
+    <label for="rss">プロジェクトのRSSフィード</label>
+  </dt>
+  <dd>
+    <input name="rss" type="url"
+           value="<?php echo esc_attr($rss);?>"
+           placeholder="http://www.example.com/rss.xml"/>
+  </dd>
 
 <?php
     $user = wp_get_current_user();
@@ -280,20 +277,18 @@ function menu_meta_html($post, $box){
       }
       $catid = esc_attr($catid);
       echo <<< DOC
-  <tr>
-    <th>
-      <label for="catid">カテゴリID（変更禁止）</label>
-    </th>
-    <td>
-      <input name="catid" type="text" readonly="true"
-             value="$catid" />
-    </td>
-  </tr>
+  <dt>
+    <label for="catid">カテゴリID（変更禁止）</label>
+  </dt>
+  <dd>
+    <input name="catid" type="text" readonly="true"
+           value="$catid" />
+  </dd>
 DOC;
     endif;
 ?>
 
-</table>
+</dl>
 
 <?php
 }
@@ -309,107 +304,109 @@ function event_meta_box($post){
 function event_meta_html($post, $box){
   $id = $post->ID;
 ?>
-<table class="metadata-form-table">
-  <tr>
-    <?php
-      $datetime = get_post_meta($id, 'start_time', true);
-      $date_array = explode('/', $datetime);
-      $year = $date_array[0];
-      $month = $date_array[1];
-      $day = substr($date_array[2], 0, 2);
-      $hm = substr($date_array[2], 3, 5);
-    ?>
-    <th><label>開始日時</label></th>
-    <td>
-      <label><input name="start_time-year" type="text" placeholder="2010"
-                    value="<?php echo esc_attr($year); ?>"
-                    style="width: 4em;"/>年</label>
-      <label><input name="start_time-month" type="text" placeholder="01"
-                    value="<?php echo esc_attr($month); ?>"
-                    style="width: 2em;"/>月</label>
-      <label><input name="start_time-day" type="text" placeholder="01"
-                    value="<?php echo esc_attr($day); ?>"
-                    style="width: 2em;"/>日</label>
-      <input name="start_time-time" type="text" placeholder="12:00"
-                    value="<?php echo esc_attr($hm); ?>"
-                    style="width: 5em;"/>
-    </td>
-  </tr>
+<dl class="metadata-form-list">
 
-  <tr>
-    <?php
-      $datetime = get_post_meta($id, 'end_time', true);
-      $date_array = explode('/', $datetime);
-      $year = $date_array[0];
-      $month = $date_array[1];
-      $day = substr($date_array[2], 0, 2);
-      $hm = substr($date_array[2], 3, 5);
-    ?>
-    <th><label for="end_time">終了日時</label></th>
-    <td>
-      <label><input name="end_time-year" type="text" placeholder="2010"
-                    value="<?php echo esc_attr($year); ?>"
-                    style="width: 4em;"/>年</label>
-      <label><input name="end_time-month" type="text" placeholder="01"
-                    value="<?php echo esc_attr($month); ?>"
-                    style="width: 2em;"/>月</label>
-      <label><input name="end_time-day" type="text" placeholder="01"
-                    value="<?php echo esc_attr($day); ?>"
-                    style="width: 2em;"/>日</label>
-      <input name="end_time-time" type="text" placeholder="12:00"
-                    value="<?php echo esc_attr($hm); ?>"
-                    style="width: 5em;"/>
-    </td>
-  </tr>
+  <?php
+    $datetime = get_post_meta($id, 'start_time', true);
+    $date_array = explode('/', $datetime);
+    $year = $date_array[0];
+    $month = $date_array[1];
+    $day = substr($date_array[2], 0, 2);
+    $hm = substr($date_array[2], 3, 5);
+  ?>
+  <dt>
+    <label>開始日時</label>
+  </dt>
+  <dd>
+    <label><input name="start_time-year" type="text" placeholder="2010"
+                  value="<?php echo esc_attr($year); ?>"
+                  style="width: 4em;"/>年</label>
+    <label><input name="start_time-month" type="text" placeholder="01"
+                  value="<?php echo esc_attr($month); ?>"
+                  style="width: 2em;"/>月</label>
+    <label><input name="start_time-day" type="text" placeholder="01"
+                  value="<?php echo esc_attr($day); ?>"
+                  style="width: 2em;"/>日</label>
+    <input name="start_time-time" type="text" placeholder="12:00"
+                  value="<?php echo esc_attr($hm); ?>"
+                  style="width: 5em;"/>
+  </dd>
 
-  <tr>
-    <?php
-      $capacity = get_post_meta($id, 'capacity', true);
-    ?>
-    <th><label for="capacity">定員</label></th>
-    <td>
-      <input name="capacity" type="number"
-             value="<?php echo esc_attr($capacity); ?>"
-             placeholder="10"/>
-    </td>
-  </tr>
+  <?php
+    $datetime = get_post_meta($id, 'end_time', true);
+    $date_array = explode('/', $datetime);
+    $year = $date_array[0];
+    $month = $date_array[1];
+    $day = substr($date_array[2], 0, 2);
+    $hm = substr($date_array[2], 3, 5);
+  ?>
+  <dt>
+    <label for="end_time">終了日時</label>
+  </dt>
+  <dd>
+    <label><input name="end_time-year" type="text" placeholder="2010"
+                  value="<?php echo esc_attr($year); ?>"
+                  style="width: 4em;"/>年</label>
+    <label><input name="end_time-month" type="text" placeholder="01"
+                  value="<?php echo esc_attr($month); ?>"
+                  style="width: 2em;"/>月</label>
+    <label><input name="end_time-day" type="text" placeholder="01"
+                  value="<?php echo esc_attr($day); ?>"
+                  style="width: 2em;"/>日</label>
+    <input name="end_time-time" type="text" placeholder="12:00"
+                  value="<?php echo esc_attr($hm); ?>"
+                  style="width: 5em;"/>
+  </dd>
 
-  <tr>
-   <?php
-     $place = get_post_meta($id, 'place', true);
-   ?>
-   <th><label for="place">会場</label></th>
-   <td>
-     <input name="place" type="text"
-            value="<?php echo esc_attr($place); ?>"
-            placeholder="東京都千代田区貸会議室"/>
-    </td>
-  </tr>
+  <?php
+    $capacity = get_post_meta($id, 'capacity', true);
+  ?>
+  <dt>
+    <label for="capacity">定員</label>
+  </dt>
+  <dd>
+    <input name="capacity" type="number"
+           value="<?php echo esc_attr($capacity); ?>"
+           placeholder="10"/>
+  </dd>
 
-  <tr>
-    <?php
-      $website = get_post_meta($id, 'website', true);
-    ?>
-    <th><label for="website">詳細URL</label></th>
-    <td>
-      <input name="website" type="url"
-             value="<?php echo esc_attr($website); ?>"
-             placeholder="http://www.example.com/"/>
-    </td>
-  </tr>
+  <?php
+    $place = get_post_meta($id, 'place', true);
+  ?>
+  <dt>
+    <label for="place">会場</label>
+  </dt>
+  <dd>
+    <input name="place" type="text"
+          value="<?php echo esc_attr($place); ?>"
+          placeholder="東京都千代田区貸会議室"/>
+  </dd>
 
-  <tr>
-   <?php
-     $hashtag = get_post_meta($id, 'hashtag', true);
-   ?>
-   <th><label for="hashtag">ハッシュタグ</label></th>
-   <td>
-     <input name="hashtag" type="text"
-            value="<?php echo esc_attr($hashtag); ?>"
-            placeholder="#example" />
-    </td>
-  </tr>
-</table>
+  <?php
+    $website = get_post_meta($id, 'website', true);
+  ?>
+  <dt>
+    <label for="website">詳細URL</label>
+  </dt>
+  <dd>
+    <input name="website" type="url"
+           value="<?php echo esc_attr($website); ?>"
+           placeholder="http://www.example.com/"/>
+  </dd>
+
+  <?php
+    $hashtag = get_post_meta($id, 'hashtag', true);
+  ?>
+  <dt>
+    <label for="hashtag">ハッシュタグ</label>
+  </dt>
+  <dd>
+    <input name="hashtag" type="text"
+          value="<?php echo esc_attr($hashtag); ?>"
+          placeholder="#example" />
+  </dd>
+
+</dl>
 <?php
   echo wp_nonce_field('event_meta', 'event_date_nonce');
 }
