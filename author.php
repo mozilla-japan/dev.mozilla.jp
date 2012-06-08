@@ -23,15 +23,6 @@ get_header();
 			</h1>
 		</header>
 
-		<footer>
-			<dl class="authormeta author-metadata-list">
-				<?php item_of_the_author_data($user_data, 'Web サイト', 'user_url'); ?>
-				<?php item_of_the_author_data($user_data, 'Twitter', 'twitter_id'); ?>
-				<?php item_of_the_author_data($user_data, 'Facebook', 'facebook_id'); ?>
-				<?php item_of_the_author_data($user_data, 'Skype', 'skype_id'); ?>
-			</dl>
-		</footer>
-
 		<div class="entry-body">
 			<?php
 				echo esc_html($user_data->description);

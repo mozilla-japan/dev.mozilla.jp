@@ -1071,8 +1071,26 @@ function get_the_time_of_the_event ($id) {
          );
 }
 
-function item_of_the_author_data ($user_data, $title, $param) {
+function the_author_data ($user_data) {
+  $content = '';
+  $content .= get_item_of_the_author_data($user_data, 'Web サイト', 'user_url');
+  $content .= get_item_of_the_author_data($user_data, 'Twitter', 'twitter_id');
+  $content .= get_item_of_the_author_data($user_data, 'Facebook', 'facebook_id');
+  $content .= get_item_of_the_author_data($user_data, 'Skype', 'skype_id');
+
+  if (strlen($content) > 0) :
+?>
+    <footer>
+      <dl class="authormeta author-metadata-list">
+        <?php echo $content; ?>
+      </dl>
+    </footer>
+<?php
+  endif;
+}
+function get_item_of_the_author_data ($user_data, $title, $param) {
   $value = $user_data->$param;
+  $str = '';
 
   if (strlen($value) > 0) {
     $content = '';
@@ -1090,11 +1108,14 @@ function item_of_the_author_data ($user_data, $title, $param) {
         $content = esc_html($value);
         break;
     }
-  ?>
-    <dt class="metadata-list-title"><?php echo($title); ?></dt>
-    <dd><?php echo($content); ?></dd>
-<?php
+
+    $str .= <<< DOC
+<dt class="metadata-list-title">$title</dt>
+<dd>$content</dd>
+DOC;
   }
+
+  return $str;
 }
 
 /*********
