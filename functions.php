@@ -1294,10 +1294,13 @@ function php_feed_list($php_url, $count_limit) {
                }
                $com_author_url = '';
                $com_author = '';
+               if($com_site_name == ''){
+                 $com_site_name = $com_site;
+               }
                if($com_site != ''){
                  echo '<p class="postmeta-title">Webサイト</p>
                    <div class="postmeta-content">';
-                 echo '<a href="'.$com_site.'">'.$com_site.'</a>';
+                 echo '<a href="'.$com_site.'">'.$com_site_name.'</a>';
                  echo '</div>';
                }
          ?>
