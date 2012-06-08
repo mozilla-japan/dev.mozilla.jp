@@ -1258,7 +1258,7 @@ function rss_feed_list($rss_url, $count_limit) {
       }
      
       // community feedsの表示
-      ?>
+  ?>
       <article class="feed-article">
          <header>
            <h1 class="feed-article-title">
@@ -1269,6 +1269,24 @@ function rss_feed_list($rss_url, $count_limit) {
          </header>
          <footer>
            <div class="postmeta">
+             <?php
+         if($com_author != ''){
+           echo '<p class="postmeta-title">投稿者</p>
+                   <div class="postmeta-content">'
+                   . $com_author .
+                '</div>';
+         }
+         if($com_sitetitle != '' && $com_siteurl != ''){
+           echo '<p class="postmeta-title">投稿サイト</p>
+                   <div class="postmeta-content">
+                   <a href="'.$com_siteurl.'">'
+                   . $com_sitetitle .
+                '</a></div>';
+         }
+         $com_author = '';
+         $com_sitetitle = '';
+         $com_siteurl ='';
+         ?>
              <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
                <?php echo $com_date; ?>
@@ -1299,6 +1317,12 @@ function rss_feed_list($rss_url, $count_limit) {
         break;
       case "author":
         $com_author = $value;
+        break;
+      case "sitetitle":
+        $com_sitetitle = $value;
+        break;
+      case "siteurl":
+        $com_siteurl = $value;
         break;
       }
     }
