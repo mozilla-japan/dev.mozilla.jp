@@ -157,10 +157,12 @@ img::selection {
 /* avatar icon */
 .avatar {
   margin-right: 0.8em;
+  margin-right: 0.8rem;
   border: 1px solid rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
-.author-link > .avatar{
+.author-link > .avatar,
+.post-title > .avatar {
   vertical-align: middle;
 }
 .author-link:hover > .avatar {
@@ -684,6 +686,10 @@ body {
   border-bottom: 1px dotted rgb(204, 204, 204);
   margin-bottom: 3em;
 }
+
+
+/* author page*/
+
 
 
 /* project & event list page */
