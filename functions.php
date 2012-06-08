@@ -1090,28 +1090,30 @@ function get_item_of_the_author_data ($user_data, $title, $param) {
   $value = $user_data->$param;
   $str = '';
 
-  if (strlen($value) > 0) {
-    $content = '';
-    switch ($param) {
-      case 'user_url':
-        $content = '<a href="'.esc_attr($value).'">'.esc_html($value).'</a>';
-        break;
-      case 'twitter_id':
-        $content = '<a href="http://twitter.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
-        break;
-      case 'facebook_id':
-        $content = '<a href="	http://facebook.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
-        break;
-      default:
-        $content = esc_html($value);
-        break;
-    }
+  if ( !(strlen($value) > 0) ) {
+    return;
+  }
 
-    $str .= <<< DOC
+  $content = '';
+  switch ($param) {
+    case 'user_url':
+      $content = '<a href="'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    case 'twitter_id':
+      $content = '<a href="http://twitter.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    case 'facebook_id':
+      $content = '<a href="	http://facebook.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
+      break;
+    default:
+      $content = esc_html($value);
+      break;
+  }
+
+  $str = <<< DOC
 <dt class="metadata-list-title">$title</dt>
 <dd>$content</dd>
 DOC;
-  }
 
   return $str;
 }
