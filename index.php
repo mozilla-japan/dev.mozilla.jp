@@ -139,8 +139,10 @@ DOC;
     <h2><a href="<?php echo $rss; ?>"> コミュニティフィード</a></h2>
     <?php
        $template = get_bloginfo('template_url');
-       $rss_url = $template.'/mozdevfeeds.xml';
-       rss_feed_list($rss_url, 5);
+       //$rss_url = $template.'/mozdevfeeds.xml';
+       $php_url = $template.'/pipe.run';
+       //rss_feed_list($rss_url, 5);
+       php_feed_list($php_url, 100);
        //include("community.php.inc"); 
      ?>
   </section>
