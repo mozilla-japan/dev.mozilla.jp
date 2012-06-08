@@ -21,8 +21,6 @@ add_theme_support('post-thumbnails');
 set_post_thumbnail_size(102,102);
 
 if(!current_user_can( 'administrator' )){
-	add_filter( 'show_admin_bar', '__return_false' ); //adminバーを見えないようにする。
-
 	function spam_delete_comment_link($id) {
 		global $comment, $post;
 		if ( $post->post_type == 'page' ){
@@ -430,7 +428,7 @@ function extra_category_fields( $tag ) {
   if($user->roles[0] == 'administrator'){
     echo '<tr class="form-field">';
     echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
-    echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" value="'. $value .'" /></td>"';
+    echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" readonly="true" value="'. $value .'" /></td>"';
     echo '</tr>';
   }
 }
