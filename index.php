@@ -154,5 +154,5 @@ DOC;
     </nav>
 
   </section>
-/article>
+</article>
 <?php get_footer(); ?>
