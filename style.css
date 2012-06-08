@@ -677,7 +677,8 @@ body {
 
 
 /* project page */
-#project-latest-topics-list > h2 {
+#project-latest-topics-list > h2,
+#author-latest-topics-list > h2 {
   font-size: 2em;
   margin: 1em 0 0.5em;
 }
@@ -689,7 +690,14 @@ body {
 
 
 /* author page*/
-
+.authormeta {
+  margin-top: 1em;
+}
+.authormeta:empty {
+  border-bottom: none;
+  background: none;
+  box-shadow: none;
+}
 
 
 /* project & event list page */
