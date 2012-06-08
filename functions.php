@@ -242,7 +242,7 @@ function menu_meta_html($post, $box){
   echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 ?>
 
-<table>
+<table class="metadata-form-table">
   <tr>
     <?php
       $url = get_post_meta($id, 'url', true);
@@ -309,7 +309,7 @@ function event_meta_box($post){
 function event_meta_html($post, $box){
   $id = $post->ID;
 ?>
-<table>
+<table class="metadata-form-table">
   <tr>
     <?php
       $datetime = get_post_meta($id, 'start_time', true);
@@ -877,8 +877,10 @@ function new_excerpt_more($post) {
   return '<a href="'. get_permalink($post->ID) . '">' . '続きを読む...' . '</a>';
 }
 
-/* Event Calender UI */
+/* admin page  */
 function my_styles(){
+  $path = get_bloginfo('template_url') . '/admin/admin.css';
+  wp_enqueue_style('admin-edit', $path);
 }
 add_action('admin_print_styles', 'my_styles');
 
