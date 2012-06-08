@@ -243,44 +243,59 @@ function menu_meta_html($post, $box){
   echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
   echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
 ?>
-  <div>
+
+<table>
+  <tr>
     <?php
       $url = get_post_meta($id, 'url', true);
     ?>
-    <label for="url">プロジェクトのWebサイト</label>
-    <input name="url" type="url"
-           value="<?php echo esc_attr($url);?>"
-           placeholder="http://www.example.com/"
-           size="50" />
-  </div>
-  <div>
+    <th>
+      <label for="url">プロジェクトのWebサイト</label>
+    </th>
+    <td>
+      <input name="url" type="url"
+             value="<?php echo esc_attr($url);?>"
+             placeholder="http://www.example.com/"/>
+    </td>
+  </tr>
+
+  <tr>
     <?php
       $rss = get_post_meta($id, 'rss', true);
      ?>
-    <label for="rss">プロジェクトのRSSフィード</label>
-    <input name="rss" type="url"
-           value="<?php echo esc_attr($rss);?>"
-           placeholder="http://www.example.com/rss.xml"
-           size="50" />
-  </div>
+    <th>
+      <label for="rss">プロジェクトのRSSフィード</label>
+    </th>
+    <td>
+      <input name="rss" type="url"
+             value="<?php echo esc_attr($rss);?>"
+             placeholder="http://www.example.com/rss.xml"/>
+    </td>
+  </tr>
 
 <?php
     $user = wp_get_current_user();
-    if ($user->roles[0] == 'administrator') {
+    if ($user->roles[0] == 'administrator') :
       $catid = (int)get_post_meta($id, 'catid', true);
       if($catid == 0) {
         $catid = '';
       }
       $catid = esc_attr($catid);
       echo <<< DOC
-  <div>
-    <label for="catid">カテゴリID（変更禁止）</label>
-    <input name="catid" type="text" readonly="true"
-           value="$catid" size="50" />
-  </div>
+  <tr>
+    <th>
+      <label for="catid">カテゴリID（変更禁止）</label>
+    </th>
+    <td>
+      <input name="catid" type="text" readonly="true"
+             value="$catid" />
+    </td>
+  </tr>
 DOC;
-    }
+    endif;
 ?>
+
+</table>
 
 <?php
 }
