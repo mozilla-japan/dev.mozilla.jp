@@ -312,7 +312,7 @@ function event_meta_html($post, $box){
     $month = date('m', $timestamp);
     $day = date('d', $timestamp);
     $hour = date('H', $timestamp);
-    $minute = date('M', $timestamp);
+    $minute = date('i', $timestamp);
   ?>
   <dt>
     <label>開始日時</label>
@@ -351,7 +351,7 @@ function event_meta_html($post, $box){
     $month = date('m', $timestamp);
     $day = date('d', $timestamp);
     $hour = date('H', $timestamp);
-    $minute = date('M', $timestamp);
+    $minute = date('i', $timestamp);
   ?>
   <dt>
     <label for="end_time">終了日時</label>
@@ -1089,7 +1089,7 @@ function get_the_event_date ($id) {
   $start_datetime = date('Y-m-d H:i', $start_timestamp);
   $end_datetime = date('Y-m-d H:i', $end_timestamp);
 
-  $start_str = date('Y年n月j日 H:M', $start_timestamp);
+  $start_str = date('Y年n月j日 H:i', $start_timestamp);
   $start_str_year = date('Y年', $start_timestamp);
   $start_str_month = date('n月', $start_timestamp);
   $start_str_day = date('j日', $start_timestamp);
@@ -1105,7 +1105,7 @@ function get_the_event_date ($id) {
       $end_str = $tmp_str;
     }
   }
-  $end_str = trim($end_str .' '. date('H:M', $end_timestamp));
+  $end_str = trim($end_str .' '. date('H:i', $end_timestamp));
 
   return <<< DOC
 <time datetime="$start_datetime">$start_str</time>
@@ -1123,7 +1123,7 @@ function get_data_of_the_meta ($id, $param) {
       case 'start_time':// for event
       case 'end_time':// for event
         $timestamp = (int)$data;
-        $time = date('Y年n月j日 H:M', $timestamp);
+        $time = date('Y年n月j日 H:i', $timestamp);
         $datetime = date('Y-m-d H:i', $timestamp);
         $str = '<time datetime="'. $datetime. '">'. $time .'</time>';
         break;
