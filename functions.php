@@ -1047,7 +1047,7 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
     $content = '';
     switch ($param) {
       case 'event_time':
-        $content = get_the_event_date($id);
+        $content = get_data_of_the_meta($id, 'start_time') .' - '. get_data_of_the_meta($id, 'end_time');
         break;
       case 'event_admin':
         $content = ' '; // trick to make $isEmpty false.
@@ -1082,36 +1082,6 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
   <?php endif; ?>
 <?php
 }
-function get_the_event_date ($id) {
-  $start_timestamp = (int)get_post_meta($id, 'start_time', true);
-  $end_timestamp = (int)get_post_meta($id, 'end_time', true);
-
-  $start_datetime = strftime('%Y-%m-%d %H:%M', $start_timestamp);
-  $end_datetime = strftime('%Y-%m-%d %H:%M', $end_timestamp);
-
-  $start_str = strftime('%Y年%m月%d日 %H:%M', $start_timestamp);
-  $end_str = '';
-  $end_str_year = strftime('%Y年', $end_timestamp);
-  $end_str_month = strftime('%m月', $end_timestamp);
-  $end_str_day = strftime('%d日', $end_timestamp);
-
-  $end_str_array = array($end_str_year, $end_str_month, $end_str_day);
-  for ($i = 0, $l = count($end_str_array); $i < $l; ++$i) {
-    $tmp_str = $end_str_array[$i];
-    if ( !(strripos($start_str, $tmp_str) === false) ) {
-      break;
-    }
-    $end_str .= $tmp_str;
-  }
-  $end_str .= strftime('%H:%M', $end_timestamp);
-
-  return <<< DOC
-<time datetime="$start_datetime">$start_str</time>
--
-<time datetime="$end_datetime">$end_str</time>
-DOC;
-}
-
 function get_data_of_the_meta ($id, $param) {
   $data = get_post_meta($id, $param, true);
   $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
