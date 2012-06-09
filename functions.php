@@ -1097,10 +1097,8 @@ function get_the_event_date ($id) {
 
   $end_str_array = array($end_str_year, $end_str_month, $end_str_day);
   for ($i = 0, $l = count($end_str_array); $i < $l; ++$i) {
-    $tmp_str = $end_str_array[$i];
-    $pos = mb_stripos($end_str, $tmp_str);
-    $result_str = mb_substr($end_str, mb_strlen($tmp_str) - 1);
-    if (mb_strlen($result_str) === mb_strlen($end_str)) {
+    $tmp_str = mb_ereg_replace('/^'.$end_str_array[$i].'/', '');
+    if (count($tmp_str) === count($end_str)) {
       break;
     }
     else {
