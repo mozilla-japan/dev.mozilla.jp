@@ -1111,7 +1111,7 @@ function get_the_event_date ($id) {
     }
   }
   $end_str = trim($end_str .' '. date('H:i', $end_timestamp));
-  $br = $isBr ? '<br />-<br />' : '-';
+  $br = $isBr ? '<br />' : '-';
 
   return <<< DOC
 <time datetime="$start_datetime">$start_str</time>
