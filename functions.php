@@ -1067,7 +1067,7 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
     if ( !$isEmpty || $showEmptyItem ) :
   ?>
     <dt class="metadata-list-title"><?php echo($title); ?></dt>
-    <dd>
+    <dd class="metadata-list-content">
       <?php
         switch ($param) {
           case 'event_admin':
@@ -1229,7 +1229,7 @@ function get_item_of_the_author_data ($user_data, $title, $param) {
 
     $str .= <<< DOC
 <dt class="metadata-list-title">$title</dt>
-<dd>$content</dd>
+<dd class="metadata-list-content">$content</dd>
 DOC;
   }
 
