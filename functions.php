@@ -1181,10 +1181,12 @@ function map_image_of_the_event ($id, $size='380') {
   $map_service = 'Google Map';
 
   echo <<< DOC
+<div class="event-map">
 <a href="$url">
   <img src="$img_src" alt="$alt" /><br />
   <span class="map-caption">$map_service で大きい地図を表示する</span>
 </a>
+</div>
 DOC;
 }
 
