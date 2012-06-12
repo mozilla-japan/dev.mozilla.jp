@@ -176,6 +176,12 @@ img::selection {
   display: inline-block;
   margin: 16px 8px;
 }
+.map-caption {
+  display: block;
+  font-size: 0.8em;
+  text-align: right;
+}
+
 
 /* navigation */
 .navigation {
