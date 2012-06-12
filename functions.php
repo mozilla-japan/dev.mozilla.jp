@@ -1091,11 +1091,10 @@ function get_the_event_date ($id) {
 
   $start_str = date('Y年n月j日 H:i', $start_timestamp);
   $start_str_year = date('Y年', $start_timestamp);
-  $start_str_month = date('n月', $start_timestamp);
-  $start_str_day = date('j日', $start_timestamp);
+  $start_str_monthday = date('n月j日', $start_timestamp);
   $end_str = date('Y年n月j日', $end_timestamp);
 
-  $start_str_array = array($start_str_year, $start_str_month, $start_str_day);
+  $start_str_array = array($start_str_year, $start_str_monthday);
   for ($i = 0, $l = count($start_str_array); $i < $l; ++$i) {
     $tmp_str = ereg_replace('^'.$start_str_array[$i], '', $end_str);
     if (strlen($tmp_str) === strlen($end_str)) {
