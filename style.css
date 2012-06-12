@@ -172,6 +172,10 @@ img::selection {
 .project-icon {
   padding: 10px;
 }
+.event-map {
+  display: inline-block;
+  float: right;
+}
 
 /* navigation */
 .navigation {
@@ -665,11 +669,13 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 
-.projectmeta .project-icon {
+.projectmeta .project-icon,
+.eventmeta .event-map {
   float: right;
 }
 /* claer fix */
-.projectmeta:after {
+.projectmeta:after,
+.eventmeta:after {
   content: " ";
   display: block;
   clear: both;
