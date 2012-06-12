@@ -1123,6 +1123,10 @@ body {
     font-size: 2.3em;
   }
 
+  .eventmeta .event-map {
+    float: none;
+  }
+
   #sidebar {
     width: 25%;
   }
@@ -1243,7 +1247,8 @@ body {
   }
 
   .project-footer .project-icon,
-  .projectmeta .project-icon {
+  .projectmeta .project-icon,
+  .eventmeta .event-map {
     float: none;
   }
 
