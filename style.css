@@ -827,8 +827,66 @@ body {
   display: none;
 }
 
+/************************************************
+ * @Forms
+ */
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=password],
+input[type=text],
+textarea {
+  font-size: .857em;
+  border: 1px solid #dbdbdb;
+  background: transparent;
+  background: rgba(0,0,0,0.05);
+  box-shadow: inset rgba(0,0,0,0.1) 0 0 4px, rgba(255,255,255, 0.1) 0 1px 0;
+  padding: 6px 10px;
+  -moz-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  -ms-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  transition: all .1s linear;
+}
+input[type=email]:hover,
+input[type=url]:hover,
+input[type=search]:hover,
+input[type=password]:hover,
+input[type=text]:hover,
+textarea:hover {
+  border-color: #bbb;
+  background: rgba(0,0,0,0.03);
+}
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=search]:focus,
+input[type=password]:focus,
+input[type=text]:focus,
+textarea:focus {
+  border-color: #bbb;
+  background: #fafafa;
+  outline: 0 none;
+  box-shadow: inset rgba(0,0,0,0.3) 0 0 4px, rgba(255,255,255, 0.1) 0 1px 0;
+}
 
+form li {
+  margin-bottom: 1em;
+}
+label {
+  display: block;
+  padding: 0 0 .5em;
+  font: 1em/1.2 "Open Sans Light", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+label .note {
+  color: #666;
+}
 
+.pwform {
+  margin: 0 0 1.5em;
+}
+.pwform br {
+  display:none;
+}
 /************************************************
  * @Comments
  */
