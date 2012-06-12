@@ -1095,20 +1095,23 @@ function get_the_event_date ($id) {
   $end_str = date('Y年n月j日', $end_timestamp);
 
   $start_str_array = array($start_str_year, $start_str_monthday);
+  $isBr = false;
   for ($i = 0, $l = count($start_str_array); $i < $l; ++$i) {
     $tmp_str = ereg_replace('^'.$start_str_array[$i], '', $end_str);
     if (strlen($tmp_str) === strlen($end_str)) {
       break;
     }
     else {
+      $isBr = true;
       $end_str = $tmp_str;
     }
   }
   $end_str = trim($end_str .' '. date('H:i', $end_timestamp));
+  $br = $isBr ? '<br />-<br />' : '-';
 
   return <<< DOC
 <time datetime="$start_datetime">$start_str</time>
--
+$br
 <time datetime="$end_datetime">$end_str</time>
 DOC;
 }
