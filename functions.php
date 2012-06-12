@@ -1167,7 +1167,7 @@ function get_the_time_of_the_event ($id) {
            'day' => $day,
          );
 }
-function map_image_of_the_event ($id, $size='400') {
+function map_image_of_the_event ($id, $size='380') {
   $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES | ENT_HTML5);
 
   if (strlen($data) <= 0) {
