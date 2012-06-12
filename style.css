@@ -875,7 +875,6 @@ form li {
 label {
   display: block;
   padding: 0 0 .5em;
-  font: 1em/1.2 "Open Sans Light", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
 label .note {
   color: #666;
