@@ -1178,11 +1178,12 @@ function map_image_of_the_event ($id, $size='380') {
   $img_src = 'http://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
   $alt = $data;
   $url = 'http://www.google.com/maps?q='.$data.'&amp;z=17';
+  $map_service = 'Google Map';
 
   echo <<< DOC
 <a href="$url">
   <img src="$img_src" alt="$alt" /><br />
-  <span class="map-caption">Google Map で大きい地図を表示する</span>
+  <span class="map-caption">$map_service で大きい地図を表示する</span>
 </a>
 DOC;
 }
