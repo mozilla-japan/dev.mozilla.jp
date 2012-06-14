@@ -1544,4 +1544,34 @@ function myfeed_request($qv) {
 }
 add_filter('request', 'myfeed_request');
 
+add_action('init','replace_category',0);
+function replace_category(){
+  $labels = array('name' => 'プロジェクト',
+                  'singular_name' => 'プロジェクト',
+                  'search_items' => 'プロジェクト検索',
+                  'all_items' => '全てのプロジェクト',
+                  'parent_item' => '親プロジェクト',
+                  'parent_item_colon' => '親プロジェクト',
+                  'edit_item' => 'プロジェクトの編集',
+                  'update_item' => 'プロジェクトの更新',
+                  'add_new_item' => '新しいプロジェクト',
+                  'new_item_name' => '新しいプロジェクト',
+                  );
+  register_taxonomy('category', 'post', array(
+                                              'label' => 'プロジェクト',
+                                              'hierarchical' => true,
+                                              'query_var' => 'category_name',
+                                              'labels' => $labels
+                                                  ));  
+}
+
+add_action('admin_menu', 'remove_menu');
+function remove_menu(){
+  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' ); //カテゴリーの表示削除
+}
+add_action('admin_print_styles', 'set_admin_styles', 21);
+function set_admin_styles(){
+  echo '<style type="text/css">#category-add-toggle{display:none;}div#category-all{height: 400px;}</style>';
+}
+
 ?>
