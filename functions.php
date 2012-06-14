@@ -1400,8 +1400,9 @@ function php_feed_list($php_url, $count_limit) {
       <article class="feed-article">
          <header>
            <h1 class="feed-article-title">
-             <a href="<?php echo $com_link; ?>" title="<? echo $com_title; ?>">
-         <?php echo $com_title; ?>
+             <a href="<?php echo esc_attr($com_link); ?>"
+                title="<? echo esc_attr($com_title); ?>">
+               <?php echo esc_html($com_title); ?>
              </a>
            </h1>
          </header>
@@ -1412,9 +1413,9 @@ function php_feed_list($php_url, $count_limit) {
                  echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">';
                  if($com_author_url != ''){
-                   echo '<a href="'.$com_author_url.'">'.$com_author.'</a>';
+                   echo '<a href="'.esc_attr($com_author_url).'">'.esc_html($com_author).'</a>';
                  }else{
-                   echo $com_author;
+                   echo esc_html($com_author);
                  }
                  echo '</div>';
                }
@@ -1426,7 +1427,7 @@ function php_feed_list($php_url, $count_limit) {
                if($com_site != ''){
                  echo '<p class="postmeta-title">Webサイト</p>
                    <div class="postmeta-content">';
-                 echo '<a href="'.$com_site.'">'.$com_site_name.'</a>';
+                 echo '<a href="'.esc_attr($com_site).'">'.esc_html($com_site_name).'</a>';
                  echo '</div>';
                }
          ?>
