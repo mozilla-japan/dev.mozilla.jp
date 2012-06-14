@@ -1390,9 +1390,10 @@ function php_feed_list($php_url, $count_limit) {
     $com_author = $value[author][name];
     $com_author_url = $value[author][uri];
     $com_date = $value[pubDate];
-    $com_date = strtotime($com_date);
-    $com_date_number = date('YmdHi',$com_date);
-    $com_date = date('Y年m月d日',$com_date);
+    $com_date_timestamp = strtotime($com_date);
+    $com_date_datetime = date('Y-m-d H:i', $com_date_timestamp);
+    $com_date_number = date('YmdHi',$com_date_timestamp);
+    $com_date = date('Y年m月d日',$com_date_timestamp);
     
     // community feedsの表示
     ?>
@@ -1431,7 +1432,9 @@ function php_feed_list($php_url, $count_limit) {
          ?>
              <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
-               <?php echo $com_date; ?>
+               <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
+                 <?php echo esc_html($com_date); ?>
+               </time>
              </div>
            </div>
          </footer>
