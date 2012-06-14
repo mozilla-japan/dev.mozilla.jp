@@ -1195,6 +1195,8 @@ label .note {
 
   .eventmeta .event-map {
     float: none;
+  }
+  .event-map {
     text-align: center;
   }
   .map-caption {
@@ -1337,8 +1339,7 @@ label .note {
     float: none;
   }
 
-  .eventmeta .event-map {
-    float: none;
+  .event-map {
     text-align: center;
   }
   .map-caption {
