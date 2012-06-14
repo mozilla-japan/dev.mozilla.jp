@@ -1,4 +1,5 @@
-<?php/**
+<?php
+/**
  * @package WordPress
  * @subpackage modest3
  * プロジェクトページを表示するためのテンプレート
