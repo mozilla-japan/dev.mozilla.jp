@@ -1412,7 +1412,7 @@ function php_feed_list($php_url, $count_limit) {
              <?php
                if($com_author != ''){
                  echo '<p class="postmeta-title">投稿者</p>
-                   <div class="postmeta-content">';
+                   <div class="author postmeta-content">';
                  if($com_author_url != ''){
                    echo '<a href="'.esc_attr($com_author_url).'">'.esc_html($com_author).'</a>';
                  }else{
