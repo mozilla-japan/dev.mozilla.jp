@@ -1096,7 +1096,16 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 }
 function get_the_event_date ($id) {
   $start_timestamp = (int)get_post_meta($id, 'start_time', true);
+  // if $start_timestamp is not set.
+  if ($start_timestamp == 0) {
+    return "";
+  }
+
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
+  // if $end_timestamp is not set.
+  if ($end_timestamp == 0) {
+    return "";
+  }
 
   $start_datetime = date('Y-m-d H:i', $start_timestamp);
   $end_datetime = date('Y-m-d H:i', $end_timestamp);
