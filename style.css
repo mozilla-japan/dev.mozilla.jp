@@ -176,13 +176,17 @@ img::selection {
   padding: 10px;
 }
 .event-map {
-  display: inline-block;
   margin: 16px 8px;
+  text-align: right;
+  -moz-transition: text-align .5s linear;
+  -webkit-transition: text-align .5s linear;
+  -o-transition: text-align .5s linear;
+  -ms-transition: text-align .5s linear;
+  transition: text-align .5s linear;
 }
 .map-caption {
   display: block;
   font-size: 0.8em;
-  text-align: right;
 }
 .map-caption:before {
   content: "»";
@@ -691,7 +695,7 @@ body {
   display: block;
   clear: both;
 }
-.event-metadata-list {
+.event-map + .event-metadata-list {
   width: 294px;
   width: -moz-calc(100% - 416px);
   width: -webkit-calc(100% - 416px);
@@ -1197,6 +1201,12 @@ label .note {
   .eventmeta .event-map {
     float: none;
   }
+  .event-map {
+    text-align: center;
+  }
+  .map-caption {
+    text-align: inherit;
+  }
 
   .event-metadata-list {
     width: 100%;
@@ -1332,6 +1342,13 @@ label .note {
   .projectmeta .project-icon,
   .eventmeta .event-map {
     float: none;
+  }
+
+  .event-map {
+    text-align: center;
+  }
+  .map-caption {
+    text-align: inherit;
   }
 
   /* sidebar */
