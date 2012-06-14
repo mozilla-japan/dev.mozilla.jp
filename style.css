@@ -1234,6 +1234,9 @@ label .note {
   ul, ol {
     padding-left: 1em;
   }
+  dd {
+    margin-left: 1em;
+  }
   blockquote {
     margin-left: 1em;
   }
