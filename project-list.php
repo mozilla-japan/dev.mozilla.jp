@@ -42,7 +42,7 @@ get_header();
             $title = get_the_title();
           ?>
           <a href="<?php the_permalink() ?>" title="<?php echo esc_attr($title); ?>">
-            <?php echo esc_title($title); ?>
+            <?php echo esc_html($title); ?>
           </a>
         </h1>
       </header>
