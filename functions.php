@@ -1031,11 +1031,11 @@ function the_metadata_of_event ($id) {
 
   <?php print_metadata_as_definition_item($id, 'place', '会場'); ?>
 
-  <?php print_metadata_as_definition_item($id, 'website', '詳細URL'); ?>
-
   <?php print_metadata_as_definition_item($id, 'hashtag', 'ハッシュタグ'); ?>
 
   <?php print_metadata_as_definition_item($id, 'event_admin', 'イベント管理者'); ?>
+
+  <?php print_metadata_as_definition_item($id, 'website', '詳細'); ?>
 </dl>
 <?php
 }
@@ -1156,7 +1156,7 @@ function get_data_of_the_meta ($id, $param) {
         $str = '<time datetime="'. $datetime. '">'. $time .'</time>';
         break;
       case 'website':// for event
-        $str = '<a href="'. $data .'">'. $data .'</a>';
+        $str = '<a href="'. $data .'">詳細ページ</a>';
         break;
       case 'hashtag':// for event
         $url = 'http://twitter.com/search?q='. urlencode($data);
