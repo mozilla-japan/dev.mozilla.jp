@@ -1104,34 +1104,35 @@ function get_the_event_date ($id) {
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
   // if $end_timestamp is not set.
   if ($end_timestamp == 0) {
-    return "";
+    $end_timestamp = $start_timestamp;
   }
 
   $start_datetime = date('Y-m-d H:i', $start_timestamp);
   $end_datetime = date('Y-m-d H:i', $end_timestamp);
 
-  $start_str = date('Y年n月j日 H:i', $start_timestamp);
   $start_str_year = date('Y年', $start_timestamp);
   $start_str_monthday = date('n月j日', $start_timestamp);
-  $end_str = date('Y年n月j日', $end_timestamp);
+  $start_str_time = ' ' . date('H:i', $start_timestamp);
+  $start_str = $start_str_year . $start_str_monthday . $start_str_time;
+  $end_str = date('Y年n月j日 H:i', $end_timestamp);
 
-  $start_str_array = array($start_str_year, $start_str_monthday);
+  $start_str_array = array($start_str_year, $start_str_monthday, $start_str_time);
   $isBr = true;
   for ($i = 0, $l = count($start_str_array); $i < $l; ++$i) {
     $tmp_str = ereg_replace('^'.$start_str_array[$i], '', $end_str);
     if (strlen($tmp_str) === strlen($end_str)) {
-      break;
-    }
-    else {
       // if the index is a last index,
       // $end_str will be only time.
       if ( ($i === ($l - 1)) ) {
         $isBr = false;
       }
+      break;
+    }
+    else {
       $end_str = $tmp_str;
     }
   }
-  $end_str = trim($end_str .' '. date('H:i', $end_timestamp));
+  $end_str = trim($end_str);
   $br = $isBr ? '<br />' : '-';
 
   return <<< DOC
