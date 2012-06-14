@@ -308,11 +308,17 @@ function event_meta_html($post, $box){
 
   <?php
     $timestamp = (int)get_post_meta($id, 'start_time', true);
-    $year = date('Y', $timestamp);
-    $month = date('m', $timestamp);
-    $day = date('d', $timestamp);
-    $hour = date('H', $timestamp);
-    $minute = date('i', $timestamp);
+
+    $is_date_none = false;
+    if ($timestamp == 0) {
+      $is_date_none = true;
+    }
+
+    $year = $is_date_none ? '' : date('Y', $timestamp);
+    $month = $is_date_none ? '' : date('m', $timestamp);
+    $day = $is_date_none ? '' : date('d', $timestamp);
+    $hour = $is_date_none ? '' : date('H', $timestamp);
+    $minute = $is_date_none ? '' : date('i', $timestamp);
   ?>
   <dt>
     <label>開始日時</label>
@@ -347,11 +353,17 @@ function event_meta_html($post, $box){
 
   <?php
     $timestamp = (int)get_post_meta($id, 'end_time', true);
-    $year = date('Y', $timestamp);
-    $month = date('m', $timestamp);
-    $day = date('d', $timestamp);
-    $hour = date('H', $timestamp);
-    $minute = date('i', $timestamp);
+
+    $is_date_none = false;
+    if ($timestamp == 0) {
+      $is_date_none = true;
+    }
+
+    $year = $is_date_none ? '' : date('Y', $timestamp);
+    $month = $is_date_none ? '' : date('m', $timestamp);
+    $day = $is_date_none ? '' : date('d', $timestamp);
+    $hour = $is_date_none ? '' : date('H', $timestamp);
+    $minute = $is_date_none ? '' : date('i', $timestamp);
   ?>
   <dt>
     <label for="end_time">終了日時</label>
@@ -1084,7 +1096,16 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 }
 function get_the_event_date ($id) {
   $start_timestamp = (int)get_post_meta($id, 'start_time', true);
+  // if $start_timestamp is not set.
+  if ($start_timestamp == 0) {
+    return "";
+  }
+
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
+  // if $end_timestamp is not set.
+  if ($end_timestamp == 0) {
+    return "";
+  }
 
   $start_datetime = date('Y-m-d H:i', $start_timestamp);
   $end_datetime = date('Y-m-d H:i', $end_timestamp);
