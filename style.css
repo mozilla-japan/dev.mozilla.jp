@@ -176,7 +176,6 @@ img::selection {
   padding: 10px;
 }
 .event-map {
-  display: inline-block;
   margin: 16px 8px;
 }
 .map-caption {
