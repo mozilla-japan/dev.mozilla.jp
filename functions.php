@@ -475,7 +475,7 @@ function extra_category_fields( $tag ) {
   if($user->roles[0] == 'administrator'){
     echo '<tr class="form-field">';
     echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
-    echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" readonly="true" value="'. $value .'" /></td>"';
+    echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" readonly="true" value="'. esc_attr($value) .'" /></td>"';
     echo '</tr>';
   }
 }
@@ -752,17 +752,17 @@ function get_the_category_list_post_type( $separator = '', $parents='', $post_id
       case 'multiple':
         if ( $category->parent )
           $thelist .= get_category_parents( $category->parent, true, $separator );
-        $thelist .= '<a href="' . get_category_link( $category->term_id ) . '?post_type='.$post_type.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" ' . $rel . '>' . $category->name.'</a></li>';
+        $thelist .= '<a href="' . get_category_link( $category->term_id ) . '?post_type='.$post_type.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" ' . $rel . '>' . esc_html($category->name).'</a></li>';
         break;
       case 'single':
         $thelist .= '<a href="' . get_category_link( $category->term_id ) . '?post_type='.$post_type.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" ' . $rel . '>';
         if ( $category->parent )
           $thelist .= get_category_parents( $category->parent, false, $separator );
-        $thelist .= $category->name.'</a></li>';
+        $thelist .= esc_html($category->name).'</a></li>';
         break;
       case '':
       default:
-        $thelist .= '<a href="' . get_category_link( $category->term_id ) . '?post_type='.$post_type.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" ' . $rel . '>' . $category->name.'</a></li>';
+        $thelist .= '<a href="' . get_category_link( $category->term_id ) . '?post_type='.$post_type.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" ' . $rel . '>' . esc_html($category->name).'</a></li>';
       }
     }
     $thelist .= '</ul>';
@@ -813,7 +813,7 @@ function get_the_term_list_post_type( $id = 0, $taxonomy, $before = '', $sep = '
     $link = get_term_link( $term, $taxonomy );
     if ( is_wp_error( $link ) )
       return $link;
-    $term_links[] = '<a href="' . $link . '?post_type='. $post_type .'" rel="tag">' . $term->name . '</a>';
+    $term_links[] = '<a href="' . $link . '?post_type='. $post_type .'" rel="tag">' . esc_html($term->name) . '</a>';
   }
   $term_links = apply_filters( "term_links-$taxonomy", $term_links );
   return $before . join( $sep, $term_links ) . $after;
@@ -838,7 +838,7 @@ function the_project_list_of_the_post ($postId) {
     $project_array = get_post(get_project_page_ID($cat->cat_ID));
     if ($project_array->post_type === 'project') :
       $link = get_permalink($project_array->ID);
-      $link_text = $project_array->post_title;
+      $link_text = esc_html($project_array->post_title);
       $list .= ('<li class="meta-project-list-item"><a href="'. $link .'">'. $link_text .'</a></li>');
     endif;
   endforeach;
@@ -975,7 +975,7 @@ function navigation_bar(){
 function the_author_post_link_with_avatar ($size = 24) {
     $user_id = get_the_author_meta('ID');
     $url = esc_url( get_author_posts_url($user_id) );
-    $author_name = get_the_author();
+    $author_name = esc_html(get_the_author());
     $title = esc_attr($author_name) . 'の投稿を表示';
     $avatar = get_avatar($user_id, $size);
     echo '<a href="'. $url .'" title="'. $title .'" class="author-link">'. $avatar . $author_name .'</a>';
@@ -1490,8 +1490,8 @@ function rss_feed_list($rss_url, $count_limit) {
       <article class="feed-article">
          <header>
            <h1 class="feed-article-title">
-             <a href="<?php echo $com_link; ?>" title="<? echo $com_title; ?>">
-         <?php echo $com_title; ?>
+             <a href="<?php echo esc_attr($com_link); ?>" title="<? echo esc_attr($com_title); ?>">
+         <?php echo esc_html($com_title); ?>
              </a>
            </h1>
          </header>
@@ -1501,14 +1501,14 @@ function rss_feed_list($rss_url, $count_limit) {
          if($com_author != ''){
            echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">'
-                   . $com_author .
+                   . esc_html($com_author) .
                 '</div>';
          }
          $com_author = '';
          ?>
              <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
-               <?php echo $com_date; ?>
+               <?php echo esc_html($com_date); ?>
              </div>
            </div>
          </footer>

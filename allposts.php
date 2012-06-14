@@ -39,7 +39,7 @@ get_header();
 							 */
 							$permaLink = get_permalink();
 							$titleText = get_the_title();
-							echo '<a href="'. $permaLink .'">'. $titleText .'</a>';
+							echo '<a href="'. esc_attr($permaLink) .'">'. esc_html($titleText) .'</a>';
 						?>
 					</h1>
 

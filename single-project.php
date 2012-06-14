@@ -1,5 +1,4 @@
-<?php
-/**
+<?php/**
  * @package WordPress
  * @subpackage modest3
  * プロジェクトページを表示するためのテンプレート
@@ -22,7 +21,7 @@ get_header();
 
 	<header class="entry-header">
 
-		<h1 class="post-title"><?php echo($title); ?></h1>
+		<h1 class="post-title"><?php echo esc_html($title); ?></h1>
 
 		<?php
 			edit_the_link($the_id);
@@ -79,7 +78,7 @@ get_header();
 					 */
 					$link = get_permalink();
 					$titleText = get_the_title();
-					echo '<h1 class="feed-article-title"><a href="'. $link .'">'. $titleText .'</h1>';
+					echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
 				?>
 
 				<?php
@@ -127,7 +126,7 @@ get_header();
         //何かやりますかね？
       }else{
         echo '<h2>プロジェクトフィード</h2>';
-        echo '<a style="float: right; margin-bottom: 20px;" href="'.$rss_url.'"> RSS </a>';
+        echo '<a style="float: right; margin-bottom: 20px;" href="'.esc_attr($rss_url).'"> RSS </a>';
         rss_feed_list($rss_url, 5);
       }
       ?>

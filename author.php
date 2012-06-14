@@ -18,7 +18,7 @@ get_header();
 			<h1 class="post-title">
 				<?php
 					echo get_avatar($user_data->ID, 48);
-					echo ($user_data->display_name);
+					echo esc_html($user_data->display_name);
 				?>
 			</h1>
 		</header>
@@ -51,7 +51,7 @@ get_header();
 						 */
 						$link = get_permalink();
 						$titleText = get_the_title();
-						echo '<h1 class="feed-article-title"><a href="'. $link .'">'. $titleText .'</h1>';
+						echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
 					?>
 
 					<?php

@@ -66,7 +66,9 @@ get_header();
             $month = $date_hash['month'];
             $day = $date_hash['day'];
             $href = get_permalink($post);
-            $title = $postary['post_title'];
+            $title_raw = $postary['post_title'];
+            $title_attr = esc_attr($title_raw);
+            $title_text = esc_html($title_raw);
 
             //start here document
             echo <<< DOC
@@ -77,8 +79,8 @@ get_header();
                   <span class="posted-day">$day</span>日
                 </time>
                 <h3 class="event-title">
-                  <a href="$href" title="$title">
-                    $title
+                  <a href="$href" title="$title_attr">
+                    $title_text
                   </a>
                 </h3>
               </section>

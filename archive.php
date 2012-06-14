@@ -39,7 +39,7 @@ get_header();
 					*/
 					$permaLink = get_permalink();
 					$titleText = get_the_title();
-					echo '<a href="'. $permaLink .'">'. $titleText .'</a>';
+					echo '<a href="'. $permaLink .'">'. esc_html($titleText) .'</a>';
 				?>
 			</h1>
 
@@ -98,7 +98,7 @@ get_header();
 			$string = 'この日付に投稿された投稿はありません。';
 		} else if ( is_author() ) { // If this is a category archive
 			$userdata = get_userdatabylogin(get_query_var('author_name'));
-			$string = $userdata->display_name .'によって書かれた投稿はありません。';
+			$string = esc_html($userdata->display_name) .'によって書かれた投稿はありません。';
 		} else {
 			$string = '投稿が見つかりません。';
 		}
