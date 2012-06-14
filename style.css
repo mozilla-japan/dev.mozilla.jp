@@ -26,6 +26,9 @@ img, object, embed, iframe, video {
 }
 
 /* Images */
+img {
+  border: none;
+}
 .entry-body img {
   padding: 1px;
   background-color: #fff;
