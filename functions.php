@@ -1583,18 +1583,15 @@ function set_admin_styles(){
 add_filter('pre_get_posts', 'custom_post_rss_set');
 function custom_post_rss_set($query) {
   if(is_feed()){
-    if($query === 'event'){
     $query->set('post_type',
                 Array(
                       'post',
-                      'event'
+                      'event',
+                      'project'
                       )
                 );
-    }else{
-
-    }
-    return $query;
   }
+  return $query;
 }
 
 ?>
