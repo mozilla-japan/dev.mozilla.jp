@@ -177,11 +177,11 @@ img::selection {
 }
 .event-map {
   margin: 16px 8px;
+  text-align: right;
 }
 .map-caption {
   display: block;
   font-size: 0.8em;
-  text-align: right;
 }
 .map-caption:before {
   content: "»";
@@ -1195,6 +1195,10 @@ label .note {
 
   .eventmeta .event-map {
     float: none;
+    text-align: center;
+  }
+  .map-caption {
+    text-align: inherit;
   }
 
   .event-metadata-list {
@@ -1331,6 +1335,14 @@ label .note {
   .projectmeta .project-icon,
   .eventmeta .event-map {
     float: none;
+  }
+
+  .eventmeta .event-map {
+    float: none;
+    text-align: center;
+  }
+  .map-caption {
+    text-align: inherit;
   }
 
   /* sidebar */
