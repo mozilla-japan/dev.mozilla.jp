@@ -1104,34 +1104,35 @@ function get_the_event_date ($id) {
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
   // if $end_timestamp is not set.
   if ($end_timestamp == 0) {
-    return "";
+    $end_timestamp = $start_timestamp;
   }
 
   $start_datetime = date('Y-m-d H:i', $start_timestamp);
   $end_datetime = date('Y-m-d H:i', $end_timestamp);
 
-  $start_str = date('Y年n月j日 H:i', $start_timestamp);
   $start_str_year = date('Y年', $start_timestamp);
   $start_str_monthday = date('n月j日', $start_timestamp);
-  $end_str = date('Y年n月j日', $end_timestamp);
+  $start_str_time = ' ' . date('H:i', $start_timestamp);
+  $start_str = $start_str_year . $start_str_monthday . $start_str_time;
+  $end_str = date('Y年n月j日 H:i', $end_timestamp);
 
-  $start_str_array = array($start_str_year, $start_str_monthday);
+  $start_str_array = array($start_str_year, $start_str_monthday, $start_str_time);
   $isBr = true;
   for ($i = 0, $l = count($start_str_array); $i < $l; ++$i) {
-    $tmp_str = ereg_replace('^'.$start_str_array[$i], '', $end_str);
+    $tmp_str = preg_replace('/^'.$start_str_array[$i].'/', '', $end_str);
     if (strlen($tmp_str) === strlen($end_str)) {
-      break;
-    }
-    else {
       // if the index is a last index,
       // $end_str will be only time.
       if ( ($i === ($l - 1)) ) {
         $isBr = false;
       }
+      break;
+    }
+    else {
       $end_str = $tmp_str;
     }
   }
-  $end_str = trim($end_str .' '. date('H:i', $end_timestamp));
+  $end_str = trim($end_str);
   $br = $isBr ? '<br />' : '-';
 
   return <<< DOC
@@ -1389,17 +1390,19 @@ function php_feed_list($php_url, $count_limit) {
     $com_author = $value[author][name];
     $com_author_url = $value[author][uri];
     $com_date = $value[pubDate];
-    $com_date = strtotime($com_date);
-    $com_date_number = date('YmdHi',$com_date);
-    $com_date = date('Y年m月d日',$com_date);
+    $com_date_timestamp = strtotime($com_date);
+    $com_date_datetime = date('Y-m-d H:i', $com_date_timestamp);
+    $com_date_number = date('YmdHi',$com_date_timestamp);
+    $com_date = date('Y年m月d日',$com_date_timestamp);
     
     // community feedsの表示
     ?>
       <article class="feed-article">
          <header>
            <h1 class="feed-article-title">
-             <a href="<?php echo $com_link; ?>" title="<? echo $com_title; ?>">
-         <?php echo $com_title; ?>
+             <a href="<?php echo esc_attr($com_link); ?>"
+                title="<? echo esc_attr($com_title); ?>">
+               <?php echo esc_html($com_title); ?>
              </a>
            </h1>
          </header>
@@ -1410,9 +1413,9 @@ function php_feed_list($php_url, $count_limit) {
                  echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">';
                  if($com_author_url != ''){
-                   echo '<a href="'.$com_author_url.'">'.$com_author.'</a>';
+                   echo '<a href="'.esc_attr($com_author_url).'">'.esc_html($com_author).'</a>';
                  }else{
-                   echo $com_author;
+                   echo esc_html($com_author);
                  }
                  echo '</div>';
                }
@@ -1424,13 +1427,15 @@ function php_feed_list($php_url, $count_limit) {
                if($com_site != ''){
                  echo '<p class="postmeta-title">Webサイト</p>
                    <div class="postmeta-content">';
-                 echo '<a href="'.$com_site.'">'.$com_site_name.'</a>';
+                 echo '<a href="'.esc_attr($com_site).'">'.esc_html($com_site_name).'</a>';
                  echo '</div>';
                }
          ?>
              <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
-               <?php echo $com_date; ?>
+               <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
+                 <?php echo esc_html($com_date); ?>
+               </time>
              </div>
            </div>
          </footer>
