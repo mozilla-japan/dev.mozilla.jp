@@ -1579,4 +1579,21 @@ function set_admin_styles(){
   echo '<style type="text/css">#category-add-toggle{display:none;}div#category-all{height: 400px;}</style>';
 }
 
+add_filter('pre_get_posts', 'custom_post_rss_set');
+function custom_post_rss_set($query) {
+  if(is_feed()){
+    if($query === 'event'){
+    $query->set('post_type',
+                Array(
+                      'post',
+                      'event'
+                      )
+                );
+    }else{
+
+    }
+    return $query;
+  }
+}
+
 ?>
