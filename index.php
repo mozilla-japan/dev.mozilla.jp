@@ -160,7 +160,7 @@ DOC;
     <?php
        $template = get_bloginfo('template_url');
        //$rss_url = $template.'/mozdevfeeds.xml';
-       $php_url = $template.'/pipe.run';
+       $php_url = $template.'/mozdevfeeds.data';
        //rss_feed_list($rss_url, 5);
        php_feed_list($php_url, 5);
        //include("community.php.inc"); 

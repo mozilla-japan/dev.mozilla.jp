@@ -1365,6 +1365,7 @@ function fc_meta_desc() {
 function php_feed_list($php_url, $count_limit) {
   $buff = "";
   $fp = fopen($php_url,"r");
+  if($fp === FALSE)return 0;
   while(!feof($fp)) {
     $buff .= fgets($fp,4096);
   }

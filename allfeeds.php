@@ -13,7 +13,7 @@ get_header();
   <section id="communityfeed">
     <?php
        $template = get_bloginfo('template_url');
-       $php_url = $template.'/pipe.run';
+       $php_url = $template.'/mozdevfeeds.data';
        php_feed_list($php_url, 50);
      ?>
   </section>
