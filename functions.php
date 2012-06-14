@@ -1144,7 +1144,7 @@ DOC;
 
 function get_data_of_the_meta ($id, $param) {
   $data = get_post_meta($id, $param, true);
-  $data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5);
+  $data = htmlspecialchars($data, ENT_QUOTES);
   $str = '';
   if($data){
     switch ($param) {
@@ -1190,7 +1190,7 @@ function get_the_time_of_the_event ($id) {
          );
 }
 function map_image_of_the_event ($id, $size='380') {
-  $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES | ENT_HTML5);
+  $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES);
 
   if (strlen($data) <= 0) {
     return;
