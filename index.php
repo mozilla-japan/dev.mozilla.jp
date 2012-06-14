@@ -35,51 +35,61 @@ get_header();
   <section id="event">
     <h2 class="topsection-title">イベント</h2>
     <?php
+
       $args = array( 'post_type' => 'event',
                      'numberposts' => 5,
                    );
       $posts = get_posts($args);
-      foreach($posts as $post){
+      $future = 0;
+      foreach($posts as $post) :
         setup_postdata($post);
         $id = get_the_ID();
-        $sortary[(int)get_post_meta($id, 'start_time', true)] = $id;
-      }
+        $start = (int)get_post_meta($id, 'start_time', true);
+        $now = time();
+        if(($start - $now) > 0){
+          $future++;
+        }
+        $sortary[$start] = $id;
+      endforeach;
       krsort($sortary);
-      $latest = '';
-      $old = '';
       if ($posts) :
         $postcount = 0;
-        foreach ($sortary as $post) :
-        $postary = get_post($post, 'ARRAY_A', 'display');
-          $date_hash = get_the_time_of_the_event($post);
-          //post data
-          $datetime = $date_hash['datetime'];
-          $year = $date_hash['year'];
-          $month = $date_hash['month'];
-          $day = $date_hash['day'];
-          $href = get_permalink($post);
-          $title = $postary['post_title'];
+        $future = $future - 2;
+        foreach($sortary as $post) :
 
-          //start here document
-          echo <<< DOC
-            <section class="top-event-section">
-              <time class="event-time" datetime="$datetime">
-                <span class="posted-year">$year</span>年
-                <span class="posted-month">$month</span>月
-                <span class="posted-day">$day</span>日
-              </time>
-              <h3 class="event-title">
-                <a href="$href" title="$title">
-                  $title
-                </a>
-              </h3>
-            </section>
+          if($future <= 0) :
+            $postary = get_post($post, 'ARRAY_A', 'display');
+            $date_hash = get_the_time_of_the_event($post);
+            //post data
+            $datetime = $date_hash['datetime'];
+            $year = $date_hash['year'];
+            $month = $date_hash['month'];
+            $day = $date_hash['day'];
+            $href = get_permalink($post);
+            $title = $postary['post_title'];
+
+            //start here document
+            echo <<< DOC
+              <section class="top-event-section">
+                <time class="event-time" datetime="$datetime">
+                  <span class="posted-year">$year</span>年
+                  <span class="posted-month">$month</span>月
+                  <span class="posted-day">$day</span>日
+                </time>
+                <h3 class="event-title">
+                  <a href="$href" title="$title">
+                    $title
+                  </a>
+                </h3>
+              </section>
 DOC;
-//end of here document
+///end of here document
           $postcount++;
-          if($postcount >= 2){
-            break;
-          }
+            if($postcount >= 2){
+              break;
+            }
+          endif;
+          $future = $future - 1;
         endforeach;
       endif;
     ?>
