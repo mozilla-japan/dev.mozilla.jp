@@ -1119,7 +1119,7 @@ function get_the_event_date ($id) {
   $start_str_array = array($start_str_year, $start_str_monthday, $start_str_time);
   $isBr = true;
   for ($i = 0, $l = count($start_str_array); $i < $l; ++$i) {
-    $tmp_str = ereg_replace('^'.$start_str_array[$i], '', $end_str);
+    $tmp_str = preg_replace('/^'.$start_str_array[$i].'/', '', $end_str);
     if (strlen($tmp_str) === strlen($end_str)) {
       // if the index is a last index,
       // $end_str will be only time.
