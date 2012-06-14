@@ -1198,6 +1198,10 @@ label .note {
     float: none;
   }
 
+  .event-metadata-list {
+    width: 100%;
+  }
+
   #sidebar {
     width: 25%;
   }
@@ -1322,10 +1326,6 @@ label .note {
 
   .feed-article-title {
     font-size: 1.2em;
-  }
-
-  .event-metadata-list {
-    width: 100%;
   }
 
   .project-footer .project-icon,
