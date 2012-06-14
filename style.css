@@ -691,7 +691,13 @@ body {
   display: block;
   clear: both;
 }
-
+.event-metadata-list {
+  width: 294px;
+  width: -moz-calc(100% - 416px);
+  width: -webkit-calc(100% - 416px);
+  width: -o-calc(100% - 416px);
+  width: calc(100% - 416px);
+}
 
 /* project page */
 #project-latest-topics-list > h2,
@@ -752,6 +758,11 @@ body {
   margin: 0;
   font-size: 0.9em;
   font-weight: bold;
+}
+.event-metadata-list > .metadata-list-content,
+.project-metadata-list > .metadata-list-content,
+.author-metadata-list > .metadata-list-content {
+  margin: 0 0 1.5em 1em;
 }
 
 
@@ -1255,6 +1266,10 @@ label .note {
     font-size: 1.2em;
   }
 
+  .event-metadata-list {
+    width: 100%;
+  }
+
   .archive-post-title {
     font-size: 1.5em;
   }
@@ -1307,6 +1322,10 @@ label .note {
 
   .feed-article-title {
     font-size: 1.2em;
+  }
+
+  .event-metadata-list {
+    width: 100%;
   }
 
   .project-footer .project-icon,
