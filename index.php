@@ -36,24 +36,29 @@ get_header();
     <h2 class="topsection-title">イベント</h2>
     <?php
       $args = array( 'post_type' => 'event',
-                     'numberposts' => 2,
+                     'numberposts' => 5,
                    );
       $posts = get_posts($args);
+      foreach($posts as $post){
+        setup_postdata($post);
+        $id = get_the_ID();
+        $sortary[(int)get_post_meta($id, 'start_time', true)] = $id;
+      }
+      krsort($sortary);
       $latest = '';
       $old = '';
       if ($posts) :
         $postcount = 0;
-        foreach ($posts as $post) :
-          setup_postdata($post);
-          $date_hash = get_the_time_of_the_event(get_the_ID());
-
+        foreach ($sortary as $post) :
+        $postary = get_post($post, 'ARRAY_A', 'display');
+          $date_hash = get_the_time_of_the_event($post);
           //post data
           $datetime = $date_hash['datetime'];
           $year = $date_hash['year'];
           $month = $date_hash['month'];
           $day = $date_hash['day'];
-          $href = get_permalink($post->ID);
-          $title = get_the_title();
+          $href = get_permalink($post);
+          $title = $postary['post_title'];
 
           //start here document
           echo <<< DOC
@@ -71,7 +76,10 @@ get_header();
             </section>
 DOC;
 //end of here document
-
+          $postcount++;
+          if($postcount >= 2){
+            break;
+          }
         endforeach;
       endif;
     ?>
