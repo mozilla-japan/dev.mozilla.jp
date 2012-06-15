@@ -590,6 +590,12 @@ function event_update($post_id){
     $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
 
+    // validation:
+    // $end_time should be later than $start_time.
+    if ($end_time < $start_time) {
+      $end_time = '';
+    }
+
     if($start_time == ''){
       delete_post_meta($post_id, 'start_time');
     } else {
