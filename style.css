@@ -1227,6 +1227,9 @@ label .note {
   .event-metadata-list {
     width: 100%;
   }
+  .event-map + .event-metadata-list {
+    width: 100%;
+  }
 
   #sidebar {
     width: 25%;
@@ -1297,6 +1300,9 @@ label .note {
   }
 
   .event-metadata-list {
+    width: 100%;
+  }
+  .event-map + .event-metadata-list {
     width: 100%;
   }
 
