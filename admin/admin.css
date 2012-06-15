@@ -19,3 +19,20 @@
   -ms-box-sizing: inherit;
   box-sizing: inherit;
 }
+
+textarea,
+input,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+select {
+  color:#inherit
+}
