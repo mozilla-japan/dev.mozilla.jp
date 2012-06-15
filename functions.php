@@ -453,7 +453,9 @@ function event_meta_html($post, $box){
   <dd>
     <input name="hashtag" type="text"
           value="<?php echo esc_attr($hashtag); ?>"
-          placeholder="#example" />
+          placeholder="#example"
+          pattern="^#.*" 
+          title="# から始まる文字列を入力してください" />
   </dd>
 
 </dl>
