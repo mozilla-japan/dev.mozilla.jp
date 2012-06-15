@@ -306,6 +306,16 @@ img::selection {
   list-style-type: none;
   text-align: right;
 }
+.navigation-list-item {
+  display: inline-block;
+  padding: 0 .7em;
+  border-right: 1px dotted rgb(214, 214, 214);
+  margin: 0;
+}
+.navigation-list-item:last-child {
+  padding-right: 0;
+  border-right: none;
+}
 
 
 /*
