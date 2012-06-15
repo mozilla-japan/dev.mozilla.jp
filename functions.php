@@ -324,29 +324,28 @@ function event_meta_html($post, $box){
     <label>開始日時</label>
   </dt>
   <dd>
-    <label><input name="start_time-year" type="text" placeholder="2010"
-                  maxlength="4"
+    <label><input name="start_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
                   style="width: 4em;"/>年</label>
-    <label><input name="start_time-month" type="text" placeholder="01"
-                  maxlength="2"
+    <label><input name="start_time-month" type="number" placeholder="1"
+                  min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
                   style="width: 2em;"/>月</label>
-    <label><input name="start_time-day" type="text" placeholder="01"
-                  maxlength="2"
+    <label><input name="start_time-day" type="number" placeholder="1"
+                  min="1" max="31"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
     <input name="start_time-hour"
-           type="text"
-           placeholder="24"
-           maxlength="2"
+           type="number"
+           placeholder="13"
+           min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
     :
     <input name="start_time-minute"
-           type="text"
+           type="number"
            placeholder="00"
-           maxlength="2"
+           min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
   </dd>
@@ -369,29 +368,29 @@ function event_meta_html($post, $box){
     <label for="end_time">終了日時</label>
   </dt>
   <dd>
-    <label><input name="end_time-year" type="text" placeholder="2010"
-                  maxlength="4"
+    <label><input name="end_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
                   style="width: 4em;"/>年</label>
-    <label><input name="end_time-month" type="text" placeholder="01"
+    <label><input name="end_time-month" type="number" placeholder="1"
+                  min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  maxlength="2"
                   style="width: 2em;"/>月</label>
-    <label><input name="end_time-day" type="text" placeholder="01"
+    <label><input name="end_time-day" type="number" placeholder="1"
+                  min="1" max="31"
                   maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
                   style="width: 2em;"/>日</label>
     <input name="end_time-hour"
-           type="text"
-           placeholder="24"
-           maxlength="2"
+           type="number"
+           placeholder="14"
+           min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
     :
     <input name="end_time-minute"
-           type="text"
+           type="number"
            placeholder="00"
-           maxlength="2"
+           min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
   </dd>
