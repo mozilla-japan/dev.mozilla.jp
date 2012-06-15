@@ -441,7 +441,9 @@ function event_meta_html($post, $box){
   <dd>
     <input name="website" type="url"
            value="<?php echo esc_attr($website); ?>"
-           placeholder="http://www.example.com/"/>
+           placeholder="http://www.example.com/"
+           pattern="^(https?|ftp):\/\/.*"
+           title="http(s):// または ftp:// から始まる文字列のみを入力してください" />
   </dd>
 
   <?php
@@ -453,7 +455,9 @@ function event_meta_html($post, $box){
   <dd>
     <input name="hashtag" type="text"
           value="<?php echo esc_attr($hashtag); ?>"
-          placeholder="#example" />
+          placeholder="#example"
+          pattern="^#.*"
+          title="# から始まる文字列を入力してください" />
   </dd>
 
 </dl>
