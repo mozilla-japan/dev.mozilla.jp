@@ -10,7 +10,6 @@ get_header();
 <article id="content">
 
 	<h1 class="post-title"><?php wp_title(); ?></h1>
-
 <?php
 	if (have_posts()) :
 ?>
@@ -57,11 +56,12 @@ get_header();
 			</div>
 
 		</footer>
-
-		<div class="entry-body">
-			<?php the_content() ?>
-		</div>
-
+    <?php 
+       if(!isset($_GET["list"])): ?>
+  		<div class="entry-body">
+	  		<?php the_content() ?>
+	  	</div>
+    <?php endif; ?>
 		<footer class="entry-footer">
 			<div class="postmeta">
 				<p class="postmeta-title">投稿者</p>
