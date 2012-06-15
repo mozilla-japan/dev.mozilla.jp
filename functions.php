@@ -441,9 +441,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="website" type="url"
            value="<?php echo esc_attr($website); ?>"
-           placeholder="http://www.example.com/"
-           pattern="^(https?|ftp):\/\/.*"
-           title="http(s):// または ftp:// から始まる文字列のみを入力してください" />
+           placeholder="http://www.example.com/"/>
   </dd>
 
   <?php
@@ -455,9 +453,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="hashtag" type="text"
           value="<?php echo esc_attr($hashtag); ?>"
-          placeholder="#example"
-          pattern="^#.*"
-          title="# から始まる文字列を入力してください" />
+          placeholder="#example" />
   </dd>
 
 </dl>
@@ -593,12 +589,6 @@ function event_update($post_id){
     $capacity = trim($_POST['capacity']);
     $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
-
-    // validation:
-    // $end_time should be later than $start_time.
-    if ($end_time < $start_time) {
-      $end_time = '';
-    }
 
     if($start_time == ''){
       delete_post_meta($post_id, 'start_time');
@@ -1207,7 +1197,7 @@ function map_image_of_the_event ($id, $size='380') {
   }
 
   // Google Maps Static API v2
-  $img_src = 'https://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
+  $img_src = 'http://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
   $alt = $data;
   $url = 'http://www.google.com/maps?q='.$data.'&amp;z=17';
   $map_service = 'Google Map';
@@ -1385,7 +1375,7 @@ function php_feed_list($php_url, $count_limit) {
   //表示数用カウンタ
   $counter = 0;
 
-  foreach($values[value][items] as $value){
+  foreach($values['value']['items'] as $value){
     //Feedsの行数制限
     if($counter >= $count_limit){
       $counter = 0;
@@ -1394,13 +1384,12 @@ function php_feed_list($php_url, $count_limit) {
       $counter++;
     }
     
-    $com_link = $value[link];
-    $com_title = $value[title];
-    $com_site = $value[sitelink];
-    $com_site_name = $value[sitename];
-    $com_author = $value[author][name];
-    $com_author_url = $value[author][uri];
-    $com_date = $value[pubDate];
+    $com_link = $value['link'];
+    $com_title = $value['title'];
+    $com_site = $value['sitelink'];
+    $com_site_name = $value['sitename'];
+    $com_author = $value['author']['name'];
+    $com_date = $value['pubDate'];
     $com_date_timestamp = strtotime($com_date);
     $com_date_datetime = date('Y-m-d H:i', $com_date_timestamp);
     $com_date_number = date('YmdHi',$com_date_timestamp);
@@ -1412,7 +1401,7 @@ function php_feed_list($php_url, $count_limit) {
          <header>
            <h1 class="feed-article-title">
              <a href="<?php echo esc_attr($com_link); ?>"
-                title="<? echo esc_attr($com_title); ?>">
+                title="<?php echo esc_attr($com_title); ?>">
                <?php echo esc_html($com_title); ?>
              </a>
            </h1>
@@ -1422,12 +1411,8 @@ function php_feed_list($php_url, $count_limit) {
              <?php
                if($com_author != ''){
                  echo '<p class="postmeta-title">投稿者</p>
-                   <div class="author postmeta-content">';
-                 if($com_author_url != ''){
-                   echo '<a href="'.esc_attr($com_author_url).'">'.esc_html($com_author).'</a>';
-                 }else{
+                   <div class="postmeta-content">';
                    echo esc_html($com_author);
-                 }
                  echo '</div>';
                }
                $com_author_url = '';
