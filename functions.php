@@ -1375,7 +1375,7 @@ function php_feed_list($php_url, $count_limit) {
   //表示数用カウンタ
   $counter = 0;
 
-  foreach($values[value][items] as $value){
+  foreach($values['value']['items'] as $value){
     //Feedsの行数制限
     if($counter >= $count_limit){
       $counter = 0;
@@ -1384,13 +1384,12 @@ function php_feed_list($php_url, $count_limit) {
       $counter++;
     }
     
-    $com_link = $value[link];
-    $com_title = $value[title];
-    $com_site = $value[sitelink];
-    $com_site_name = $value[sitename];
-    $com_author = $value[author][name];
-    $com_author_url = $value[author][uri];
-    $com_date = $value[pubDate];
+    $com_link = $value['link'];
+    $com_title = $value['title'];
+    $com_site = $value['sitelink'];
+    $com_site_name = $value['sitename'];
+    $com_author = $value['author']['name'];
+    $com_date = $value['pubDate'];
     $com_date_timestamp = strtotime($com_date);
     $com_date_datetime = date('Y-m-d H:i', $com_date_timestamp);
     $com_date_number = date('YmdHi',$com_date_timestamp);
@@ -1402,7 +1401,7 @@ function php_feed_list($php_url, $count_limit) {
          <header>
            <h1 class="feed-article-title">
              <a href="<?php echo esc_attr($com_link); ?>"
-                title="<? echo esc_attr($com_title); ?>">
+                title="<?php echo esc_attr($com_title); ?>">
                <?php echo esc_html($com_title); ?>
              </a>
            </h1>
@@ -1413,11 +1412,7 @@ function php_feed_list($php_url, $count_limit) {
                if($com_author != ''){
                  echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">';
-                 if($com_author_url != ''){
-                   echo '<a href="'.esc_attr($com_author_url).'">'.esc_html($com_author).'</a>';
-                 }else{
                    echo esc_html($com_author);
-                 }
                  echo '</div>';
                }
                $com_author_url = '';
