@@ -111,10 +111,14 @@ get_header();
 		<nav class="navigation">
 			<?php
 				$category_link = get_category_link($cat_id);
+				$category_link_title = $category_link . '?list';
 			?>
 			<ul class="navigation-list">
 				<li class="navigation-list-item">
-					<a class="navigation-list-item-link" href="<?php echo $category_link ?>">すべてのトピック &raquo;</a>
+					<a class="navigation-list-item-link" href="<?php echo $category_link ?>">すべてのトピック</a>
+				</li>
+				<li class="navigation-list-item">
+					<a class="navigation-list-item-link" href="<?php echo $category_link_title ?>">トピックのタイトル一覧</a>
 				</li>
 			</ul>
 		</nav>
