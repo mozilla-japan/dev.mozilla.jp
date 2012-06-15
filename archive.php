@@ -11,7 +11,6 @@ get_header();
 
 	<h1 class="post-title"><?php wp_title(); ?></h1>
 <?php
-	$isList = !isset($_GET["list"]);
 	if (have_posts()) :
 ?>
 
@@ -25,10 +24,7 @@ get_header();
 		$the_id = get_the_ID();
 	?>
 
-	<?php
-		$class = $isList ? 'archive-post list' : 'archive-post';
-	?>
-	<article class="<?php echo $class; ?>">
+	<article class="archive-post">
 
 		<header class="archive-post_header">
 			<?php
@@ -61,7 +57,7 @@ get_header();
 
 		</footer>
     <?php 
-       if($isList): ?>
+       if(!isset($_GET["list"])): ?>
   		<div class="entry-body">
 	  		<?php the_content() ?>
 	  	</div>
