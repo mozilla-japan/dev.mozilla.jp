@@ -1198,7 +1198,7 @@ function map_image_of_the_event ($id, $size='380') {
   }
 
   // Google Maps Static API v2
-  $img_src = 'http://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
+  $img_src = 'https://maps.googleapis.com/maps/api/staticmap?markers='.$data.'&size=400x400&zoom=17&sensor=false';
   $alt = $data;
   $url = 'http://www.google.com/maps?q='.$data.'&amp;z=17';
   $map_service = 'Google Map';
