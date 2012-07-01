@@ -20,9 +20,12 @@ section, div {
   padding: 0;
   margin: 0;
 }
-img, object, embed, iframe, video {
+img, video {
   max-width: 100%;
   height: auto;
+}
+iframe {
+  max-width: 100%;
 }
 
 /* Images */
