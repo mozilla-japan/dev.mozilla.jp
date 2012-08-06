@@ -18,6 +18,7 @@ get_header();
                                     "meta_key " => $_GET['key'],
                                     "meta_value" => $_GET['value'],
                                     "orderby" => "date"));
+         $isList = isset($_GET["list"]);
       ?>
 
       <?php
@@ -25,7 +26,10 @@ get_header();
           foreach ($posts as $post) :
             setup_postdata($post);
          ?>
-      <article class="archive-post">
+      <?php
+        $class = $isList ? 'archive-post list' : 'archive-post';
+      ?>
+      <article class="<?php echo $class; ?>">
         
 		    <header class="archive-post_header">
 			    <?php
@@ -57,11 +61,13 @@ get_header();
 			    </div>
           
 		    </footer>
-        
-		    <div class="entry-body">
-			    <?php the_content() ?>
-		    </div>
-        
+
+        <?php if(!$isList): ?>
+          <div class="entry-body">
+            <?php the_content() ?>
+          </div>
+        <?php endif; ?>
+
 		    <footer class="entry-footer">
 			    <div class="postmeta">
 				    <p class="postmeta-title">投稿者</p>

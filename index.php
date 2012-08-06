@@ -144,9 +144,16 @@ DOC;
       endif;
     ?>
     <nav class="navigation">
+      <?php
+        $allpost_link = get_all_post_url();
+        $allpost_link_title = $allpost_link . '?list';
+      ?>
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link "href="<?php echo get_all_post_url(); ?>">すべてのトピック &raquo;</a>
+          <a class="navigation-list-item-link "href="<?php echo $allpost_link; ?>">すべてのトピック &raquo;</a>
+        </li>
+        <li class="navigation-list-item">
+          <a class="navigation-list-item-link" href="<?php echo $allpost_link_title; ?>">すべてのトピックのタイトル一覧</a>
         </li>
       </ul>
     </nav>
