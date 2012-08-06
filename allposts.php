@@ -25,6 +25,7 @@ get_header();
         if(have_posts()) :
           foreach ($posts as $post) :
             setup_postdata($post);
+            $the_id = get_the_ID();
          ?>
       <?php
         $class = $isList ? 'archive-post list' : 'archive-post';
