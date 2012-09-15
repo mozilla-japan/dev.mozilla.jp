@@ -248,6 +248,10 @@ img::selection {
 .entry-body > *:first-child {
   margin-top: 1em;
 }
+.entry-body ol > li,
+.entry-body ul > li {
+  margin-bottom: 0.5em;
+}
 
 /* projects list */
 .postmeta-project {
