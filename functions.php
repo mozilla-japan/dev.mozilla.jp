@@ -4,6 +4,78 @@
  * @subpackage modest3
  */
 
+/*
+ *
+ */
+add_filter('the_content', 'make_clickable_for_code');
+function make_clickable_for_code( $text ) {
+  $r = '';
+  $textarr = preg_split( '/(<[^<>]+>)/', $text, -1, PREG_SPLIT_DELIM_CAPTURE ); // split out HTML tags
+  $pre_tag = 0;
+  foreach ( $textarr as $piece ) {
+
+    /*
+     * preタグ中のリンクを無視する
+     */
+    if (strpos($piece, '<pre') !== FALSE){
+      $r .= $piece;
+      $pre_tag += 1;
+      continue;
+    }
+    if (strpos($piece, '</pre') !== FALSE){
+      $r .= $piece;
+      $pre_tag -= 1;
+      continue;
+    }
+    if( $pre_tag >= 1 ){
+      $r .= $piece;
+      continue;
+    }
+
+
+    if ( empty( $piece ) || ( $piece[0] == '<' && ! preg_match('|^<\s*[\w]{1,20}+://|', $piece) ) ) {
+      $r .= $piece;
+      continue;
+    }
+    // Long strings might contain expensive edge cases ...
+    if ( 10000 < strlen( $piece ) ) {
+      // ... break it up
+      foreach ( _split_str_by_whitespace( $piece, 2100 ) as $chunk ) { // 2100: Extra room for scheme and leading and trailing paretheses
+        if ( 2101 < strlen( $chunk ) ) {
+          $r .= $chunk; // Too big, no whitespace: bail.
+        } else {
+          $r .= make_clickable( $chunk );
+        }
+      }
+    } else {
+      $ret = " $piece "; // Pad with whitespace to simplify the regexes
+                        $url_clickable = '~
+                                ([\\s(<.,;:!?])                                        # 1: Leading whitespace, or punctuation
+                                (                                                      # 2: URL
+                                        [\\w]{1,20}+://                                # Scheme and hier-part prefix
+                                        (?=\S{1,2000}\s)                               # Limit to URLs less than about 2000 characters long
+                                        [\\w\\x80-\\xff#%\\~/@\\[\\]*(+=&$-]*+         # Non-punctuation URL character
+                                        (?:                                            # Unroll the Loop: Only allow puctuation URL character if followed by a non-punctuation URL character
+                                                [\'.,;:!?)]                            # Punctuation URL character
+                                                [\\w\\x80-\\xff#%\\~/@\\[\\]*(+=&$-]++ # Non-punctuation URL character
+                                        )*
+                                )
+                                (\)?)                                                  # 3: Trailing closing parenthesis (for parethesis balancing post processing)
+                        ~xS'; // The regex is a non-anchored pattern and does not have a single fixed starting character.
+                              // Tell PCRE to spend more time optimizing since, when used on a page load, it will probably be used several times.
+                        $ret = preg_replace_callback( $url_clickable, '_make_url_clickable_cb', $ret );
+                        $ret = preg_replace_callback( '#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]+)#is', '_make_web_ftp_clickable_cb', $ret );
+                        $ret = preg_replace_callback( '#([\s>])([.0-9a-z_+-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})#i', '_make_email_clickable_cb', $ret );
+                        $ret = substr( $ret, 1, -1 ); // Remove our whitespace padding.
+                        $r .= $ret;
+    }
+  }
+  // Cleanup of accidental links within links
+  $r = preg_replace( '#(<a( [^>]+?>|>))<a [^>]+?>([^>]+?)</a></a>#i', "$1$3</a>", $r );
+  return $r;
+}
+
+
 function getPageTitle( $url ){
 	$html = file_get_contents($url); //(1)
 	$html = mb_convert_encoding($html, mb_internal_encoding(), "auto" ); //(2)
