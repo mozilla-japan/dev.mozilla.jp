@@ -380,7 +380,7 @@ function event_meta_html($post, $box){
 
   <?php
     $timestamp = (int)get_post_meta($id, 'start_time', true);
-
+    $start_all_day = (bool)get_post_meta($id, 'start_all_day', true);
     $is_date_none = false;
     if ($timestamp == 0) {
       $is_date_none = true;
@@ -409,7 +409,7 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="start_time-hour"
            type="number"
-           placeholder="13"
+           placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
@@ -420,10 +420,14 @@ function event_meta_html($post, $box){
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
+    <label><input name="start_all_day" type="checkbox"
+     <?php echo (($start_all_day) ? "checked" : ""); ?>
+                  style="width: 2em;"/>終日</label>
   </dd>
 
   <?php
     $timestamp = (int)get_post_meta($id, 'end_time', true);
+    $end_all_day = (bool)get_post_meta($id, 'end_all_day', true);
 
     $is_date_none = false;
     if ($timestamp == 0) {
@@ -454,7 +458,7 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="end_time-hour"
            type="number"
-           placeholder="14"
+           placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
@@ -465,6 +469,9 @@ function event_meta_html($post, $box){
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
+    <label><input name="end_all_day" type="checkbox"
+                            <?php echo (($end_all_day) ? "checked" : ""); ?>
+                  style="width: 2em;"/>終日</label>
   </dd>
 
   <?php
@@ -654,7 +661,8 @@ function event_update($post_id){
     }else{
         return $post_id;
     }
-
+    $start_all_day = isset($_POST['start_all_day']);
+    $end_all_day = isset($_POST['end_all_day']);
     $start_time = getUnixTimeStamp('start_time');
     $end_time = getUnixTimeStamp('end_time');
     $place = trim($_POST['place']);
@@ -663,6 +671,8 @@ function event_update($post_id){
     $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
 
+    update_post_meta($post_id, 'start_all_day', $start_all_day);
+    update_post_meta($post_id, 'end_all_day', $end_all_day);
     if($start_time == ''){
       delete_post_meta($post_id, 'start_time');
     } else {
@@ -703,11 +713,17 @@ function event_update($post_id){
     }
 }
 function getUnixTimeStamp ($time_point) {
-  $year = trim($_POST[$time_point .'-year']);
-  $month = trim($_POST[$time_point .'-month']);
+  $year = (int)trim($_POST[$time_point .'-year']);
+  $month = (int)trim($_POST[$time_point .'-month']);
   $day = trim($_POST[$time_point .'-day']);
   $hour = trim($_POST[$time_point .'-hour']);
   $minute = trim($_POST[$time_point .'-minute']);
+  if($hour == ''){
+    $hour = 12;
+  }
+  if($minute == ''){
+    $minute = 0;
+  }
   return mktime($hour, $minute, 0, $month, $day, $year);
 }
 
@@ -1023,7 +1039,7 @@ function get_all_post_url(){
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');
 function new_excerpt_more($post) {
-  return '<a href="'. get_permalink($post->ID) . '">' . '続きを読む...' . '</a>';
+  return '<a href="'. get_permalink() . '">' . '続きを読む...' . '</a>';
 }
 
 /* admin page  */
@@ -1175,12 +1191,14 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 }
 function get_the_event_date ($id) {
   $start_timestamp = (int)get_post_meta($id, 'start_time', true);
+  $start_all_day = (bool)get_post_meta($id, 'start_all_day', true);
   // if $start_timestamp is not set.
   if ($start_timestamp == 0) {
     return "";
   }
 
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
+  $end_all_day = (bool)get_post_meta($id, 'end_all_day', true);
   // if $end_timestamp is not set.
   if ($end_timestamp == 0) {
     $end_timestamp = $start_timestamp;
@@ -1191,9 +1209,13 @@ function get_the_event_date ($id) {
 
   $start_str_year = date('Y年', $start_timestamp);
   $start_str_monthday = date('n月j日', $start_timestamp);
-  $start_str_time = ' ' . date('H:i', $start_timestamp);
+  ($start_all_day) ? $start_str_time = '' : $start_str_time = ' ' . date('H:i', $start_timestamp);;
   $start_str = $start_str_year . $start_str_monthday . $start_str_time;
-  $end_str = date('Y年n月j日 H:i', $end_timestamp);
+
+  $end_str_year = date('Y年', $end_timestamp);
+  $end_str_monthday = date('n月j日', $end_timestamp);
+  ($end_all_day) ? $end_str_time = '' : $end_str_time = ' ' . date('H:i', $end_timestamp);;
+  $end_str = $end_str_year . $end_str_monthday . $end_str_time;
 
   $start_str_array = array($start_str_year, $start_str_monthday, $start_str_time);
   $isBr = true;
@@ -1212,7 +1234,7 @@ function get_the_event_date ($id) {
     }
   }
   $end_str = trim($end_str);
-  $br = $isBr ? '<br />' : '-';
+  $br = $isBr ? '<br />-' : '-';
 
   return <<< DOC
 <time datetime="$start_datetime">$start_str</time>
@@ -1506,7 +1528,7 @@ function php_feed_list($php_url, $count_limit) {
                  echo '</div>';
                }
          ?>
-             <p class="postmeta-title">投稿日時</p>
+             <p class="posteta-title">投稿日時</p>
              <div class="postmeta-content">
                <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
                  <?php echo esc_html($com_date); ?>
