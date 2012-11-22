@@ -929,6 +929,12 @@ function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
   $date = get_the_time($format, false, $postId);
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 }
+/* print a time of final edit (use in loop)*/
+function the_time_of_final_edit ($format = 'Y年n月j日 G:i:s') {
+  $datetime = get_the_modified_date('Y-m-d H:i:s');
+  $date = get_the_modified_date($format);
+  echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+}
 
 /* return the url of "projects" page (string) */
 function get_project_url () {

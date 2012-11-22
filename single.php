@@ -55,11 +55,23 @@ get_header();
 					the_author_post_link_with_avatar(48);
 				?>
 			</address>
-			<p class="postmeta-title">投稿日時</p>
+		  
+      <p class="postmeta-title">投稿日時</p>
 			<div class="postmeta-content">
+        投稿日時
 				<?php
-					the_time_of_the_post($the_id);
-				?>
+					 the_time_of_the_post($the_id);
+				   ?>
+      </div>
+      
+      <?php if (get_the_modified_date('Y年n月j日') != get_the_time('Y年n月j日')) : ?>
+			<p class="postmeta-title">更新日時</p>
+			<div class="postmeta-content">
+        更新日時
+				  <?php
+             the_time_of_final_edit();
+					   ?>
+          <?php endif; ?>
 			</div>
 		</div>
 
