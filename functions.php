@@ -939,14 +939,14 @@ function the_project_list_of_the_post ($postId) {
   </ul>
 DOC;
 }
-/* print a time of the post */
-function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
+/* print a time of the post Y年n月j日 G:i:s*/
+function the_time_of_the_post ($postId, $format = 'Y年n月j日') {
   $datetime = get_the_time('Y-m-d H:i:s', false, $postId);
   $date = get_the_time($format, false, $postId);
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 }
-/* print a time of final edit (use in loop)*/
-function the_time_of_final_edit ($format = 'Y年n月j日 G:i:s') {
+/* print a time of final edit (use in loop) Y年n月j日 G:i:s*/
+function the_time_of_final_edit ($format = 'Y年n月j日') {
   $datetime = get_the_modified_date('Y-m-d H:i:s');
   $date = get_the_modified_date($format);
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
@@ -1234,7 +1234,7 @@ function get_the_event_date ($id) {
     }
   }
   $end_str = trim($end_str);
-  $br = $isBr ? '<br />-' : '-';
+  $br = $isBr ? '<br />' : '-';
 
   return <<< DOC
 <time datetime="$start_datetime">$start_str</time>

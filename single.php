@@ -56,7 +56,7 @@ get_header();
 				?>
 			</address>
 		  
-      <p class="postmeta-title">投稿日時</p>
+      <p class="postmeta-title">投稿日</p>
 			<div class="postmeta-content">
         投稿日時
 				<?php
@@ -65,7 +65,7 @@ get_header();
       </div>
       
       <?php if (get_the_modified_date('Y年n月j日') != get_the_time('Y年n月j日')) : ?>
-			<p class="postmeta-title">更新日時</p>
+			<p class="postmeta-title">更新日</p>
 			<div class="postmeta-content">
         更新日時
 				  <?php
