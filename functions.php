@@ -4,6 +4,78 @@
  * @subpackage modest3
  */
 
+/*
+ *
+ */
+add_filter('the_content', 'make_clickable_for_code');
+function make_clickable_for_code( $text ) {
+  $r = '';
+  $textarr = preg_split( '/(<[^<>]+>)/', $text, -1, PREG_SPLIT_DELIM_CAPTURE ); // split out HTML tags
+  $pre_tag = 0;
+  foreach ( $textarr as $piece ) {
+
+    /*
+     * preタグ中のリンクを無視する
+     */
+    if (strpos($piece, '<pre') !== FALSE){
+      $r .= $piece;
+      $pre_tag += 1;
+      continue;
+    }
+    if (strpos($piece, '</pre') !== FALSE){
+      $r .= $piece;
+      $pre_tag -= 1;
+      continue;
+    }
+    if( $pre_tag >= 1 ){
+      $r .= $piece;
+      continue;
+    }
+
+
+    if ( empty( $piece ) || ( $piece[0] == '<' && ! preg_match('|^<\s*[\w]{1,20}+://|', $piece) ) ) {
+      $r .= $piece;
+      continue;
+    }
+    // Long strings might contain expensive edge cases ...
+    if ( 10000 < strlen( $piece ) ) {
+      // ... break it up
+      foreach ( _split_str_by_whitespace( $piece, 2100 ) as $chunk ) { // 2100: Extra room for scheme and leading and trailing paretheses
+        if ( 2101 < strlen( $chunk ) ) {
+          $r .= $chunk; // Too big, no whitespace: bail.
+        } else {
+          $r .= make_clickable( $chunk );
+        }
+      }
+    } else {
+      $ret = " $piece "; // Pad with whitespace to simplify the regexes
+                        $url_clickable = '~
+                                ([\\s(<.,;:!?])                                        # 1: Leading whitespace, or punctuation
+                                (                                                      # 2: URL
+                                        [\\w]{1,20}+://                                # Scheme and hier-part prefix
+                                        (?=\S{1,2000}\s)                               # Limit to URLs less than about 2000 characters long
+                                        [\\w\\x80-\\xff#%\\~/@\\[\\]*(+=&$-]*+         # Non-punctuation URL character
+                                        (?:                                            # Unroll the Loop: Only allow puctuation URL character if followed by a non-punctuation URL character
+                                                [\'.,;:!?)]                            # Punctuation URL character
+                                                [\\w\\x80-\\xff#%\\~/@\\[\\]*(+=&$-]++ # Non-punctuation URL character
+                                        )*
+                                )
+                                (\)?)                                                  # 3: Trailing closing parenthesis (for parethesis balancing post processing)
+                        ~xS'; // The regex is a non-anchored pattern and does not have a single fixed starting character.
+                              // Tell PCRE to spend more time optimizing since, when used on a page load, it will probably be used several times.
+                        $ret = preg_replace_callback( $url_clickable, '_make_url_clickable_cb', $ret );
+                        $ret = preg_replace_callback( '#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]+)#is', '_make_web_ftp_clickable_cb', $ret );
+                        $ret = preg_replace_callback( '#([\s>])([.0-9a-z_+-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})#i', '_make_email_clickable_cb', $ret );
+                        $ret = substr( $ret, 1, -1 ); // Remove our whitespace padding.
+                        $r .= $ret;
+    }
+  }
+  // Cleanup of accidental links within links
+  $r = preg_replace( '#(<a( [^>]+?>|>))<a [^>]+?>([^>]+?)</a></a>#i', "$1$3</a>", $r );
+  return $r;
+}
+
+
 function getPageTitle( $url ){
 	$html = file_get_contents($url); //(1)
 	$html = mb_convert_encoding($html, mb_internal_encoding(), "auto" ); //(2)
@@ -308,7 +380,7 @@ function event_meta_html($post, $box){
 
   <?php
     $timestamp = (int)get_post_meta($id, 'start_time', true);
-
+    $start_all_day = (bool)get_post_meta($id, 'start_all_day', true);
     $is_date_none = false;
     if ($timestamp == 0) {
       $is_date_none = true;
@@ -337,7 +409,7 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="start_time-hour"
            type="number"
-           placeholder="13"
+           placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
@@ -348,10 +420,14 @@ function event_meta_html($post, $box){
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
+    <label><input name="start_all_day" type="checkbox"
+     <?php echo (($start_all_day) ? "checked" : ""); ?>
+                  style="width: 2em;"/>終日</label>
   </dd>
 
   <?php
     $timestamp = (int)get_post_meta($id, 'end_time', true);
+    $end_all_day = (bool)get_post_meta($id, 'end_all_day', true);
 
     $is_date_none = false;
     if ($timestamp == 0) {
@@ -382,7 +458,7 @@ function event_meta_html($post, $box){
                   style="width: 2em;"/>日</label>
     <input name="end_time-hour"
            type="number"
-           placeholder="14"
+           placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
            style="width: 2em;"/>
@@ -393,6 +469,9 @@ function event_meta_html($post, $box){
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
            style="width: 2em;"/>
+    <label><input name="end_all_day" type="checkbox"
+                            <?php echo (($end_all_day) ? "checked" : ""); ?>
+                  style="width: 2em;"/>終日</label>
   </dd>
 
   <?php
@@ -582,7 +661,8 @@ function event_update($post_id){
     }else{
         return $post_id;
     }
-
+    $start_all_day = isset($_POST['start_all_day']);
+    $end_all_day = isset($_POST['end_all_day']);
     $start_time = getUnixTimeStamp('start_time');
     $end_time = getUnixTimeStamp('end_time');
     $place = trim($_POST['place']);
@@ -591,6 +671,8 @@ function event_update($post_id){
     $website = trim($_POST['website']);
     $hashtag = trim($_POST['hashtag']);
 
+    update_post_meta($post_id, 'start_all_day', $start_all_day);
+    update_post_meta($post_id, 'end_all_day', $end_all_day);
     if($start_time == ''){
       delete_post_meta($post_id, 'start_time');
     } else {
@@ -631,11 +713,17 @@ function event_update($post_id){
     }
 }
 function getUnixTimeStamp ($time_point) {
-  $year = trim($_POST[$time_point .'-year']);
-  $month = trim($_POST[$time_point .'-month']);
+  $year = (int)trim($_POST[$time_point .'-year']);
+  $month = (int)trim($_POST[$time_point .'-month']);
   $day = trim($_POST[$time_point .'-day']);
   $hour = trim($_POST[$time_point .'-hour']);
   $minute = trim($_POST[$time_point .'-minute']);
+  if($hour == ''){
+    $hour = 12;
+  }
+  if($minute == ''){
+    $minute = 0;
+  }
   return mktime($hour, $minute, 0, $month, $day, $year);
 }
 
@@ -851,10 +939,16 @@ function the_project_list_of_the_post ($postId) {
   </ul>
 DOC;
 }
-/* print a time of the post */
-function the_time_of_the_post ($postId, $format = 'Y年n月j日 G:i:s') {
+/* print a time of the post Y年n月j日 G:i:s*/
+function the_time_of_the_post ($postId, $format = 'Y年n月j日') {
   $datetime = get_the_time('Y-m-d H:i:s', false, $postId);
   $date = get_the_time($format, false, $postId);
+  echo('<time datetime="' . $datetime . '">'. $date . '</time>');
+}
+/* print a time of final edit (use in loop) Y年n月j日 G:i:s*/
+function the_time_of_final_edit ($format = 'Y年n月j日') {
+  $datetime = get_the_modified_date('Y-m-d H:i:s');
+  $date = get_the_modified_date($format);
   echo('<time datetime="' . $datetime . '">'. $date . '</time>');
 }
 
@@ -945,7 +1039,7 @@ function get_all_post_url(){
 /* read more [...] link for the_excerpt() */
 add_filter('excerpt_more', 'new_excerpt_more');
 function new_excerpt_more($post) {
-  return '<a href="'. get_permalink($post->ID) . '">' . '続きを読む...' . '</a>';
+  return '<a href="'. get_permalink() . '">' . '続きを読む...' . '</a>';
 }
 
 /* admin page  */
@@ -1097,12 +1191,14 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 }
 function get_the_event_date ($id) {
   $start_timestamp = (int)get_post_meta($id, 'start_time', true);
+  $start_all_day = (bool)get_post_meta($id, 'start_all_day', true);
   // if $start_timestamp is not set.
   if ($start_timestamp == 0) {
     return "";
   }
 
   $end_timestamp = (int)get_post_meta($id, 'end_time', true);
+  $end_all_day = (bool)get_post_meta($id, 'end_all_day', true);
   // if $end_timestamp is not set.
   if ($end_timestamp == 0) {
     $end_timestamp = $start_timestamp;
@@ -1113,9 +1209,13 @@ function get_the_event_date ($id) {
 
   $start_str_year = date('Y年', $start_timestamp);
   $start_str_monthday = date('n月j日', $start_timestamp);
-  $start_str_time = ' ' . date('H:i', $start_timestamp);
+  ($start_all_day) ? $start_str_time = '' : $start_str_time = ' ' . date('H:i', $start_timestamp);;
   $start_str = $start_str_year . $start_str_monthday . $start_str_time;
-  $end_str = date('Y年n月j日 H:i', $end_timestamp);
+
+  $end_str_year = date('Y年', $end_timestamp);
+  $end_str_monthday = date('n月j日', $end_timestamp);
+  ($end_all_day) ? $end_str_time = '' : $end_str_time = ' ' . date('H:i', $end_timestamp);;
+  $end_str = $end_str_year . $end_str_monthday . $end_str_time;
 
   $start_str_array = array($start_str_year, $start_str_monthday, $start_str_time);
   $isBr = true;
@@ -1428,7 +1528,7 @@ function php_feed_list($php_url, $count_limit) {
                  echo '</div>';
                }
          ?>
-             <p class="postmeta-title">投稿日時</p>
+             <p class="posteta-title">投稿日時</p>
              <div class="postmeta-content">
                <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
                  <?php echo esc_html($com_date); ?>
