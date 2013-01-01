@@ -1430,7 +1430,6 @@ label .note {
     padding: 0.8em 0;
     border-top: 1px dotted #ccc;
     margin: 0.8em auto;
-    text-align: center;
   }
   .mozilla_ring_category:last-of-type {
     border-bottom: 1px dotted #ccc;
