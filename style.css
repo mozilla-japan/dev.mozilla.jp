@@ -130,7 +130,7 @@ a:hover,a:active{
 ::selection {
   background: #6bd7f3;
 }
-img::-moz-selection	{
+img::-moz-selection {
   background: transparent;
 }
 img::selection {

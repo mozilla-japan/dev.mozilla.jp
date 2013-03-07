@@ -77,14 +77,14 @@ function make_clickable_for_code( $text ) {
 
 
 function getPageTitle( $url ){
-	$html = file_get_contents($url); //(1)
-	$html = mb_convert_encoding($html, mb_internal_encoding(), "auto" ); //(2)
-	if ( preg_match( "/<title>(.*?)<\/title>/i", $html, $matches) ) {
-		//(3)
-		return $matches[1];
-	} else {
-		return false;
-	}
+  $html = file_get_contents($url); //(1)
+  $html = mb_convert_encoding($html, mb_internal_encoding(), "auto" ); //(2)
+  if ( preg_match( "/<title>(.*?)<\/title>/i", $html, $matches) ) {
+    //(3)
+    return $matches[1];
+  } else {
+    return false;
+  }
 }
 /*
  * サムネイルについて
@@ -93,30 +93,30 @@ add_theme_support('post-thumbnails');
 set_post_thumbnail_size(102,102);
 
 if(!current_user_can( 'administrator' )){
-	function spam_delete_comment_link($id) {
-		global $comment, $post;
-		if ( $post->post_type == 'page' ){
-			if ( !current_user_can( 'edit_page', $post->ID) )
-			return;
-		} else {
-			if( !current_user_can( 'edit_post', $post->ID) )
-			return;
-		}
-		$id = $comment -> comment_ID;
-		if ( null === $link)
-		$link = __('Edit');
-		$link = '<a class="comment-edit-link" href"' . get_edit_comment_link($comment -> comment_ID ) . '" title="' . __( 'Edit comment' ) . '">' . $link . '</a>';
-		$link = $link . ' | <a href="'.admin_url("comment.php?action=cdc&c=$id").'">削除</a> ';
-		$link = $link . ' | <a href="'.admin_url("comment.php?action=cdc&dt=spam&c=$id").'">スパム</a>';
-		$link = $before . $link . $after;
-		return $link;
-	}
-	add_filter('edit_comment_link', 'spam_delete_comment_link');
+  function spam_delete_comment_link($id) {
+    global $comment, $post;
+    if ( $post->post_type == 'page' ){
+      if ( !current_user_can( 'edit_page', $post->ID) )
+      return;
+    } else {
+      if( !current_user_can( 'edit_post', $post->ID) )
+      return;
+    }
+    $id = $comment -> comment_ID;
+    if ( null === $link)
+    $link = __('Edit');
+    $link = '<a class="comment-edit-link" href"' . get_edit_comment_link($comment -> comment_ID ) . '" title="' . __( 'Edit comment' ) . '">' . $link . '</a>';
+    $link = $link . ' | <a href="'.admin_url("comment.php?action=cdc&c=$id").'">削除</a> ';
+    $link = $link . ' | <a href="'.admin_url("comment.php?action=cdc&dt=spam&c=$id").'">スパム</a>';
+    $link = $before . $link . $after;
+    return $link;
+  }
+  add_filter('edit_comment_link', 'spam_delete_comment_link');
 
-	function custom_admin_footer(){
-		echo 'mozilla developer street';
-	}
-	add_filter('admin_footer_text', 'custom_admin_footer');
+  function custom_admin_footer(){
+    echo 'mozilla developer street';
+  }
+  add_filter('admin_footer_text', 'custom_admin_footer');
 }
 
 /*
@@ -127,100 +127,100 @@ if(!current_user_can( 'administrator' )){
  *デフォルトのコンタクトフィールドを削除する
 */
 function hide_profile_fields( $contactmethods ){
-	unset($contactmethods['aim']);
-	unset($contactmethods['jabber']);
-	unset($contactmethods['yim']);
-	return $contactmethods;
+  unset($contactmethods['aim']);
+  unset($contactmethods['jabber']);
+  unset($contactmethods['yim']);
+  return $contactmethods;
 }
 add_filter('user_contactmethods','hide_profile_fields',10,1);
 
 //Twitter IDフォームを設置する
 function add_user_twitter_form($bool){
-	//フォームを出す
-	global $profileuser;
-	if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
-		?>
+  //フォームを出す
+  global $profileuser;
+  if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
+    ?>
 <tr>
-	<th scope="row">Twitter ID</th>
-	<td>@<input type="text" name="twitter_id" id="twitter_id"
-		value="<?php echo esc_html( $profileuser->twitter_id ); ?>" />
-	</td>
+  <th scope="row">Twitter ID</th>
+  <td>@<input type="text" name="twitter_id" id="twitter_id"
+    value="<?php echo esc_html( $profileuser->twitter_id ); ?>" />
+  </td>
 </tr>
 
 <?php
-	}
-	return $bool;
+  }
+  return $bool;
 }
 add_action('show_password_fields','add_user_twitter_form');
 
 function update_user_twitter_form($user_id,$old_user_data){
-	//登録処理
-	if ( isset( $_POST['twitter_id'] ) && $old_user_data -> twitter_id != $_POST['twitter_id'] ){
-		$twitter_id = sanitize_text_field( $_POST['twitter_id'] );
-		$twitter_id = wp_filter_kses( $twitter_id );
-		$twitter_id = _wp_specialchars( $twitter_id );
-		update_user_meta( $user_id , 'twitter_id', $twitter_id );
-	}
+  //登録処理
+  if ( isset( $_POST['twitter_id'] ) && $old_user_data -> twitter_id != $_POST['twitter_id'] ){
+    $twitter_id = sanitize_text_field( $_POST['twitter_id'] );
+    $twitter_id = wp_filter_kses( $twitter_id );
+    $twitter_id = _wp_specialchars( $twitter_id );
+    update_user_meta( $user_id , 'twitter_id', $twitter_id );
+  }
 }
 add_action( 'profile_update', 'update_user_twitter_form', 10, 2);
 
 //Facebook IDフォームを設置する
 function add_user_facebook_form($bool){
-	//フォームを出す
-	global $profileuser;
-	if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
-		?>
+  //フォームを出す
+  global $profileuser;
+  if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
+    ?>
 <tr>
-	<th scope="row">Facebook</th>
-	<td><input type="text" name="facebook_id" id="facebook_id"
-		value="<?php echo esc_html( $profileuser->facebook_id ); ?>" />
-	</td>
+  <th scope="row">Facebook</th>
+  <td><input type="text" name="facebook_id" id="facebook_id"
+    value="<?php echo esc_html( $profileuser->facebook_id ); ?>" />
+  </td>
 </tr>
 
 <?php
-	}
-	return $bool;
+  }
+  return $bool;
 }
 add_action('show_password_fields','add_user_facebook_form');
 
 function update_user_facebook_form($user_id,$old_user_data){
-	//登録処理
-	if ( isset( $_POST['facebook_id'] ) && $old_user_data -> facebook_id != $_POST['facebook_id'] ){
-		$facebook_id = sanitize_text_field( $_POST['facebook_id'] );
-		$facebook_id = wp_filter_kses( $facebook_id );
-		$facebook_id = _wp_specialchars( $facebook_id );
-		update_user_meta( $user_id , 'facebook_id', $facebook_id );
-	}
+  //登録処理
+  if ( isset( $_POST['facebook_id'] ) && $old_user_data -> facebook_id != $_POST['facebook_id'] ){
+    $facebook_id = sanitize_text_field( $_POST['facebook_id'] );
+    $facebook_id = wp_filter_kses( $facebook_id );
+    $facebook_id = _wp_specialchars( $facebook_id );
+    update_user_meta( $user_id , 'facebook_id', $facebook_id );
+  }
 }
 add_action( 'profile_update', 'update_user_facebook_form', 10, 3);
 
 //SkypeIDフォームを設置する。
 function add_user_skype_form($bool){
-	//フォームを出す
-	global $profileuser;
-	if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
-		?>
+  //フォームを出す
+  global $profileuser;
+  if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
+    ?>
 <tr>
-	<th scope="row">Skype</th>
-	<td><input type="text" name="skype_id" id="skype_id"
-		value="<?php echo esc_html( $profileuser->skype_id ); ?>" />
-	</td>
+  <th scope="row">Skype</th>
+  <td><input type="text" name="skype_id" id="skype_id"
+    value="<?php echo esc_html( $profileuser->skype_id ); ?>" />
+  </td>
 </tr>
 
 <?php
-	}
-	return $bool;
+  }
+  return $bool;
 }
 add_action('show_password_fields','add_user_skype_form');
 
 function update_user_skype_form($user_id,$old_user_data){
-	//登録処理
-	if ( isset( $_POST['skype_id'] ) && $old_user_data -> skype_id != $_POST['skype_id'] ){
-		$skype_id = sanitize_text_field( $_POST['skype_id'] );
-		$skype_id = wp_filter_kses( $skype_id );
-		$skype_id = _wp_specialchars( $skype_id );
-		update_user_meta( $user_id , 'skype_id', $skype_id );
-	}
+  //登録処理
+  if ( isset( $_POST['skype_id'] ) && $old_user_data -> skype_id != $_POST['skype_id'] ){
+    $skype_id = sanitize_text_field( $_POST['skype_id'] );
+    $skype_id = wp_filter_kses( $skype_id );
+    $skype_id = _wp_specialchars( $skype_id );
+    update_user_meta( $user_id , 'skype_id', $skype_id );
+  }
 }
 add_action( 'profile_update', 'update_user_skype_form', 10, 3);
 
@@ -244,9 +244,9 @@ function create_Project(){
                   'not_found' => '投稿されたプロジェクトはありません',
                   'not_found_in_trash' => 'ゴミ箱にプロジェクトはありません。',
                   'parent_item_colon' => '');
-	register_post_type(
+  register_post_type(
         'project',
-	array(
+  array(
             'label' => 'プロジェクト',
             'labels' => $labels,
             'public' => true,
@@ -263,7 +263,7 @@ function create_Project(){
                 ),
             'register_meta_box_cb' => 'project_meta_box'
         )
-	);
+  );
 }
 
 add_action('init','create_Event',0);
@@ -306,7 +306,7 @@ function create_Event(){
  *プロジェクトのポスト画面に新たに情報フォームを追加する
 */
 function project_meta_box($post){
-	add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
+  add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
 }
 function menu_meta_html($post, $box){
   $id = $post->ID;
@@ -580,46 +580,46 @@ function save_extra_category_fileds( $term_id ){
  */
 add_action('save_post', 'project_cat_create');
 function project_cat_create($post_id){
-	/*
-	 *このコードを入れるとリビジョンのidを使ってしまうため、カテゴリへの反映が次回の編集で行われる。
+  /*
+   *このコードを入れるとリビジョンのidを使ってしまうため、カテゴリへの反映が次回の編集で行われる。
    *しかし、Wordpressのリファレンスにはwp_is_post_revisionを使わないと最新版ではないと書いてあった。
    *if(wp_is_post_revision($post_id)){
    *$post_id = wp_is_post_revision($post_id);
    *}
    */
-	$post_info = get_post($post_id);
+  $post_info = get_post($post_id);
 
-	if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish'){
-		$title = $post_info->post_title;
-		$desc = $post_info->post_excerpt;
-		$slug = $post_info->post_name;
-		$catid = (int)get_post_meta($post_id, 'catid', true);
-		//カテゴリの作成
-		if($catid == 0){
-			$procat = array(
+  if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish'){
+    $title = $post_info->post_title;
+    $desc = $post_info->post_excerpt;
+    $slug = $post_info->post_name;
+    $catid = (int)get_post_meta($post_id, 'catid', true);
+    //カテゴリの作成
+    if($catid == 0){
+      $procat = array(
                 'cat_name' => $title,
                 'category_nicename' => $slug,
                 'category_parent' => get_cat_ID('projects'),
                 'category_description' => $desc);
-			$tempcatid = wp_insert_category($procat, false);
-			if($tempcatid == 0){
-				echo 'error: wp_insert_category <br>';
-				return $post_id;
-			} else {
-				update_post_meta($post_id, 'catid', $tempcatid);
-			}
+      $tempcatid = wp_insert_category($procat, false);
+      if($tempcatid == 0){
+        echo 'error: wp_insert_category <br>';
+        return $post_id;
+      } else {
+        update_post_meta($post_id, 'catid', $tempcatid);
+      }
       $t_id = $tempcatid;
-		} else {
-			$termarr = array(
+    } else {
+      $termarr = array(
                 'name' => $title,
                 'slug' => $slug,
                 'taxonomy' => 'category',
                 'description' => $desc,
                 'parent' => get_cat_ID('projects')
-			);
+      );
 
-			$tempcatid = wp_update_term($catid, 'category', $termarr);
-			if(is_wp_error($tempcatid)){
+      $tempcatid = wp_update_term($catid, 'category', $termarr);
+      if(is_wp_error($tempcatid)){
         if($wp_error){
           return $cat_ID;
         }else{
@@ -629,20 +629,20 @@ function project_cat_create($post_id){
         update_post_meta($post_id, 'catid', $tempcatid['term_id']);
       }
       $t_id = $tempcatid['term_id'];
-		}
+    }
     $cat_meta = get_option( "cat_$t_id" );
     $cat_meta['project_id'] = $post_id;
     update_option( "cat_$t_id", $cat_meta);
-	}
+  }
 }
 
 add_action('before_delete_post', 'delete_project');
 function delete_project($post_id){
-	$post_info = get_post($post_id);
-	if($post_info->post_type == 'project'){
-		$catid = (int)get_post_meta($post_id, 'catid', true);
-		wp_delete_category( $catid );
-	}
+  $post_info = get_post($post_id);
+  if($post_info->post_type == 'project'){
+    $catid = (int)get_post_meta($post_id, 'catid', true);
+    wp_delete_category( $catid );
+  }
 }
 
 add_action('save_post', 'event_update');
@@ -730,42 +730,42 @@ function getUnixTimeStamp ($time_point) {
 
 add_action('save_post', 'menu_update');
 function menu_update($post_id){
-	if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
-		return $post_id;
-	}
+  if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
+    return $post_id;
+  }
 
   if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
     return $post_id;
   }
-	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
-		return $post_id;
-	}
+  if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+    return $post_id;
+  }
 
-	if('project' == $_POST['post_type']){
-		if(!current_user_can('edit_post', $post_id)){
-			return $post_id;
-		}
-	}else{
-		return $post_id;
-	}
+  if('project' == $_POST['post_type']){
+    if(!current_user_can('edit_post', $post_id)){
+      return $post_id;
+    }
+  }else{
+    return $post_id;
+  }
 
-	$url = trim($_POST['url']);
+  $url = trim($_POST['url']);
   $rss = trim($_POST['rss']);
   $catid = trim($_POST['catid']);
 
   if($catid != '' || $catid != 0){
     update_post_meta($post_id, 'catid', $catid);
   }
-	if($url == ''){
-		delete_post_meta($post_id, 'url');
-	} else {
-		update_post_meta($post_id, 'url', $url);
-	}
-	if($rss == ''){
-		delete_post_meta($post_id, 'rss');
-	} else {
-		update_post_meta($post_id, 'rss', $rss);
-	}
+  if($url == ''){
+    delete_post_meta($post_id, 'url');
+  } else {
+    update_post_meta($post_id, 'url', $url);
+  }
+  if($rss == ''){
+    delete_post_meta($post_id, 'rss');
+  } else {
+    update_post_meta($post_id, 'rss', $rss);
+  }
 }
 
 /**ポストアイコン**/
@@ -961,25 +961,25 @@ function get_project_url () {
 /* return the url of "projects" page (string) */
 function get_about_url () {
   $base = get_bloginfo('url');
-	$path = '/about/';//将来的に/about/に修正？
-	return ($base . $path);
+  $path = '/about/';//将来的に/about/に修正？
+  return ($base . $path);
 }
 /* return the url of "events" page (string) */
 function get_event_url () {
   $base = get_bloginfo('url');
-	$path = '/events/'; //本番環境移行前にeventsスラッグの投稿のスラッグを変更しページのスラッグをeventsに変更する必要あり。(#78)
-	return ($base . $path);
+  $path = '/events/'; //本番環境移行前にeventsスラッグの投稿のスラッグを変更しページのスラッグをeventsに変更する必要あり。(#78)
+  return ($base . $path);
 }
 /* return the url of "addevent" page (string) */
 function get_add_event_url() {
   $base = get_bloginfo('url');
-	$path = '/newevent/';
-	return ($base . $path);
+  $path = '/newevent/';
+  return ($base . $path);
 }
 /* return the url of "addproject" page (string) */
 function get_add_project_url() {
   $base = get_bloginfo('url');
-	$path = '/newproject/';
+  $path = '/newproject/';
   return ($base . $path);
 }
 /* return the url of "joinmodest" page (string) */
@@ -1345,7 +1345,7 @@ function get_item_of_the_author_data ($user_data, $title, $param) {
         $content = '<a href="http://twitter.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
         break;
       case 'facebook_id':
-        $content = '<a href="	http://facebook.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
+        $content = '<a href=" http://facebook.com/'.esc_attr($value).'">'.esc_html($value).'</a>';
         break;
       default:
         $content = esc_html($value);
@@ -1417,50 +1417,50 @@ endif;
 * Use auto-excerpts for meta description if hand-crafted exerpt is missing
 */
 function fc_meta_desc() {
-	$post_desc_length  = 25; // auto-excerpt length in number of words
+  $post_desc_length  = 25; // auto-excerpt length in number of words
 
-	global $cat, $cache_categories, $wp_query, $wp_version;
-	if(is_single() || is_page()) {
-		$post = $wp_query->post;
-		$post_custom = get_post_custom($post->ID);
+  global $cat, $cache_categories, $wp_query, $wp_version;
+  if(is_single() || is_page()) {
+    $post = $wp_query->post;
+    $post_custom = get_post_custom($post->ID);
 
     if(!empty($post->post_excerpt)) {
-			$text = $post->post_excerpt;
-		} else {
-			$text = $post->post_content;
-		}
-		$text = str_replace(array("\r\n", "\r", "\n", "  "), " ", $text);
-		$text = str_replace(array("\""), "", $text);
-		$text = trim(strip_tags($text));
-		$text = explode(' ', $text);
-		if(count($text) > $post_desc_length) {
-			$l = $post_desc_length;
-			$ellipsis = '...';
-		} else {
-			$l = count($text);
-			$ellipsis = '';
-		}
-		$description = '';
-		for ($i=0; $i<$l; $i++)
-			$description .= $text[$i] . ' ';
+      $text = $post->post_excerpt;
+    } else {
+      $text = $post->post_content;
+    }
+    $text = str_replace(array("\r\n", "\r", "\n", "  "), " ", $text);
+    $text = str_replace(array("\""), "", $text);
+    $text = trim(strip_tags($text));
+    $text = explode(' ', $text);
+    if(count($text) > $post_desc_length) {
+      $l = $post_desc_length;
+      $ellipsis = '...';
+    } else {
+      $l = count($text);
+      $ellipsis = '';
+    }
+    $description = '';
+    for ($i=0; $i<$l; $i++)
+      $description .= $text[$i] . ' ';
 
-		$description .= $ellipsis;
-	} 
-	elseif(is_category()) {
-	  $category = $wp_query->get_queried_object();
-	  if (!empty($category->category_description)) {
-	    $description = trim(strip_tags($category->category_description));
-	  } else {
-	    $description = single_cat_title('Articles posted in ');
-	  }
+    $description .= $ellipsis;
   } 
-	else {
-		$description = trim(strip_tags(get_bloginfo('description')));
-	}
+  elseif(is_category()) {
+    $category = $wp_query->get_queried_object();
+    if (!empty($category->category_description)) {
+      $description = trim(strip_tags($category->category_description));
+    } else {
+      $description = single_cat_title('Articles posted in ');
+    }
+  } 
+  else {
+    $description = trim(strip_tags(get_bloginfo('description')));
+  }
 
-	if($description) {
-		echo $description;
-	}
+  if($description) {
+    echo $description;
+  }
 }
 
 function php_feed_list($php_url, $count_limit) {
@@ -1612,16 +1612,16 @@ function rss_feed_list($rss_url, $count_limit) {
       </article>
       <?php 
       $in_item = 0;
-		  $lp++;
+      $lp++;
     }
     if ($in_item) {
       switch ($tag) {
       case "pubdate":
       case "pubDate":
         $com_date = $value;
-				$com_date = strtotime($com_date);
-				$com_date_number = date('YmdHi',$com_date);
-				$com_date = date('Y年m月d日',$com_date);
+        $com_date = strtotime($com_date);
+        $com_date_number = date('YmdHi',$com_date);
+        $com_date = date('Y年m月d日',$com_date);
         break;
       case "title":
         // UTF-8ドキュメントの場合ここで

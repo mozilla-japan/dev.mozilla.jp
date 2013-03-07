@@ -10,119 +10,119 @@ get_header();
 <article id="content"
          role="main">
 
-	<?php
-		if (have_posts()) :
-			while (have_posts()) :
-				the_post();
-	?>
-	<?php
-		$the_id = get_the_ID();
-		$title = get_the_title();
-	?>
+  <?php
+    if (have_posts()) :
+      while (have_posts()) :
+        the_post();
+  ?>
+  <?php
+    $the_id = get_the_ID();
+    $title = get_the_title();
+  ?>
 
-	<header class="entry-header">
+  <header class="entry-header">
 
-		<h1 class="post-title"><?php echo esc_html($title); ?></h1>
+    <h1 class="post-title"><?php echo esc_html($title); ?></h1>
 
-		<?php
-			edit_the_link($the_id);
-		?>
-	</header>
+    <?php
+      edit_the_link($the_id);
+    ?>
+  </header>
 
-	<footer class="projectmeta">
+  <footer class="projectmeta">
 
-		<div class="project-icon">
-			<?php
-				if (has_post_thumbnail($post->ID)) {
-					the_post_thumbnail();
-				}
-			?>
-		</div>
+    <div class="project-icon">
+      <?php
+        if (has_post_thumbnail($post->ID)) {
+          the_post_thumbnail();
+        }
+      ?>
+    </div>
 
-		<?php the_metadata_of_project($the_id) ?>
+    <?php the_metadata_of_project($the_id) ?>
 
-	</footer>
+  </footer>
 
-	<div class="entry-body project-description">
-		<?php
-			the_content();
-		?>
-	</div>
+  <div class="entry-body project-description">
+    <?php
+      the_content();
+    ?>
+  </div>
 
-	<?php
-			endwhile;
-		else:
-			echo '<p>Sorry, no posts matched your criteria</p>';
-	  endif;
-	?>
+  <?php
+      endwhile;
+    else:
+      echo '<p>Sorry, no posts matched your criteria</p>';
+    endif;
+  ?>
 
-	<section id="project-latest-topics-list">
+  <section id="project-latest-topics-list">
     <?php $cat_id = get_post_meta($post->ID, 'catid', true);
     project_insert_post( $cat_id );
     ?>
-	  <h2>最新のトピック</h2>
-		<?php
-			$args = array('posts_per_page' => 5,
-			              'category' => $cat_id);
-			$posts = get_posts($args);
-			if($posts):
-				foreach($posts as $post):
-					setup_postdata($post);
-					$the_id = get_the_ID();
-		?>
+    <h2>最新のトピック</h2>
+    <?php
+      $args = array('posts_per_page' => 5,
+                    'category' => $cat_id);
+      $posts = get_posts($args);
+      if($posts):
+        foreach($posts as $post):
+          setup_postdata($post);
+          $the_id = get_the_ID();
+    ?>
 
-		<article class="feed-article">
-			<header>
-				<?php
-					/*
-					 * articles title
-					 */
-					$link = get_permalink();
-					$titleText = get_the_title();
-					echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
-				?>
+    <article class="feed-article">
+      <header>
+        <?php
+          /*
+           * articles title
+           */
+          $link = get_permalink();
+          $titleText = get_the_title();
+          echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
+        ?>
 
-				<?php
-					edit_the_link($the_id);
-				?>
-			</header>
+        <?php
+          edit_the_link($the_id);
+        ?>
+      </header>
 
-		  <footer class="meta-container">
-				<div class="postmeta">
-					<p class="postmeta-title">投稿者</p>
-					<address class="postmeta-content author">
-						<?php
-							the_author_post_link_with_avatar();
-						?>
-					</address>
-					<p class="postmeta-title">投稿日時</p>
-					<div class="postmeta-content">
-						<?php
-							the_time_of_the_post($the_id);
-						?>
-					</div>
-				</div>
-			</footer>
-		</article>
-	<?php
-			endforeach;
-		endif;
-	?>
-		<nav class="navigation">
-			<?php
-				$category_link = get_category_link($cat_id);
-				$category_link_title = $category_link . '?list';
-			?>
-			<ul class="navigation-list">
-				<li class="navigation-list-item">
-					<a class="navigation-list-item-link" href="<?php echo $category_link ?>">すべてのトピック</a>
-				</li>
-				<li class="navigation-list-item">
-					<a class="navigation-list-item-link" href="<?php echo $category_link_title ?>">トピックのタイトル一覧</a>
-				</li>
-			</ul>
-		</nav>
-	</section>
+      <footer class="meta-container">
+        <div class="postmeta">
+          <p class="postmeta-title">投稿者</p>
+          <address class="postmeta-content author">
+            <?php
+              the_author_post_link_with_avatar();
+            ?>
+          </address>
+          <p class="postmeta-title">投稿日時</p>
+          <div class="postmeta-content">
+            <?php
+              the_time_of_the_post($the_id);
+            ?>
+          </div>
+        </div>
+      </footer>
+    </article>
+  <?php
+      endforeach;
+    endif;
+  ?>
+    <nav class="navigation">
+      <?php
+        $category_link = get_category_link($cat_id);
+        $category_link_title = $category_link . '?list';
+      ?>
+      <ul class="navigation-list">
+        <li class="navigation-list-item">
+          <a class="navigation-list-item-link" href="<?php echo $category_link ?>">すべてのトピック</a>
+        </li>
+        <li class="navigation-list-item">
+          <a class="navigation-list-item-link" href="<?php echo $category_link_title ?>">トピックのタイトル一覧</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
 
   <section id="project_rss_feed">
       <?php
@@ -139,5 +139,5 @@ get_header();
 </article>
 
 <?php
-	get_footer();
+  get_footer();
 ?>

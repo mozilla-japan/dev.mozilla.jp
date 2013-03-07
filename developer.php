@@ -27,13 +27,13 @@ get_header(); ?>
   * user_url - ユーザのURL
   * user_registered - 登録日
   */
-	$szSort = "user_registered";
+  $szSort = "user_registered";
   $aUsersID = $wpdb->get_col( $wpdb->prepare("SELECT $wpdb->users.ID FROM $wpdb->users ORDER BY %s ASC", $szSort ));
   shuffle($aUsersID);
   ?>
-	<div id="developer_list">
+  <div id="developer_list">
     <ul>
-	    <?php
+      <?php
 foreach ( $aUsersID as $iUserID ){
   $user = get_userdata( $iUserID );
   echo '<li class="developerinfo">';
@@ -74,7 +74,7 @@ foreach ( $aUsersID as $iUserID ){
   /*
     The strtolower and ucwords part is to be sure
     the full names will all be capitalized.
-	*/
+  */
 } // end the users loop.
 ?>
     </ul>

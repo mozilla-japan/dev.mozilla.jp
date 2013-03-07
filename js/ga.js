@@ -3,8 +3,8 @@ var _gaq=[];
 var bc=cc=fc=uc=0,d=new Date(),p=document.location.pathname,t=d.getTime(),w=window,gt=function(){return Math.round(((new Date()).getTime()-t)/1000)},tr=function(a,c){_gaq.push(['_trackEvent',a,p,'Count:'+c,gt()])};
 _gaq.push(['_setAccount','UA-16361487-1'],['_setCustomVar',1,'day',["1.Sunday","2.Monday","3.Tuesday","4.Wednesday","5.Thursday","6.Friday","7.Saturday"][d.getDay()],3],['_trackPageview']);
 var ae=w.addEventListener ?
-	function(e,t,f){e.addEventListener(t,f,false)} :
-	function(e,t,f){e.attachEvent('on'+t,function(){return f.apply(e,arguments)})}
+  function(e,t,f){e.addEventListener(t,f,false)} :
+  function(e,t,f){e.attachEvent('on'+t,function(){return f.apply(e,arguments)})}
 var oc=function(){cc++;_gaq.push(['_trackEvent','link',this.href,p,gt()])};
 var ob=function(){bc++;tr('blur',bc)};
 var of=function(){fc++;tr('focus',fc)};

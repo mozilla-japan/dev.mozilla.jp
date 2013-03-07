@@ -11,7 +11,7 @@
 </title>
 
 <meta http-equiv="Content-Type"
-	content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
+  content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
 <style type="text/css" media="screen">
 @import
 url(
@@ -22,21 +22,21 @@ bloginfo(
 ?>
 );
 body {
-	margin: 3px;
+  margin: 3px;
 }
 </style>
 
 </head>
 <body id="commentspopup">
 
-	<h1 id="header">
-		<a href="" title="<?php echo get_option('blogname'); ?>"><?php echo get_option('blogname'); ?>
-		</a>
-	</h1>
-	
-	
-	
-	
+  <h1 id="header">
+    <a href="" title="<?php echo get_option('blogname'); ?>"><?php echo get_option('blogname'); ?>
+    </a>
+  </h1>
+  
+  
+  
+  
 
 <?php
 /* Don't remove these lines. */
@@ -59,21 +59,21 @@ extract($commenter);
 $comments = get_approved_comments($id);
 $post = get_post($id);
 if ( post_password_required($post) ) {  // and it doesn't match the cookie
-	echo(get_the_password_form());
+  echo(get_the_password_form());
 } else { ?>
 
 <?php if ($comments) { ?>
 <ol id="commentlist">
 <?php foreach ($comments as $comment) { ?>
-	<li id="comment-<?php comment_ID() ?>">
-	<?php comment_text() ?>
-	<p><cite><?php comment_type(__('Comment', 'kubrick'), __('Trackback', 'kubrick'), __('Pingback', 'kubrick')); ?> <?php printf(__('by %1$s &#8212; %2$s @ <a href="#comment-%3$s">%4$s</a>', 'kubrick'), get_comment_author_link(), get_comment_date(), get_comment_ID(), get_comment_time()); ?></cite></p>
-	</li>
+  <li id="comment-<?php comment_ID() ?>">
+  <?php comment_text() ?>
+  <p><cite><?php comment_type(__('Comment', 'kubrick'), __('Trackback', 'kubrick'), __('Pingback', 'kubrick')); ?> <?php printf(__('by %1$s &#8212; %2$s @ <a href="#comment-%3$s">%4$s</a>', 'kubrick'), get_comment_author_link(), get_comment_date(), get_comment_ID(), get_comment_time()); ?></cite></p>
+  </li>
 
 <?php } // end for each comment ?>
 </ol>
 <?php } else { // this is displayed if there are no comments so far ?>
-	<p><?php _e('No comments yet.', 'kubrick'); ?></p>
+  <p><?php _e('No comments yet.', 'kubrick'); ?></p>
 <?php } ?>
 
 <?php if ( comments_open() ) { ?>
@@ -82,36 +82,36 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 
 <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
 <?php if ( $user_ID ) : ?>
-	<p><?php printf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out &raquo;</a>', 'kubrick'), get_option('siteurl') . '/wp-admin/profile.php', $user_identity, wp_logout_url()); ?></p>
+  <p><?php printf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out &raquo;</a>', 'kubrick'), get_option('siteurl') . '/wp-admin/profile.php', $user_identity, wp_logout_url()); ?></p>
 <?php else : ?>
-	<p>
-	  <input type="text" name="author" id="author" class="textarea" value="<?php echo esc_attr($comment_author); ?>" size="28" tabindex="1" />
-	   <label for="author"><?php _e('Name', 'kubrick'); ?></label>
-	</p>
+  <p>
+    <input type="text" name="author" id="author" class="textarea" value="<?php echo esc_attr($comment_author); ?>" size="28" tabindex="1" />
+     <label for="author"><?php _e('Name', 'kubrick'); ?></label>
+  </p>
 
-	<p>
-	  <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="28" tabindex="2" />
-	   <label for="email"><?php _e('E-mail', 'kubrick'); ?></label>
-	</p>
+  <p>
+    <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="28" tabindex="2" />
+     <label for="email"><?php _e('E-mail', 'kubrick'); ?></label>
+  </p>
 
-	<p>
-	  <input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="28" tabindex="3" />
-	   <label for="url"><?php _e('<abbr title="Universal Resource Locator">URL</abbr>', 'kubrick'); ?></label>
-	</p>
+  <p>
+    <input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="28" tabindex="3" />
+     <label for="url"><?php _e('<abbr title="Universal Resource Locator">URL</abbr>', 'kubrick'); ?></label>
+  </p>
 <?php endif; ?>
 
-	<p>
-	  <label for="comment"><?php _e('Your Comment', 'kubrick'); ?></label>
-	<br />
-	  <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4"></textarea>
-	</p>
+  <p>
+    <label for="comment"><?php _e('Your Comment', 'kubrick'); ?></label>
+  <br />
+    <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4"></textarea>
+  </p>
 
-	<p>
-	  <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
-	  <input type="hidden" name="redirect_to" value="<?php echo esc_attr($_SERVER["REQUEST_URI"]); ?>" />
-	  <input name="submit" type="submit" tabindex="5" value="<?php _e('Say It!' , 'kubrick'); ?>" />
-	</p>
-	<?php do_action('comment_form', $post->ID); ?>
+  <p>
+    <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
+    <input type="hidden" name="redirect_to" value="<?php echo esc_attr($_SERVER["REQUEST_URI"]); ?>" />
+    <input name="submit" type="submit" tabindex="5" value="<?php _e('Say It!' , 'kubrick'); ?>" />
+  </p>
+  <?php do_action('comment_form', $post->ID); ?>
 </form>
 <?php } else { // comments are closed ?>
 <p><?php _e('Sorry, the comment form is closed at this time.', 'kubrick'); ?></p>
@@ -134,8 +134,8 @@ else: // have_posts()
 <script type="text/javascript">
 <!--
 document.onkeypress = function esc(e) {
-	if(typeof(e) == "undefined") { e=event; }
-	if (e.keyCode == 27) { self.close(); }
+  if(typeof(e) == "undefined") { e=event; }
+  if (e.keyCode == 27) { self.close(); }
 }
 // -->
 </script>

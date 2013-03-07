@@ -9,31 +9,31 @@ get_header();
 <article id="content"
          role="main">
 
-	<?php
-		if (have_posts()) :
-			while (have_posts()) :
-				the_post();
-	?>
+  <?php
+    if (have_posts()) :
+      while (have_posts()) :
+        the_post();
+  ?>
 
-	<header class="entry-header">
+  <header class="entry-header">
 
-		<h1 class="post-title"><?php the_title(); ?></h1>
+    <h1 class="post-title"><?php the_title(); ?></h1>
 
-	</header>
+  </header>
 
 
-	<div class="entry-body">
-		<?php
-			the_content('‘±‚«‚ð“Ç‚Þ');
-		?>
-	</div>
+  <div class="entry-body">
+    <?php
+      the_content('‘±‚«‚ð“Ç‚Þ');
+    ?>
+  </div>
 
 
 <?php
-		endwhile;
-	else:
-		echo '<p>Sorry, no posts matched your criteria</p>';
-	endif;
+    endwhile;
+  else:
+    echo '<p>Sorry, no posts matched your criteria</p>';
+  endif;
 ?>
 
 </article>

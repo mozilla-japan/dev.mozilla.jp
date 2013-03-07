@@ -32,36 +32,36 @@ get_header();
       ?>
       <article class="<?php echo $class; ?>">
         
-		    <header class="archive-post_header">
-			    <?php
-				     //post_icon(get_the_ID(),array(70,70));
-			       ?>
+        <header class="archive-post_header">
+          <?php
+             //post_icon(get_the_ID(),array(70,70));
+             ?>
           
-					<h1 class="archive-post-title">
-						<?php
-							/*
-							 * article's title
-							 */
-							$permaLink = get_permalink();
-							$titleText = get_the_title();
-							echo '<a href="'. esc_attr($permaLink) .'">'. esc_html($titleText) .'</a>';
-						?>
-					</h1>
+          <h1 class="archive-post-title">
+            <?php
+              /*
+               * article's title
+               */
+              $permaLink = get_permalink();
+              $titleText = get_the_title();
+              echo '<a href="'. esc_attr($permaLink) .'">'. esc_html($titleText) .'</a>';
+            ?>
+          </h1>
 
-					<?php
-						edit_the_link($the_id);
-					?>
-		    </header>
+          <?php
+            edit_the_link($the_id);
+          ?>
+        </header>
         
-		    <footer class="meta-container">
+        <footer class="meta-container">
           
-			    <div class="postmeta-project">
-				    <?php
-					     the_project_list_of_the_post($the_id);
-				       ?>
-			    </div>
+          <div class="postmeta-project">
+            <?php
+               the_project_list_of_the_post($the_id);
+               ?>
+          </div>
           
-		    </footer>
+        </footer>
 
         <?php if(!$isList): ?>
           <div class="entry-body">
@@ -69,23 +69,23 @@ get_header();
           </div>
         <?php endif; ?>
 
-		    <footer class="entry-footer">
-			    <div class="postmeta">
-				    <p class="postmeta-title">投稿者</p>
-				    <address class="postmeta-content author">
-					    <?php
-						     the_author_post_link_with_avatar();
-					    ?>
-				    </address>
-				    <p class="postmeta-title">投稿日時</p>
-				    <div class="postmeta-content">
-					    <?php
-						     the_time_of_the_post($the_id);
-					       ?>
-				    </div>
-			    </div>
-		    </footer>
-	    </article>
+        <footer class="entry-footer">
+          <div class="postmeta">
+            <p class="postmeta-title">投稿者</p>
+            <address class="postmeta-content author">
+              <?php
+                 the_author_post_link_with_avatar();
+              ?>
+            </address>
+            <p class="postmeta-title">投稿日時</p>
+            <div class="postmeta-content">
+              <?php
+                 the_time_of_the_post($the_id);
+                 ?>
+            </div>
+          </div>
+        </footer>
+      </article>
     <?php
        endforeach;
        endif;
