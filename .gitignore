@@ -6,5 +6,6 @@ syntax: glob
 .svn
 .idea
 .hgignore
-wp-config.php
 .htaccess
+Thumbs.db
+wp-config.php

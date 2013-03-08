@@ -4,6 +4,7 @@
  * @subpackage modest3
  * イベントページを表示するためのテンプレート
  */
+
 get_header();
 ?>
 

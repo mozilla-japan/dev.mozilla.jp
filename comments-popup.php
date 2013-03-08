@@ -3,15 +3,17 @@
  * @package WordPress
  * @subpackage modest3
  */
-?>
-<!DOCTYPE html>
+
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php printf(__('%1$s - Comments on %2$s', 'kubrick'), get_option('blogname'), the_title('','',false)); ?>
-</title>
+<title><?php
+  printf(__('%1$s - Comments on %2$s', 'kubrick'), get_option('blogname'), the_title('','',false));
+?></title>
 
-<meta http-equiv="Content-Type"
-  content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
+<meta http-equiv="Content-Type" content="<?php
+  bloginfo('html_type');
+?>; charset=<?php echo get_option('blog_charset'); ?>" />
 <style type="text/css" media="screen">
 @import
 url(
@@ -33,10 +35,6 @@ body {
     <a href="" title="<?php echo get_option('blogname'); ?>"><?php echo get_option('blogname'); ?>
     </a>
   </h1>
-  
-  
-  
-  
 
 <?php
 /* Don't remove these lines. */
@@ -134,7 +132,7 @@ else: // have_posts()
 <script type="text/javascript">
 <!--
 document.onkeypress = function esc(e) {
-  if(typeof(e) == "undefined") { e=event; }
+  if(typeof(e) == "undefined") { e = event; }
   if (e.keyCode == 27) { self.close(); }
 }
 // -->

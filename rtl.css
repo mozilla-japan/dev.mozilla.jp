@@ -3,7 +3,8 @@ Theme name: modest 2.0
 Editors: Enseki
 Persian WordPress Project : wp-persian.com
 */
-body,.commentlist li,#commentform input,#commentform textarea,#commentform p,#sidebar,#wp-calendar caption
+
+body, .commentlist li, #commentform input, #commentform textarea, #commentform p, #sidebar, #wp-calendar caption
   {
   font-family: tahoma, arial;
 }
@@ -13,7 +14,7 @@ body,.commentlist li,#commentform input,#commentform textarea,#commentform p,#si
   direction: rtl;
 }
 
-h1,h2,h3,#sidebar h2 {
+h1, h2, h3, #sidebar h2 {
   font-family: arial, tahoma;
 }
 
@@ -82,7 +83,7 @@ code {
   text-align: left;
 }
 
-acronym,abbr,span.caps {
+acronym, abbr, span.caps {
   letter-spacing: 0; /* fix opera bug */
 }
 
@@ -99,11 +100,11 @@ html>body .entry li {
   padding: 0 35px 0 0;
 }
 
-#sidebar ul ul,#sidebar ul ol {
+#sidebar ul ul, #sidebar ul ol {
   margin: 5px 10px 0 0;
 }
 
-#sidebar ul ul ul,#sidebar ul ol {
+#sidebar ul ul ul, #sidebar ul ol {
   margin: 0 10px 0 0;
 }
 
@@ -148,6 +149,6 @@ blockquote {
   border-right: 5px solid #ddd;
 }
 
-#email,#url {
+#email, #url {
   direction: ltr;
 }

@@ -1,21 +1,23 @@
 <?php
+
 /*
  Template Name: developer
 */
+
 get_header(); ?>
 
 <div id="content" class="narrowcolumn" role="main">
-    <div id="developer_title">
-      <h1>Developers</h1>
-    </div>
+  <div id="developer_title">
+    <h1>Developers</h1>
+  </div>
   <?php
-    if(!is_user_logged_in()){
+    if(!is_user_logged_in()) {
       echo '<div id="developer_join">';
       echo '<h3><a href="'.get_bloginfo('url',false).'/wp-login.php?action=register">あなたもmodestに参加しましょう&#187</a><h3>';
       echo '</div>';
     }
-       ?>
-      <?php
+  ?>
+  <?php
 /*
   ユーザ一覧のソート条件を最初に設定してください。
   以下の中から選べます。
@@ -34,14 +36,16 @@ get_header(); ?>
   <div id="developer_list">
     <ul>
       <?php
-foreach ( $aUsersID as $iUserID ){
+foreach ( $aUsersID as $iUserID ) {
   $user = get_userdata( $iUserID );
   echo '<li class="developerinfo">';
   echo '<table>';
   echo '<a href="'. get_author_link($echo=false,$user->ID) .'"><h3>'. get_avatar( $user->ID,50 ) .'  '. $user->display_name .'</h3></a>';
   echo '<div id="profline"></div>';
+
   the_author_meta( 'description' , $user->ID );
-  if(is_user_logged_in()){
+
+  if(is_user_logged_in()) {
     echo '<td>';
     if( $user->user_url != NULL){
       echo '<tr>';
@@ -71,6 +75,7 @@ foreach ( $aUsersID as $iUserID ){
   }
   echo '</table>';
   echo '</li>';
+
   /*
     The strtolower and ucwords part is to be sure
     the full names will all be capitalized.
@@ -78,6 +83,6 @@ foreach ( $aUsersID as $iUserID ){
 } // end the users loop.
 ?>
     </ul>
-  </div>
-</div>
+  <!-- /#developer_list --></div>
+
 <?php get_footer(); ?>

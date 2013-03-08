@@ -3,32 +3,25 @@
  * @package WordPress
  * @subpackage modest3
  */
+
 get_header();
 ?>
 
-<article id="content"
-         role="main">
+<article id="content" role="main">
 
   <?php
     if (have_posts()) :
       while (have_posts()) :
         the_post();
   ?>
-
   <header class="entry-header">
-
     <h1 class="post-title"><?php the_title(); ?></h1>
-
   </header>
 
 
   <div class="entry-body">
-    <?php
-      the_content('‘±‚«‚ð“Ç‚Þ');
-    ?>
+    <?php the_content('‘±‚«‚ð“Ç‚Þ'); ?>
   </div>
-
-
 <?php
     endwhile;
   else:

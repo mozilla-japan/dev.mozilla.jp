@@ -2,6 +2,7 @@
 /*
  * Template Name: projects-list
  */
+
 get_header();
 ?>
 
@@ -9,12 +10,9 @@ get_header();
 
   <header class="entry-header">
     <h1 class="post-title">プロジェクト</h1>
-    <p class="add-button">
-      <a class="button button-white"
-         href="<?php echo admin_url('post-new.php?post_type=project'); ?>">
-        新しいプロジェクトを登録する
-      </a>
-    </p>
+    <div class="add-button"><a class="button button-white" href="<?php
+        echo admin_url('post-new.php?post_type=project');
+      ?>">新しいプロジェクトを登録する</a></div>
   </header>
 
   <?php
@@ -34,37 +32,32 @@ get_header();
         $the_id = get_the_ID();
   ?>
 
-    <section class="project-section">
+  <section class="project-section">
 
-      <header class="project-header">
-        <h1 class="project-title">
-          <?php
-            $title = get_the_title();
-          ?>
-          <a href="<?php the_permalink() ?>" title="<?php echo esc_attr($title); ?>">
-            <?php echo esc_html($title); ?>
-          </a>
-        </h1>
-      </header>
+    <header class="project-header">
+      <h1 class="project-title"><?php $title = get_the_title();
+        ?><a href="<?php the_permalink() ?>" title="<?php
+		  echo esc_attr($title); ?>"><?php echo esc_html($title); ?></a></h1>
+    </header>
 
-      <footer class="project-footer">
-        <div class="project-icon">
-          <?php
-            if (has_post_thumbnail($post->ID)) {
-             the_post_thumbnail();
-            }
-          ?>
-        </div>
+    <footer class="project-footer">
+      <div class="project-icon">
+        <?php
+          if (has_post_thumbnail($post->ID)) {
+            the_post_thumbnail();
+          }
+        ?>
+      </div>
 
-        <?php the_metadata_of_project($the_id) ?>
+      <?php the_metadata_of_project($the_id) ?>
 
-        <div class="project-summary">
-          <?php the_excerpt(); ?>
-        </div>
+      <div class="project-summary">
+        <?php the_excerpt(); ?>
+      </div>
 
-      </footer>
+    </footer>
 
-    </section>
+  </section>
 
   <?php
       endforeach;
@@ -77,6 +70,4 @@ get_header();
 
 </article>
 
-<?php
-  get_footer();
-?>
+<?php get_footer(); ?>

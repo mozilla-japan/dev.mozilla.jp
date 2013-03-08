@@ -86,6 +86,8 @@ function getPageTitle( $url ){
     return false;
   }
 }
+
+
 /*
  * サムネイルについて
  */
@@ -119,9 +121,11 @@ if(!current_user_can( 'administrator' )){
   add_filter('admin_footer_text', 'custom_admin_footer');
 }
 
+
 /*
  *ダッシュボードの設定
 */
+
 
 /*
  *デフォルトのコンタクトフィールドを削除する
@@ -133,6 +137,7 @@ function hide_profile_fields( $contactmethods ){
   return $contactmethods;
 }
 add_filter('user_contactmethods','hide_profile_fields',10,1);
+
 
 //Twitter IDフォームを設置する
 function add_user_twitter_form($bool){
@@ -164,6 +169,7 @@ function update_user_twitter_form($user_id,$old_user_data){
 }
 add_action( 'profile_update', 'update_user_twitter_form', 10, 2);
 
+
 //Facebook IDフォームを設置する
 function add_user_facebook_form($bool){
   //フォームを出す
@@ -193,6 +199,7 @@ function update_user_facebook_form($user_id,$old_user_data){
   }
 }
 add_action( 'profile_update', 'update_user_facebook_form', 10, 3);
+
 
 //SkypeIDフォームを設置する。
 function add_user_skype_form($bool){
@@ -224,6 +231,7 @@ function update_user_skype_form($user_id,$old_user_data){
 }
 add_action( 'profile_update', 'update_user_skype_form', 10, 3);
 
+
 /*
  *カスタムポストタイプを増やす
 *プロジェクトをポストする
@@ -231,75 +239,75 @@ add_action( 'profile_update', 'update_user_skype_form', 10, 3);
 *イベントの投稿をポストする
 */
 add_action('init','create_Project',0);
-function create_Project(){
+function create_Project() {
   $labels = array(
-                  'name' => 'プロジェクト',
-                  'singular_name' => 'プロジェクト',
-                  'add_new' => '新規追加',
-                  'add_new_item' => '新規プロジェクトを追加',
-                  'edit_item' => 'プロジェクトを編集',
-                  'new_item' => '新規プロジェクト',
-                  'view_item' => 'プロジェクトを表示',
-                  'search_items' => 'プロジェクトを検索',
-                  'not_found' => '投稿されたプロジェクトはありません',
-                  'not_found_in_trash' => 'ゴミ箱にプロジェクトはありません。',
-                  'parent_item_colon' => '');
+    'name' => 'プロジェクト',
+    'singular_name' => 'プロジェクト',
+    'add_new' => '新規追加',
+    'add_new_item' => '新規プロジェクトを追加',
+    'edit_item' => 'プロジェクトを編集',
+    'new_item' => '新規プロジェクト',
+    'view_item' => 'プロジェクトを表示',
+    'search_items' => 'プロジェクトを検索',
+    'not_found' => '投稿されたプロジェクトはありません',
+    'not_found_in_trash' => 'ゴミ箱にプロジェクトはありません。',
+    'parent_item_colon' => '');
   register_post_type(
-        'project',
-  array(
-            'label' => 'プロジェクト',
-            'labels' => $labels,
-            'public' => true,
-            'hierarchical' => false,
-            'menu_position' => 5,
-            'rewrite' => true,
-            'query_var' => false,
-            'supports' => array(
-                'title',
-                'editor',
-                'thumbnail',
-                'excerpt',
-                'revisions'
-                ),
-            'register_meta_box_cb' => 'project_meta_box'
-        )
+    'project',
+       array(
+         'label' => 'プロジェクト',
+         'labels' => $labels,
+         'public' => true,
+         'hierarchical' => false,
+         'menu_position' => 5,
+         'rewrite' => true,
+         'query_var' => false,
+         'supports' => array(
+           'title',
+           'editor',
+           'thumbnail',
+           'excerpt',
+           'revisions'
+         ),
+         'register_meta_box_cb' => 'project_meta_box'
+       )
   );
 }
 
 add_action('init','create_Event',0);
-function create_Event(){
+function create_Event() {
   $labels = array(
-                  'name' => 'イベント',
-                  'singular_name' => 'イベント',
-                  'add_new' => '新規追加',
-                  'add_new_item' => '新規イベントを追加',
-                  'edit_item' => 'イベントを編集',
-                  'new_item' => '新規イベント',
-                  'view_item' => 'イベントを表示',
-                  'search_items' => 'イベントを検索',
-                  'not_found' => '投稿されたイベントはありません',
-                  'not_found_in_trash' => 'ゴミ箱にイベントはありません。',
-                  'parent_item_colon' => '');
-    register_post_type(
-        'event',
-        array(
-            'label' => 'イベント',
-            'labels' => $labels,
-            'public' => true,
-            'menu_position' => 4,
-            'has_archive' => 'event',
-            'taxonomies' => array('post_tag','category'),
-            'supports' => array(
-                'title',
-                'editor',
-                'thumbnail',
-                'except',
-                'revisions',
-                'comments',
-                ),
-            'register_meta_box_cb' => 'event_meta_box'
-            )
-        );
+    'name' => 'イベント',
+    'singular_name' => 'イベント',
+    'add_new' => '新規追加',
+    'add_new_item' => '新規イベントを追加',
+    'edit_item' => 'イベントを編集',
+    'new_item' => '新規イベント',
+    'view_item' => 'イベントを表示',
+    'search_items' => 'イベントを検索',
+    'not_found' => '投稿されたイベントはありません',
+    'not_found_in_trash' => 'ゴミ箱にイベントはありません。',
+    'parent_item_colon' => '');
+  register_post_type(
+    'event',
+    array(
+      'label' => 'イベント',
+      'labels' => $labels,
+      'public' => true,
+      'menu_position' => 4,
+      'has_archive' => 'event',
+      'taxonomies' => array('post_tag','category'),
+      'supports' => array(
+        'title',
+        'editor',
+        'thumbnail',
+        'except',
+        'revisions',
+        'comments',
+      ),
+      'register_meta_box_cb' => 'event_meta_box'
+    )
+  );
 }
 
 /*
@@ -316,29 +324,15 @@ function menu_meta_html($post, $box){
 
 <dl class="metadata-form-list">
 
-  <?php
-    $url = get_post_meta($id, 'url', true);
-  ?>
-  <dt>
-    <label for="url">プロジェクトのWebサイト</label>
-  </dt>
-  <dd>
-    <input name="url" type="url"
-           value="<?php echo esc_attr($url);?>"
-           placeholder="http://www.example.com/"/>
-  </dd>
+  <?php $url = get_post_meta($id, 'url', true); ?>
+  <dt><label for="url">プロジェクトのWebサイト</label></dt>
+  <dd><input name="url" type="url" value="<?php
+      echo esc_attr($url);
+    ?>" placeholder="http://www.example.com/" /></dd>
 
-  <?php
-    $rss = get_post_meta($id, 'rss', true);
-  ?>
-  <dt>
-    <label for="rss">プロジェクトのRSSフィード</label>
-  </dt>
-  <dd>
-    <input name="rss" type="url"
-           value="<?php echo esc_attr($rss);?>"
-           placeholder="http://www.example.com/rss.xml"/>
-  </dd>
+  <?php $rss = get_post_meta($id, 'rss', true); ?>
+  <dt><label for="rss">プロジェクトのRSSフィード</label></dt>
+  <dd><input name="rss" type="url" value="<?php echo esc_attr($rss);?>" placeholder="http://www.example.com/rss.xml" /></dd>
 
 <?php
     $user = wp_get_current_user();
@@ -349,13 +343,8 @@ function menu_meta_html($post, $box){
       }
       $catid = esc_attr($catid);
       echo <<< DOC
-  <dt>
-    <label for="catid">カテゴリID（変更禁止）</label>
-  </dt>
-  <dd>
-    <input name="catid" type="text" readonly="true"
-           value="$catid" />
-  </dd>
+  <dt><label for="catid">カテゴリID（変更禁止）</label></dt>
+  <dd><input name="catid" type="text" readonly="true" value="$catid" /></dd>
 DOC;
     endif;
 ?>
@@ -370,7 +359,7 @@ DOC;
  */
 
 function event_meta_box($post){
-    add_meta_box('event_meta', 'イベント情報', 'event_meta_html', 'event', 'normal', 'high');
+  add_meta_box('event_meta', 'イベント情報', 'event_meta_html', 'event', 'normal', 'high');
 }
 
 function event_meta_html($post, $box){
@@ -392,37 +381,25 @@ function event_meta_html($post, $box){
     $hour = $is_date_none ? '' : date('H', $timestamp);
     $minute = $is_date_none ? '' : date('i', $timestamp);
   ?>
-  <dt>
-    <label>開始日時</label>
-  </dt>
+  <dt><label>開始日時</label></dt>
   <dd>
-    <label><input name="start_time-year" type="number" placeholder="2010"
-                  value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
-    <label><input name="start_time-month" type="number" placeholder="1"
-                  min="1" max="12"
-                  value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
-    <label><input name="start_time-day" type="number" placeholder="1"
-                  min="1" max="31"
-                  value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
-    <input name="start_time-hour"
-           type="number"
-           placeholder="12"
-           min="0" max="23"
-           value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+    <label><input name="start_time-year" type="number" placeholder="2010" value="<?php
+      echo esc_attr($year); ?>" style="width: 4em;" />年</label>
+    <label><input name="start_time-month" type="number" placeholder="1" min="1" max="12" value="<?php
+      echo esc_attr($month); ?>" style="width: 2em;" />月</label>
+    <label><input name="start_time-day" type="number" placeholder="1" min="1" max="31" value="<?php
+      echo esc_attr($day);
+    ?>" style="width: 2em;" />日</label>
+    <input name="start_time-hour" type="number" placeholder="12" min="0" max="23" value="<?php
+      echo esc_attr($hour);
+    ?>" style="width: 2em;" />
     :
-    <input name="start_time-minute"
-           type="number"
-           placeholder="00"
-           min="00" max="59"
-           value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
-    <label><input name="start_all_day" type="checkbox"
-     <?php echo (($start_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+    <input name="start_time-minute" type="number" placeholder="00" min="00" max="59" value="<?php
+      echo esc_attr($minute);
+    ?>" style="width: 2em;" />
+    <label><input name="start_all_day" type="checkbox" <?php
+      echo (($start_all_day) ? "checked" : "");
+    ?> style="width: 2em;" />終日</label>
   </dd>
 
   <?php
@@ -440,105 +417,62 @@ function event_meta_html($post, $box){
     $hour = $is_date_none ? '' : date('H', $timestamp);
     $minute = $is_date_none ? '' : date('i', $timestamp);
   ?>
-  <dt>
-    <label for="end_time">終了日時</label>
-  </dt>
+  <dt><label for="end_time">終了日時</label></dt>
   <dd>
-    <label><input name="end_time-year" type="number" placeholder="2010"
-                  value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
-    <label><input name="end_time-month" type="number" placeholder="1"
-                  min="1" max="12"
-                  value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
-    <label><input name="end_time-day" type="number" placeholder="1"
-                  min="1" max="31"
-                  maxlength="2"
-                  value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
-    <input name="end_time-hour"
-           type="number"
-           placeholder="12"
-           min="0" max="23"
-           value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+    <label><input name="end_time-year" type="number" placeholder="2010" value="<?php
+      echo esc_attr($year);
+    ?>" style="width: 4em;" />年</label>
+    <label><input name="end_time-month" type="number" placeholder="1" min="1" max="12" value="<?php
+      echo esc_attr($month);
+    ?>" style="width: 2em;" />月</label>
+    <label><input name="end_time-day" type="number" placeholder="1" min="1" max="31" maxlength="2" value="<?php
+      echo esc_attr($day);
+    ?>" style="width: 2em;" />日</label>
+    <input name="end_time-hour" type="number" placeholder="12" min="0" max="23" value="<?php
+      echo esc_attr($hour);
+    ?>" style="width: 2em;" />
     :
-    <input name="end_time-minute"
-           type="number"
-           placeholder="00"
-           min="00" max="59"
-           value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
-    <label><input name="end_all_day" type="checkbox"
-                            <?php echo (($end_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+    <input name="end_time-minute" type="number" placeholder="00" min="00" max="59" value="<?php
+      echo esc_attr($minute);
+    ?>" style="width: 2em;" />
+    <label><input name="end_all_day" type="checkbox" <?php
+      echo (($end_all_day) ? "checked" : "");
+    ?>style="width: 2em;" />終日</label>
   </dd>
 
-  <?php
-    $capacity = get_post_meta($id, 'capacity', true);
-  ?>
-  <dt>
-    <label for="capacity">定員</label>
-  </dt>
-  <dd>
-    <input name="capacity" type="number"
-           value="<?php echo esc_attr($capacity); ?>"
-           placeholder="10"/>
-  </dd>
+  <?php $capacity = get_post_meta($id, 'capacity', true); ?>
+  <dt><label for="capacity">定員</label></dt>
+  <dd><input name="capacity" type="number" value="<?php
+    echo esc_attr($capacity);
+  ?>" placeholder="10" /></dd>
 
-  <?php
-    $place = get_post_meta($id, 'place', true);
-  ?>
-  <dt>
-    <label for="place">会場</label>
-  </dt>
-  <dd>
-    <input name="place" type="text"
-          value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区貸会議室"/>
-  </dd>
+  <?php $place = get_post_meta($id, 'place', true); ?>
+  <dt><label for="place">会場</label></dt>
+  <dd><input name="place" type="text" value="<?php
+    echo esc_attr($place);
+  ?>" placeholder="東京都千代田区貸会議室" /></dd>
 
-  <?php
-    $place = get_post_meta($id, 'address', true);
-  ?>
-  <dt>
-    <label for="address">会場の住所（地図表示用）</label>
-  </dt>
-  <dd>
-    <input name="address" type="text"
-          value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区麹町0-0-0"/>
-  </dd>
+  <?php $place = get_post_meta($id, 'address', true); ?>
+  <dt><label for="address">会場の住所（地図表示用）</label></dt>
+  <dd><input name="address" type="text" value="<?php
+    echo esc_attr($place);
+  ?>" placeholder="東京都千代田区麹町0-0-0" /></dd>
 
-  <?php
-    $website = get_post_meta($id, 'website', true);
-  ?>
-  <dt>
-    <label for="website">詳細URL</label>
-  </dt>
-  <dd>
-    <input name="website" type="url"
-           value="<?php echo esc_attr($website); ?>"
-           placeholder="http://www.example.com/"/>
-  </dd>
+  <?php $website = get_post_meta($id, 'website', true); ?>
+  <dt><label for="website">詳細URL</label></dt>
+  <dd><input name="website" type="url" value="<?php
+    echo esc_attr($website);
+  ?>" placeholder="http://www.example.com/" /></dd>
 
-  <?php
-    $hashtag = get_post_meta($id, 'hashtag', true);
-  ?>
-  <dt>
-    <label for="hashtag">ハッシュタグ</label>
-  </dt>
-  <dd>
-    <input name="hashtag" type="text"
-          value="<?php echo esc_attr($hashtag); ?>"
-          placeholder="#example"
-          pattern="^#.*" 
-          title="# から始まる文字列を入力してください" />
+  <?php $hashtag = get_post_meta($id, 'hashtag', true); ?>
+  <dt><label for="hashtag">ハッシュタグ</label></dt>
+  <dd><input name="hashtag" type="text" value="<?php
+    echo esc_attr($hashtag);
+  ?>" placeholder="#example" pattern="^#.*" title="# から始まる文字列を入力してください" />
   </dd>
-
 </dl>
-<?php
-  echo wp_nonce_field('event_meta', 'event_date_nonce');
+
+<?php echo wp_nonce_field('event_meta', 'event_date_nonce');
 }
 
 /*
@@ -619,13 +553,13 @@ function project_cat_create($post_id){
       );
 
       $tempcatid = wp_update_term($catid, 'category', $termarr);
-      if(is_wp_error($tempcatid)){
-        if($wp_error){
+      if(is_wp_error($tempcatid)) {
+        if($wp_error) {
           return $cat_ID;
-        }else{
+        } else {
           return 0;
         }
-      }else{
+      } else {
         update_post_meta($post_id, 'catid', $tempcatid['term_id']);
       }
       $t_id = $tempcatid['term_id'];
@@ -637,80 +571,81 @@ function project_cat_create($post_id){
 }
 
 add_action('before_delete_post', 'delete_project');
-function delete_project($post_id){
+function delete_project($post_id) {
   $post_info = get_post($post_id);
-  if($post_info->post_type == 'project'){
+  if($post_info->post_type == 'project') {
     $catid = (int)get_post_meta($post_id, 'catid', true);
     wp_delete_category( $catid );
   }
 }
 
 add_action('save_post', 'event_update');
-function event_update($post_id){
-    if(!wp_verify_nonce( $_POST['event_date_nonce'], 'event_meta')){
-        return $post_id;
-    }
-    if(defined('DOING_AUTOSAVE') &&  DOING_AUTOSAVE){
-        return $post_id;
-    }
+function event_update($post_id) {
+  if(!wp_verify_nonce( $_POST['event_date_nonce'], 'event_meta')) {
+    return $post_id;
+  }
 
-    if('event' == $_POST['post_type']){
-        if(!current_user_can('edit_post', $post_id)){
-            return $post_id;
-        }
-    }else{
-        return $post_id;
-    }
-    $start_all_day = isset($_POST['start_all_day']);
-    $end_all_day = isset($_POST['end_all_day']);
-    $start_time = getUnixTimeStamp('start_time');
-    $end_time = getUnixTimeStamp('end_time');
-    $place = trim($_POST['place']);
-    $address = trim($_POST['address']);
-    $capacity = trim($_POST['capacity']);
-    $website = trim($_POST['website']);
-    $hashtag = trim($_POST['hashtag']);
+  if(defined('DOING_AUTOSAVE') &&  DOING_AUTOSAVE) {
+    return $post_id;
+  }
 
-    update_post_meta($post_id, 'start_all_day', $start_all_day);
-    update_post_meta($post_id, 'end_all_day', $end_all_day);
-    if($start_time == ''){
-      delete_post_meta($post_id, 'start_time');
-    } else {
-      update_post_meta($post_id, 'start_time', $start_time);
+  if('event' == $_POST['post_type']) {
+    if(!current_user_can('edit_post', $post_id)){
+      return $post_id;
     }
-    if($end_time == ''){
-      delete_post_meta($post_id, 'end_time');
-    } else {
-      update_post_meta($post_id, 'end_time', $end_time);
-    }
-    if($place == ''){
-        delete_post_meta($post_id, 'place');
-    } else {
-        update_post_meta($post_id, 'place', $place);
-    }
+  } else {
+    return $post_id;
+  }
+  $start_all_day = isset($_POST['start_all_day']);
+  $end_all_day = isset($_POST['end_all_day']);
+  $start_time = getUnixTimeStamp('start_time');
+  $end_time = getUnixTimeStamp('end_time');
+  $place = trim($_POST['place']);
+  $address = trim($_POST['address']);
+  $capacity = trim($_POST['capacity']);
+  $website = trim($_POST['website']);
+  $hashtag = trim($_POST['hashtag']);
 
-    //update 'address'
-    if($address == ''){
-        delete_post_meta($post_id, 'address');
-    } else {
-        update_post_meta($post_id, 'address', $address);
-    }
+  update_post_meta($post_id, 'start_all_day', $start_all_day);
+  update_post_meta($post_id, 'end_all_day', $end_all_day);
+  if($start_time == '') {
+    delete_post_meta($post_id, 'start_time');
+  } else {
+    update_post_meta($post_id, 'start_time', $start_time);
+  }
+  if($end_time == '') {
+    delete_post_meta($post_id, 'end_time');
+  } else {
+    update_post_meta($post_id, 'end_time', $end_time);
+  }
+  if($place == '') {
+    delete_post_meta($post_id, 'place');
+  } else {
+    update_post_meta($post_id, 'place', $place);
+  }
 
-    if($capacity == ''){
-      delete_post_meta($post_id, 'capacity');
-    } else {
-      update_post_meta($post_id, 'capacity', $capacity);
-    }
-    if($website == ''){
-      delete_post_meta($post_id, 'website');
-    } else {
-      update_post_meta($post_id, 'website', $website);
-    }
-    if($hashtag == ''){
-      delete_post_meta($post_id, 'hashtag');
-    } else {
-      update_post_meta($post_id, 'hashtag', $hashtag);
-    }
+  //update 'address'
+  if($address == '') {
+    delete_post_meta($post_id, 'address');
+  } else {
+    update_post_meta($post_id, 'address', $address);
+  }
+
+  if($capacity == '') {
+    delete_post_meta($post_id, 'capacity');
+  } else {
+    update_post_meta($post_id, 'capacity', $capacity);
+  }
+  if($website == '') {
+    delete_post_meta($post_id, 'website');
+  } else {
+    update_post_meta($post_id, 'website', $website);
+  }
+  if($hashtag == '') {
+    delete_post_meta($post_id, 'hashtag');
+  } else {
+    update_post_meta($post_id, 'hashtag', $hashtag);
+  }
 }
 function getUnixTimeStamp ($time_point) {
   $year = (int)trim($_POST[$time_point .'-year']);
@@ -718,10 +653,10 @@ function getUnixTimeStamp ($time_point) {
   $day = trim($_POST[$time_point .'-day']);
   $hour = trim($_POST[$time_point .'-hour']);
   $minute = trim($_POST[$time_point .'-minute']);
-  if($hour == ''){
+  if($hour == '') {
     $hour = 12;
   }
-  if($minute == ''){
+  if($minute == '') {
     $minute = 0;
   }
   return mktime($hour, $minute, 0, $month, $day, $year);
@@ -729,23 +664,21 @@ function getUnixTimeStamp ($time_point) {
 
 
 add_action('save_post', 'menu_update');
-function menu_update($post_id){
-  if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
+function menu_update($post_id) {
+  if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')) {
     return $post_id;
   }
-
-  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
+  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')) {
     return $post_id;
   }
-  if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+  if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
     return $post_id;
   }
-
-  if('project' == $_POST['post_type']){
-    if(!current_user_can('edit_post', $post_id)){
+  if('project' == $_POST['post_type']) {
+    if(!current_user_can('edit_post', $post_id)) {
       return $post_id;
     }
-  }else{
+  } else {
     return $post_id;
   }
 
@@ -753,15 +686,15 @@ function menu_update($post_id){
   $rss = trim($_POST['rss']);
   $catid = trim($_POST['catid']);
 
-  if($catid != '' || $catid != 0){
+  if($catid != '' || $catid != 0) {
     update_post_meta($post_id, 'catid', $catid);
   }
-  if($url == ''){
+  if($url == '') {
     delete_post_meta($post_id, 'url');
   } else {
     update_post_meta($post_id, 'url', $url);
   }
-  if($rss == ''){
+  if($rss == '') {
     delete_post_meta($post_id, 'rss');
   } else {
     update_post_meta($post_id, 'rss', $rss);
@@ -769,25 +702,25 @@ function menu_update($post_id){
 }
 
 /**ポストアイコン**/
-function post_icon($id,$size=array(80,80)){
+function post_icon($id,$size=array(80,80)) {
   echo "<div class='post_icon'>";
   $post = get_post($id,ARRAY_A);
-  if( has_post_thumbnail($id)){
+  if( has_post_thumbnail($id)) {
     the_post_thumbnail($size,$id);
-  }else{
+  } else {
     $catid = get_the_category($id);
     $catid = $catid[0];
     $catname = "projects";
-    if("event" == get_post_type()){
-      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_event.png" width="'.$size[0].'"/>';
-    }else if($catname == $catid->cat_name){
-      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'"/>';
-    }else{
+    if("event" == get_post_type()) {
+      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_event.png" width="'.$size[0].'" />';
+    } else if($catname == $catid->cat_name) {
+      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'" />';
+    } else {
       $page = get_page_by_path($catid->category_nicename,ARRAY_N,'project');
-      if(has_post_thumbnail($page[0])){
+      if(has_post_thumbnail($page[0])) {
         echo get_the_post_thumbnail($page[0],$size);
-      }else{
-        echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'"/>';
+      } else {
+        echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'" />';
       }
     }
   }
@@ -914,8 +847,7 @@ function edit_the_link ($postId) {
     $edit_link = get_edit_post_link($postId);
     //here document
     echo <<< DOC
-      <a href="$edit_link"
-         class="edit_post button-white">編集する</a>
+      <a href="$edit_link" class="edit_post button-white">編集する</a>
 DOC;
   endif;
 }
@@ -1053,11 +985,11 @@ function my_scripts(){
 }
 add_action('admin_print_scripts', 'my_scripts');
 
-  /*アドオンが見つからない場合に元のナビゲーションバーを表示する。*/
-function navigation_bar(){
-  if(function_exists('wp_pagenavi')){
+/* アドオンが見つからない場合に元のナビゲーションバーを表示する。 */
+function navigation_bar() {
+  if( function_exists('wp_pagenavi') ) {
     wp_pagenavi();
-  }else{
+  } else {
     echo '<div class="alignleft">';
     previous_posts_link(__('&laquo; 新しい投稿へ', 'kubrick'));
     echo '</div>';
@@ -1068,31 +1000,28 @@ function navigation_bar(){
 }
 
 function the_author_post_link_with_avatar ($size = 24) {
-    $user_id = get_the_author_meta('ID');
-    $url = esc_url( get_author_posts_url($user_id) );
-    $author_name = esc_html(get_the_author());
-    $title = esc_attr($author_name) . 'の投稿を表示';
-    $avatar = get_avatar($user_id, $size);
-    echo '<a href="'. $url .'" title="'. $title .'" class="author-link">'. $avatar . $author_name .'</a>';
+  $user_id = get_the_author_meta('ID');
+  $url = esc_url( get_author_posts_url($user_id) );
+  $author_name = esc_html(get_the_author());
+  $title = esc_attr($author_name) . 'の投稿を表示';
+  $avatar = get_avatar($user_id, $size);
+  echo '<a href="'. $url .'" title="'. $title .'" class="author-link">'. $avatar . $author_name .'</a>';
 }
 
 /***カテゴリを指定して投稿 テンプレ版***/
 add_filter( 'load-post-new.php', 'cat_set_load_post_new' );
-function cat_set_load_post_new()
-{
-    if ( array_key_exists( 'category_id', $_REQUEST ) ) {
-        add_action( 'wp_insert_post', 'cat_set_wp_insert_post' );
-        return;
-    }
+function cat_set_load_post_new() {
+  if ( array_key_exists( 'category_id', $_REQUEST ) ) {
+    add_action( 'wp_insert_post', 'cat_set_wp_insert_post' );
+    return;
+  }
 }
 
-function cat_set_wp_insert_post( $post_id )
-{
-    wp_set_post_categories( $post_id, $_REQUEST['category_id'] );
+function cat_set_wp_insert_post( $post_id ) {
+  wp_set_post_categories( $post_id, $_REQUEST['category_id'] );
 }
 
-function project_insert_post( $cat_id )
-{
+function project_insert_post( $cat_id ) {
   if( $cat_id != ''){
     if( is_user_logged_in() ){
       echo '<a href="'.get_post_new_url(). '?category_id[]=' . $cat_id.'" class="button-blue" style="float: right;">このプロジェクトに投稿する</a>';
@@ -1121,15 +1050,10 @@ function the_metadata_of_event ($id) {
 ?>
 <dl class="event-metadata-list">
   <?php print_metadata_as_definition_item($id, 'event_time', '開催時間'); ?>
-
   <?php print_metadata_as_definition_item($id, 'capacity', '定員'); ?>
-
   <?php print_metadata_as_definition_item($id, 'place', '会場'); ?>
-
   <?php print_metadata_as_definition_item($id, 'hashtag', 'ハッシュタグ'); ?>
-
   <?php print_metadata_as_definition_item($id, 'event_admin', 'イベント管理者'); ?>
-
   <?php print_metadata_as_definition_item($id, 'website', '詳細'); ?>
 </dl>
 <?php
@@ -1149,8 +1073,6 @@ function the_metadata_of_event ($id) {
  *   $showEmptyItem が TRUE の場合、dd要素のテキストとして使う文字列
  */
 function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem = false, $emptyText = 'なし') {
-?>
-  <?php
     $content = '';
     switch ($param) {
       case 'event_time':
@@ -1170,9 +1092,7 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
     }
   ?>
 
-  <?php
-    if ( !$isEmpty || $showEmptyItem ) :
-  ?>
+  <?php if ( !$isEmpty || $showEmptyItem ) : ?>
     <dt class="metadata-list-title"><?php echo($title); ?></dt>
     <dd class="metadata-list-content">
       <?php
@@ -1189,6 +1109,7 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
   <?php endif; ?>
 <?php
 }
+
 function get_the_event_date ($id) {
   $start_timestamp = (int)get_post_meta($id, 'start_time', true);
   $start_all_day = (bool)get_post_meta($id, 'start_all_day', true);
@@ -1270,12 +1191,12 @@ function get_data_of_the_meta ($id, $param) {
         $str = $data;
         break;
     }
-  }
-  else{
+  } else{
     $str = '';
   }
   return $str;
 }
+
 function get_the_time_of_the_event ($id) {
   $timestamp = (int)get_post_meta($id, 'start_time', true);
   $year = date('Y', $timestamp);
@@ -1284,12 +1205,13 @@ function get_the_time_of_the_event ($id) {
   $datetime = date('Y-m-d H:i', $timestamp);
 
   return array(
-           'datetime' => $datetime,
-           'year' => $year,
-           'month' => $month,
-           'day' => $day,
-         );
+    'datetime' => $datetime,
+    'year' => $year,
+    'month' => $month,
+    'day' => $day,
+  );
 }
+
 function map_image_of_the_event ($id, $size='380') {
   $data = htmlspecialchars(get_post_meta($id, 'address', true), ENT_QUOTES);
 
@@ -1305,10 +1227,8 @@ function map_image_of_the_event ($id, $size='380') {
 
   echo <<< DOC
 <div class="event-map">
-<a href="$url">
-  <img src="$img_src" alt="$alt" /><br />
-  <span class="map-caption">$map_service で大きい地図を表示する</span>
-</a>
+  <a href="$url"><img src="$img_src" alt="$alt" /><br />
+  <span class="map-caption">$map_service で大きい地図を表示する</span></a>
 </div>
 DOC;
 }
@@ -1331,6 +1251,7 @@ function the_author_data ($user_data) {
 <?php
   endif;
 }
+
 function get_item_of_the_author_data ($user_data, $title, $param) {
   $value = $user_data->$param;
   $str = '';
@@ -1361,6 +1282,7 @@ DOC;
   return $str;
 }
 
+
 /*********
 * Comment Template
 */
@@ -1373,7 +1295,7 @@ function onemozilla_comment($comment, $args, $depth) {
 
  <li id="comment-<?php comment_ID(); ?>" <?php comment_class('hentry'); ?>>
   <?php if ( $comment_type == 'trackback' ) : ?>
-    <h3 class="entry-title"><?php _e( 'Trackback from ', 'onemozilla' ); ?> <cite><?php esc_html(comment_author_link()); ?></cite>
+    <h3 class="entry-title"><?php _e( 'Trackback from ', 'onemozilla' ); ?><cite><?php esc_html(comment_author_link()); ?></cite>
       <span class="comment-meta"><?php _e('on', 'onemozilla'); ?> <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" rel="bookmark" title=" <?php _e('Permanent link to this comment by ','onemozilla'); comment_author(); ?>"><time class="published" datetime="<?php comment_date('Y-m-d'); ?>" title="<?php comment_date('Y-m-d'); ?>"><?php comment_date('F jS, Y'); ?> at <?php comment_time(); ?></time></a>:</span>
     </h3>
   <?php elseif ( $comment_type == 'pingback' ) : ?>
@@ -1402,12 +1324,12 @@ function onemozilla_comment($comment, $args, $depth) {
       <p class="mod"><strong><?php echo 'あなたのコメントは承認待ちです.'; ?></strong></p>
     <?php endif; ?>
 
-    <blockquote class="entry-content">
-      <?php esc_html(comment_text()); ?>
-    </blockquote>
+      <blockquote class="entry-content">
+        <?php esc_html(comment_text()); ?>
+      </blockquote>
 
-  <?php if ( (get_option('thread_comments') == true) || (current_user_can('edit_post', $comment->comment_post_ID)) ) : ?>
-    <p class="comment-util"><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?> <?php if ( current_user_can('edit_post', $comment->comment_post_ID) ) : ?><span class="edit"><?php edit_comment_link('コメントを編集する','',''); ?></span><?php endif; ?></p>
+    <?php if ( (get_option('thread_comments') == true) || (current_user_can('edit_post', $comment->comment_post_ID)) ) : ?>
+      <p class="comment-util"><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?> <?php if ( current_user_can('edit_post', $comment->comment_post_ID) ) : ?><span class="edit"><?php edit_comment_link('コメントを編集する','',''); ?></span><?php endif; ?></p>
   <?php endif; ?>
 <?php
 } /* end onemozilla_comment */
@@ -1420,11 +1342,12 @@ function fc_meta_desc() {
   $post_desc_length  = 25; // auto-excerpt length in number of words
 
   global $cat, $cache_categories, $wp_query, $wp_version;
-  if(is_single() || is_page()) {
+
+  if( is_single() || is_page() ) {
     $post = $wp_query->post;
     $post_custom = get_post_custom($post->ID);
 
-    if(!empty($post->post_excerpt)) {
+    if( !empty($post->post_excerpt) ) {
       $text = $post->post_excerpt;
     } else {
       $text = $post->post_content;
@@ -1466,22 +1389,23 @@ function fc_meta_desc() {
 function php_feed_list($php_url, $count_limit) {
   $buff = "";
   $fp = fopen($php_url,"r");
-  if($fp === FALSE)return 0;
+  if($fp === FALSE) return 0;
   while(!feof($fp)) {
     $buff .= fgets($fp,4096);
   }
   fclose($fp);
   
   $values = unserialize($buff);
+
   //表示数用カウンタ
   $counter = 0;
 
-  foreach($values['value']['items'] as $value){
+  foreach($values['value']['items'] as $value) {
     //Feedsの行数制限
     if($counter >= $count_limit){
       $counter = 0;
       break;
-    }else{
+    } else {
       $counter++;
     }
     
@@ -1500,17 +1424,15 @@ function php_feed_list($php_url, $count_limit) {
     ?>
       <article class="feed-article">
          <header>
-           <h1 class="feed-article-title">
-             <a href="<?php echo esc_attr($com_link); ?>"
-                title="<?php echo esc_attr($com_title); ?>">
-               <?php echo esc_html($com_title); ?>
-             </a>
-           </h1>
+           <h1 class="feed-article-title"><a href="<?php echo esc_attr($com_link);
+		   ?>" title="<?php echo esc_attr($com_title);
+		   ?>"><?php echo esc_html($com_title);
+		   ?></a></h1>
          </header>
          <footer>
            <div class="postmeta">
              <?php
-               if($com_author != ''){
+               if($com_author != '') {
                  echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">';
                    echo esc_html($com_author);
@@ -1518,10 +1440,10 @@ function php_feed_list($php_url, $count_limit) {
                }
                $com_author_url = '';
                $com_author = '';
-               if($com_site_name == ''){
+               if($com_site_name == '') {
                  $com_site_name = $com_site;
                }
-               if($com_site != ''){
+               if($com_site != '') {
                  echo '<p class="postmeta-title">Webサイト</p>
                    <div class="postmeta-content">';
                  echo '<a href="'.esc_attr($com_site).'">'.esc_html($com_site_name).'</a>';
@@ -1530,15 +1452,12 @@ function php_feed_list($php_url, $count_limit) {
          ?>
              <p class="posteta-title">投稿日時</p>
              <div class="postmeta-content">
-               <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
-                 <?php echo esc_html($com_date); ?>
-               </time>
+               <time datetime="<?php echo esc_attr($com_date_datetime); ?>"><?php echo esc_html($com_date); ?></time>
              </div>
            </div>
          </footer>
       </article>
-      <?php 
-        
+      <?php
   }
 }
 
@@ -1546,7 +1465,7 @@ function php_feed_list($php_url, $count_limit) {
 function rss_feed_list($rss_url, $count_limit) {
   $buff = "";
   $fp = fopen($rss_url,"r");
-  while (!feof($fp)) {
+  while ( !feof($fp) ) {
     $buff .= fgets($fp,4096);
   }
   fclose($fp);
@@ -1586,11 +1505,9 @@ function rss_feed_list($rss_url, $count_limit) {
   ?>
       <article class="feed-article">
          <header>
-           <h1 class="feed-article-title">
-             <a href="<?php echo esc_attr($com_link); ?>" title="<? echo esc_attr($com_title); ?>">
-         <?php echo esc_html($com_title); ?>
-             </a>
-           </h1>
+           <h1 class="feed-article-title"><a href="<?php echo esc_attr($com_link);
+		   ?>" title="<? echo esc_attr($com_title);
+		   ?>"><?php echo esc_html($com_title); ?></a></h1>
          </header>
          <footer>
            <div class="postmeta">
@@ -1607,7 +1524,7 @@ function rss_feed_list($rss_url, $count_limit) {
              <div class="postmeta-content">
                <?php echo esc_html($com_date); ?>
              </div>
-           </div>
+           <!-- /#postmeta --></div>
          </footer>
       </article>
       <?php 
@@ -1644,48 +1561,52 @@ function myfeed_request($qv) {
     $qv['post_type'] = get_post_types();
   return $qv;
 }
+
 add_filter('request', 'myfeed_request');
 
 add_action('init','replace_category',0);
+
 function replace_category(){
-  $labels = array('name' => 'プロジェクト',
-                  'singular_name' => 'プロジェクト',
-                  'search_items' => 'プロジェクト検索',
-                  'all_items' => '全てのプロジェクト',
-                  'parent_item' => '親プロジェクト',
-                  'parent_item_colon' => '親プロジェクト',
-                  'edit_item' => 'プロジェクトの編集',
-                  'update_item' => 'プロジェクトの更新',
-                  'add_new_item' => '新しいプロジェクト',
-                  'new_item_name' => '新しいプロジェクト',
-                  );
-  register_taxonomy('category', 'post', array(
-                                              'label' => 'プロジェクト',
-                                              'hierarchical' => true,
-                                              'query_var' => 'category_name',
-                                              'labels' => $labels
-                                                  ));  
+  $labels = array(
+    'name' => 'プロジェクト',
+    'singular_name' => 'プロジェクト',
+    'search_items' => 'プロジェクト検索',
+    'all_items' => '全てのプロジェクト',
+    'parent_item' => '親プロジェクト',
+    'parent_item_colon' => '親プロジェクト',
+    'edit_item' => 'プロジェクトの編集',
+    'update_item' => 'プロジェクトの更新',
+    'add_new_item' => '新しいプロジェクト',
+    'new_item_name' => '新しいプロジェクト',
+  );
+  register_taxonomy(
+    'category',
+    'post',
+    array(
+      'label' => 'プロジェクト',
+      'hierarchical' => true,
+      'query_var' => 'category_name',
+      'labels' => $labels
+    ));
 }
 
 add_action('admin_menu', 'remove_menu');
+
 function remove_menu(){
   remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' ); //カテゴリーの表示削除
 }
+
 add_action('admin_print_styles', 'set_admin_styles', 21);
+
 function set_admin_styles(){
-  echo '<style type="text/css">#category-add-toggle{display:none;}div#category-all{height: 400px;}</style>';
+  echo '<style type="text/css">#category-add-toggle{display:none;}div#category-all{height: 400px}</style>';
 }
 
 add_filter('pre_get_posts', 'custom_post_rss_set');
+
 function custom_post_rss_set($query) {
-  if(is_feed()){
-    $query->set('post_type',
-                Array(
-                      'post',
-                      'event',
-                      'project'
-                      )
-                );
+  if(is_feed()) {
+    $query->set('post_type', Array('post', 'event', 'project'));
   }
   return $query;
 }
