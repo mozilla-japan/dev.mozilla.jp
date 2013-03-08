@@ -10,8 +10,8 @@
 
   /* This variable is for alternating comment background */
   $oddcomment = 'alt';
-?>
-<?php /* You can start editing here. */ ?>
+
+?><?php /* You can start editing here. */ ?>
 
 <?php if ( have_comments() || comments_open() ) : // If there are comments OR comments are open ?>
 
@@ -34,7 +34,7 @@
 
 <?php if ( have_comments() ) : // If there are comments ?>
   <ol id="comment-list" class="hfeed <?php if (get_option('show_avatars')) echo 'av'; // provides a style hook when avatars are enabled ?>">
-  <?php wp_list_comments('type=all&style=ol&callback=onemozilla_comment'); // Comment template is in functions.php ?>
+    <?php wp_list_comments('type=all&style=ol&callback=onemozilla_comment'); // Comment template is in functions.php ?>
   </ol>
 
   <?php if ( get_comment_pages_count() > 1 ) : // If comment paging is enabled and there are enough comments to paginate, show the comment paging ?>
@@ -46,10 +46,8 @@
 <?php if (comments_open()) : ?>
 
   <div id="respond">
-  <?php if ( get_option('comment_registration') ) : // If registration is required and you're not logged in, show a message ?>
-    
+  <?php if ( get_option('comment_registration') ) : // If registration is required and you're not logged in, show a message ?>  
     <p><?php printf('<a class="button-white" href="%s">ログイン</a>する必要があります.', esc_attr(wp_login_url(get_permalink())) ); ?></p>
-
   <?php else : // else show the form ?>
     <form id="comment-form" action="<?php echo esc_attr(get_option('siteurl')); ?>/wp-comments-post.php" method="post">
       <fieldset>
@@ -64,7 +62,7 @@
             <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="25" <?php if ($req) echo "required aria-required='true'"; ?>>
           </li>
           <li id="cmt-email">
-            <label for="email">メールアドレス <?php if ($req) : echo '<span class="note">(必須, 実際のコメントには表示されません)</span>'; endif; ?></label> 
+            <label for="email">メールアドレス <?php if ($req) : echo '<span class="note">(必須。実際のコメントには表示されません。)</span>'; endif; ?></label> 
             <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="25" <?php if ($req) echo "required aria-required='true'"; ?>>
           </li>
           <li id="cmt-web">

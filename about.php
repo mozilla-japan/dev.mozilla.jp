@@ -2,6 +2,7 @@
 /*
  * Template Name: about
  */
+
 get_header(); ?>
 
 <artcle id="content">

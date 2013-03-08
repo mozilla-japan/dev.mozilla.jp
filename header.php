@@ -3,8 +3,8 @@
    * @package WordPress
    * @subpackage modest3
    */
-   ?>
-<!DOCTYPE html>
+
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -63,11 +63,8 @@
         <li class="header-nav-item"><?php wp_loginout(); ?></li>
       </ol>
     </nav>
-    <h1 id="site-title">
-      <a href= "<?php bloginfo('url'); ?>">
-        <img id="site-title-image"
-             alt="<?php bloginfo('name'); ?>"
-             src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"/>
-      </a>
-    </h1>
+    <h1 id="site-title"><a href= "<?php bloginfo('url'); ?>"><img id="site-title-image" alt="<?php
+	  bloginfo('name'); ?>" src="<?php
+	  bloginfo('template_directory');
+	  ?>/images/modest-logo.png"/></a></h1>
   </header>

@@ -4,6 +4,7 @@
  * @subpackage modest3
  * プロジェクトページを表示するためのテンプレート
  */
+
 get_header();
 ?>
 
