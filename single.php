@@ -71,8 +71,8 @@ get_header();
           <?php
              the_time_of_final_edit();
              ?>
-          <?php endif; ?>
       </div>
+      <?php endif; ?>
     </div>
 
     <?php
