@@ -111,7 +111,7 @@ a .alignright {
 
 /* headline */
 h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, .75);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
   font-weight: normal;
 }
 /* link */
@@ -591,7 +591,7 @@ body {
 
 /* top page */
 .topsection-title {
-  margin: 0px;
+  margin: 0;
   font-size: 2em;
   font-weight: normal;
   -moz-transition: font-size .5s linear;
@@ -608,8 +608,8 @@ body {
   box-shadow: 0 0 0 1px #fff inset;
   border-bottom: 1px solid #DDDDDD;
   padding: 20px;
-  margin: 15px 0px;
-  background: url("images/dino.png") no-repeat right 0px,
+  margin: 15px 0;
+  background: url("images/dino.png") no-repeat right 0,
               #fff;
 }
 .hottopic-item {
