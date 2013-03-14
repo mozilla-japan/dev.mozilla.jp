@@ -624,13 +624,13 @@ body {
 }
 
 .top-event-section {
-  background:white;
+  background: #fff;
   padding: 20px;
   margin: 0.5em 0 1.5em;
 }
 .top-event-section > .event-time {
   display: inline-block;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted #000;
   padding-bottom: 0.3em;
   margin-bottom: 1em;
   -moz-transition: font-size .5s linear;
