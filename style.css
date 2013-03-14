@@ -255,10 +255,10 @@ img::selection {
   margin: 0;
   padding: 12px 24px 8px;
   background: #fff;
-  background: -moz-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -webkit-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -o-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
+  background: -moz-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 .postmeta-project {
@@ -695,10 +695,10 @@ body {
   padding: 10px 20px;
   margin: 0;
   background: #fff;
-  background: -moz-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -webkit-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -o-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
+  background: -moz-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 
@@ -748,10 +748,10 @@ body {
   margin: 3em 0;
   padding: 12px 24px 8px;
   background: #fff;
-  background: -moz-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -webkit-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: -o-linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
-  background: linear-gradient(left, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75) 100%);
+  background: -moz-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
+  background: linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 .event-header,
@@ -1073,9 +1073,9 @@ label .note {
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #eee;
-  background: -moz-linear-gradient(top, #fff 0, #eee 100%);
-  background: -webkit-linear-gradient(top, #fff 0, #eee 100%);
-  background: linear-gradient(top, #fff 0, #eee 100%);
+  background: -moz-linear-gradient(top, #fff, #eee);
+  background: -webkit-linear-gradient(top, #fff, #eee);
+  background: linear-gradient(top, #fff, #eee);
 }
 #cancel-comment-reply a:hover,
 #cancel-comment-reply a:focus,
