@@ -355,8 +355,8 @@ img::selection {
   background-image:-webkit-gradient(linear,left top,left bottom,from(#3c88cc),to(#276195));
   background-image:-webkit-linear-gradient(#3c88cc,#276195);
   background-image:-o-linear-gradient(#3c88cc,#276195);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType=0);
-  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc', endColorstr='#276195', GradientType=0)";
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0');
+  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0')";
   background-image:linear-gradient(#3c88cc,#276195);
 }
 .button-blue:hover,.button-blue:link:hover,.button-blue:visited:hover{
