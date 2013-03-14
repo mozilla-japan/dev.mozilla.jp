@@ -353,7 +353,7 @@ img::selection {
   background-image:-khtml-gradient(linear,left top,left bottom,from(#3c88cc),to(#276195));
   background-image:-moz-linear-gradient(#3c88cc,#276195);
   background-image:-ms-linear-gradient(#3c88cc,#276195);
-  background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3c88cc),color-stop(100%,#276195));
+  background-image:-webkit-gradient(linear,left top,left bottom,from(#3c88cc),to(#276195));
   background-image:-webkit-linear-gradient(#3c88cc,#276195);
   background-image:-o-linear-gradient(#3c88cc,#276195);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType=0);
