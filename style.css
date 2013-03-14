@@ -536,6 +536,7 @@ body {
   float: right;
   display: block;
 /*  background: url(./images/tab.png); */
+  background-image: url("./images/tabzilla-tab.png") !important;
   height: 45px;
   width: 150px;
   position: relative;
@@ -563,9 +564,7 @@ body {
   border-radius: 8px;
 }
 */
-#tabzilla {
-  background-image: url("./images/tabzilla-tab.png") !important;
-}
+
 /*
 #tabzilla:after {
     background: none repeat scroll 0 0 transparent;
