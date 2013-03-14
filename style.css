@@ -536,7 +536,6 @@ body {
   float: right;
   display: block;
 /*  background: url(./images/tab.png); */
-  background-image: url("./images/tabzilla-tab.png") !important;
   height: 45px;
   width: 150px;
   position: relative;
@@ -556,21 +555,22 @@ body {
   -moz-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   border-radius: 8px;
 }
 */
-
+#tabzilla {
+  background-image: url("./images/tabzilla-tab.png") !important;
+}
 /*
 #tabzilla:after {
     background: none repeat scroll 0 0 transparent;
 }
 */
-
 
 /************************************************
  * content
