@@ -200,7 +200,7 @@ img::selection {
   display: block;
   background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #ddd;
   padding: 10px;
 }
 
@@ -222,7 +222,7 @@ img::selection {
 .postmeta .postmeta-content {
   margin: 0 10px 0 0;
   padding-left: 10px;
-  border-left: 1px solid #DDDDDD;
+  border-left: 1px solid #ddd;
 }
 .postmeta .author.postmeta-content {
   margin-left: 0;
@@ -606,7 +606,7 @@ body {
 #hottopic-list {
   background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #ddd;
   padding: 20px;
   margin: 15px 0;
   background: url("images/dino.png") no-repeat right 0,
