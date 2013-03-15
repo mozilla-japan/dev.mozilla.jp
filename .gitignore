@@ -8,3 +8,5 @@ syntax: glob
 .hgignore
 wp-config.php
 .htaccess
+Thumbs.db
+Desktop.ini
