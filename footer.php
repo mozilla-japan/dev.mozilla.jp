@@ -18,7 +18,7 @@
       <h3 id="mozilla_ring_title">Mozilla 関連サイト</h3>
 
       <div class="mozilla_ring_category">
-        <h5 class="mozilla_ring_category_title">最新情報</h5>
+        <h4 class="mozilla_ring_category_title">最新情報</h4>
         <ul>
           <li class="mozilla_ring_menu">
             <a href="http://mozilla.jp/blog/">Mozilla Japan ブログ</a>
@@ -33,7 +33,7 @@
       </div>
 
       <div class="mozilla_ring_category">
-        <h5 class="mozilla_ring_category_title">サポート情報</h5>
+        <h4 class="mozilla_ring_category_title">サポート情報</h4>
         <ul>
           <li class="mozilla_ring_menu">
             <a href="http://support.mozilla.com/ja/home">Firefox</a>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="mozilla_ring_category">
-        <h5 class="mozilla_ring_category_title">開発情報</h5>
+        <h4 class="mozilla_ring_category_title">開発情報</h4>
         <ul>
           <li class="mozilla_ring_menu">
             <a href="https://developer.mozilla.org/ja/">MDN</a>
@@ -69,7 +69,7 @@
       </div>
 
       <div class="mozilla_ring_category">
-        <h5 class="mozilla_ring_category_title">コミュニティ</h5>
+        <h4 class="mozilla_ring_category_title">コミュニティ</h4>
         <ul>
           <li class="mozilla_ring_menu">
             <a href="http://www.mozilla.org/">Mozilla Project</a>
