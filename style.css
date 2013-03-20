@@ -805,6 +805,12 @@ body {
   padding: 0;
   margin: 0;
 }
+
+#sidebar-button-group li {
+  display: block;
+  margin: 1em 0;
+}
+
 #sidebar-button-group .button-blue,
 #sidebar-button-group .button-blue:link,
 #sidebar-button-group .button-blue:visited {
