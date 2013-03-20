@@ -11,23 +11,23 @@
 
   <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
 
-  <meta name="title" content="<?php if (is_singular()) : single_post_title(); echo ' | '; endif; bloginfo('name'); ?>">
-  <meta name="description" content="<?php fc_meta_desc(); ?>">
+  <meta name="title" content="<?php if (is_singular()) : single_post_title(); echo ' | '; endif; bloginfo('name'); ?>" />
+  <meta name="description" content="<?php fc_meta_desc(); ?>" />
 
-  <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-  <meta property="og:title" content="<?php if (is_singular()) : single_post_title(); else : bloginfo('name'); endif; ?>">
-  <meta property="og:url" content="<?php if (is_singular()) : the_permalink(); else : bloginfo('url'); endif; ?>">
-  <meta property="og:description" content="<?php fc_meta_desc(); ?>">
-  <meta property="og:image" content="<?php bloginfo('template_directory'); ?>/images/page-image.png">
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+  <meta property="og:title" content="<?php if (is_singular()) : single_post_title(); else : bloginfo('name'); endif; ?>" />
+  <meta property="og:url" content="<?php if (is_singular()) : the_permalink(); else : bloginfo('url'); endif; ?>" />
+  <meta property="og:description" content="<?php fc_meta_desc(); ?>" />
+  <meta property="og:image" content="<?php bloginfo('template_directory'); ?>/images/page-image.png" />
 
   <link rel="profile" href="http://gmpg.org/xfn/11" />
-  <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+  <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
   <link rel="alternate" type="application/rss+xml" title="modestの最新の投稿" href="<?php bloginfo('rss2_url'); ?>" />
   <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
 
   <!--[if lt IE 9]>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
   <![endif]-->
 
   <?php
@@ -46,7 +46,7 @@
     wp_head();
   ?>
 
-  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/ga.js" async defer></script>
+  <script src="<?php bloginfo('template_directory'); ?>/js/ga.js" async defer></script>
 </head>
 <body <?php body_class(); ?>>
 <div id="page">
@@ -66,7 +66,7 @@
       <a href= "<?php bloginfo('url'); ?>">
         <img id="site-title-image"
              alt="<?php bloginfo('name'); ?>"
-             src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png"/>
+             src="<?php bloginfo('template_directory'); ?>/images/modest-logo.png" />
       </a>
     </h1>
   </header>
