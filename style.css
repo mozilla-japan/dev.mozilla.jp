@@ -126,9 +126,13 @@ a:hover,a:active{
 /* ::selection pseudo-element */
 ::-moz-selection {
   background: #6bd7f3;
+  color: #000;
+  text-shadow: none;
 }
 ::selection {
   background: #6bd7f3;
+  color: #000;
+  text-shadow: none;
 }
 img::-moz-selection {
   background: transparent;
