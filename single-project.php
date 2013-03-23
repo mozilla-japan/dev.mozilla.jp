@@ -118,7 +118,7 @@ get_header();
           <a class="navigation-list-item-link" href="<?php echo $category_link ?>">すべてのトピック</a>
         </li>
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link" href="<?php echo $category_link_title ?>">トピックのタイトル一覧</a>
+          <a class="navigation-list-item-link" href="<?php echo $category_link_title ?>">すべてのトピック（タイトルのみ）</a>
         </li>
       </ul>
     </nav>
