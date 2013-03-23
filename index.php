@@ -153,7 +153,7 @@ DOC;
           <a class="navigation-list-item-link "href="<?php echo $allpost_link; ?>">すべてのトピック</a>
         </li>
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link" href="<?php echo $allpost_link_title; ?>">すべてのトピックのタイトル一覧</a>
+          <a class="navigation-list-item-link" href="<?php echo $allpost_link_title; ?>">すべてのトピック（タイトルのみ）</a>
         </li>
       </ul>
     </nav>
