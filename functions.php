@@ -1528,7 +1528,7 @@ function php_feed_list($php_url, $count_limit) {
                  echo '</div>';
                }
          ?>
-             <p class="posteta-title">投稿日時</p>
+             <p class="postmeta-title">投稿日時</p>
              <div class="postmeta-content">
                <time datetime="<?php echo esc_attr($com_date_datetime); ?>">
                  <?php echo esc_html($com_date); ?>
