@@ -213,6 +213,7 @@ img::selection {
 }
 .postmeta .postmeta-title {
   display: none;
+
 }
 .postmeta .postmeta-content {
   display: inline-block;
@@ -601,13 +602,11 @@ body {
   margin-top: 28px;
 }
 #hottopic-list {
-  background: #fff;
+  background: url("images/dino.png") no-repeat right 0 #fff;
   box-shadow: 0 0 0 1px #fff inset;
   border-bottom: 1px solid #ddd;
   padding: 20px;
   margin: 15px 0;
-  background: url("images/dino.png") no-repeat right 0,
-              #fff;
   -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 }
