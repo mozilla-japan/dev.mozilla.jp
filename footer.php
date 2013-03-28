@@ -8,12 +8,11 @@
 
     <?php get_sidebar(); ?>
 
-  <!-- #container -->
-  </div>
+  <!-- #container --></div>
 
   <footer id="footer">
     <!-- Mozilla 関連サイト -->
-    <section id="mozilla_ring">
+    <div id="mozilla_ring">
 
       <h3 id="mozilla_ring_title">Mozilla 関連サイト</h3>
 
@@ -86,23 +85,19 @@
           <li class="mozilla_ring_menu">
             <a href="http://forums.firehacks.org/trans/">翻訳フォーラム</a>
           </li>
-
         </ul>
       </div>
 
-    </section>
+    </div>
 
-    <section>
-      <p id="copyright">
+    <p id="copyright">
         Portions of this content are ©2009-<?php echo date('Y');?> by individual dev.mozilla.jp
         contributors.<br /> Content available under a Creative Commons <a href="/about/license/">license</a>.
-      </p>
-    </section>
+    </p>
 
   </footer>
 
-<!-- page_menu -->
+  <?php wp_footer(); ?>
 
-    <?php wp_footer(); ?>
 </body>
 </html>
