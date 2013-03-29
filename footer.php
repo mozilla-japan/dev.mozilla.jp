@@ -12,7 +12,7 @@
 
   <footer id="footer">
     <!-- Mozilla 関連サイト -->
-    <div id="mozilla_ring">
+    <section id="mozilla_ring">
 
       <h3 id="mozilla_ring_title">Mozilla 関連サイト</h3>
 
@@ -88,7 +88,7 @@
         </ul>
       </div>
 
-    </div>
+    </section>
 
     <p id="copyright">
         Portions of this content are ©2009-<?php echo date('Y');?> by individual dev.mozilla.jp
