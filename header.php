@@ -54,7 +54,7 @@
     <a id="tabzilla"
        href="http://mozilla.jp"
        class="tabzilla-closed">Mozilla Japan</a>
-    <nav id="header-nav">
+    <nav id="header-nav" role="navigation">
       <ol>
         <li class="header-nav-item"><a href="<?php echo get_about_url(); ?>">このサイトについて</a></li>
         <li class="header-nav-item"><a href="<?php echo get_event_url(); ?>">イベント</a></li>
