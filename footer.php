@@ -10,7 +10,7 @@
 
   <!-- #container --></div>
 
-  <footer id="footer">
+  <footer id="footer" role="contentinfo">
     <!-- Mozilla 関連サイト -->
     <section id="mozilla_ring">
 
