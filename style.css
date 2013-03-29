@@ -571,6 +571,7 @@ body {
 */
 #tabzilla {
   background-image: url("./images/tabzilla-tab.png") !important;
+  background-repeat: no-repeat;
 }
 /*
 #tabzilla:after {
