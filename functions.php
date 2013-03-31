@@ -398,31 +398,31 @@ function event_meta_html($post, $box){
   <dd>
     <label><input name="start_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
+                  style="width: 4em;" />年</label>
     <label><input name="start_time-month" type="number" placeholder="1"
                   min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  style="width: 3em;"/>月</label>
+                  style="width: 3em;" />月</label>
     <label><input name="start_time-day" type="number" placeholder="1"
                   min="1" max="31"
                   value="<?php echo esc_attr($day); ?>"
-                  style="width: 3em;"/>日</label>
+                  style="width: 3em;" />日</label>
     <input name="start_time-hour"
            type="number"
            placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
-           style="width: 3em;"/>
+           style="width: 3em;" />
     :
     <input name="start_time-minute"
            type="number"
            placeholder="00"
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
-           style="width: 3em;"/>
+           style="width: 3em;" />
     <label><input name="start_all_day" type="checkbox"
      <?php echo (($start_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+                  style="width: 2em;" />終日</label>
   </dd>
 
   <?php
