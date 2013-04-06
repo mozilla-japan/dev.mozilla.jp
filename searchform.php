@@ -10,7 +10,7 @@
       role="search"
       method="get"
       action="<?php echo home_url( '/' ); ?>">
-  <label for="search_field">検索 :</label>
+  <label for="s">検索 :</label>
   <input id="s"
          class=""
          type="text"
