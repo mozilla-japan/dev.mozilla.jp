@@ -9,7 +9,7 @@ get_header(); ?>
       <h1>Developers</h1>
     </div>
   <?php
-    if(!is_user_logged_in()){
+    if(!is_user_logged_in()) {
       echo '<div id="developer_join">';
       echo '<h3><a href="'.get_bloginfo('url',false).'/wp-login.php?action=register">あなたもmodestに参加しましょう&#187</a><h3>';
       echo '</div>';
@@ -34,34 +34,34 @@ get_header(); ?>
   <div id="developer_list">
     <ul>
       <?php
-foreach ( $aUsersID as $iUserID ){
+foreach ( $aUsersID as $iUserID ) {
   $user = get_userdata( $iUserID );
   echo '<li class="developerinfo">';
   echo '<table>';
   echo '<a href="'. get_author_link($echo=false,$user->ID) .'"><h3>'. get_avatar( $user->ID,50 ) .'  '. $user->display_name .'</h3></a>';
   echo '<div id="profline"></div>';
   the_author_meta( 'description' , $user->ID );
-  if(is_user_logged_in()){
+  if(is_user_logged_in()) {
     echo '<td>';
-    if( $user->user_url != NULL){
+    if( $user->user_url != NULL) {
       echo '<tr>';
       echo '<td>WebSite: </td>';
       echo '<td><a href='.$user->user_url.'> ' . getPageTitle($user->user_url) . '</a></td>';
       echo '</tr>';
     }
-    if( $user->twitter_id != NULL){
+    if( $user->twitter_id != NULL) {
       echo '<tr>';
       echo '<td>Twitter: </td>';
       echo '<td><a href="https://twitter.com/'.$user->twitter_id.'" class="twitter-follow-button" data-show-count="false">Follow '. $user->twitter_id .'</a> <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script></td>';
       echo '</tr>';
     }
-    if( $user->facebook_id != NULL){
+    if( $user->facebook_id != NULL) {
       echo '<tr>';
       echo '<td>Facebook: </td>';
       echo '<td>' . $user->facebook_id . '</td>';
       echo '</tr>';
     }
-    if( $user->skype_id != NULL){
+    if( $user->skype_id != NULL) {
       echo '<tr>';
       echo '<td>Skype: </td>';
       echo '<td>' . $user->skype_id . '</td>';

@@ -26,15 +26,11 @@ get_header();
     <?php the_author_data($user_data); ?>
 
     <div class="entry-body">
-      <?php
-        echo esc_html($user_data->description);
-      ?>
+      <?php echo esc_html($user_data->description); ?>
     </div>
 
     <section id="author-latest-topics-list">
-      <?php
-        $cat_id = get_post_meta($post->ID, 'catid', true);
-      ?>
+      <?php $cat_id = get_post_meta($post->ID, 'catid', true); ?>
       <h2>投稿したトピック</h2>
 
       <?php
@@ -54,24 +50,18 @@ get_header();
             echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
           ?>
 
-          <?php
-            edit_the_link($the_id);
-          ?>
+          <?php edit_the_link($the_id); ?>
         </header>
 
         <footer class="meta-container">
           <div class="postmeta-project">
-            <?php
-              the_project_list_of_the_post($the_id);
-            ?>
+            <?php the_project_list_of_the_post($the_id); ?>
           </div>
 
           <div class="postmeta">
             <p class="postmeta-title">投稿日時</p>
             <div class="postmeta-content">
-              <?php
-                the_time_of_the_post($the_id);
-              ?>
+              <?php the_time_of_the_post($the_id); ?>
             </div>
           </div>
         </footer>

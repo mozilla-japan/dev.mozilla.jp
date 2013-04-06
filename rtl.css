@@ -3,8 +3,7 @@ Theme name: modest 2.0
 Editors: Enseki
 Persian WordPress Project : wp-persian.com
 */
-body,.commentlist li,#commentform input,#commentform textarea,#commentform p,#sidebar,#wp-calendar caption
-  {
+body, .commentlist li, #commentform input, #commentform textarea, #commentform p, #sidebar, #wp-calendar caption {
   font-family: tahoma, arial;
 }
 

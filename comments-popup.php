@@ -30,13 +30,8 @@ body {
 <body id="commentspopup">
 
   <h1 id="header">
-    <a href="" title="<?php echo get_option('blogname'); ?>"><?php echo get_option('blogname'); ?>
-    </a>
+    <a href="" title="<?php echo get_option('blogname'); ?>"><?php echo get_option('blogname'); ?></a>
   </h1>
-  
-  
-  
-  
 
 <?php
 /* Don't remove these lines. */
@@ -64,13 +59,13 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 
 <?php if ($comments) { ?>
 <ol id="commentlist">
-<?php foreach ($comments as $comment) { ?>
+  <?php foreach ($comments as $comment) { ?>
   <li id="comment-<?php comment_ID() ?>">
-  <?php comment_text() ?>
+    <?php comment_text() ?>
   <p><cite><?php comment_type(__('Comment', 'kubrick'), __('Trackback', 'kubrick'), __('Pingback', 'kubrick')); ?> <?php printf(__('by %1$s &#8212; %2$s @ <a href="#comment-%3$s">%4$s</a>', 'kubrick'), get_comment_author_link(), get_comment_date(), get_comment_ID(), get_comment_time()); ?></cite></p>
   </li>
 
-<?php } // end for each comment ?>
+  <?php } // end for each comment ?>
 </ol>
 <?php } else { // this is displayed if there are no comments so far ?>
   <p><?php _e('No comments yet.', 'kubrick'); ?></p>
@@ -91,12 +86,12 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 
   <p>
     <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="28" tabindex="2" />
-     <label for="email"><?php _e('E-mail', 'kubrick'); ?></label>
+    <label for="email"><?php _e('E-mail', 'kubrick'); ?></label>
   </p>
 
   <p>
     <input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="28" tabindex="3" />
-     <label for="url"><?php _e('<abbr title="Universal Resource Locator">URL</abbr>', 'kubrick'); ?></label>
+    <label for="url"><?php _e('<abbr title="Universal Resource Locator">URL</abbr>', 'kubrick'); ?></label>
   </p>
 <?php endif; ?>
 

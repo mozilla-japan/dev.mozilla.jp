@@ -36,7 +36,7 @@ img {
   padding: 1px;
   background-color: #fff;
   border: 1px solid #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   -moz-transition: all .5s ease;
   -webkit-transition: all .5s ease;
   -o-transition: all .5s ease;
@@ -80,7 +80,7 @@ a .alignright {
   max-width: 100%;
   margin-bottom: .75em;
   background: #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   padding: 12px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 /* link */
 a{
   color: #af3232;
-  text-decoration:none;
+  text-decoration: none;
 }
 a:hover,a:active{
   color: #872727;
@@ -205,8 +205,8 @@ img::selection {
 /* post's metadata*/
 .postmeta {
   background: #f0ece3;
-  background: rgba(0,0,0,.02);
-  box-shadow: inset 0 0 3px rgba(0,0,0,.1);
+  background: rgba(0, 0, 0, .02);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, .1);
   padding: 10px;
   margin: 0;
   font-size: .9em;
@@ -256,7 +256,7 @@ img::selection {
 /* projects list */
 .postmeta-project {
   clear: both;
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
   margin: 0;
   padding: 12px 24px 8px;
   background: #fff;
@@ -264,7 +264,7 @@ img::selection {
   background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: linear-gradient(to right, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 .postmeta-project {
   font-size: .785em;
@@ -330,66 +330,66 @@ img::selection {
  * blue button style
  */
 .button-blue,.button-blue:link,.button-blue:visited{
-  display:inline-block;
-  *display:inline;
-  *zoom:1;
-  -moz-border-radius:.25em;
-  border-radius:.25em;
-  -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2);
-  -moz-box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2);
-  box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2);
-  color:#fff;
-  text-align:center;
-  font-size:14px;
-  text-decoration:none;
-  padding:0 24px;
-  height:48px;
-  line-height:48px;
-  border:0;
-  text-shadow:0 1px 0 rgba(0,0,0,.25);
-  font-family:sans-serif;
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s;
-  background-color:#276195;
-  background-repeat:repeat-x;
-  background-image:-khtml-gradient(linear,left top,left bottom,from(#3c88cc),to(#276195));
-  background-image:-moz-linear-gradient(#3c88cc,#276195);
-  background-image:-ms-linear-gradient(#3c88cc,#276195);
-  background-image:-webkit-gradient(linear,left top,left bottom,from(#3c88cc),to(#276195));
-  background-image:-webkit-linear-gradient(#3c88cc,#276195);
-  background-image:-o-linear-gradient(#3c88cc,#276195);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0');
-  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0')";
-  background-image:linear-gradient(to bottom, #3c88cc,#276195);
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  -moz-border-radius: .25em;
+  border-radius: .25em;
+  -webkit-box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2);
+  -moz-box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0 24px;
+  height: 48px;
+  line-height: 48px;
+  border: 0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+  font-family: sans-serif;
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s;
+  background-color: #276195;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#3c88cc), to(#276195));
+  background-image: -moz-linear-gradient(#3c88cc, #276195);
+  background-image: -ms-linear-gradient(#3c88cc, #276195);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3c88cc), to(#276195));
+  background-image: -webkit-linear-gradient(#3c88cc, #276195);
+  background-image: -o-linear-gradient(#3c88cc, #276195);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c88cc',endColorstr='#276195',GradientType='0')";
+  background-image: linear-gradient(to bottom, #3c88cc, #276195);
 }
 .button-blue:hover,.button-blue:link:hover,.button-blue:visited:hover{
-  text-decoration:none;
-  -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 2px #3089d8;
-  -moz-box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 2px #3089d8;
-  box-shadow:0 2px 0 0 rgba(0,0,0,.1),inset 0 -2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 2px #3089d8;
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s
+  text-decoration: none;
+  -webkit-box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 2px #3089d8;
+  -moz-box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 2px #3089d8;
+  box-shadow: 0 2px 0 0 rgba(0,0,0,.1), inset 0 -2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 2px #3089d8;
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s
 }
 .button-blue:active,.button-blue:link:active,.button-blue:visited:active{
-  text-decoration:none;
-  -webkit-box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  -moz-box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s
+  text-decoration: none;
+  -webkit-box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s
 }
 .button-blue small,.button-blue:link small,.button-blue:visited small{
-  text-decoration:none;
-  display:block
+  text-decoration: none;
+  display: block;
 }
 
 /*
@@ -397,65 +397,65 @@ img::selection {
  * secondary button style
  */
 .button-white,.button-white:link,.button-white:visited{
-  display:inline-block;
-  *display:inline;
-  *zoom:1;
-  text-align:center;
-  text-decoration:none;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-align: center;
+  text-decoration: none;
   font-family:sans-serif;
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s;
-  border:1px solid #d0d0d0;
-  background:#fff;
-  padding:0 12px;
-  color:#484848;
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  padding: 0 12px;
+  color: #484848;
   font-size:12px;
-  height:24px;
-  line-height:24px;
-  text-shadow:none;
-  -webkit-box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  -moz-box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  -moz-border-radius:6px;
-  border-radius:6px;
-  filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  height: 24px;
+  line-height: 24px;
+  text-shadow: none;
+  -webkit-box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  -moz-box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 .button-white:hover,.button-white:link:hover,.button-white:visited:hover{
-  -webkit-box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  -moz-box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  box-shadow:0 0 12px rgba(230,230,230,.2) inset,0 -2px #e8e8e8 inset;
-  text-decoration:none;
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s
+  -webkit-box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  -moz-box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  box-shadow: 0 0 12px rgba(230,230,230,.2) inset, 0 -2px #e8e8e8 inset;
+  text-decoration: none;
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s
 }
 .button-white:active,.button-white:link:active,.button-white:visited:active{
-  -webkit-box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  -moz-box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  box-shadow:inset 0 2px 0 0 rgba(0,0,0,.2),inset 0 12px 24px 6px rgba(0,0,0,.2),inset 0 0 2px 2px rgba(0,0,0,.2);
-  color:#fff;
-  text-decoration:none;
-  -webkit-transition:all linear .25s;
-  -moz-transition:all linear .25s;
-  -o-transition:all linear .25s;
-  -ms-transition:all linear .25s;
-  transition:all linear .25s
+  -webkit-box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  box-shadow: inset 0 2px 0 0 rgba(0,0,0,.2), inset 0 12px 24px 6px rgba(0,0,0,.2), inset 0 0 2px 2px rgba(0,0,0,.2);
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all linear .25s;
+  -moz-transition: all linear .25s;
+  -o-transition: all linear .25s;
+  -ms-transition: all linear .25s;
+  transition: all linear .25s
 }
 .button-white small,.button-white:link small,.button-white:visited small{
-  display:block
+  display: block
 }
 .button-white.selected{
-  background:#d7d5d5;
-  border-color:#bcb9b9;
-  text-shadow:0 1px #fff;
-  -webkit-box-shadow:0 1px 1px rgba(255,255,255,.75),0 1px 3px rgba(0,0,0,.1) inset;
-  -moz-box-shadow:0 1px 1px rgba(255,255,255,.75),0 1px 3px rgba(0,0,0,.1) inset;
-  box-shadow:0 1px 1px rgba(255,255,255,.75),0 1px 3px rgba(0,0,0,.1) inset
+  background: #d7d5d5;
+  border-color: #bcb9b9;
+  text-shadow: 0 1px #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(255,255,255,.75), 0 1px 3px rgba(0,0,0,.1) inset;
+  -moz-box-shadow: 0 1px 1px rgba(255,255,255,.75), 0 1px 3px rgba(0,0,0,.1) inset;
+  box-shadow: 0 1px 1px rgba(255,255,255,.75), 0 1px 3px rgba(0,0,0,.1) inset
 }
 
 
@@ -534,7 +534,7 @@ body {
 .header-nav-item > a:hover,
 .header-nav-item > a:visited {
   color: #484848;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 /* tabzilla */
@@ -689,7 +689,7 @@ body {
 .projectmeta,
 .eventmeta,
 .authormeta {
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
   padding: 10px 20px;
   margin: 0;
   background: #fff;
@@ -697,7 +697,7 @@ body {
   background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: linear-gradient(to right, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .projectmeta .project-icon,
@@ -742,7 +742,7 @@ body {
 .event-section,
 .project-section {
   clear: both;
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
   margin: 3em 0;
   padding: 12px 24px 8px;
   background: #fff;
@@ -750,7 +750,7 @@ body {
   background: -webkit-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: -o-linear-gradient(left, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
   background: linear-gradient(to right, rgba(255,255,255,.75), rgba(255,255,255,.75) 10%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.75) 90%, rgba(255,255,255,.75));
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 .event-header,
 .project-header {
@@ -811,8 +811,8 @@ body {
 #sidebar-button-group .button-blue,
 #sidebar-button-group .button-blue:link,
 #sidebar-button-group .button-blue:visited {
-  display:block;
-  padding:0 12px;
+  display: block;
+  padding: 0 12px;
   font-size: 18px;
 }
 #sidebar-button-group .join {
@@ -857,12 +857,12 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  background: rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, .8);
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   -o-appearance: textfield;
   appearance: textfield;
-  box-shadow: 0 0 0 3px rgba(0,0,0,.02) inset;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, .02) inset;
 }
 #searchform > #searchsubmit {
   display: none;
@@ -880,7 +880,7 @@ textarea {
   font-size: .857em;
   border: 1px solid #dbdbdb;
   background: transparent;
-  background: rgba(0,0,0,.05);
+  background: rgba(0, 0, 0, .05);
   box-shadow: inset rgba(0,0,0,.1) 0 0 4px, rgba(255,255,255, .1) 0 1px 0;
   padding: 6px 10px;
   -moz-transition: all .1s linear;
@@ -896,7 +896,7 @@ input[type=password]:hover,
 input[type=text]:hover,
 textarea:hover {
   border-color: #bbb;
-  background: rgba(0,0,0,.03);
+  background: rgba(0, 0, 0, .03);
 }
 input[type=email]:focus,
 input[type=url]:focus,
@@ -925,7 +925,7 @@ label .note {
   margin: 0 0 1.5em;
 }
 .pwform br {
-  display:none;
+  display: none;
 }
 /************************************************
  * @Comments
@@ -947,10 +947,10 @@ label .note {
   margin: 0 0 24px;
   background: #fff;
   border: 1px solid #ccc;
-  border-color: rgba(0,0,0,.05);
-  -o-box-shadow: 0 1px 1px rgba(0,0,0,.1);
-  -ms-box-shadow: 0 1px 1px rgba(0,0,0,.1);
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  border-color: rgba(0, 0, 0, .05);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 #comment-list .alt {
   background: #f7f7f7;
@@ -989,7 +989,8 @@ label .note {
   position: absolute;
   left: 19px;
   top: 19px;
-  border: 1px solid #fff; box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  border: 1px solid #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   -moz-transition: all .1s linear;
   -webkit-transition: all .1s linear;
   -o-transition: all .1s linear;
