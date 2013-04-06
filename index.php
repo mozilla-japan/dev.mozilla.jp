@@ -150,7 +150,7 @@ DOC;
       ?>
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link "href="<?php echo $allpost_link; ?>">すべてのトピック</a>
+          <a class="navigation-list-item-link" href="<?php echo $allpost_link; ?>">すべてのトピック</a>
         </li>
         <li class="navigation-list-item">
           <a class="navigation-list-item-link" href="<?php echo $allpost_link_title; ?>">すべてのトピック（タイトルのみ）</a>
@@ -175,7 +175,7 @@ DOC;
     <nav class="navigation">
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a class="navigation-list-item-link "href="<?php echo get_feed_url(); ?>">より古いコミュニティフィードを読む &raquo;</a>
+          <a class="navigation-list-item-link" href="<?php echo get_feed_url(); ?>">より古いコミュニティフィードを読む &raquo;</a>
         </li>
       </ul>
     </nav>
