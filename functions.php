@@ -17,17 +17,17 @@ function make_clickable_for_code( $text ) {
     /*
      * preタグ中のリンクを無視する
      */
-    if (strpos($piece, '<pre') !== FALSE){
+    if (strpos($piece, '<pre') !== FALSE) {
       $r .= $piece;
       $pre_tag += 1;
       continue;
     }
-    if (strpos($piece, '</pre') !== FALSE){
+    if (strpos($piece, '</pre') !== FALSE) {
       $r .= $piece;
       $pre_tag -= 1;
       continue;
     }
-    if( $pre_tag >= 1 ){
+    if( $pre_tag >= 1 ) {
       $r .= $piece;
       continue;
     }
@@ -398,31 +398,31 @@ function event_meta_html($post, $box){
   <dd>
     <label><input name="start_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
+                  style="width: 4em;" />年</label>
     <label><input name="start_time-month" type="number" placeholder="1"
                   min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
+                  style="width: 3em;" />月</label>
     <label><input name="start_time-day" type="number" placeholder="1"
                   min="1" max="31"
                   value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
+                  style="width: 3em;" />日</label>
     <input name="start_time-hour"
            type="number"
            placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+           style="width: 3em;" />
     :
     <input name="start_time-minute"
            type="number"
            placeholder="00"
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
+           style="width: 3em;" />
     <label><input name="start_all_day" type="checkbox"
      <?php echo (($start_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+                  style="width: 2em;" />終日</label>
   </dd>
 
   <?php
@@ -446,32 +446,32 @@ function event_meta_html($post, $box){
   <dd>
     <label><input name="end_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
+                  style="width: 4em;" />年</label>
     <label><input name="end_time-month" type="number" placeholder="1"
                   min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
+                  style="width: 3em;" />月</label>
     <label><input name="end_time-day" type="number" placeholder="1"
                   min="1" max="31"
                   maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
+                  style="width: 3em;" />日</label>
     <input name="end_time-hour"
            type="number"
            placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+           style="width: 3em;" />
     :
     <input name="end_time-minute"
            type="number"
            placeholder="00"
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
+           style="width: 3em;" />
     <label><input name="end_all_day" type="checkbox"
                             <?php echo (($end_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+                  style="width: 2em;" />終日</label>
   </dd>
 
   <?php
@@ -483,7 +483,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="capacity" type="number"
            value="<?php echo esc_attr($capacity); ?>"
-           placeholder="10"/>
+           placeholder="10" />
   </dd>
 
   <?php
@@ -507,7 +507,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="address" type="text"
           value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区麹町0-0-0"/>
+          placeholder="東京都千代田区麹町0-0-0" />
   </dd>
 
   <?php
@@ -519,7 +519,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="website" type="url"
            value="<?php echo esc_attr($website); ?>"
-           placeholder="http://www.example.com/"/>
+           placeholder="http://www.example.com/" />
   </dd>
 
   <?php
@@ -1114,6 +1114,7 @@ function the_metadata_of_project ($id) {
 <?php
 }
 
+
 /*********
 * Event metadata Template
 */
@@ -1134,6 +1135,8 @@ function the_metadata_of_event ($id) {
 </dl>
 <?php
 }
+
+
 /*
  * print a event data
  * 
@@ -1152,13 +1155,14 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
 ?>
   <?php
     $content = '';
+
     switch ($param) {
       case 'event_time':
         $content = get_the_event_date($id);
         break;
       case 'event_admin':
         $content = ' '; // trick to make $isEmpty false.
-        break;
+        break;     
       default:
         $content = get_data_of_the_meta($id, $param);
         break;
@@ -1170,9 +1174,7 @@ function print_metadata_as_definition_item ($id, $param, $title, $showEmptyItem 
     }
   ?>
 
-  <?php
-    if ( !$isEmpty || $showEmptyItem ) :
-  ?>
+  <?php if ( !$isEmpty || $showEmptyItem ) : ?>
     <dt class="metadata-list-title"><?php echo($title); ?></dt>
     <dd class="metadata-list-content">
       <?php
@@ -1237,9 +1239,9 @@ function get_the_event_date ($id) {
   $br = $isBr ? '<br />' : '-';
 
   return <<< DOC
-<time datetime="$start_datetime">$start_str</time>
+<time datetime="$start_datetime" itemprop="startDate">$start_str</time>
 $br
-<time datetime="$end_datetime">$end_str</time>
+<time datetime="$end_datetime" itemprop="endDate">$end_str</time>
 DOC;
 }
 
@@ -1575,10 +1577,10 @@ function rss_feed_list($rss_url, $count_limit) {
       $in_item = 1;
     } else if ($tag == "item" && $type == "close") {
       //Feedsの行数制限
-      if($counter >= $count_limit){
+      if ($counter >= $count_limit) {
         $counter = 0;
         break;
-      }else{
+      } else {
         $counter++;
       }
      
@@ -1595,7 +1597,7 @@ function rss_feed_list($rss_url, $count_limit) {
          <footer>
            <div class="postmeta">
              <?php
-         if($com_author != ''){
+         if($com_author != '') {
            echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">'
                    . esc_html($com_author) .
