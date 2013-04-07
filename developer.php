@@ -80,4 +80,5 @@ foreach ( $aUsersID as $iUserID ) {
     </ul>
   </div>
 </div>
+
 <?php get_footer(); ?>
