@@ -24,9 +24,7 @@ get_header();
 
     <h1 class="post-title"><?php echo esc_html($title); ?></h1>
 
-    <?php
-      edit_the_link($the_id);
-    ?>
+    <?php edit_the_link($the_id); ?>
   </header>
 
   <footer class="projectmeta">
@@ -44,9 +42,7 @@ get_header();
   </footer>
 
   <div class="entry-body project-description">
-    <?php
-      the_content();
-    ?>
+    <?php the_content(); ?>
   </div>
 
   <?php
@@ -57,8 +53,9 @@ get_header();
   ?>
 
   <section id="project-latest-topics-list">
-    <?php $cat_id = get_post_meta($post->ID, 'catid', true);
-    project_insert_post( $cat_id );
+    <?php
+      $cat_id = get_post_meta($post->ID, 'catid', true);
+      project_insert_post( $cat_id );
     ?>
     <h2>最新のトピック</h2>
     <?php
@@ -74,32 +71,24 @@ get_header();
     <article class="feed-article">
       <header>
         <?php
-          /*
-           * articles title
-           */
+          /* articles title */
           $link = get_permalink();
           $titleText = get_the_title();
           echo '<h1 class="feed-article-title"><a href="'. esc_attr($link) .'">'. esc_html($titleText) .'</h1>';
         ?>
 
-        <?php
-          edit_the_link($the_id);
-        ?>
+        <?php edit_the_link($the_id); ?>
       </header>
 
       <footer class="meta-container">
         <div class="postmeta">
           <p class="postmeta-title">投稿者</p>
-          <address class="postmeta-content author">
-            <?php
+          <address class="postmeta-content author"><?php
               the_author_post_link_with_avatar();
-            ?>
-          </address>
+          ?></address>
           <p class="postmeta-title">投稿日時</p>
           <div class="postmeta-content">
-            <?php
-              the_time_of_the_post($the_id);
-            ?>
+            <?php the_time_of_the_post($the_id); ?>
           </div>
         </div>
       </footer>
@@ -127,9 +116,9 @@ get_header();
   <section id="project_rss_feed">
       <?php
       $rss_url = get_post_meta($post->ID, 'rss', true);
-      if($rss_url === ''){
+      if($rss_url === '') {
         //何かやりますかね？
-      }else{
+      } else {
         echo '<h2>プロジェクトフィード</h2>';
         echo '<a style="float: right; margin-bottom: 20px;" href="'.esc_attr($rss_url).'"> RSS </a>';
         rss_feed_list($rss_url, 5);
@@ -138,6 +127,4 @@ get_header();
   </section>
 </article>
 
-<?php
-  get_footer();
-?>
+<?php get_footer(); ?>

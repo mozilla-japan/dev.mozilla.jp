@@ -21,19 +21,13 @@ get_header();
       the_post();
 ?>
 
-  <?php
-    $the_id = get_the_ID();
-  ?>
+  <?php $the_id = get_the_ID(); ?>
 
-  <?php
-    $class = $isList ? 'archive-post list' : 'archive-post';
-  ?>
+  <?php $class = $isList ? 'archive-post list' : 'archive-post'; ?>
   <article class="<?php echo $class; ?>">
 
     <header class="archive-post_header">
-      <?php
-        //post_icon(get_the_ID(),array(70,70));
-      ?>
+      <?php /*post_icon(get_the_ID(),array(70,70)); */?>
 
       <h1 class="archive-post-title">
         <?php
@@ -46,17 +40,13 @@ get_header();
         ?>
       </h1>
 
-      <?php
-        edit_the_link($the_id);
-      ?>
+      <?php edit_the_link($the_id); ?>
     </header>
 
     <footer class="meta-container">
 
       <div class="postmeta-project">
-        <?php
-          the_project_list_of_the_post($the_id);
-        ?>
+        <?php the_project_list_of_the_post($the_id); ?>
       </div>
 
     </footer>
@@ -69,16 +59,10 @@ get_header();
     <footer class="entry-footer">
       <div class="postmeta">
         <p class="postmeta-title">投稿者</p>
-        <address class="postmeta-content author">
-          <?php
-            the_author_post_link_with_avatar();
-          ?>
-        </address>
+        <address class="postmeta-content author"><?php the_author_post_link_with_avatar(); ?></address>
         <p class="postmeta-title">投稿日時</p>
         <div class="postmeta-content">
-          <?php
-            the_time_of_the_post($the_id);
-          ?>
+          <?php the_time_of_the_post($the_id); ?>
         </div>
       </div>
     </footer>
@@ -114,6 +98,4 @@ DOC;
 
 </article>
 
-<?php
-  get_footer();
-?>
+<?php get_footer(); ?>

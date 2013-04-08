@@ -9,12 +9,9 @@ get_header();
 
   <header class="entry-header">
     <h1 class="post-title">プロジェクト</h1>
-    <p class="add-button">
-      <a class="button button-white"
-         href="<?php echo admin_url('post-new.php?post_type=project'); ?>">
-        新しいプロジェクトを登録する
-      </a>
-    </p>
+    <p class="add-button"><a class="button button-white" href="<?php
+        echo admin_url('post-new.php?post_type=project');
+    ?>">新しいプロジェクトを登録する</a></p>
   </header>
 
   <?php
@@ -38,12 +35,8 @@ get_header();
 
       <header class="project-header">
         <h1 class="project-title">
-          <?php
-            $title = get_the_title();
-          ?>
-          <a href="<?php the_permalink() ?>" title="<?php echo esc_attr($title); ?>">
-            <?php echo esc_html($title); ?>
-          </a>
+          <?php $title = get_the_title(); ?>
+          <a href="<?php the_permalink() ?>" title="<?php echo esc_attr($title); ?>"><?php echo esc_html($title); ?></a>
         </h1>
       </header>
 
@@ -51,7 +44,7 @@ get_header();
         <div class="project-icon">
           <?php
             if (has_post_thumbnail($post->ID)) {
-             the_post_thumbnail();
+              the_post_thumbnail();
             }
           ?>
         </div>
@@ -77,6 +70,4 @@ get_header();
 
 </article>
 
-<?php
-  get_footer();
-?>
+<?php get_footer(); ?>

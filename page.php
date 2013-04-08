@@ -16,18 +16,13 @@ get_header();
   ?>
 
   <header class="entry-header">
-
     <h1 class="post-title"><?php the_title(); ?></h1>
-
   </header>
 
 
   <div class="entry-body">
-    <?php
-      the_content('‘±‚«‚ð“Ç‚Þ');
-    ?>
+    <?php the_content('‘±‚«‚ð“Ç‚Þ'); ?>
   </div>
-
 
 <?php
     endwhile;

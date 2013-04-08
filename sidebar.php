@@ -4,7 +4,6 @@
  * @subpackage modest3
  */
 ?>
-
 <nav id="sidebar">
 
   <ul id="sidebar-button-group">
@@ -28,9 +27,7 @@
   <h3 id="sidebar-event"><a href="<?php echo get_event_url(); ?>">イベント</a></h3>
 
   <div id="sidebar-project">
-    <h3>
-      <a href="<?php echo get_project_url(); ?>">プロジェクト</a>
-    </h3>
+    <h3><a href="<?php echo get_project_url(); ?>">プロジェクト</a></h3>
     <ul id="sidebar-project-list">
       <?php
       $args = array( 'post_type' => 'project',

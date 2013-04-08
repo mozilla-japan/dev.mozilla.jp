@@ -17,17 +17,17 @@ function make_clickable_for_code( $text ) {
     /*
      * preタグ中のリンクを無視する
      */
-    if (strpos($piece, '<pre') !== FALSE){
+    if (strpos($piece, '<pre') !== FALSE) {
       $r .= $piece;
       $pre_tag += 1;
       continue;
     }
-    if (strpos($piece, '</pre') !== FALSE){
+    if (strpos($piece, '</pre') !== FALSE) {
       $r .= $piece;
       $pre_tag -= 1;
       continue;
     }
-    if( $pre_tag >= 1 ){
+    if( $pre_tag >= 1 ) {
       $r .= $piece;
       continue;
     }
@@ -76,7 +76,7 @@ function make_clickable_for_code( $text ) {
 }
 
 
-function getPageTitle( $url ){
+function getPageTitle( $url ) {
   $html = file_get_contents($url); //(1)
   $html = mb_convert_encoding($html, mb_internal_encoding(), "auto" ); //(2)
   if ( preg_match( "/<title>(.*?)<\/title>/i", $html, $matches) ) {
@@ -92,10 +92,10 @@ function getPageTitle( $url ){
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(102,102);
 
-if(!current_user_can( 'administrator' )){
+if(!current_user_can( 'administrator' )) {
   function spam_delete_comment_link($id) {
     global $comment, $post;
-    if ( $post->post_type == 'page' ){
+    if ( $post->post_type == 'page' ) {
       if ( !current_user_can( 'edit_page', $post->ID) )
       return;
     } else {
@@ -113,7 +113,7 @@ if(!current_user_can( 'administrator' )){
   }
   add_filter('edit_comment_link', 'spam_delete_comment_link');
 
-  function custom_admin_footer(){
+  function custom_admin_footer() {
     echo 'mozilla developer street';
   }
   add_filter('admin_footer_text', 'custom_admin_footer');
@@ -126,7 +126,7 @@ if(!current_user_can( 'administrator' )){
 /*
  *デフォルトのコンタクトフィールドを削除する
 */
-function hide_profile_fields( $contactmethods ){
+function hide_profile_fields( $contactmethods ) {
   unset($contactmethods['aim']);
   unset($contactmethods['jabber']);
   unset($contactmethods['yim']);
@@ -135,7 +135,7 @@ function hide_profile_fields( $contactmethods ){
 add_filter('user_contactmethods','hide_profile_fields',10,1);
 
 //Twitter IDフォームを設置する
-function add_user_twitter_form($bool){
+function add_user_twitter_form($bool) {
   //フォームを出す
   global $profileuser;
   if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
@@ -153,9 +153,9 @@ function add_user_twitter_form($bool){
 }
 add_action('show_password_fields','add_user_twitter_form');
 
-function update_user_twitter_form($user_id,$old_user_data){
+function update_user_twitter_form($user_id,$old_user_data) {
   //登録処理
-  if ( isset( $_POST['twitter_id'] ) && $old_user_data -> twitter_id != $_POST['twitter_id'] ){
+  if ( isset( $_POST['twitter_id'] ) && $old_user_data -> twitter_id != $_POST['twitter_id'] ) {
     $twitter_id = sanitize_text_field( $_POST['twitter_id'] );
     $twitter_id = wp_filter_kses( $twitter_id );
     $twitter_id = _wp_specialchars( $twitter_id );
@@ -165,7 +165,7 @@ function update_user_twitter_form($user_id,$old_user_data){
 add_action( 'profile_update', 'update_user_twitter_form', 10, 2);
 
 //Facebook IDフォームを設置する
-function add_user_facebook_form($bool){
+function add_user_facebook_form($bool) {
   //フォームを出す
   global $profileuser;
   if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
@@ -183,9 +183,9 @@ function add_user_facebook_form($bool){
 }
 add_action('show_password_fields','add_user_facebook_form');
 
-function update_user_facebook_form($user_id,$old_user_data){
+function update_user_facebook_form($user_id,$old_user_data) {
   //登録処理
-  if ( isset( $_POST['facebook_id'] ) && $old_user_data -> facebook_id != $_POST['facebook_id'] ){
+  if ( isset( $_POST['facebook_id'] ) && $old_user_data -> facebook_id != $_POST['facebook_id'] ) {
     $facebook_id = sanitize_text_field( $_POST['facebook_id'] );
     $facebook_id = wp_filter_kses( $facebook_id );
     $facebook_id = _wp_specialchars( $facebook_id );
@@ -195,7 +195,7 @@ function update_user_facebook_form($user_id,$old_user_data){
 add_action( 'profile_update', 'update_user_facebook_form', 10, 3);
 
 //SkypeIDフォームを設置する。
-function add_user_skype_form($bool){
+function add_user_skype_form($bool) {
   //フォームを出す
   global $profileuser;
   if ( preg_match( '/^(profile\.php|user-edit\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) ) {
@@ -213,9 +213,9 @@ function add_user_skype_form($bool){
 }
 add_action('show_password_fields','add_user_skype_form');
 
-function update_user_skype_form($user_id,$old_user_data){
+function update_user_skype_form($user_id,$old_user_data) {
   //登録処理
-  if ( isset( $_POST['skype_id'] ) && $old_user_data -> skype_id != $_POST['skype_id'] ){
+  if ( isset( $_POST['skype_id'] ) && $old_user_data -> skype_id != $_POST['skype_id'] ) {
     $skype_id = sanitize_text_field( $_POST['skype_id'] );
     $skype_id = wp_filter_kses( $skype_id );
     $skype_id = _wp_specialchars( $skype_id );
@@ -231,7 +231,7 @@ add_action( 'profile_update', 'update_user_skype_form', 10, 3);
 *イベントの投稿をポストする
 */
 add_action('init','create_Project',0);
-function create_Project(){
+function create_Project() {
   $labels = array(
                   'name' => 'プロジェクト',
                   'singular_name' => 'プロジェクト',
@@ -267,7 +267,7 @@ function create_Project(){
 }
 
 add_action('init','create_Event',0);
-function create_Event(){
+function create_Event() {
   $labels = array(
                   'name' => 'イベント',
                   'singular_name' => 'イベント',
@@ -305,10 +305,10 @@ function create_Event(){
 /*
  *プロジェクトのポスト画面に新たに情報フォームを追加する
 */
-function project_meta_box($post){
+function project_meta_box($post) {
   add_meta_box('menu_meta', 'プロジェクト情報', 'menu_meta_html', 'project', 'normal', 'high');
 }
-function menu_meta_html($post, $box){
+function menu_meta_html($post, $box) {
   $id = $post->ID;
   echo wp_nonce_field('menu_meta', 'menu_meta_nonce');
   echo wp_nonce_field('menu_meta', 'menu_catid_nonce');
@@ -325,7 +325,7 @@ function menu_meta_html($post, $box){
   <dd>
     <input name="url" type="url"
            value="<?php echo esc_attr($url);?>"
-           placeholder="http://www.example.com/"/>
+           placeholder="http://www.example.com/" />
   </dd>
 
   <?php
@@ -337,7 +337,7 @@ function menu_meta_html($post, $box){
   <dd>
     <input name="rss" type="url"
            value="<?php echo esc_attr($rss);?>"
-           placeholder="http://www.example.com/rss.xml"/>
+           placeholder="http://www.example.com/rss.xml" />
   </dd>
 
 <?php
@@ -369,11 +369,11 @@ DOC;
  * イベントのポスト画面に新たに情報フォームを追加する
  */
 
-function event_meta_box($post){
+function event_meta_box($post) {
     add_meta_box('event_meta', 'イベント情報', 'event_meta_html', 'event', 'normal', 'high');
 }
 
-function event_meta_html($post, $box){
+function event_meta_html($post, $box) {
   $id = $post->ID;
 ?>
 <dl class="metadata-form-list">
@@ -398,31 +398,31 @@ function event_meta_html($post, $box){
   <dd>
     <label><input name="start_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
+                  style="width: 4em;" />年</label>
     <label><input name="start_time-month" type="number" placeholder="1"
                   min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
+                  style="width: 2em;" />月</label>
     <label><input name="start_time-day" type="number" placeholder="1"
                   min="1" max="31"
                   value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
+                  style="width: 2em;" />日</label>
     <input name="start_time-hour"
            type="number"
            placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+           style="width: 2em;" />
     :
     <input name="start_time-minute"
            type="number"
            placeholder="00"
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
+           style="width: 2em;" />
     <label><input name="start_all_day" type="checkbox"
      <?php echo (($start_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+                  style="width: 2em;" />終日</label>
   </dd>
 
   <?php
@@ -446,32 +446,32 @@ function event_meta_html($post, $box){
   <dd>
     <label><input name="end_time-year" type="number" placeholder="2010"
                   value="<?php echo esc_attr($year); ?>"
-                  style="width: 4em;"/>年</label>
+                  style="width: 4em;" />年</label>
     <label><input name="end_time-month" type="number" placeholder="1"
                   min="1" max="12"
                   value="<?php echo esc_attr($month); ?>"
-                  style="width: 2em;"/>月</label>
+                  style="width: 2em;" />月</label>
     <label><input name="end_time-day" type="number" placeholder="1"
                   min="1" max="31"
                   maxlength="2"
                   value="<?php echo esc_attr($day); ?>"
-                  style="width: 2em;"/>日</label>
+                  style="width: 2em;" />日</label>
     <input name="end_time-hour"
            type="number"
            placeholder="12"
            min="0" max="23"
            value="<?php echo esc_attr($hour); ?>"
-           style="width: 2em;"/>
+           style="width: 2em;" />
     :
     <input name="end_time-minute"
            type="number"
            placeholder="00"
            min="00" max="59"
            value="<?php echo esc_attr($minute); ?>"
-           style="width: 2em;"/>
+           style="width: 2em;" />
     <label><input name="end_all_day" type="checkbox"
                             <?php echo (($end_all_day) ? "checked" : ""); ?>
-                  style="width: 2em;"/>終日</label>
+                  style="width: 2em;" />終日</label>
   </dd>
 
   <?php
@@ -483,7 +483,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="capacity" type="number"
            value="<?php echo esc_attr($capacity); ?>"
-           placeholder="10"/>
+           placeholder="10" />
   </dd>
 
   <?php
@@ -495,7 +495,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="place" type="text"
           value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区貸会議室"/>
+          placeholder="東京都千代田区貸会議室" />
   </dd>
 
   <?php
@@ -507,7 +507,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="address" type="text"
           value="<?php echo esc_attr($place); ?>"
-          placeholder="東京都千代田区麹町0-0-0"/>
+          placeholder="東京都千代田区麹町0-0-0" />
   </dd>
 
   <?php
@@ -519,7 +519,7 @@ function event_meta_html($post, $box){
   <dd>
     <input name="website" type="url"
            value="<?php echo esc_attr($website); ?>"
-           placeholder="http://www.example.com/"/>
+           placeholder="http://www.example.com/" />
   </dd>
 
   <?php
@@ -548,11 +548,11 @@ add_action ( 'edit_category_form_fields', 'extra_category_fields');
 function extra_category_fields( $tag ) {
   $t_id = $tag->term_id;
   $cat_meta = get_option( "cat_$t_id");
-  if(isset($cat_meta['project_id'])){
+  if(isset($cat_meta['project_id'])) {
     $value = $cat_meta['project_id'];
   }
   $user = wp_get_current_user();
-  if($user->roles[0] == 'administrator'){
+  if($user->roles[0] == 'administrator') {
     echo '<tr class="form-field">';
     echo '<th><label for="Cat_meta[project_id]">プロジェクトID</label></th>';
     echo '<td><input type="text" name="Cat_meta[project_id]" id="project_id" size="25" readonly="true" value="'. esc_attr($value) .'" /></td>"';
@@ -561,13 +561,13 @@ function extra_category_fields( $tag ) {
 }
 
 add_action ( 'edited_term' , 'save_extra_category_fileds');
-function save_extra_category_fileds( $term_id ){
-  if(isset ($_POST['Cat_meta'] ) ){
+function save_extra_category_fileds( $term_id ) {
+  if(isset ($_POST['Cat_meta'] ) ) {
     $t_id = $term_id;
     $cat_meta = get_option( "cat_$t_id" );
     $cat_keys = array_keys($_POST['Cat_meta']);
     foreach ($cat_keys as $key) {
-      if (isset($_POST['Cat_meta'][$key])){
+      if (isset($_POST['Cat_meta'][$key])) {
         $cat_meta[$key] = $_POST['Cat_meta'][$key];
       }
     }
@@ -579,31 +579,31 @@ function save_extra_category_fileds( $term_id ){
  *プロジェクトをポストしたときにそのプロジェクト用にカテゴリを用意する
  */
 add_action('save_post', 'project_cat_create');
-function project_cat_create($post_id){
+function project_cat_create($post_id) {
   /*
    *このコードを入れるとリビジョンのidを使ってしまうため、カテゴリへの反映が次回の編集で行われる。
    *しかし、Wordpressのリファレンスにはwp_is_post_revisionを使わないと最新版ではないと書いてあった。
-   *if(wp_is_post_revision($post_id)){
+   *if(wp_is_post_revision($post_id)) {
    *$post_id = wp_is_post_revision($post_id);
    *}
    */
   $post_info = get_post($post_id);
 
-  if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish'){
+  if($post_info->post_type == 'project' && get_post_status($post_id) == 'publish') {
     $title = $post_info->post_title;
     $desc = $post_info->post_excerpt;
     $slug = $post_info->post_name;
     $catid = (int)get_post_meta($post_id, 'catid', true);
     //カテゴリの作成
-    if($catid == 0){
+    if($catid == 0) {
       $procat = array(
                 'cat_name' => $title,
                 'category_nicename' => $slug,
                 'category_parent' => get_cat_ID('projects'),
                 'category_description' => $desc);
       $tempcatid = wp_insert_category($procat, false);
-      if($tempcatid == 0){
-        echo 'error: wp_insert_category <br>';
+      if($tempcatid == 0) {
+        echo 'error: wp_insert_category <br />';
         return $post_id;
       } else {
         update_post_meta($post_id, 'catid', $tempcatid);
@@ -619,13 +619,13 @@ function project_cat_create($post_id){
       );
 
       $tempcatid = wp_update_term($catid, 'category', $termarr);
-      if(is_wp_error($tempcatid)){
-        if($wp_error){
+      if(is_wp_error($tempcatid)) {
+        if($wp_error) {
           return $cat_ID;
-        }else{
+        } else {
           return 0;
         }
-      }else{
+      } else {
         update_post_meta($post_id, 'catid', $tempcatid['term_id']);
       }
       $t_id = $tempcatid['term_id'];
@@ -637,28 +637,28 @@ function project_cat_create($post_id){
 }
 
 add_action('before_delete_post', 'delete_project');
-function delete_project($post_id){
+function delete_project($post_id) {
   $post_info = get_post($post_id);
-  if($post_info->post_type == 'project'){
+  if($post_info->post_type == 'project') {
     $catid = (int)get_post_meta($post_id, 'catid', true);
     wp_delete_category( $catid );
   }
 }
 
 add_action('save_post', 'event_update');
-function event_update($post_id){
-    if(!wp_verify_nonce( $_POST['event_date_nonce'], 'event_meta')){
+function event_update($post_id) {
+    if(!wp_verify_nonce( $_POST['event_date_nonce'], 'event_meta')) {
         return $post_id;
     }
-    if(defined('DOING_AUTOSAVE') &&  DOING_AUTOSAVE){
+    if(defined('DOING_AUTOSAVE') &&  DOING_AUTOSAVE) {
         return $post_id;
     }
 
-    if('event' == $_POST['post_type']){
-        if(!current_user_can('edit_post', $post_id)){
+    if('event' == $_POST['post_type']) {
+        if(!current_user_can('edit_post', $post_id)) {
             return $post_id;
         }
-    }else{
+    } else {
         return $post_id;
     }
     $start_all_day = isset($_POST['start_all_day']);
@@ -673,40 +673,40 @@ function event_update($post_id){
 
     update_post_meta($post_id, 'start_all_day', $start_all_day);
     update_post_meta($post_id, 'end_all_day', $end_all_day);
-    if($start_time == ''){
+    if($start_time == '') {
       delete_post_meta($post_id, 'start_time');
     } else {
       update_post_meta($post_id, 'start_time', $start_time);
     }
-    if($end_time == ''){
+    if($end_time == '') {
       delete_post_meta($post_id, 'end_time');
     } else {
       update_post_meta($post_id, 'end_time', $end_time);
     }
-    if($place == ''){
+    if($place == '') {
         delete_post_meta($post_id, 'place');
     } else {
         update_post_meta($post_id, 'place', $place);
     }
 
     //update 'address'
-    if($address == ''){
+    if($address == '') {
         delete_post_meta($post_id, 'address');
     } else {
         update_post_meta($post_id, 'address', $address);
     }
 
-    if($capacity == ''){
+    if($capacity == '') {
       delete_post_meta($post_id, 'capacity');
     } else {
       update_post_meta($post_id, 'capacity', $capacity);
     }
-    if($website == ''){
+    if($website == '') {
       delete_post_meta($post_id, 'website');
     } else {
       update_post_meta($post_id, 'website', $website);
     }
-    if($hashtag == ''){
+    if($hashtag == '') {
       delete_post_meta($post_id, 'hashtag');
     } else {
       update_post_meta($post_id, 'hashtag', $hashtag);
@@ -718,10 +718,10 @@ function getUnixTimeStamp ($time_point) {
   $day = trim($_POST[$time_point .'-day']);
   $hour = trim($_POST[$time_point .'-hour']);
   $minute = trim($_POST[$time_point .'-minute']);
-  if($hour == ''){
+  if($hour == '') {
     $hour = 12;
   }
-  if($minute == ''){
+  if($minute == '') {
     $minute = 0;
   }
   return mktime($hour, $minute, 0, $month, $day, $year);
@@ -729,23 +729,23 @@ function getUnixTimeStamp ($time_point) {
 
 
 add_action('save_post', 'menu_update');
-function menu_update($post_id){
-  if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')){
+function menu_update($post_id) {
+  if(!wp_verify_nonce( $_POST['menu_meta_nonce'], 'menu_meta')) {
     return $post_id;
   }
 
-  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')){
+  if(!wp_verify_nonce( $_POST['menu_catid_nonce'], 'menu_meta')) {
     return $post_id;
   }
-  if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+  if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
     return $post_id;
   }
 
-  if('project' == $_POST['post_type']){
-    if(!current_user_can('edit_post', $post_id)){
+  if('project' == $_POST['post_type']) {
+    if(!current_user_can('edit_post', $post_id)) {
       return $post_id;
     }
-  }else{
+  } else {
     return $post_id;
   }
 
@@ -753,15 +753,15 @@ function menu_update($post_id){
   $rss = trim($_POST['rss']);
   $catid = trim($_POST['catid']);
 
-  if($catid != '' || $catid != 0){
+  if($catid != '' || $catid != 0) {
     update_post_meta($post_id, 'catid', $catid);
   }
-  if($url == ''){
+  if($url == '') {
     delete_post_meta($post_id, 'url');
   } else {
     update_post_meta($post_id, 'url', $url);
   }
-  if($rss == ''){
+  if($rss == '') {
     delete_post_meta($post_id, 'rss');
   } else {
     update_post_meta($post_id, 'rss', $rss);
@@ -769,25 +769,25 @@ function menu_update($post_id){
 }
 
 /**ポストアイコン**/
-function post_icon($id,$size=array(80,80)){
+function post_icon( $id, $size=array(80, 80) ) {
   echo "<div class='post_icon'>";
   $post = get_post($id,ARRAY_A);
-  if( has_post_thumbnail($id)){
+  if( has_post_thumbnail($id)) {
     the_post_thumbnail($size,$id);
-  }else{
+  } else {
     $catid = get_the_category($id);
     $catid = $catid[0];
     $catname = "projects";
-    if("event" == get_post_type()){
-      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_event.png" width="'.$size[0].'"/>';
-    }else if($catname == $catid->cat_name){
-      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'"/>';
-    }else{
+    if("event" == get_post_type()) {
+      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_event.png" width="'.$size[0].'" />';
+    } else if ($catname == $catid->cat_name) {
+      echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'" />';
+    } else {
       $page = get_page_by_path($catid->category_nicename,ARRAY_N,'project');
-      if(has_post_thumbnail($page[0])){
+      if(has_post_thumbnail($page[0])) {
         echo get_the_post_thumbnail($page[0],$size);
-      }else{
-        echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'"/>';
+      } else {
+        echo '<img src="'. get_bloginfo("template_url").'/images/icons/modest_projects.png" width="'.$size[0].'" />';
       }
     }
   }
@@ -882,13 +882,13 @@ function get_the_category_list_post_type( $separator = '', $parents='', $post_id
   return apply_filters( 'the_category', $thelist, $separator, $parents );
 }
 
-function the_tags_post_type($before = null, $sep = ', ', $after = '', $post_type = 'post' ){
+function the_tags_post_type($before = null, $sep = ', ', $after = '', $post_type = 'post' ) {
   if ( null === $before )
     $before = __('Tags: ');
   echo get_the_tag_list_post_type($before, $sep, $after, $post_type);
 }
 
-function get_the_tag_list_post_type($before = '', $sep = ', ', $after = '', $post_type = 'post'){
+function get_the_tag_list_post_type($before = '', $sep = ', ', $after = '', $post_type = 'post') {
   return apply_filters( 'the_tags', get_the_term_list_post_type( 0, 'post_tag', $before, $sep, $after, $post_type), $before, $sep, $after);
 }
 
@@ -983,27 +983,27 @@ function get_add_project_url() {
   return ($base . $path);
 }
 /* return the url of "joinmodest" page (string) */
-function get_join_modest_url(){
+function get_join_modest_url() {
   $base = get_bloginfo('url');
   $path = '/joinmodest/';
   return ($base . $path);
 }
 /* return the url of "addpost" page (string) */
-function get_add_post_url(){
+function get_add_post_url() {
   $base = get_bloginfo('url');
   $path = '/newpost/';
   return ($base . $path);
 }
 
 /* return the url of "new-post-for-project" (string) */
-function get_post_new_url(){
+function get_post_new_url() {
   $base = admin_url();
   $path = 'post-new.php';
   return ($base . $path);
 }
 
 /* return the url of "com-feed" (string) */
-function get_feed_url(){
+function get_feed_url() {
   $base = get_bloginfo('url');
   $path = '/com-feed/';
   return ($base . $path);
@@ -1012,25 +1012,25 @@ function get_feed_url(){
 /* return the url of a specified project page (string) */
 function get_the_specified_project_page ($cat_id) {
   $page_id = get_project_page_ID($cat_id);
-  if($page_id === false){
+  if($page_id === false) {
     return false;
-  }else{
+  } else {
     return (get_permalink($page_id));
   }
 }
 /* return the ID of a specified project page */
 function get_project_page_ID ($cat_id) {
-  if(isset($cat_id)){
+  if(isset($cat_id)) {
     $t_id = $cat_id;
     $cat_meta = get_option( "cat_$t_id" );
     $project_id = $cat_meta['project_id'];
     return $project_id;
-  }else{
+  } else {
     return false;
   }
 }
 /* return the url of a "all-post" page (string) */
-function get_all_post_url(){
+function get_all_post_url() {
   $base = get_bloginfo('url');
   $path = '/archives/';
   return ($base . $path);
@@ -1043,21 +1043,21 @@ function new_excerpt_more($post) {
 }
 
 /* admin page  */
-function my_styles(){
+function my_styles() {
   $path = get_bloginfo('template_url') . '/admin/admin.css';
   wp_enqueue_style('admin-edit', $path);
 }
 add_action('admin_print_styles', 'my_styles');
 
-function my_scripts(){
-}
+function my_scripts() { }
+
 add_action('admin_print_scripts', 'my_scripts');
 
   /*アドオンが見つからない場合に元のナビゲーションバーを表示する。*/
-function navigation_bar(){
-  if(function_exists('wp_pagenavi')){
+function navigation_bar() {
+  if(function_exists('wp_pagenavi')) {
     wp_pagenavi();
-  }else{
+  } else {
     echo '<div class="alignleft">';
     previous_posts_link(__('&laquo; 新しい投稿へ', 'kubrick'));
     echo '</div>';
@@ -1078,23 +1078,20 @@ function the_author_post_link_with_avatar ($size = 24) {
 
 /***カテゴリを指定して投稿 テンプレ版***/
 add_filter( 'load-post-new.php', 'cat_set_load_post_new' );
-function cat_set_load_post_new()
-{
+function cat_set_load_post_new() {
     if ( array_key_exists( 'category_id', $_REQUEST ) ) {
         add_action( 'wp_insert_post', 'cat_set_wp_insert_post' );
         return;
     }
 }
 
-function cat_set_wp_insert_post( $post_id )
-{
+function cat_set_wp_insert_post( $post_id ) {
     wp_set_post_categories( $post_id, $_REQUEST['category_id'] );
 }
 
-function project_insert_post( $cat_id )
-{
-  if( $cat_id != ''){
-    if( is_user_logged_in() ){
+function project_insert_post( $cat_id ) {
+  if( $cat_id != '') {
+    if( is_user_logged_in() ) {
       echo '<a href="'.get_post_new_url(). '?category_id[]=' . $cat_id.'" class="button-blue" style="float: right;">このプロジェクトに投稿する</a>';
     }
   }
@@ -1121,15 +1118,10 @@ function the_metadata_of_event ($id) {
 ?>
 <dl class="event-metadata-list">
   <?php print_metadata_as_definition_item($id, 'event_time', '開催時間'); ?>
-
   <?php print_metadata_as_definition_item($id, 'capacity', '定員'); ?>
-
   <?php print_metadata_as_definition_item($id, 'place', '会場'); ?>
-
   <?php print_metadata_as_definition_item($id, 'hashtag', 'ハッシュタグ'); ?>
-
   <?php print_metadata_as_definition_item($id, 'event_admin', 'イベント管理者'); ?>
-
   <?php print_metadata_as_definition_item($id, 'website', '詳細'); ?>
 </dl>
 <?php
@@ -1247,7 +1239,7 @@ function get_data_of_the_meta ($id, $param) {
   $data = get_post_meta($id, $param, true);
   $data = htmlspecialchars($data, ENT_QUOTES);
   $str = '';
-  if($data){
+  if($data) {
     switch ($param) {
       case 'start_time':// for event
       case 'end_time':// for event
@@ -1271,7 +1263,7 @@ function get_data_of_the_meta ($id, $param) {
         break;
     }
   }
-  else{
+  else {
     $str = '';
   }
   return $str;
@@ -1445,16 +1437,14 @@ function fc_meta_desc() {
       $description .= $text[$i] . ' ';
 
     $description .= $ellipsis;
-  } 
-  elseif(is_category()) {
+  } elseif(is_category()) {
     $category = $wp_query->get_queried_object();
     if (!empty($category->category_description)) {
       $description = trim(strip_tags($category->category_description));
     } else {
       $description = single_cat_title('Articles posted in ');
     }
-  } 
-  else {
+  } else {
     $description = trim(strip_tags(get_bloginfo('description')));
   }
 
@@ -1466,7 +1456,7 @@ function fc_meta_desc() {
 function php_feed_list($php_url, $count_limit) {
   $buff = "";
   $fp = fopen($php_url,"r");
-  if($fp === FALSE)return 0;
+  if($fp === FALSE) return 0;
   while(!feof($fp)) {
     $buff .= fgets($fp,4096);
   }
@@ -1476,12 +1466,12 @@ function php_feed_list($php_url, $count_limit) {
   //表示数用カウンタ
   $counter = 0;
 
-  foreach($values['value']['items'] as $value){
+  foreach($values['value']['items'] as $value) {
     //Feedsの行数制限
-    if($counter >= $count_limit){
+    if($counter >= $count_limit) {
       $counter = 0;
       break;
-    }else{
+    } else {
       $counter++;
     }
     
@@ -1510,7 +1500,7 @@ function php_feed_list($php_url, $count_limit) {
          <footer>
            <div class="postmeta">
              <?php
-               if($com_author != ''){
+               if($com_author != '') {
                  echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">';
                    echo esc_html($com_author);
@@ -1518,10 +1508,10 @@ function php_feed_list($php_url, $count_limit) {
                }
                $com_author_url = '';
                $com_author = '';
-               if($com_site_name == ''){
+               if($com_site_name == '') {
                  $com_site_name = $com_site;
                }
-               if($com_site != ''){
+               if($com_site != '') {
                  echo '<p class="postmeta-title">Webサイト</p>
                    <div class="postmeta-content">';
                  echo '<a href="'.esc_attr($com_site).'">'.esc_html($com_site_name).'</a>';
@@ -1575,10 +1565,10 @@ function rss_feed_list($rss_url, $count_limit) {
       $in_item = 1;
     } else if ($tag == "item" && $type == "close") {
       //Feedsの行数制限
-      if($counter >= $count_limit){
+      if($counter >= $count_limit) {
         $counter = 0;
         break;
-      }else{
+      } else {
         $counter++;
       }
      
@@ -1595,7 +1585,7 @@ function rss_feed_list($rss_url, $count_limit) {
          <footer>
            <div class="postmeta">
              <?php
-         if($com_author != ''){
+         if($com_author != '') {
            echo '<p class="postmeta-title">投稿者</p>
                    <div class="postmeta-content">'
                    . esc_html($com_author) .
@@ -1647,7 +1637,7 @@ function myfeed_request($qv) {
 add_filter('request', 'myfeed_request');
 
 add_action('init','replace_category',0);
-function replace_category(){
+function replace_category() {
   $labels = array('name' => 'プロジェクト',
                   'singular_name' => 'プロジェクト',
                   'search_items' => 'プロジェクト検索',
@@ -1668,17 +1658,17 @@ function replace_category(){
 }
 
 add_action('admin_menu', 'remove_menu');
-function remove_menu(){
+function remove_menu() {
   remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' ); //カテゴリーの表示削除
 }
 add_action('admin_print_styles', 'set_admin_styles', 21);
-function set_admin_styles(){
+function set_admin_styles() {
   echo '<style type="text/css">#category-add-toggle{display:none;}div#category-all{height: 400px;}</style>';
 }
 
 add_filter('pre_get_posts', 'custom_post_rss_set');
 function custom_post_rss_set($query) {
-  if(is_feed()){
+  if(is_feed()) {
     $query->set('post_type',
                 Array(
                       'post',

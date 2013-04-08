@@ -10,28 +10,21 @@ get_header();
 <div id="content" class="widecolumn">
 
 
-
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
   <div class="post" id="post-<?php the_ID(); ?>">
-    <h2>
-      <a href="<?php echo get_permalink($post->post_parent); ?>"
-        rev="attachment"><?php echo get_the_title($post->post_parent); ?> </a>
-      &raquo;
-      
-       <?php the_title(); ?></h2>
+    <h2><a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php
+      echo get_the_title($post->post_parent);
+    ?></a> &raquo; <?php the_title(); ?></h2>
     <div class="entry">
-      <p class="attachment">
-        <a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?>
-        </a>
-      </p>
+      <p class="attachment"><a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php
+        echo wp_get_attachment_image( $post->ID, 'medium' );
+      ?></a></p>
+
       <div class="caption">
 
       <?php if ( !empty($post->post_excerpt) ) the_excerpt(); // this is the "caption" ?></div>
-      
-      
-      
-      
+
 
         <?php the_content('<p class="serif">' . __('Read the rest of this entry &raquo;', 'kubrick') . '</p>'); ?>
 
@@ -66,7 +59,6 @@ get_header();
               <?php _e('Both comments and pings are currently closed.', 'kubrick'); ?>
 
             <?php } edit_post_link('Edit this entry.','',''); ?>
-
           </small>
         </p>
 
@@ -74,10 +66,6 @@ get_header();
 
   </div>
   
-  
-  
-  
-
   <?php comments_template(); ?>
 
   <?php endwhile; else: ?>
@@ -87,6 +75,5 @@ get_header();
 <?php endif; ?>
 
   </div>
-
 
 <?php get_footer(); ?>
