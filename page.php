@@ -24,7 +24,7 @@ get_header();
 
   <div class="entry-body">
     <?php
-      the_content('‘±‚«‚ğ“Ç‚Ş');
+      the_content('ç¶šãã‚’èª­ã‚€');
     ?>
   </div>
 

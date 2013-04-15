@@ -167,7 +167,7 @@ img::selection {
 /* avatar icon */
 .avatar {
   margin-right: .8em;
-  border: 1px solid #fff;
+  border: 1px solid rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, .4);
 }
 .author-link > .avatar,
@@ -204,7 +204,7 @@ img::selection {
 
 /* post's metadata*/
 .postmeta {
-  background: #f0ece3;
+  background: rgb(240, 236, 227);
   background: rgba(0,0,0,.02);
   box-shadow: inset 0 0 3px rgba(0,0,0,.1);
   padding: 10px;
@@ -213,8 +213,6 @@ img::selection {
 }
 .postmeta .postmeta-title {
   display: none;
-
-
 }
 .postmeta .postmeta-content {
   display: inline-block;
@@ -316,7 +314,7 @@ img::selection {
 .navigation-list-item {
   display: inline-block;
   padding: 0 .7em;
-  border-right: 1px dotted #d6d6d6;
+  border-right: 1px dotted rgb(214, 214, 214);
   margin: 0;
 }
 .navigation-list-item:last-child {
@@ -466,7 +464,7 @@ img::selection {
 body {
   margin: 0;
   background: url("./images/sandstone/bg-sand.png") repeat-x scroll 0 0 #F5F1E8;
-  border-top: 2px solid #fff;
+  border-top: 2px solid rgb(255, 255, 255);
 }
 #page {
   width: 1050px;
@@ -558,20 +556,19 @@ body {
   width: 16px;
   top: 11px;
   right: 23px;
-  -moz-transform: rotate(0);
-  -webkit-transform: rotate(0);
-  transform: rotate(0);
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   border-radius: 8px;
 }
 */
 #tabzilla {
   background-image: url("./images/tabzilla-tab.png") !important;
-  background-repeat: no-repeat;
 }
 /*
 #tabzilla:after {
@@ -604,13 +601,15 @@ body {
   margin-top: 28px;
 }
 #hottopic-list {
-  background: url("images/dino.png") no-repeat right 0 #fff;
+  background: #fff;
   box-shadow: 0 0 0 1px #fff inset;
   border-bottom: 1px solid #ddd;
   padding: 20px;
   margin: 15px 0;
-  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+  background: url("images/dino.png") no-repeat right 0,
+              #fff;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 }
 .hottopic-item {
   -moz-transition: font-size .5s linear;
@@ -627,11 +626,14 @@ body {
   background: #fff;
   padding: 20px;
   margin: .5em 0 1.5em;
-  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .1);
 }
 .top-event-section > .event-time {
   display: inline-block;
+  border-bottom: 1px dotted #000;
+  padding-bottom: .3em;
+  margin-bottom: 1em;
   -moz-transition: font-size .5s linear;
   -webkit-transition: font-size .5s linear;
   -o-transition: font-size .5s linear;
@@ -640,12 +642,18 @@ body {
 }
 .top-event-section > .event-title {
   display: block;
+  font-size: 2.5em;
   margin: 0;
   -moz-transition: font-size .5s linear;
   -webkit-transition: font-size .5s linear;
   -o-transition: font-size .5s linear;
   -ms-transition: font-size .5s linear;
   transition: font-size .5s linear;
+}
+#event .posted-year,
+#event .posted-month,
+#event .posted-day {
+  font-size: 1.7em;
 }
 
 /* archive page */
@@ -727,7 +735,7 @@ body {
 }
 .entry-body.project-description {
   padding-bottom: 3em;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted rgb(204, 204, 204);
   margin-bottom: 3em;
 }
 
@@ -766,7 +774,6 @@ body {
 .project-footer .project-icon {
   float: right;
 }
-
 /* claer fix */
 .project-footer:after {
   content: " ";
@@ -796,7 +803,7 @@ body {
 }
 
 #sidebar > * {
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted rgb(204, 204, 204);
 }
 #sidebar-button-group {
   padding: 0;
@@ -841,7 +848,7 @@ body {
 }
 #sidebar-project-list > li {
   list-style-type: none;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted rgb(204, 204, 204);
 }
 #sidebar-project-list a {
   padding: 8px 0;
@@ -1123,7 +1130,7 @@ label .note {
 
 #comments > .comments-head {
   padding-top: .5em;
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted rgb(204, 204, 204);
   margin-top: 3em;
 }
 
@@ -1185,7 +1192,7 @@ label .note {
   clear: both;
   text-align: center;
   padding: 30px 0 10px;
-  margin: 0 auto;
+  margin:0 auto 0;
   -moz-transition: width .5s linear;
   -webkit-transition: width .5s linear;
   -o-transition: width .5s linear;
@@ -1215,6 +1222,10 @@ label .note {
 
   #content {
     width: 70%;
+  }
+
+  .top-event-section > .event-title {
+    font-size: 2.3em;
   }
 
   .eventmeta .event-map {
@@ -1258,7 +1269,7 @@ label .note {
   }
   .mozilla_ring_category {
     width: 25%;
-    margin: 2em auto;
+    margin: 2em auto 2em;
   }
   .mozilla_ring_category_title {
     margin-bottom: .5em;
@@ -1332,8 +1343,8 @@ label .note {
   #content {
     float: none;
     width: 100%;
-    border-top: 1px dotted #ccc;
-    border-bottom: 1px dotted #ccc;
+    border-top: 1px dotted rgb(204, 204, 204);
+    border-bottom: 1px dotted rgb(204, 204, 204);
   }
   #content > section {
     margin-bottom: 2.5em;
@@ -1351,6 +1362,9 @@ label .note {
   }
   .top-event-section {
     padding: 10px;
+  }
+  .top-event-section > .event-time {
+    font-size: .8em;
   }
   .top-event-section > .event-title {
     font-size: 1.4em;
@@ -1462,7 +1476,7 @@ label .note {
     float: left;
     width: 40%;
     border: none;
-    margin: 2em auto;
+    margin: 2em auto 2em;
   }
   .mozilla_ring_category:last-of-type {
     border: none;
