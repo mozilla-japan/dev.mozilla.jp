@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * @package WordPress
  * @subpackage modest3
@@ -19,6 +19,5 @@
   </ul>
 
 </div>
-
 
 <?php get_footer(); ?>

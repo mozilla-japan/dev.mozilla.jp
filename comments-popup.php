@@ -1,10 +1,9 @@
-<?php
+﻿<?php
 /**
  * @package WordPress
  * @subpackage modest3
  */
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><?php printf(__('%1$s - Comments on %2$s', 'kubrick'), get_option('blogname'), the_title('','',false)); ?>

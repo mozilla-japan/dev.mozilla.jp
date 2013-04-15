@@ -190,7 +190,7 @@ img::selection {
   font-size: .8em;
 }
 .map-caption:before {
-  content: "»";
+  content: "≫";
 }
 
 /* navigation */

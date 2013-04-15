@@ -1,11 +1,10 @@
-<?php
+﻿<?php
 /**
  * @package WordPress
  * @subpackage modest3
  */
 
 get_header(); ?>
-
 
 <article id="content" role="main">
   <?php

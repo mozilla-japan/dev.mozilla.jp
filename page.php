@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 /**
  * @package WordPress
  * @subpackage modest3
@@ -21,7 +21,7 @@ get_header();
 
 
   <div class="entry-body">
-    <?php the_content('‘±‚«‚ð“Ç‚Þ'); ?>
+    <?php the_content('ç¶šãã‚’èª­ã‚€'); ?>
   </div>
 
 <?php

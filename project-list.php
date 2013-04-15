@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  * Template Name: projects-list
  */

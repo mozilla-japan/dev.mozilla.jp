@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  * modestのトップページを編集するときに必要
  */
@@ -7,6 +7,7 @@ Template Name: index
  */
 get_header();
 ?>
+
 <article id="content">
 
   <section id="hottopic">

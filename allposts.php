@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  * Template Name: all_posts
  * すべての投稿を表示するためのテンプレート

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 
@@ -7,7 +7,6 @@
 */
 
 get_header(); ?>
-
 
 
 <div id="content" class="narrowcolumn" role="main">
