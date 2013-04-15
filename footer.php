@@ -91,7 +91,7 @@
     </section>
 
     <p id="copyright">
-        Portions of this content are c2009-<?php echo date('Y');?> by individual dev.mozilla.jp
+        Portions of this content are &copy;2009-<?php echo date('Y');?> by individual dev.mozilla.jp
         contributors.<br /> Content available under a Creative Commons <a href="/about/license/">license</a>.
     </p>
 
