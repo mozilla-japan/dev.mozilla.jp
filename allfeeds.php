@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  * Template Name: com-feeds
  * すべての投稿を表示するためのテンプレート
