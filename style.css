@@ -37,11 +37,6 @@ img {
   background-color: #fff;
   border: 1px solid #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
-  -moz-transition: all .5s ease;
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  transition: all .5s ease;
 }
 .entry-body a:hover img,
 .entry-body a:focus img,
@@ -154,11 +149,6 @@ img::selection {
   display: inline-block;
   margin-top: 28px;
   margin-bottom: 12px;
-  -moz-transition: font-size .5s linear;
-  -webkit-transition: font-size .5s linear;
-  -o-transition: font-size .5s linear;
-  -ms-transition: font-size .5s linear;
-  transition: font-size .5s linear;
 }
 /* "edit" button */
 .edit_post {
@@ -292,11 +282,6 @@ img::selection {
   font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 0;
-  -moz-transition: font-size .5s linear;
-  -webkit-transition: font-size .5s linear;
-  -o-transition: font-size .5s linear;
-  -ms-transition: font-size .5s linear;
-  transition: font-size .5s linear;
 }
 .feed-article .edit_post {
   float: right;
@@ -470,31 +455,16 @@ body {
   width: 1050px;
   padding: 0 1em;
   margin: 0 auto;
-  -moz-transition: width .5s linear;
-  -webkit-transition: width .5s linear;
-  -o-transition: width .5s linear;
-  -ms-transition: width .5s linear;
-  transition: width .5s linear;
 }
 #content {
   display: block;
   float: left;
   width: 750px;
-  -moz-transition: width .5s linear;
-  -webkit-transition: width .5s linear;
-  -o-transition: width .5s linear;
-  -ms-transition: width .5s linear;
-  transition: width .5s linear;
 }
 #sidebar{
   display: block;
   float: right;
   width: 230px;
-  -moz-transition: width .5s linear;
-  -webkit-transition: width .5s linear;
-  -o-transition: width .5s linear;
-  -ms-transition: width .5s linear;
-  transition: width .5s linear;
 }
 #mozilla_ring {
   width: 1050px;
@@ -522,11 +492,6 @@ body {
   display: inline-block;
   list-style-type: none;
   padding: 12px;
-  -moz-transition: display .5s linear;
-  -webkit-transition: display .5s linear;
-  -o-transition: display .5s linear;
-  -ms-transition: display .5s linear;
-  transition: display .5s linear;
 }
 .header-nav-item > a,
 .header-nav-item > a:hover,
@@ -1156,11 +1121,6 @@ label .note {
 .mozilla_ring_category {
   float: left;
   margin: 0 20px;
-  -moz-transition: float .5s linear, width .5s linear, font-size .5s linear;
-  -webkit-transition: float .5s linear, width .5s linear, font-size .5s linear;
-  -o-transition: float .5s linear, width .5s linear, font-size .5s linear;
-  -ms-transition: float .5s linear, width .5s linear, font-size .5s linear;
-  transition: float .5s linear, width .5s linear, font-size .5s linear;
 }
 #mozilla_ring_title {
   margin-left: 0;
@@ -1168,22 +1128,10 @@ label .note {
 .mozilla_ring_category_title {
   margin-top: 0;
   margin-bottom: 2px;
-  -moz-transition: font-size .5s linear;
-  -webkit-transition: font-size .5s linear;
-  -o-transition: font-size .5s linear;
-  -ms-transition: font-size .5s linear;
-  transition: font-size .5s linear;
 }
 .mozilla_ring_category > ul {
   padding: 0;
   margin: 10px 0;
-}
-.mozilla_ring_menu > a {
-  -moz-transition: font-size .5s linear;
-  -webkit-transition: font-size .5s linear;
-  -o-transition: font-size .5s linear;
-  -ms-transition: font-size .5s linear;
-  transition: font-size .5s linear;
 }
 .mozilla_ring_menu {
   list-style-type: none;
@@ -1193,11 +1141,6 @@ label .note {
   text-align: center;
   padding: 30px 0 10px;
   margin:0 auto 0;
-  -moz-transition: width .5s linear;
-  -webkit-transition: width .5s linear;
-  -o-transition: width .5s linear;
-  -ms-transition: width .5s linear;
-  transition: width .5s linear;
 }
 
 
