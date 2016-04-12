@@ -25,8 +25,6 @@
     <?php get_search_form(); ?>
   </div>
 
-  <h3 id="sidebar-event"><a href="<?php echo get_event_url(); ?>">イベント</a></h3>
-
   <div id="sidebar-project">
     <h3>
       <a href="<?php echo get_project_url(); ?>">プロジェクト</a>
