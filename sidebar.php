@@ -12,8 +12,6 @@
     <li><a href="<?php echo get_join_modest_url(); ?>" class="button-blue join">ログインする/参加する</a></li>
     <?php endif; ?>
     <li><a href="<?php echo get_add_post_url(); ?>" class="button-blue join">トピックを投稿する</a></li>
-
-    <li><a href="<?php echo get_add_event_url(); ?>" class="button-blue join">イベントを追加する</a></li>
     <?php if( is_user_logged_in() ) : ?>
     <li><a href="<?php echo get_add_project_url(); ?>" class="button-blue join">プロジェクトを作成</a></li>
     <?php endif; ?>
